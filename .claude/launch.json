@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static File Server (serve)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3399", "."],
+      "port": 3399
+    }
+  ]
+}
