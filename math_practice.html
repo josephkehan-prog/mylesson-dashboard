@@ -462,6 +462,26 @@
             border-color: var(--success);
         }
 
+        /* In-progress — currently open session */
+        .category-card.in-progress {
+            border-color: var(--accent);
+            background: var(--surface-alt);
+        }
+
+        .in-progress-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            padding: 2px 7px;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+
         /* Not started — inviting, distinct from in-progress */
         .category-card.not-started {
             background: var(--surface);
@@ -619,57 +639,6 @@
             box-shadow: 0 2px 12px rgba(0,0,0,.3);
             z-index: 10;
             flex-shrink: 0;
-        }
-
-        /* In-app back confirmation bar — replaces native confirm() */
-        .back-confirm-bar {
-            background: var(--warning-bg);
-            border-bottom: 2px solid var(--warning);
-            padding: 10px 16px;
-            display: none;
-            align-items: center;
-            gap: 10px;
-            flex-shrink: 0;
-            font-size: 13px;
-            color: var(--primary);
-        }
-
-        .back-confirm-bar.visible {
-            display: flex;
-        }
-
-        .back-confirm-text {
-            flex: 1;
-            font-weight: 600;
-        }
-
-        .back-confirm-btns {
-            display: flex;
-            gap: 8px;
-        }
-
-        .back-confirm-stay {
-            padding: 6px 16px;
-            background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .back-confirm-leave {
-            padding: 6px 14px;
-            background: none;
-            color: var(--text-muted);
-            border: 1.5px solid var(--border-gray);
-            border-radius: var(--radius-sm);
-            font-family: inherit;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
         }
 
         .question-info {
@@ -2429,15 +2398,6 @@
             </div>
             <button class="btn btn-ghost" onclick="app.promptBack()" aria-label="Back to dashboard">← Back</button>
         </header>
-
-        <!-- In-app back confirmation bar -->
-        <div class="back-confirm-bar" id="backConfirmBar" role="alert" aria-live="assertive">
-            <span class="back-confirm-text">Leave this session? Progress won't be saved.</span>
-            <div class="back-confirm-btns">
-                <button class="back-confirm-stay" onclick="app.cancelBack()">Stay</button>
-                <button class="back-confirm-leave" onclick="app.confirmBack()">Leave</button>
-            </div>
-        </div>
 
         <main class="question-content" id="questionMain">
             <section class="question-top" aria-label="Question">
@@ -4832,18 +4792,21 @@
 
                     const card = document.createElement('button');
                     const isUntouched = stdData.attempts === 0;
-                    card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}${isUntouched ? ' not-started' : ''}`;
+                    const hasActiveSession = this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length;
+                    const isActiveSession = hasActiveSession && this.currentStandard === std.code;
+                    card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}${isUntouched ? ' not-started' : ''}${isActiveSession ? ' in-progress' : ''}`;
                     card.setAttribute('role', 'listitem');
-                    card.setAttribute('aria-label', `Practice ${std.name}`);
+                    card.setAttribute('aria-label', `${isActiveSession ? 'Resume ' : 'Practice '}${std.name}`);
                     card.onclick = () => app.startPractice(std.code);
                     card.innerHTML = `
                         ${isMastered ? '<span class="mastered-badge" title="Mastered!">⭐</span>' : ''}
+                        ${isActiveSession ? '<span class="in-progress-badge">In progress</span>' : ''}
                         <div class="category-standard">
                             <span class="category-cluster-dot"></span>${std.code}
                         </div>
                         <div class="category-name">${std.name}</div>
                         ${hook ? `<div class="category-hook">${hook}</div>` : ''}
-                        ${isUntouched ? `<div class="category-start-cta">Tap to start →</div>` : `
+                        ${isUntouched && !isActiveSession ? `<div class="category-start-cta">Tap to start →</div>` : isActiveSession ? `<div class="category-start-cta" style="color:var(--accent)">Resume →</div>` : `
                         <div class="category-progress">
                             <div class="category-progress-bar">
                                 <div class="progress-fill" style="width:${pct}%;background:${barColor[std.cluster]}"></div>
@@ -4933,18 +4896,75 @@
             },
 
             startPractice(standard, difficulty) {
+                const hasActiveSession = this.currentSession.length > 0 &&
+                    this.currentQuestionIndex < this.currentSession.length;
+
+                // If a session is in progress for a DIFFERENT standard, resume it instead
+                if (hasActiveSession && this.currentStandard !== standard) {
+                    // Resume the existing session — show the in-progress card
+                    this.showResumePrompt(standard);
+                    return;
+                }
+
+                // Resume same standard or start fresh
+                if (hasActiveSession && this.currentStandard === standard) {
+                    this.switchScreen('scQuestion');
+                    return;
+                }
+
                 if (!difficulty) difficulty = getDifficulty(standard, this.progress);
                 this.currentStandard = standard;
                 this.currentQuestionIndex = 0;
                 this.currentSession = [];
                 this.usedHintThisQuestion = false;
-                // Reset back-confirm bar in case it was left visible
-                const bar = document.getElementById('backConfirmBar');
-                if (bar) bar.classList.remove('visible');
                 this.generateSession(standard, difficulty);
                 this.sessionStartTime = Date.now();
                 this.showQuestion();
                 this.switchScreen('scQuestion');
+            },
+
+            showResumePrompt(requestedStandard) {
+                // Show a brief toast telling student to finish their current session first
+                const existing = document.getElementById('resumeToast');
+                if (existing) existing.remove();
+
+                const inProgressName = (this.standards.find(s => s.code === this.currentStandard) || {}).name || this.currentStandard;
+                const toast = document.createElement('div');
+                toast.id = 'resumeToast';
+                toast.setAttribute('role', 'alert');
+                toast.setAttribute('aria-live', 'assertive');
+                toast.style.cssText = `
+                    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+                    background: var(--primary); color: #fff; padding: 12px 20px;
+                    border-radius: var(--radius-md); font-size: 13px; font-weight: 600;
+                    box-shadow: 0 8px 30px rgba(0,0,0,.25); z-index: 9999;
+                    display: flex; align-items: center; gap: 12px; max-width: 360px; width: calc(100% - 48px);
+                `;
+                toast.innerHTML = `
+                    <span>Finish <strong>${inProgressName}</strong> first, or</span>
+                    <button onclick="app.abandonAndStart('${requestedStandard}')" style="
+                        padding: 5px 12px; background: var(--accent); border: none;
+                        border-radius: 6px; color: #fff; font-family: inherit; font-size: 12px;
+                        font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+                    ">Switch topic</button>
+                `;
+                document.body.appendChild(toast);
+
+                // Also scroll to and highlight the in-progress card
+                const card = document.querySelector(`.category-card.in-progress`);
+                if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Auto-dismiss after 5s
+                setTimeout(() => toast.remove(), 5000);
+            },
+
+            abandonAndStart(standard) {
+                const toast = document.getElementById('resumeToast');
+                if (toast) toast.remove();
+                // Clear current session then start fresh
+                this.currentSession = [];
+                this.currentQuestionIndex = 0;
+                this.startPractice(standard);
             },
 
             generateSession(standard, difficulty) {
@@ -5213,20 +5233,7 @@
             },
 
             promptBack() {
-                // Mid-session: show in-app confirmation bar instead of native confirm()
-                if (this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length) {
-                    document.getElementById('backConfirmBar').classList.add('visible');
-                } else {
-                    this.backToDashboard();
-                }
-            },
-
-            cancelBack() {
-                document.getElementById('backConfirmBar').classList.remove('visible');
-            },
-
-            confirmBack() {
-                document.getElementById('backConfirmBar').classList.remove('visible');
+                // Go straight back — session is preserved in memory
                 this.backToDashboard();
             },
 
