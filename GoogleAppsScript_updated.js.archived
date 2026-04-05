@@ -1,0 +1,180 @@
+/**
+ * myLessons — Google Apps Script (Updated)
+ * ==========================================
+ * WHAT'S NEW vs. the original script:
+ *   • Dedicated "REOPENS" sheet tab — reopen events no longer clutter Submissions
+ *   • Dedicated "LESSONS" sheet tab — custom assignments saved cross-device (future use)
+ *   • Cleaner JSON response: includes "reopens" array and "lessons" array
+ *   • All existing Submissions data is untouched
+ *
+ * SETUP INSTRUCTIONS
+ * ------------------
+ * 1. Open your Google Sheets file.
+ * 2. Click Extensions → Apps Script.
+ * 3. Delete any existing code and paste this entire file.
+ * 4. Click Save (💾).
+ * 5. Click Deploy → New Deployment → Web App.
+ *    - Execute as: Me
+ *    - Who has access: Anyone
+ * 6. Click Deploy and copy the Web App URL.
+ * 7. Paste that URL into the CONFIG.sheetsUrl field inside student_dashboard.html.
+ * 8. The first time you deploy, Google will ask you to authorize — click Allow.
+ *
+ * SHEET TABS CREATED AUTOMATICALLY
+ * ---------------------------------
+ *   "Submissions" — one row per student quiz attempt
+ *   "REOPENS"     — one row per teacher reopen action
+ *   "LESSONS"     — reserved for future cross-device custom lesson sync
+ */
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+function getOrCreateSheet(ss, name, headers) {
+  let sheet = ss.getSheetByName(name);
+  if (!sheet) {
+    sheet = ss.insertSheet(name);
+    sheet.appendRow(headers);
+    sheet.setFrozenRows(1);
+    // Style the header row
+    const headerRange = sheet.getRange(1, 1, 1, headers.length);
+    headerRange.setBackground('#1a4b8c').setFontColor('#ffffff').setFontWeight('bold');
+  }
+  return sheet;
+}
+
+// ── doPost — receives data from the dashboard ─────────────────────────────────
+
+function doPost(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  let payload;
+  try {
+    payload = JSON.parse(e.postData.contents);
+  } catch (err) {
+    return ContentService.createTextOutput(
+      JSON.stringify({ error: 'Invalid JSON' })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // ── Reopen event ────────────────────────────────────────────────────────────
+  if (payload.type === 'reopen') {
+    const sheet = getOrCreateSheet(ss, 'REOPENS', [
+      'Timestamp', 'Teacher / Device', 'Student', 'Lesson', 'Class Code', 'Reopened At'
+    ]);
+    sheet.appendRow([
+      new Date().toISOString(),
+      Session.getActiveUser().getEmail() || 'teacher',
+      payload.student || '',
+      payload.lesson || '',
+      payload.classCode || '',
+      payload.reopenedAt || new Date().toISOString()
+    ]);
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: 'ok', action: 'reopen' })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // ── Custom lesson save (future use) ─────────────────────────────────────────
+  if (payload.type === 'lesson') {
+    const sheet = getOrCreateSheet(ss, 'LESSONS', [
+      'Timestamp', 'Lesson ID', 'Title', 'Subject', 'Questions JSON', 'Saved By'
+    ]);
+    sheet.appendRow([
+      new Date().toISOString(),
+      payload.id || '',
+      payload.title || '',
+      payload.subject || '',
+      JSON.stringify(payload.questions || []),
+      Session.getActiveUser().getEmail() || ''
+    ]);
+    return ContentService.createTextOutput(
+      JSON.stringify({ status: 'ok', action: 'lesson' })
+    ).setMimeType(ContentService.MimeType.JSON);
+  }
+
+  // ── Quiz submission (default) ────────────────────────────────────────────────
+  const sheet = getOrCreateSheet(ss, 'Submissions', [
+    'Timestamp', 'Student', 'Class Code', 'Lesson', 'Score',
+    'Correct', 'Total', 'Percent', 'Time Taken', 'Answers JSON', 'Notes'
+  ]);
+
+  sheet.appendRow([
+    new Date().toISOString(),
+    payload.student    || '',
+    payload.classCode  || payload.classKey || '',
+    payload.lesson     || payload.title || '',
+    payload.score      || '',
+    payload.correct    != null ? payload.correct : '',
+    payload.total      != null ? payload.total   : '',
+    payload.pct        != null ? payload.pct     : '',
+    payload.timeTaken  || '',
+    JSON.stringify(payload.answers || {}),
+    payload.notes      || ''
+  ]);
+
+  return ContentService.createTextOutput(
+    JSON.stringify({ status: 'ok', action: 'submission' })
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+
+// ── doGet — returns all data to the dashboard ─────────────────────────────────
+
+function doGet(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+
+  // ── Submissions ──────────────────────────────────────────────────────────────
+  const subSheet = getOrCreateSheet(ss, 'Submissions', [
+    'Timestamp', 'Student', 'Class Code', 'Lesson', 'Score',
+    'Correct', 'Total', 'Percent', 'Time Taken', 'Answers JSON', 'Notes'
+  ]);
+  const subData = subSheet.getDataRange().getValues();
+  const subHeaders = subData[0];
+  const submissions = subData.slice(1).map(row => {
+    const obj = {};
+    subHeaders.forEach((h, i) => { obj[h] = row[i]; });
+    // Normalize field names to match dashboard expectations
+    return {
+      student:    obj['Student']    || '',
+      classCode:  obj['Class Code'] || '',
+      lesson:     obj['Lesson']     || '',
+      title:      obj['Lesson']     || '',  // alias
+      score:      obj['Score']      || '',
+      correct:    obj['Correct'],
+      total:      obj['Total'],
+      pct:        obj['Percent'],
+      timeTaken:  obj['Time Taken'] || '',
+      time:       obj['Timestamp']  || '',
+      submittedAt:obj['Timestamp']  || '',
+      answers:    obj['Answers JSON'] || '{}',
+      type:       'submission'
+    };
+  }).filter(r => r.student && r.lesson);  // skip blank rows
+
+  // ── Reopen events ────────────────────────────────────────────────────────────
+  let reopens = [];
+  const reopenSheet = ss.getSheetByName('REOPENS');
+  if (reopenSheet) {
+    const reopenData = reopenSheet.getDataRange().getValues();
+    const reopenHeaders = reopenData[0];
+    reopens = reopenData.slice(1).map(row => {
+      const obj = {};
+      reopenHeaders.forEach((h, i) => { obj[h] = row[i]; });
+      return {
+        student:    obj['Student']     || '',
+        lesson:     obj['Lesson']      || '',
+        classCode:  obj['Class Code']  || '',
+        reopenedAt: obj['Reopened At'] || obj['Timestamp'] || '',
+        type:       'reopen'
+      };
+    }).filter(r => r.student && r.lesson);
+  }
+
+  const response = {
+    rows:    submissions,
+    reopens: reopens
+  };
+
+  return ContentService.createTextOutput(
+    JSON.stringify(response)
+  ).setMimeType(ContentService.MimeType.JSON);
+}
