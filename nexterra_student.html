@@ -3306,7 +3306,7 @@ function _renderTextSR(q, idx) {
     const hint = isMath
       ? 'Show your work below.'
       : 'Write your answer in the box below. Use details from the passage.';
-    if (q.draw) { html += _renderDrawBlock(idx); }
+    if (q.draw || isMath) { html += _renderDrawBlock(idx); }
     html += `
       <div class="tq-sr-hint">${hint}</div>
       <textarea class="tq-sr-ta" id="tq-sr-${idx}" rows="${lines}"

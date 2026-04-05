@@ -36,7 +36,7 @@ test.describe('21 Tested NYS Standards Present (post-test excluded)', () => {
     for (let i = 0; i < count; i++) {
       const text = await cards.nth(i).textContent();
       if (/3\.NF\.3|[Ee]quivalent/.test(text)) {
-        await cards.nth(i).locator('button:has-text("Practice")').click();
+        await cards.nth(i).click();
         clicked = true;
         break;
       }

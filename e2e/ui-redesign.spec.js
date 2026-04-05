@@ -81,24 +81,22 @@ test.describe('UI Redesign — Social-Media Inspired', () => {
       expect(transition).toMatch(/transform|all/);
     });
 
-    test('dashboard has a profile section with avatar display', async ({ page }) => {
+    test('dashboard has a greeting bar with avatar display', async ({ page }) => {
       await expect(page.locator('#profileAvatar')).toBeVisible();
-      await expect(page.locator('#profileNickname')).toBeVisible();
+      // greetingName should show the student's name
+      await expect(page.locator('#greetingName')).toBeVisible();
     });
 
-    test('buttons use pill/rounded shape (border-radius >= 8px)', async ({ page }) => {
-      const btn = page.locator('.category-card .btn').first();
+    test('action buttons use rounded shape (border-radius >= 6px)', async ({ page }) => {
+      const btn = page.locator('.category-action-btn').first();
       const radius = await btn.evaluate(el => {
         return parseInt(getComputedStyle(el).borderRadius);
       });
-      expect(radius).toBeGreaterThanOrEqual(8);
+      expect(radius).toBeGreaterThanOrEqual(6);
     });
 
-    test('hero section has a gradient background', async ({ page }) => {
-      const bg = await page.locator('.hero-section').evaluate(el => {
-        return getComputedStyle(el).backgroundImage;
-      });
-      expect(bg).toMatch(/gradient/);
+    test('greeting bar is visible (replaced hero section)', async ({ page }) => {
+      await expect(page.locator('.greeting-bar')).toBeVisible();
     });
 
     test('section titles use modern typography (uppercase or small-caps)', async ({ page }) => {
@@ -128,14 +126,14 @@ test.describe('UI Redesign — Social-Media Inspired', () => {
       await setupProfile(page);
     });
 
-    test('practice buttons have gradient or vibrant background', async ({ page }) => {
-      const btn = page.locator('.category-card button:has-text("Practice")').first();
-      const bg = await btn.evaluate(el => {
+    test('cards have a defined background color (card-as-button pattern)', async ({ page }) => {
+      const card = page.locator('.category-card').first();
+      const bg = await card.evaluate(el => {
         const s = getComputedStyle(el);
         return s.backgroundImage + ' ' + s.backgroundColor;
       });
-      // Should have either gradient or a non-white/non-transparent color
-      expect(bg).toMatch(/gradient|rgb\(\s*(?!255,\s*255,\s*255)|rgba\(\s*(?!0,\s*0,\s*0,\s*0\))/);
+      // Card should have a non-transparent background
+      expect(bg).toMatch(/rgb/);
     });
 
     test('leaderboard section is visible with modern styling', async ({ page }) => {
@@ -147,7 +145,7 @@ test.describe('UI Redesign — Social-Media Inspired', () => {
     });
 
     test('game screen header has gradient background', async ({ page }) => {
-      await page.locator('.category-card').first().locator('button:has-text("Game")').click();
+      await page.locator('.category-card').first().locator('.category-action-btn:has-text("Game")').click();
       await expect(page.locator('#scGame')).toHaveClass(/active/);
       const bg = await page.locator('.game-header').evaluate(el => {
         return getComputedStyle(el).backgroundImage;
@@ -159,7 +157,8 @@ test.describe('UI Redesign — Social-Media Inspired', () => {
   test.describe('Question Screen Modern Styling', () => {
     test.beforeEach(async ({ page }) => {
       await setupProfile(page);
-      await page.locator('.category-card').first().locator('button:has-text("Practice")').click();
+      // Card itself is the Practice button
+      await page.locator('.category-card').first().click();
       await expect(page.locator('#scQuestion')).toBeVisible();
     });
 

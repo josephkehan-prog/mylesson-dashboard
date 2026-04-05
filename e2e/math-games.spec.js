@@ -22,8 +22,8 @@ test.describe('Anchor Charts', () => {
     await setupProfile(page);
   });
 
-  test('anchor chart modal opens when Chart button is clicked', async ({ page }) => {
-    const chartBtn = page.locator('.category-card').first().locator('button:has-text("Chart")');
+  test('anchor chart modal opens when Help button is clicked', async ({ page }) => {
+    const chartBtn = page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")');
     await expect(chartBtn).toBeVisible();
     await chartBtn.click();
 
@@ -34,32 +34,32 @@ test.describe('Anchor Charts', () => {
   });
 
   test('anchor chart displays vocabulary tags', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Chart")').click();
+    await page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")').click();
     const tags = page.locator('.anchor-vocab-tag');
     const count = await tags.count();
     expect(count).toBeGreaterThan(0);
   });
 
   test('anchor chart displays SVG visual', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Chart")').click();
+    await page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")').click();
     await expect(page.locator('.anchor-visual svg')).toBeVisible();
   });
 
   test('anchor chart displays example and remember sections', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Chart")').click();
+    await page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")').click();
     await expect(page.locator('.anchor-example')).toBeVisible();
     await expect(page.locator('.anchor-remember')).toBeVisible();
   });
 
   test('anchor chart closes when X button is clicked', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Chart")').click();
+    await page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")').click();
     await expect(page.locator('.anchor-card')).toBeVisible();
     await page.locator('.anchor-close').click();
     await expect(page.locator('#anchorOverlay')).toBeHidden();
   });
 
   test('anchor chart closes when clicking overlay background', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Chart")').click();
+    await page.locator('.category-card').first().locator('.category-action-btn:has-text("Help")').click();
     await expect(page.locator('.anchor-card')).toBeVisible();
     // Click on the overlay itself, not the card
     await page.locator('#anchorOverlay').click({ position: { x: 10, y: 10 } });
@@ -72,16 +72,18 @@ test.describe('Dashboard Cards', () => {
     await setupProfile(page);
   });
 
-  test('each standard card has three buttons: Chart, Practice, Game', async ({ page }) => {
+  test('each standard card is tappable and has Help and Game action buttons', async ({ page }) => {
     const cards = page.locator('.category-card');
     const count = await cards.count();
     expect(count).toBe(21);
 
-    // Check the first card has all 3 buttons
+    // Check the first card has Help and Game action buttons; card itself is the Practice button
     const firstCard = cards.first();
-    await expect(firstCard.locator('button:has-text("Chart")')).toBeVisible();
-    await expect(firstCard.locator('button:has-text("Practice")')).toBeVisible();
-    await expect(firstCard.locator('button:has-text("Game")')).toBeVisible();
+    await expect(firstCard.locator('.category-action-btn:has-text("Help")')).toBeVisible();
+    await expect(firstCard.locator('.category-action-btn:has-text("Game")')).toBeVisible();
+    // Card itself should be a button (tap to practice)
+    const tagName = await firstCard.evaluate(el => el.tagName.toLowerCase());
+    expect(tagName).toBe('button');
   });
 });
 
@@ -193,8 +195,9 @@ test.describe('Practice Mode Still Works', () => {
     await setupProfile(page);
   });
 
-  test('practice button launches question screen', async ({ page }) => {
-    await page.locator('.category-card').first().locator('button:has-text("Practice")').click();
+  test('tapping a card launches question screen', async ({ page }) => {
+    // Card itself is the Practice button — click the card body (not action buttons)
+    await page.locator('.category-card').first().click();
     await expect(page.locator('#scQuestion')).toHaveClass(/active/);
     await expect(page.locator('#questionStem')).toBeVisible();
   });

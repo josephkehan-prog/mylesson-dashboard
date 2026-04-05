@@ -13,9 +13,8 @@ async function setupAndGoTo(page, topicIndex = 0) {
   await page.locator('#startButton').click();
   await expect(page.locator('#scDashboard')).toBeVisible();
 
-  // Click the Practice button inside the nth topic card
-  const practiceButtons = page.locator('.category-card button:has-text("Practice")');
-  await practiceButtons.nth(topicIndex).click();
+  // Card itself is the Practice button — click the nth card
+  await page.locator('.category-card').nth(topicIndex).click();
   await expect(page.locator('#scQuestion')).toBeVisible();
 }
 
@@ -45,8 +44,8 @@ test.describe('NYS Question Quality', () => {
     await page.fill('#nicknameInput', 'TestKid');
     await page.locator('#startButton').click();
 
-    const practiceButtons = page.locator('.category-card button:has-text("Practice")');
-    await practiceButtons.first().click();
+    // Card itself is the Practice button
+    await page.locator('.category-card').first().click();
     await expect(page.locator('#scQuestion')).toBeVisible();
 
     const standards = new Set();
@@ -137,14 +136,14 @@ test.describe('NYS Question Quality', () => {
     for (let i = 0; i < count; i++) {
       const text = await cards.nth(i).textContent();
       if (/[Ff]raction|NF/.test(text)) {
-        await cards.nth(i).locator('button:has-text("Practice")').click();
+        await cards.nth(i).click();
         clicked = true;
         break;
       }
     }
     if (!clicked) {
-      // fallback: pick 4th practice button
-      await page.locator('.category-card button:has-text("Practice")').nth(3).click();
+      // fallback: click 4th card
+      await page.locator('.category-card').nth(3).click();
     }
 
     await expect(page.locator('#scQuestion')).toBeVisible();
@@ -169,13 +168,13 @@ test.describe('NYS Question Quality', () => {
     for (let i = 0; i < count; i++) {
       const text = await cards.nth(i).textContent();
       if (/[Aa]rea|[Pp]erimeter|Measurement|MD/.test(text)) {
-        await cards.nth(i).locator('button:has-text("Practice")').click();
+        await cards.nth(i).click();
         mdClicked = true;
         break;
       }
     }
     if (!mdClicked) {
-      await page.locator('.category-card button:has-text("Practice")').nth(4).click();
+      await page.locator('.category-card').nth(4).click();
     }
 
     await expect(page.locator('#scQuestion')).toBeVisible();

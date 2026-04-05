@@ -230,95 +230,80 @@
         }
 
         .dashboard-content {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px 24px;
+            padding: 24px 24px 32px;
         }
 
-        /* Hero: editorial left-heavy layout — feels like a game HUD, not a SaaS dashboard */
-        .hero-section {
-            background: var(--gradient-dark);
-            color: white;
-            padding: 20px 24px;
-            border-radius: var(--radius-lg);
-            margin-bottom: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,.2);
-            position: relative;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr auto;
+        /* Greeting bar — replaces dark hero panel */
+        .greeting-bar {
+            display: flex;
             align-items: center;
-            gap: 24px;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        /* Accent stripe instead of blob */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--accent), #a855f7);
+        .greeting-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .hero-left { min-width: 0; }
-
-        .hero-eyebrow {
-            font-size: 11px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-light);
-            margin-bottom: 6px;
-        }
-
-        .hero-title {
+        .greeting-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--surface-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 26px;
-            font-weight: 900;
-            letter-spacing: -.5px;
-            line-height: 1.15;
-            margin-bottom: 0;
-            color: #fff;
+            flex-shrink: 0;
         }
 
-        .hero-subtitle {
+        .greeting-text { min-width: 0; }
+
+        .greeting-name {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -.3px;
+            line-height: 1.2;
+        }
+
+        .greeting-sub {
             font-size: 13px;
-            color: rgba(255,255,255,.6);
-            margin-top: 6px;
+            color: var(--text-muted);
+            margin-top: 1px;
         }
 
-        .hero-stats {
+        .greeting-meta {
             display: flex;
-            gap: 4px;
-            margin-top: 0;
-        }
-
-        .hero-stat {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            background: rgba(255,255,255,.06);
-            border: 1px solid rgba(255,255,255,.1);
-            border-radius: var(--radius-md);
-            padding: 12px 16px;
-            min-width: 80px;
+            gap: 12px;
         }
 
-        .hero-stat-value {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: -.5px;
-            color: #fff;
-        }
-
-        .hero-stat-label {
-            font-size: 10px;
+        /* Stat pills — only shown when there's real data */
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            font-size: 12px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .8px;
-            color: rgba(255,255,255,.5);
-            margin-top: 2px;
+            color: var(--primary);
+            box-shadow: var(--card-shadow);
+        }
+
+        .stat-pill-value {
+            font-size: 15px;
+            font-weight: 900;
+            color: var(--accent);
         }
 
         .section-title {
@@ -396,43 +381,69 @@
             margin-bottom: 24px;
         }
 
+        /* Card is the primary practice tap target */
         .category-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-md);
-            padding: 14px 16px;
+            padding: 12px 14px;
             box-shadow: var(--card-shadow);
-            border-left: 4px solid;
-            transition: transform var(--t-base), box-shadow var(--t-base);
+            border: 1.5px solid var(--border-gray);
+            transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+            cursor: pointer;
             position: relative;
-            overflow: hidden;
+            display: block;
+            width: 100%;
+            text-align: left;
+            font-family: inherit;
         }
 
         .category-card:hover {
             transform: translateY(-2px);
             box-shadow: var(--card-shadow-hover);
+            border-color: var(--accent);
         }
 
-        .category-card.major {
-            border-left-color: var(--success);
-            background: linear-gradient(to bottom right, #f0fdf4, var(--bg-card));
+        .category-card:active { transform: scale(.99); }
+
+        /* Cluster dot replaces left-border accent */
+        .category-cluster-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-right: 5px;
+            flex-shrink: 0;
+            vertical-align: middle;
+            position: relative;
+            top: -1px;
         }
 
-        .category-card.supporting {
-            border-left-color: var(--accent);
-            background: linear-gradient(to bottom right, var(--surface-alt), var(--bg-card));
+        .major .category-cluster-dot { background: var(--success); }
+        .supporting .category-cluster-dot { background: var(--accent); }
+        .additional .category-cluster-dot { background: var(--warning); }
+
+        /* Mastered badge */
+        .category-card.mastered {
+            border-color: var(--success);
         }
 
-        .category-card.additional {
-            border-left-color: var(--warning);
-            background: linear-gradient(to bottom right, var(--warning-bg), var(--bg-card));
+        .mastered-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+            line-height: 1;
         }
 
         .category-standard {
             font-size: 10px;
-            font-weight: 800;
+            font-weight: 700;
             color: var(--text-subtle);
             text-transform: uppercase;
             letter-spacing: 0.8px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
         }
 
         .category-name {
@@ -441,6 +452,14 @@
             color: var(--primary);
             margin-bottom: 6px;
             line-height: 1.3;
+            padding-right: 20px; /* room for mastered badge */
+        }
+
+        .category-hook {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            line-height: 1.35;
         }
 
         .category-description { display: none; }
@@ -449,7 +468,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .category-count {
@@ -459,14 +478,14 @@
 
         .category-progress {
             display: flex;
-            gap: 6px;
+            gap: 5px;
             align-items: center;
             margin-bottom: 8px;
         }
 
         .category-progress-bar {
             flex: 1;
-            height: 4px;
+            height: 3px;
             background: var(--border-gray);
             border-radius: 2px;
             overflow: hidden;
@@ -476,21 +495,39 @@
             font-size: 11px;
             font-weight: 700;
             color: var(--primary);
-            min-width: 28px;
+            min-width: 26px;
             text-align: right;
         }
 
+        /* Secondary actions — icon buttons, stop propagation */
         .category-actions {
             display: flex;
-            gap: 6px;
+            gap: 4px;
+            margin-top: 2px;
         }
 
-        .category-actions .btn {
+        .category-action-btn {
             flex: 1;
-            justify-content: center;
-            padding: 6px 8px;
+            padding: 5px 4px;
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
             font-size: 11px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: inherit;
+            transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+            text-align: center;
         }
+
+        .category-action-btn:hover {
+            background: var(--surface-alt);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .category-action-btn:active { transform: scale(.97); }
 
         .difficulty-select {
             padding: 8px 12px;
@@ -1308,53 +1345,6 @@
             box-shadow: none;
         }
 
-        /* PROFILE BAR */
-        .profile-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: var(--bg-card);
-            padding: 10px 16px;
-            border-radius: var(--radius-md);
-            margin-bottom: 12px;
-            box-shadow: var(--card-shadow);
-            flex-wrap: wrap;
-        }
-
-        .profile-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--surface-alt), #e0e7ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            flex-shrink: 0;
-            box-shadow: 0 0 0 3px rgba(99,102,241,.1);
-        }
-
-        .profile-info {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .profile-nickname {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        /* XP bar removed — replaced by standards-mastered metric */
-
-        .profile-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        /* Level badge removed — replaced by standards-mastered metric */
-
         .streak-counter {
             display: flex;
             align-items: center;
@@ -1374,24 +1364,56 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
 
-        /* XP popup, badges removed — no longer used */
-
-        /* LEADERBOARD SECTION */
+        /* LEADERBOARD SECTION — collapsible */
         .leaderboard-section {
-            padding: 14px 16px;
             background: var(--bg-card);
             border-radius: var(--radius-md);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
             box-shadow: var(--card-shadow);
+            overflow: hidden;
         }
+
+        .leaderboard-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            text-align: left;
+        }
+
+        .leaderboard-toggle:hover { background: var(--surface); }
 
         .leaderboard-title {
             font-size: 11px;
             font-weight: 800;
             color: var(--text-subtle);
-            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            margin: 0;
+        }
+
+        .leaderboard-chevron {
+            font-size: 12px;
+            color: var(--text-subtle);
+            transition: transform var(--t-fast);
+        }
+
+        .leaderboard-section.open .leaderboard-chevron {
+            transform: rotate(180deg);
+        }
+
+        .leaderboard-body {
+            display: none;
+            padding: 0 16px 12px;
+        }
+
+        .leaderboard-section.open .leaderboard-body {
+            display: block;
         }
 
         .leaderboard-list {
@@ -2216,50 +2238,52 @@
         </header>
 
         <main id="mainContent" class="dashboard-content">
-            <div class="hero-section" role="region" aria-label="Your progress overview">
-                <div class="hero-left">
-                    <div class="hero-eyebrow">NYS Grade 3 · Math Test Prep</div>
-                    <h1 class="hero-title">Ready to Practice?</h1>
-                    <div class="hero-subtitle" id="heroSubtitle">Choose a standard below to get started.</div>
-                </div>
-                <div class="hero-stats" aria-label="Your stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-value" id="totalQuestions">0</div>
-                        <div class="hero-stat-label">Done</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value" id="overallScore">—</div>
-                        <div class="hero-stat-label">Score</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-value" id="studyTime">0m</div>
-                        <div class="hero-stat-label">Time</div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- PROFILE BAR -->
-            <div class="profile-bar">
-                <div class="profile-avatar" id="profileAvatar">🎓</div>
-                <div class="profile-info">
-                    <div class="profile-nickname" id="profileNickname">Player</div>
+            <!-- GREETING BAR — replaces dark hero + profile bar -->
+            <div class="greeting-bar" role="region" aria-label="Your progress overview">
+                <div class="greeting-left">
+                    <div class="greeting-avatar" id="profileAvatar">🎓</div>
+                    <div class="greeting-text">
+                        <div class="greeting-name" id="greetingName">Hi there!</div>
+                        <div class="greeting-sub" id="greetingSub">Pick a topic below to start practicing.</div>
+                    </div>
                 </div>
-                <div class="profile-right">
-                    <div class="streak-counter" id="streakCounter" style="display: none;">
+                <div class="greeting-meta">
+                    <div class="streak-counter" id="streakCounter" style="display:none;">
                         <span class="streak-flame">🔥</span>
-                        <span id="streakNumber">0</span>
+                        <span id="streakNumber">0</span> day streak
+                    </div>
+                    <div class="stat-pill" id="statPillDone" style="display:none;">
+                        <span>✅</span>
+                        <span class="stat-pill-value" id="totalQuestions">0</span>
+                        <span>done</span>
+                    </div>
+                    <div class="stat-pill" id="statPillScore" style="display:none;">
+                        <span>🎯</span>
+                        <span class="stat-pill-value" id="overallScore">—</span>
+                        <span>avg</span>
                     </div>
                 </div>
             </div>
 
-            <!-- LEADERBOARD SECTION -->
-            <div class="leaderboard-section">
-                <h2 class="leaderboard-title" style="display:flex;align-items:center;justify-content:space-between;">
-                    Leaderboard
-                    <a href="leaderboard.html" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:none;">View Full Board →</a>
-                </h2>
-                <div class="leaderboard-list" id="leaderboardList">
-                    <div style="text-align: center; padding: 20px; color: var(--text-subtle); font-size: 12px;">Loading leaderboard...</div>
+            <!-- hidden elements kept for JS compatibility -->
+            <span id="studyTime" style="display:none;">0m</span>
+            <span id="heroSubtitle" style="display:none;"></span>
+            <span id="profileNickname" style="display:none;"></span>
+
+            <!-- LEADERBOARD — collapsible -->
+            <div class="leaderboard-section" id="leaderboardSection">
+                <button class="leaderboard-toggle" onclick="app.toggleLeaderboard()" aria-expanded="false" aria-controls="leaderboardBody">
+                    <h2 class="leaderboard-title">🏆 Leaderboard</h2>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                        <a href="leaderboard.html" onclick="event.stopPropagation()" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:none;">Full board →</a>
+                        <span class="leaderboard-chevron">▼</span>
+                    </div>
+                </button>
+                <div class="leaderboard-body" id="leaderboardBody">
+                    <div class="leaderboard-list" id="leaderboardList">
+                        <div style="text-align:center;padding:16px;color:var(--text-subtle);font-size:12px;">Loading…</div>
+                    </div>
                 </div>
             </div>
 
@@ -2268,17 +2292,7 @@
                 <div class="continue-section" id="continueCards"></div>
             </div>
 
-            <!-- DAILY CHALLENGE -->
-            <div id="dailyChallenge" class="daily-challenge" style="display:none;" onclick="app.launchDailyChallenge()">
-                <div class="daily-challenge-icon">🎯</div>
-                <div class="daily-challenge-info">
-                    <div class="daily-challenge-label">Daily Challenge</div>
-                    <div class="daily-challenge-text" id="dailyChallengeText">Practice your weakest skill!</div>
-                </div>
-                <div class="daily-challenge-arrow">→</div>
-            </div>
-
-            <h2 class="section-title">Practice by Standard</h2>
+            <h2 class="section-title" style="margin-top:0;">Practice by Standard</h2>
             <div class="categories-grid" id="categoriesGrid" role="list" aria-label="Math standards to practice"></div>
         </main>
     </div>
@@ -2293,7 +2307,7 @@
             <div style="flex:1;display:flex;justify-content:center;">
                 <div class="progress-dots" id="progressDots" aria-hidden="true"></div>
             </div>
-            <button class="btn btn-ghost" onclick="app.backToDashboard()" aria-label="Back to dashboard">← Back</button>
+            <button class="btn btn-ghost" onclick="app.backToDashboard(true)" aria-label="Back to dashboard">← Back</button>
         </header>
 
         <main class="question-content" id="questionMain">
@@ -4606,9 +4620,42 @@
             },
 
             renderDashboard() {
+                // Student-friendly hook lines for each standard
+                const HOOKS = {
+                    '3.OA.1': 'What does 3 × 4 really mean?',
+                    '3.OA.2': 'Sharing equally — dividing things up!',
+                    '3.OA.3': 'Solve stories with × and ÷',
+                    '3.OA.4': 'Find the mystery number in equations',
+                    '3.OA.5': 'Shortcuts that make multiplying easier',
+                    '3.OA.6': 'Division = a missing multiplication fact',
+                    '3.OA.7': 'Know your times tables by heart!',
+                    '3.OA.8': 'Problems that take two steps to solve',
+                    '3.OA.9': 'Spot the pattern in number sequences',
+                    '3.NBT.1': 'Round numbers to the nearest 10 or 100',
+                    '3.NBT.2': 'Add and subtract up to 1,000',
+                    '3.NBT.3': 'Multiply any number by 10, 20, 30…',
+                    '3.NF.1': 'What does ¾ actually mean?',
+                    '3.NF.2': 'Place fractions on a number line',
+                    '3.NF.3': '½ = 2/4 = 3/6 — they\'re all the same!',
+                    '3.MD.1': 'Read clocks and figure out elapsed time',
+                    '3.MD.2': 'Measure liquid volume and mass',
+                    '3.MD.3': 'Read and build scaled graphs',
+                    '3.MD.4': 'Plot measurements on a line plot',
+                    '3.MD.5': 'Area is the space inside a shape',
+                    '3.MD.6': 'Count unit squares to find area',
+                    '3.MD.7': 'Area = length × width',
+                    '3.MD.8': 'Perimeter = add up all the sides',
+                    '3.G.1': 'Sort shapes by their attributes',
+                    '3.G.2': 'Cut shapes into equal-sized parts',
+                };
+
                 if (this.profile) {
                     document.getElementById('profileAvatar').textContent = this.profile.avatar;
                     document.getElementById('profileNickname').textContent = this.profile.nickname;
+
+                    // Update greeting bar
+                    const firstName = this.profile.nickname.split(' ')[0];
+                    document.getElementById('greetingName').textContent = `Hi, ${firstName}! 👋`;
 
                     // Streak counter
                     const streakEl = document.getElementById('streakCounter');
@@ -4625,35 +4672,59 @@
                 document.getElementById('dashboardStudentName').textContent = this.progress.studentName;
 
                 const stats = this.calculateStats();
+                const hasStats = stats.total > 0;
+
+                // Only show stat pills when there's real data
+                document.getElementById('statPillDone').style.display = hasStats ? 'flex' : 'none';
+                document.getElementById('statPillScore').style.display = hasStats ? 'flex' : 'none';
                 document.getElementById('totalQuestions').textContent = stats.total;
                 document.getElementById('overallScore').textContent = stats.percentage + '%';
-                document.getElementById('studyTime').textContent = this.progress.totalStudyMinutes + 'm';
+
+                // Update greeting sub based on progress
+                const masteredCount = countMastered(this.progress);
+                const greetingSub = document.getElementById('greetingSub');
+                if (!hasStats) {
+                    greetingSub.innerHTML = 'Tap any card to practice. Hit <strong>💡 Help</strong> to see a study guide first!';
+                } else if (masteredCount === 0) {
+                    greetingSub.textContent = `Keep going — you need 65%+ to master a standard.`;
+                } else {
+                    greetingSub.textContent = `You've mastered ${masteredCount} of 25 standards. Keep it up!`;
+                }
+
+                const barColor = { major: 'var(--success)', supporting: 'var(--accent)', additional: 'var(--warning)' };
 
                 const grid = document.getElementById('categoriesGrid');
                 grid.innerHTML = '';
                 this.standards.forEach(std => {
                     const stdData = this.progress.standards[std.code] || { attempts: 0, correct: 0, lastDifficulty: 'easy' };
                     const pct = stdData.attempts > 0 ? Math.round((stdData.correct / stdData.attempts) * 100) : 0;
+                    const isMastered = stdData.attempts >= 5 && pct >= 65;
+                    const hook = HOOKS[std.code] || '';
 
-                    const card = document.createElement('div');
-                    card.className = `category-card ${std.cluster}`;
+                    const card = document.createElement('button');
+                    card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}`;
+                    card.setAttribute('role', 'listitem');
+                    card.setAttribute('aria-label', `Practice ${std.name}`);
+                    card.onclick = () => app.startPractice(std.code);
                     card.innerHTML = `
-                        <div class="category-standard">${std.code}</div>
-                        <div class="category-name">${std.name}</div>
-                        <div class="category-description">Practice questions on ${std.name.toLowerCase()}</div>
-                        <div class="category-footer">
-                            <div class="category-count">${stdData.attempts} questions</div>
+                        ${isMastered ? '<span class="mastered-badge" title="Mastered!">⭐</span>' : ''}
+                        <div class="category-standard">
+                            <span class="category-cluster-dot"></span>${std.code}
                         </div>
+                        <div class="category-name">${std.name}</div>
+                        ${hook ? `<div class="category-hook">${hook}</div>` : ''}
                         <div class="category-progress">
                             <div class="category-progress-bar">
-                                <div class="progress-fill" style="width: ${pct}%; background: ${std.cluster === 'major' ? 'var(--success)' : std.cluster === 'supporting' ? 'var(--accent)' : 'var(--warning)'}"></div>
+                                <div class="progress-fill" style="width:${pct}%;background:${barColor[std.cluster]}"></div>
                             </div>
                             <div class="category-progress-pct">${pct}%</div>
                         </div>
-                        <div class="category-actions">
-                            <button class="btn btn-secondary btn-small" onclick="showAnchorChart('${std.code}')">📋 Chart</button>
-                            <button class="btn btn-primary btn-small" onclick="app.startPractice('${std.code}')">Practice</button>
-                            <button class="btn btn-secondary btn-small" onclick="gameEngine.start('${std.code}')">🎮 Game</button>
+                        <div class="category-footer">
+                            <div class="category-count">${stdData.attempts ? stdData.attempts + ' done' : 'Not started'}</div>
+                        </div>
+                        <div class="category-actions" onclick="event.stopPropagation()">
+                            <button class="category-action-btn" onclick="showAnchorChart('${std.code}')" title="Study guide for this topic">💡 Help</button>
+                            <button class="category-action-btn" onclick="gameEngine.start('${std.code}')" title="Play a game for this topic">🎮 Game</button>
                         </div>
                     `;
                     grid.appendChild(card);
@@ -4682,6 +4753,13 @@
                     `;
                     list.appendChild(row);
                 });
+            },
+
+            toggleLeaderboard() {
+                const section = document.getElementById('leaderboardSection');
+                const btn = section.querySelector('.leaderboard-toggle');
+                const isOpen = section.classList.toggle('open');
+                btn.setAttribute('aria-expanded', String(isOpen));
             },
 
             fetchLeaderboard() {
@@ -5000,46 +5078,17 @@
                 this.startPractice(this.currentStandard);
             },
 
-            backToDashboard() {
+            backToDashboard(fromQuestionScreen) {
+                // Warn if leaving mid-session (at least 1 question answered, session not finished)
+                if (fromQuestionScreen && this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length) {
+                    if (!confirm('Leave this session? Your progress so far won\'t be saved.')) return;
+                }
                 this.renderDashboard();
                 this.switchScreen('scDashboard');
             },
 
             exitGame() {
                 this.backToDashboard();
-            },
-
-            renderDailyChallenge() {
-                const challengeEl = document.getElementById('dailyChallenge');
-                // Find weakest standard with attempts
-                let weakest = null, lowestPct = 101;
-                this.standards.forEach(std => {
-                    const d = this.progress.standards[std.code];
-                    if (d && d.attempts >= 3) {
-                        const pct = Math.round((d.correct / d.attempts) * 100);
-                        if (pct < lowestPct) { lowestPct = pct; weakest = std; }
-                    }
-                });
-                // If no weak standard, pick random untried one
-                if (!weakest) {
-                    const untried = this.standards.filter(s => !this.progress.standards[s.code] || this.progress.standards[s.code].attempts < 3);
-                    if (untried.length > 0) weakest = untried[Math.floor(Math.random() * untried.length)];
-                }
-                if (weakest) {
-                    challengeEl.style.display = 'flex';
-                    this._dailyChallengeCode = weakest.code;
-                    document.getElementById('dailyChallengeText').textContent =
-                        lowestPct < 101 ? `Boost your ${weakest.code} — ${weakest.name} (${lowestPct}%)` :
-                        `Try ${weakest.code} — ${weakest.name}!`;
-                } else {
-                    challengeEl.style.display = 'none';
-                }
-            },
-
-            launchDailyChallenge() {
-                if (this._dailyChallengeCode) {
-                    gameEngine.start(this._dailyChallengeCode);
-                }
             },
 
             goHome() {
