@@ -161,7 +161,7 @@
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
-            transition: all var(--t-base);
+            transition: background var(--t-base), transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -374,6 +374,41 @@
             gap: 12px;
         }
 
+        .standards-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cluster-legend {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cluster-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .cluster-legend-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .cluster-legend-dot.major { background: var(--success); }
+        .cluster-legend-dot.supporting { background: var(--accent); }
+        .cluster-legend-dot.additional { background: var(--warning); }
+
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
@@ -425,6 +460,30 @@
         /* Mastered badge */
         .category-card.mastered {
             border-color: var(--success);
+        }
+
+        /* Not started — inviting, distinct from in-progress */
+        .category-card.not-started {
+            background: var(--surface);
+            border-style: dashed;
+        }
+
+        .category-card.not-started .category-progress {
+            display: none;
+        }
+
+        .category-card.not-started .category-footer {
+            display: none;
+        }
+
+        .category-start-cta {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 3px;
         }
 
         .mastered-badge {
@@ -485,9 +544,9 @@
 
         .category-progress-bar {
             flex: 1;
-            height: 3px;
+            height: 5px;
             background: var(--border-gray);
-            border-radius: 2px;
+            border-radius: 3px;
             overflow: hidden;
         }
 
@@ -508,7 +567,8 @@
 
         .category-action-btn {
             flex: 1;
-            padding: 5px 4px;
+            padding: 8px 6px;
+            min-height: 36px;
             border: 1.5px solid var(--border-gray);
             border-radius: var(--radius-sm);
             background: var(--surface);
@@ -519,6 +579,10 @@
             font-family: inherit;
             transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
         }
 
         .category-action-btn:hover {
@@ -555,6 +619,57 @@
             box-shadow: 0 2px 12px rgba(0,0,0,.3);
             z-index: 10;
             flex-shrink: 0;
+        }
+
+        /* In-app back confirmation bar — replaces native confirm() */
+        .back-confirm-bar {
+            background: var(--warning-bg);
+            border-bottom: 2px solid var(--warning);
+            padding: 10px 16px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+            font-size: 13px;
+            color: var(--primary);
+        }
+
+        .back-confirm-bar.visible {
+            display: flex;
+        }
+
+        .back-confirm-text {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .back-confirm-btns {
+            display: flex;
+            gap: 8px;
+        }
+
+        .back-confirm-stay {
+            padding: 6px 16px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .back-confirm-leave {
+            padding: 6px 14px;
+            background: none;
+            color: var(--text-muted);
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
         }
 
         .question-info {
@@ -2266,17 +2381,15 @@
                 </div>
             </div>
 
-            <!-- hidden elements kept for JS compatibility -->
-            <span id="studyTime" style="display:none;">0m</span>
-            <span id="heroSubtitle" style="display:none;"></span>
+            <!-- profileNickname kept for JS backward-compat -->
             <span id="profileNickname" style="display:none;"></span>
 
             <!-- LEADERBOARD — collapsible -->
-            <div class="leaderboard-section" id="leaderboardSection">
-                <button class="leaderboard-toggle" onclick="app.toggleLeaderboard()" aria-expanded="false" aria-controls="leaderboardBody">
+            <div class="leaderboard-section open" id="leaderboardSection">
+                <button class="leaderboard-toggle" onclick="app.toggleLeaderboard()" aria-expanded="true" aria-controls="leaderboardBody">
                     <h2 class="leaderboard-title">🏆 Leaderboard</h2>
                     <div style="display:flex;align-items:center;gap:12px;">
-                        <a href="leaderboard.html" onclick="event.stopPropagation()" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:none;">Full board →</a>
+                        <a href="leaderboard.html" onclick="event.stopPropagation()" title="Open full leaderboard page" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:2px;">Full board ↗</a>
                         <span class="leaderboard-chevron">▼</span>
                     </div>
                 </button>
@@ -2292,7 +2405,14 @@
                 <div class="continue-section" id="continueCards"></div>
             </div>
 
-            <h2 class="section-title" style="margin-top:0;">Practice by Standard</h2>
+            <div class="standards-header">
+                <h2 class="section-title" style="margin-top:0;margin-bottom:0;">Practice by Standard</h2>
+                <div class="cluster-legend" aria-label="Color key for standard types">
+                    <span class="cluster-legend-item"><span class="cluster-legend-dot major"></span>Major</span>
+                    <span class="cluster-legend-item"><span class="cluster-legend-dot supporting"></span>Supporting</span>
+                    <span class="cluster-legend-item"><span class="cluster-legend-dot additional"></span>Additional</span>
+                </div>
+            </div>
             <div class="categories-grid" id="categoriesGrid" role="list" aria-label="Math standards to practice"></div>
         </main>
     </div>
@@ -2307,8 +2427,17 @@
             <div style="flex:1;display:flex;justify-content:center;">
                 <div class="progress-dots" id="progressDots" aria-hidden="true"></div>
             </div>
-            <button class="btn btn-ghost" onclick="app.backToDashboard(true)" aria-label="Back to dashboard">← Back</button>
+            <button class="btn btn-ghost" onclick="app.promptBack()" aria-label="Back to dashboard">← Back</button>
         </header>
+
+        <!-- In-app back confirmation bar -->
+        <div class="back-confirm-bar" id="backConfirmBar" role="alert" aria-live="assertive">
+            <span class="back-confirm-text">Leave this session? Progress won't be saved.</span>
+            <div class="back-confirm-btns">
+                <button class="back-confirm-stay" onclick="app.cancelBack()">Stay</button>
+                <button class="back-confirm-leave" onclick="app.confirmBack()">Leave</button>
+            </div>
+        </div>
 
         <main class="question-content" id="questionMain">
             <section class="question-top" aria-label="Question">
@@ -4702,7 +4831,8 @@
                     const hook = HOOKS[std.code] || '';
 
                     const card = document.createElement('button');
-                    card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}`;
+                    const isUntouched = stdData.attempts === 0;
+                    card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}${isUntouched ? ' not-started' : ''}`;
                     card.setAttribute('role', 'listitem');
                     card.setAttribute('aria-label', `Practice ${std.name}`);
                     card.onclick = () => app.startPractice(std.code);
@@ -4713,6 +4843,7 @@
                         </div>
                         <div class="category-name">${std.name}</div>
                         ${hook ? `<div class="category-hook">${hook}</div>` : ''}
+                        ${isUntouched ? `<div class="category-start-cta">Tap to start →</div>` : `
                         <div class="category-progress">
                             <div class="category-progress-bar">
                                 <div class="progress-fill" style="width:${pct}%;background:${barColor[std.cluster]}"></div>
@@ -4720,8 +4851,8 @@
                             <div class="category-progress-pct">${pct}%</div>
                         </div>
                         <div class="category-footer">
-                            <div class="category-count">${stdData.attempts ? stdData.attempts + ' done' : 'Not started'}</div>
-                        </div>
+                            <div class="category-count">${stdData.attempts} done</div>
+                        </div>`}
                         <div class="category-actions" onclick="event.stopPropagation()">
                             <button class="category-action-btn" onclick="showAnchorChart('${std.code}')" title="Study guide for this topic">💡 Help</button>
                             <button class="category-action-btn" onclick="gameEngine.start('${std.code}')" title="Play a game for this topic">🎮 Game</button>
@@ -4807,6 +4938,9 @@
                 this.currentQuestionIndex = 0;
                 this.currentSession = [];
                 this.usedHintThisQuestion = false;
+                // Reset back-confirm bar in case it was left visible
+                const bar = document.getElementById('backConfirmBar');
+                if (bar) bar.classList.remove('visible');
                 this.generateSession(standard, difficulty);
                 this.sessionStartTime = Date.now();
                 this.showQuestion();
@@ -5078,11 +5212,25 @@
                 this.startPractice(this.currentStandard);
             },
 
-            backToDashboard(fromQuestionScreen) {
-                // Warn if leaving mid-session (at least 1 question answered, session not finished)
-                if (fromQuestionScreen && this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length) {
-                    if (!confirm('Leave this session? Your progress so far won\'t be saved.')) return;
+            promptBack() {
+                // Mid-session: show in-app confirmation bar instead of native confirm()
+                if (this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length) {
+                    document.getElementById('backConfirmBar').classList.add('visible');
+                } else {
+                    this.backToDashboard();
                 }
+            },
+
+            cancelBack() {
+                document.getElementById('backConfirmBar').classList.remove('visible');
+            },
+
+            confirmBack() {
+                document.getElementById('backConfirmBar').classList.remove('visible');
+                this.backToDashboard();
+            },
+
+            backToDashboard() {
                 this.renderDashboard();
                 this.switchScreen('scDashboard');
             },
