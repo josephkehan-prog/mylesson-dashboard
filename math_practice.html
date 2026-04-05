@@ -49,7 +49,7 @@
 
         html, body {
             font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
-            background: #f1f5f9;
+            background: var(--bg);
             color: var(--primary);
             height: 100%;
             overflow: hidden;
@@ -62,14 +62,30 @@
             --accent: #6366f1;
             --accent-light: #818cf8;
             --success: #10b981;
+            --success-bg: #d1fae5;
             --warning: #f59e0b;
+            --warning-bg: #fffbeb;
             --danger: #ef4444;
-            --light-gray: #f8fafc;
+            --danger-bg: #fef2f2;
+            --surface: #f8fafc;
+            --surface-alt: #f0f2ff;  /* accent-tinted hover */
+            --bg: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-feedback: #fafafa;
             --border-gray: #e2e8f0;
-            /* Text scale tokens — replaces hard-coded #666, #999, #555 */
+            /* Text tokens */
             --text-muted: #64748b;
             --text-subtle: #94a3b8;
             --text-secondary: #475569;
+            --text-body: #334155;
+            --text-on-dark: rgba(255,255,255,.85);
+            --text-on-dark-muted: rgba(255,255,255,.6);
+            --text-on-dark-dim: rgba(255,255,255,.5);
+            /* Progress dots */
+            --dot-default: #5a6070;
+            --dot-current: var(--accent);
+            --dot-answered: #4ade80;
+            /* Card / shadow */
             --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
             --card-shadow-hover: 0 8px 30px rgba(99,102,241,.15), 0 2px 8px rgba(0,0,0,.08);
             --glass-bg: rgba(255,255,255,.75);
@@ -80,7 +96,10 @@
             --radius-xl: 28px;
             --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
             --gradient-dark: linear-gradient(135deg, #0f172a, #1e293b);
-            --gradient-hero: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            /* Transition scale */
+            --t-fast: 150ms cubic-bezier(.22,1,.36,1);
+            --t-base: 200ms cubic-bezier(.22,1,.36,1);
+            --t-slow: 300ms cubic-bezier(.22,1,.36,1);
         }
 
         /* LAYOUT CONTAINERS */
@@ -142,7 +161,7 @@
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
-            transition: all .2s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -160,16 +179,20 @@
             box-shadow: 0 4px 14px rgba(99,102,241,.35);
         }
 
+        .btn-primary:active { transform: translateY(0); box-shadow: 0 1px 4px rgba(99,102,241,.2); }
+
         .btn-secondary {
-            background: #fff;
+            background: var(--bg-card);
             color: var(--primary);
             border: 1.5px solid var(--border-gray);
         }
 
         .btn-secondary:hover {
-            background: #f0f2ff;
+            background: var(--surface-alt);
             border-color: var(--accent);
         }
+
+        .btn-secondary:active { background: var(--surface); transform: scale(.98); }
 
         .btn-ghost {
             background: rgba(255,255,255,.1);
@@ -183,6 +206,8 @@
         .btn-ghost:hover {
             background: rgba(255,255,255,.2);
         }
+
+        .btn-ghost:active { background: rgba(255,255,255,.3); transform: scale(.97); }
 
         .btn-small {
             padding: 8px 16px;
@@ -301,7 +326,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #94a3b8;
+            color: var(--text-subtle);
             margin-bottom: 16px;
             margin-top: 28px;
         }
@@ -318,12 +343,12 @@
         }
 
         .continue-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
             box-shadow: var(--card-shadow);
             border: 1.5px solid var(--border-gray);
-            transition: all .2s ease;
+            transition: box-shadow var(--t-base);
         }
 
         .continue-card:hover {
@@ -377,7 +402,7 @@
             padding: 22px;
             box-shadow: var(--card-shadow);
             border-left: 5px solid;
-            transition: all .25s cubic-bezier(.22,1,.36,1);
+            transition: transform var(--t-base), box-shadow var(--t-base);
             position: relative;
             overflow: hidden;
         }
@@ -399,17 +424,17 @@
 
         .category-card.major {
             border-left-color: var(--success);
-            background: linear-gradient(to bottom right, #f0fdf4, white);
+            background: linear-gradient(to bottom right, #f0fdf4, var(--bg-card));
         }
 
         .category-card.supporting {
             border-left-color: var(--accent);
-            background: linear-gradient(to bottom right, #eef2ff, white);
+            background: linear-gradient(to bottom right, var(--surface-alt), var(--bg-card));
         }
 
         .category-card.additional {
             border-left-color: var(--warning);
-            background: linear-gradient(to bottom right, #fffbeb, white);
+            background: linear-gradient(to bottom right, var(--warning-bg), var(--bg-card));
         }
 
         .category-standard {
@@ -482,7 +507,7 @@
             font-family: inherit;
             font-size: 13px;
             cursor: pointer;
-            background: white;
+            background: var(--bg-card);
         }
 
         /* QUESTION SCREEN */
@@ -516,7 +541,8 @@
         }
 
         .question-counter {
-            color: #b0b8c8;
+            color: var(--text-on-dark);
+            opacity: .75;
         }
 
         .progress-dots {
@@ -528,18 +554,18 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: #5a6070;
-            transition: all 0.2s ease;
+            background: var(--dot-default);
+            transition: all var(--t-fast);
         }
 
         .dot.current {
-            background: #0070c0;
+            background: var(--dot-current);
             width: 20px;
             border-radius: 4px;
         }
 
         .dot.answered {
-            background: #4ade80;
+            background: var(--dot-answered);
         }
 
         .question-content {
@@ -582,20 +608,26 @@
         .choice-btn {
             padding: 16px 20px;
             border: 2px solid var(--border-gray);
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             text-align: left;
             font-size: 16px;
             font-weight: 600;
+            line-height: 1.4;
             cursor: pointer;
-            transition: all .2s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
             font-family: inherit;
         }
 
         .choice-btn:hover {
             border-color: var(--accent);
-            background: #eef2ff;
+            background: var(--surface-alt);
             transform: translateX(4px);
+        }
+
+        .choice-btn:active:not(.selected):not(.correct):not(.incorrect) {
+            transform: translateX(2px) scale(.99);
+            border-color: var(--accent);
         }
 
         .choice-btn.selected {
@@ -614,7 +646,7 @@
 
         .choice-btn.incorrect {
             border-color: var(--danger);
-            background: #fef2f2;
+            background: var(--danger-bg);
         }
 
         .choice-label {
@@ -650,14 +682,14 @@
             font-size: 16px;
             font-weight: 600;
             color: var(--primary);
-            transition: all .2s ease;
+            transition: border-color var(--t-fast), box-shadow var(--t-fast);
         }
 
         .response-input input:focus,
         .response-input textarea:focus {
             outline: none;
             border-color: var(--accent);
-            background: #eef2ff;
+            background: var(--surface-alt);
             box-shadow: 0 0 0 3px rgba(99,102,241,.1);
         }
 
@@ -697,13 +729,13 @@
             cursor: pointer;
             color: var(--text-muted);
             border-bottom: 3px solid transparent;
-            transition: all 0.2s ease;
+            transition: color var(--t-fast), border-color var(--t-fast);
         }
 
         .workspace-tab.active {
             color: var(--accent);
             border-bottom-color: var(--accent);
-            background: #eef2ff;
+            background: var(--surface-alt);
         }
 
         .workspace-pane {
@@ -753,7 +785,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all .2s ease;
+            transition: background var(--t-fast), border-color var(--t-fast), color var(--t-fast);
         }
 
         .canvas-tool:hover {
@@ -775,7 +807,7 @@
             font-family: inherit;
             font-size: 15px;
             outline: none;
-            background: #fff;
+            background: var(--bg-card);
         }
 
         #typePane textarea:focus-visible {
@@ -789,7 +821,7 @@
             display: none;
             flex-direction: column;
             gap: 16px;
-            background: #fafafa;
+            background: var(--bg-feedback);
         }
 
         .feedback.show {
@@ -825,12 +857,12 @@
         }
 
         .feedback-explanation {
-            background: white;
+            background: var(--bg-card);
             padding: 16px;
             border-radius: var(--radius-md);
             font-size: 14px;
             line-height: 1.6;
-            color: #334155;
+            color: var(--text-body);
         }
 
         .step-list {
@@ -899,17 +931,17 @@
         }
 
         .results-status.pass {
-            background: #d1fae5;
+            background: var(--success-bg);
             color: var(--success);
         }
 
         .results-status.fail {
-            background: #fef2f2;
+            background: var(--danger-bg);
             color: var(--danger);
         }
 
         .results-breakdown {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             padding: 20px;
             box-shadow: var(--card-shadow);
@@ -969,7 +1001,7 @@
         .hint-box {
             margin: 16px 32px 0;
             padding: 16px;
-            background: #fffbeb;
+            background: var(--warning-bg);
             border: 2px solid var(--warning);
             border-radius: var(--radius-md);
             display: none;
@@ -1173,7 +1205,7 @@
         }
 
         .setup-card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: var(--radius-xl);
             padding: 40px;
             max-width: 460px;
@@ -1195,7 +1227,7 @@
 
         .setup-subtitle {
             font-size: 14px;
-            color: #64748b;
+            color: var(--text-muted);
             margin-bottom: 32px;
         }
 
@@ -1211,13 +1243,13 @@
             height: 64px;
             border-radius: 50%;
             border: 3px solid var(--border-gray);
-            background: #f8fafc;
+            background: var(--surface);
             font-size: 32px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all .25s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
             margin: 0 auto;
         }
 
@@ -1243,7 +1275,7 @@
             font-family: inherit;
             font-weight: 500;
             margin-bottom: 24px;
-            transition: all .2s ease;
+            transition: border-color var(--t-fast), box-shadow var(--t-fast);
         }
 
         .nickname-input:focus {
@@ -1268,7 +1300,7 @@
             font-weight: 700;
             font-family: inherit;
             cursor: pointer;
-            transition: all .25s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
             box-shadow: 0 4px 14px rgba(99,102,241,.3);
         }
 
@@ -1289,7 +1321,7 @@
             display: flex;
             align-items: center;
             gap: 16px;
-            background: white;
+            background: var(--bg-card);
             padding: 16px 24px;
             border-radius: var(--radius-md);
             margin-bottom: 24px;
@@ -1301,7 +1333,7 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            background: linear-gradient(135deg, var(--surface-alt), #e0e7ff);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1336,12 +1368,12 @@
             align-items: center;
             gap: 6px;
             padding: 6px 14px;
-            background: #fffbeb;
-            border: 2px solid #f59e0b;
+            background: var(--warning-bg);
+            border: 2px solid var(--warning);
             border-radius: var(--radius-lg);
             font-size: 12px;
             font-weight: 700;
-            color: #d97706;
+            color: var(--warning);
             flex-shrink: 0;
         }
 
@@ -1355,7 +1387,7 @@
         /* LEADERBOARD SECTION */
         .leaderboard-section {
             padding: 20px 24px;
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-md);
             margin-bottom: 24px;
             box-shadow: var(--card-shadow);
@@ -1364,7 +1396,7 @@
         .leaderboard-title {
             font-size: 11px;
             font-weight: 800;
-            color: #94a3b8;
+            color: var(--text-subtle);
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -1379,7 +1411,7 @@
             display: flex;
             align-items: center;
             padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid var(--border-gray);
             gap: 12px;
         }
 
@@ -1391,13 +1423,13 @@
             width: 32px;
             height: 32px;
             border-radius: 10px;
-            background: #f1f5f9;
+            background: var(--surface);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
             font-size: 12px;
-            color: #64748b;
+            color: var(--text-muted);
             flex-shrink: 0;
         }
 
@@ -1420,7 +1452,7 @@
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            background: linear-gradient(135deg, var(--surface), var(--border-gray));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1448,8 +1480,8 @@
             font-weight: 700;
             padding: 3px 10px;
             border-radius: var(--radius-sm);
-            background: #f1f5f9;
-            color: #64748b;
+            background: var(--surface);
+            color: var(--text-muted);
         }
 
         .leaderboard-row.current {
@@ -1503,7 +1535,7 @@
         @keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
 
         .anchor-card {
-            background: #fff;
+            background: var(--bg-card);
             border-radius: var(--radius-xl);
             max-width: 520px;
             width: 100%;
@@ -1568,17 +1600,17 @@
             width: 36px;
             height: 36px;
             border: none;
-            background: #f1f5f9;
+            background: var(--surface);
             border-radius: 50%;
             font-size: 18px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all .15s ease;
+            transition: background var(--t-fast);
         }
 
-        .anchor-close:hover { background: #e2e8f0; transform: scale(1.05); }
+        .anchor-close:hover { background: var(--border-gray); transform: scale(1.05); }
 
         .anchor-card-body {
             padding: 24px 28px 28px;
@@ -1596,12 +1628,12 @@
             border-radius: var(--radius-lg);
             font-size: 12px;
             font-weight: 700;
-            background: #f1f5f9;
-            color: #334155;
+            background: var(--surface);
+            color: var(--text-body);
         }
 
         .anchor-visual {
-            background: #f8fafc;
+            background: var(--surface);
             border-radius: var(--radius-md);
             padding: 20px;
             margin-bottom: 20px;
@@ -1617,8 +1649,8 @@
         }
 
         .anchor-example {
-            background: #fffbeb;
-            border-left: 4px solid #f59e0b;
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning);
             border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
             padding: 14px 16px;
             margin-bottom: 16px;
@@ -1629,19 +1661,19 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: .8px;
-            color: #d97706;
+            color: var(--warning);
             margin-bottom: 6px;
         }
 
         .anchor-example-text {
             font-size: 15px;
             font-weight: 600;
-            color: #1a1a2e;
+            color: var(--primary);
             line-height: 1.5;
         }
 
         .anchor-remember {
-            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            background: linear-gradient(135deg, var(--surface-alt), #e0e7ff);
             border-radius: var(--radius-md);
             padding: 14px 16px;
             display: flex;
@@ -1658,14 +1690,14 @@
         .anchor-remember-text {
             font-size: 14px;
             font-weight: 600;
-            color: #1e40af;
+            color: var(--accent);
             line-height: 1.4;
         }
 
         /* ============ GAME SCREEN ============ */
         .sc-game {
             flex-direction: column;
-            background: #f1f5f9;
+            background: var(--bg);
         }
 
         .game-header {
@@ -1702,11 +1734,11 @@
             height: 12px;
             border-radius: 50%;
             background: rgba(255,255,255,.25);
-            transition: all .3s ease;
+            transition: background var(--t-base);
         }
 
-        .game-score-dot.correct { background: #4ade80; box-shadow: 0 0 8px rgba(74,222,128,.5); }
-        .game-score-dot.wrong { background: #f87171; }
+        .game-score-dot.correct { background: var(--dot-answered); box-shadow: 0 0 8px rgba(74,222,128,.5); }
+        .game-score-dot.wrong { background: var(--danger); }
 
         .game-area {
             flex: 1;
@@ -1736,7 +1768,7 @@
         }
 
         .game-canvas {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-lg);
             box-shadow: var(--card-shadow);
             padding: 24px;
@@ -1759,7 +1791,7 @@
             font-size: 15px;
             font-weight: 700;
             cursor: pointer;
-            transition: all .25s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
         }
 
         .game-btn-primary {
@@ -1769,14 +1801,16 @@
         }
 
         .game-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99,102,241,.4); }
+        .game-btn-primary:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(99,102,241,.3); }
 
         .game-btn-secondary {
-            background: white;
+            background: var(--bg-card);
             color: var(--primary);
             border: 2px solid var(--border-gray);
         }
 
-        .game-btn-secondary:hover { border-color: var(--accent); background: #eef2ff; }
+        .game-btn-secondary:hover { border-color: var(--accent); background: var(--surface-alt); }
+        .game-btn-secondary:active { background: var(--surface); transform: scale(.98); }
 
         /* GAME: Array Builder grid */
         .array-grid {
@@ -1789,10 +1823,10 @@
             width: 36px;
             height: 36px;
             border-radius: var(--radius-sm);
-            border: 2px dashed #cbd5e1;
-            background: #f8fafc;
+            border: 2px dashed var(--border-gray);
+            background: var(--surface);
             cursor: pointer;
-            transition: all .15s ease;
+            transition: background var(--t-fast), border-color var(--t-fast);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1805,7 +1839,7 @@
             border-style: solid;
         }
 
-        .array-cell:hover:not(.filled) { border-color: var(--accent); background: #eef2ff; }
+        .array-cell:hover:not(.filled) { border-color: var(--accent); background: var(--surface-alt); }
 
         /* GAME: Factor Finder cards */
         .factor-grid {
@@ -1820,19 +1854,19 @@
             padding: 16px;
             border-radius: var(--radius-md);
             border: 2px solid var(--border-gray);
-            background: white;
+            background: var(--bg-card);
             text-align: center;
             font-size: 18px;
             font-weight: 700;
             cursor: pointer;
-            transition: all .2s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-base);
             user-select: none;
         }
 
         .factor-card:hover { border-color: var(--accent); transform: scale(1.05); }
-        .factor-card.selected { border-color: var(--accent); background: #eef2ff; }
-        .factor-card.correct-flash { border-color: var(--success); background: #d1fae5; }
-        .factor-card.wrong-flash { border-color: var(--danger); background: #fef2f2; }
+        .factor-card.selected { border-color: var(--accent); background: var(--surface-alt); }
+        .factor-card.correct-flash { border-color: var(--success); background: var(--success-bg); }
+        .factor-card.wrong-flash { border-color: var(--danger); background: var(--danger-bg); }
 
         /* GAME: Pattern Hop number line */
         .hop-line {
@@ -1848,7 +1882,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: #d1d5db;
+            background: var(--border-gray);
             border-radius: 2px;
         }
 
@@ -1859,19 +1893,19 @@
             width: 28px;
             height: 28px;
             border-radius: 50%;
-            background: white;
-            border: 2px solid #d1d5db;
+            background: var(--bg-card);
+            border: 2px solid var(--border-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 11px;
             font-weight: 700;
             cursor: pointer;
-            transition: all .2s ease;
+            transition: background var(--t-fast), border-color var(--t-fast);
             z-index: 1;
         }
 
-        .hop-tick:hover { border-color: var(--accent); background: #eef2ff; }
+        .hop-tick:hover { border-color: var(--accent); background: var(--surface-alt); }
         .hop-tick.active { background: var(--accent); color: white; border-color: var(--accent); }
         .hop-tick.frog { background: #4ade80; border-color: #16a34a; }
 
@@ -1886,15 +1920,15 @@
         .pizza-svg { cursor: pointer; }
 
         .pizza-slice {
-            fill: #f3f4f6;
-            stroke: #9ca3af;
+            fill: var(--surface);
+            stroke: var(--text-subtle);
             stroke-width: 2;
             cursor: pointer;
-            transition: fill .15s ease;
+            transition: fill var(--t-fast);
         }
 
-        .pizza-slice:hover { fill: #e5e7eb; }
-        .pizza-slice.filled { fill: #f59e0b; stroke: #d97706; }
+        .pizza-slice:hover { fill: var(--border-gray); }
+        .pizza-slice.filled { fill: var(--warning); stroke: #d97706; }
 
         /* GAME: Fraction Match cards */
         .match-grid {
@@ -1917,18 +1951,18 @@
             font-weight: 800;
             color: white;
             cursor: pointer;
-            transition: all .3s cubic-bezier(.22,1,.36,1);
+            transition: all var(--t-slow);
             user-select: none;
         }
 
         .match-card.flipped {
-            background: white;
+            background: var(--bg-card);
             color: var(--primary);
             border-color: var(--accent);
         }
 
         .match-card.matched {
-            background: #d1fae5;
+            background: var(--success-bg);
             border-color: var(--success);
             color: var(--success);
         }
@@ -1949,7 +1983,7 @@
             left: 5%;
             right: 5%;
             height: 6px;
-            background: #d1d5db;
+            background: var(--border-gray);
             border-radius: 3px;
             transform: translateY(-50%);
         }
@@ -1963,13 +1997,13 @@
             align-items: center;
             font-size: 13px;
             font-weight: 700;
-            color: #374151;
+            color: var(--text-body);
         }
 
         .roller-mark-line {
             width: 2px;
             height: 16px;
-            background: #9ca3af;
+            background: var(--text-subtle);
             margin-bottom: 4px;
         }
 
@@ -2003,13 +2037,13 @@
         /* GAME: Clock Challenge */
         .clock-svg { user-select: none; }
 
-        .clock-face { fill: white; stroke: #374151; stroke-width: 3; }
-        .clock-tick { stroke: #9ca3af; stroke-width: 1.5; }
-        .clock-tick-major { stroke: #374151; stroke-width: 2.5; }
-        .clock-number { font-size: 14px; font-weight: 700; fill: #374151; text-anchor: middle; dominant-baseline: central; }
-        .clock-hand-hour { stroke: #374151; stroke-width: 4; stroke-linecap: round; }
+        .clock-face { fill: var(--bg-card); stroke: var(--primary); stroke-width: 3; }
+        .clock-tick { stroke: var(--text-subtle); stroke-width: 1.5; }
+        .clock-tick-major { stroke: var(--primary); stroke-width: 2.5; }
+        .clock-number { font-size: 14px; font-weight: 700; fill: var(--primary); text-anchor: middle; dominant-baseline: central; }
+        .clock-hand-hour { stroke: var(--primary); stroke-width: 4; stroke-linecap: round; }
         .clock-hand-minute { stroke: var(--accent); stroke-width: 3; stroke-linecap: round; }
-        .clock-center { fill: #374151; }
+        .clock-center { fill: var(--primary); }
 
         .clock-controls {
             display: flex;
@@ -2023,17 +2057,17 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            border: 2px solid #e5e7eb;
-            background: white;
+            border: 2px solid var(--border-gray);
+            background: var(--bg-card);
             font-size: 20px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all .15s;
+            transition: background var(--t-fast), border-color var(--t-fast);
         }
 
-        .clock-adj-btn:hover { border-color: var(--accent); background: #eef2ff; }
+        .clock-adj-btn:hover { border-color: var(--accent); background: var(--surface-alt); }
 
         .clock-display {
             font-size: 28px;
@@ -2053,14 +2087,14 @@
         .area-cell {
             width: 32px;
             height: 32px;
-            border: 1.5px solid #d1d5db;
-            background: white;
+            border: 1.5px solid var(--border-gray);
+            background: var(--bg-card);
             cursor: pointer;
-            transition: all .15s ease;
+            transition: background var(--t-fast), border-color var(--t-fast);
         }
 
         .area-cell.filled { background: var(--accent-light); border-color: var(--accent); }
-        .area-cell:hover:not(.filled) { background: #eef2ff; }
+        .area-cell:hover:not(.filled) { background: var(--surface-alt); }
 
         .area-counter {
             font-size: 20px;
@@ -2099,7 +2133,7 @@
         }
 
         .game-results-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: var(--radius-xl);
             padding: 36px;
             max-width: 400px;
@@ -2123,7 +2157,7 @@
         .game-results-star {
             font-size: 36px;
             opacity: .2;
-            transition: all .3s ease;
+            transition: opacity var(--t-slow);
         }
 
         .game-results-star.earned { opacity: 1; animation: starPop .5s ease; }
