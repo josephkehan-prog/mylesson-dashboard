@@ -2760,13 +2760,9 @@
             '3.NF.3': [gen_3_NF_3],
             '3.MD.1': [gen_3_MD_1],
             '3.MD.2': [gen_3_MD_2],
-            '3.MD.3': [gen_3_MD_3],
-            '3.MD.4': [gen_3_MD_4],
             '3.MD.5': [gen_3_MD_5],
             '3.MD.6': [gen_3_MD_6],
             '3.MD.7': [gen_3_MD_7],
-            '3.MD.8': [gen_3_MD_8],
-            '3.G.1': [gen_3_G_1],
             '3.G.2': [gen_3_G_2]
         };
 
@@ -2782,7 +2778,7 @@
             '3.MD.B': TOPIC_GENERATORS['3.MD.1'],
             '3.MD.C': TOPIC_GENERATORS['3.MD.5'],
             '3.MD.D': TOPIC_GENERATORS['3.MD.5'],
-            '3.G.A': TOPIC_GENERATORS['3.G.1'],
+            '3.G.A': TOPIC_GENERATORS['3.G.2'],
             // New keys
             '3.OA.1': TOPIC_GENERATORS['3.OA.1'],
             '3.OA.2': TOPIC_GENERATORS['3.OA.2'],
@@ -3101,22 +3097,6 @@
                 svg: `<svg viewBox="0 0 300 120"><rect x="40" y="20" width="50" height="80" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><text x="65" y="60" text-anchor="middle" font-size="20" font-weight="800" fill="#3b82f6">L</text><text x="65" y="115" text-anchor="middle" font-size="12" fill="#374151">Liter</text><rect x="130" y="40" width="40" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><text x="150" y="65" text-anchor="middle" font-size="16" font-weight="800" fill="#f59e0b">g</text><text x="150" y="115" text-anchor="middle" font-size="12" fill="#374151">Gram</text><rect x="210" y="25" width="60" height="60" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="240" y="62" text-anchor="middle" font-size="16" font-weight="800" fill="#16a34a">kg</text><text x="240" y="115" text-anchor="middle" font-size="12" fill="#374151">Kilogram</text></svg>`,
                 example: 'A water bottle holds about 1 liter. A paperclip weighs about 1 gram. A textbook weighs about 1 kilogram.',
                 remember: 'Liters measure LIQUID. Grams and kilograms measure how HEAVY things are!'
-            },
-            '3.MD.3': {
-                title: 'Picture & Bar Graphs',
-                domain: 'md', icon: '📊',
-                vocab: ['bar graph', 'picture graph', 'scale', 'key', 'data'],
-                svg: `<svg viewBox="0 0 300 120"><line x1="50" y1="100" x2="280" y2="100" stroke="#374151" stroke-width="2"/><line x1="50" y1="100" x2="50" y2="10" stroke="#374151" stroke-width="2"/><rect x="70" y="30" width="40" height="70" fill="#3b82f6" rx="3"/><rect x="130" y="50" width="40" height="50" fill="#f59e0b" rx="3"/><rect x="190" y="60" width="40" height="40" fill="#16a34a" rx="3"/><text x="90" y="115" text-anchor="middle" font-size="11">Red</text><text x="150" y="115" text-anchor="middle" font-size="11">Blue</text><text x="210" y="115" text-anchor="middle" font-size="11">Green</text><text x="45" y="105" text-anchor="end" font-size="10">0</text><text x="45" y="75" text-anchor="end" font-size="10">5</text><text x="45" y="45" text-anchor="end" font-size="10">10</text><text x="45" y="15" text-anchor="end" font-size="10">15</text></svg>`,
-                example: 'A bar graph shows that 7 students picked red, 5 picked blue, and 4 picked green as their favorite color.',
-                remember: 'Read the SCALE carefully! Each box or symbol might stand for more than 1.'
-            },
-            '3.MD.4': {
-                title: 'Line Plots',
-                domain: 'md', icon: '📈',
-                vocab: ['line plot', 'data point', 'measurement', 'half inch', 'quarter inch'],
-                svg: `<svg viewBox="0 0 300 100"><line x1="30" y1="70" x2="270" y2="70" stroke="#374151" stroke-width="2"/><text x="70" y="88" text-anchor="middle" font-size="11">2"</text><text x="130" y="88" text-anchor="middle" font-size="11">2½"</text><text x="190" y="88" text-anchor="middle" font-size="11">3"</text><text x="250" y="88" text-anchor="middle" font-size="11">3½"</text><text x="70" y="65" text-anchor="middle" font-size="16">×</text><text x="70" y="50" text-anchor="middle" font-size="16">×</text><text x="130" y="65" text-anchor="middle" font-size="16">×</text><text x="130" y="50" text-anchor="middle" font-size="16">×</text><text x="130" y="35" text-anchor="middle" font-size="16">×</text><text x="190" y="65" text-anchor="middle" font-size="16">×</text><text x="150" y="15" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">Pencil Lengths</text></svg>`,
-                example: 'Measure 5 pencils to the nearest ½ inch. Put an X above each measurement on the line plot.',
-                remember: 'Each X represents ONE piece of data. Stack them up!'
             },
             '3.MD.6': {
                 title: 'Measure Area by Counting',
@@ -4088,102 +4068,6 @@
                 }
             },
 
-            // --- 3.MD.3: Graph Builder (scaled bar/picture graphs) ---
-            '3.MD.3': {
-                name: 'Graph Builder',
-                icon: '📊',
-                rounds: 5,
-                init(round) {
-                    const scale = pick([2,5,10]);
-                    const categories = pick([['🍎','🍌','🍇'],['🐱','🐶','🐹'],['⚽','🏀','🏈']]);
-                    const values = categories.map(() => rnd(1,5) * scale);
-                    const askIdx = rnd(0, categories.length - 1);
-                    const question = `The bar graph uses a scale of ${scale}. How many for ${categories[askIdx]}?`;
-                    const answer = values[askIdx];
-                    const wrong = [answer+scale, answer-scale, answer+scale*2].map(n => Math.max(0,n));
-                    return { question, answer, categories, values, scale, askIdx, options: shuffleArray([answer,...wrong].slice(0,4)) };
-                },
-                render(state, area) {
-                    const maxVal = Math.max(...state.values);
-                    const bars = state.categories.map((cat, i) => {
-                        const pct = maxVal > 0 ? (state.values[i] / (maxVal + state.scale)) * 100 : 0;
-                        const highlight = i === state.askIdx ? 'background:#fbbf24;' : 'background:#667eea;';
-                        return `<div style="text-align:center;flex:1;">
-                            <div style="height:120px;display:flex;align-items:flex-end;justify-content:center;">
-                                <div style="width:36px;height:${pct}%;${highlight}border-radius:6px 6px 0 0;"></div>
-                            </div>
-                            <div style="font-size:22px;margin-top:4px;">${cat}</div>
-                        </div>`;
-                    }).join('');
-                    area.innerHTML = `
-                        <div class="game-prompt" style="font-size:15px;">${state.question}</div>
-                        <div class="game-canvas">
-                            <div style="display:flex;gap:8px;justify-content:center;align-items:flex-end;margin:0 auto;max-width:300px;">
-                                ${bars}
-                            </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-                                ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:18px;" onclick="GAMES['3.MD.3'].pick(${n}, this)">${n}</button>`
-                                ).join('')}
-                            </div>
-                        </div>`;
-                    this._state = state; this._answered = false;
-                },
-                pick(n, el) {
-                    if (this._answered) return;
-                    this._answered = true;
-                    const correct = n === this._state.answer;
-                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `The answer is ${this._state.answer} (scale of ${this._state.scale})`), 700);
-                }
-            },
-
-            // --- 3.MD.4: Plot It (line plots with measurement data) ---
-            '3.MD.4': {
-                name: 'Plot It',
-                icon: '📈',
-                rounds: 5,
-                init(round) {
-                    const vals = [1,2,3,4,5];
-                    const counts = vals.map(() => rnd(0,4));
-                    const askVal = pick(vals);
-                    const answer = counts[askVal - 1];
-                    const wrong = [answer+1, answer+2, Math.max(0,answer-1)];
-                    return { vals, counts, askVal, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
-                },
-                render(state, area) {
-                    const plot = state.vals.map((v,i) => {
-                        const xs = '✕'.repeat(state.counts[i]);
-                        const highlight = v === state.askVal ? 'color:#dc2626;font-weight:700;' : '';
-                        return `<div style="text-align:center;flex:1;">
-                            <div style="min-height:60px;font-size:16px;${highlight}">${xs || '—'}</div>
-                            <div style="border-top:2px solid #333;padding-top:4px;font-weight:600;">${v} in.</div>
-                        </div>`;
-                    }).join('');
-                    area.innerHTML = `
-                        <div class="game-prompt">How many items measure <b>${state.askVal} inches</b>?</div>
-                        <div class="game-prompt-sub">Read the line plot!</div>
-                        <div class="game-canvas">
-                            <div style="display:flex;gap:4px;justify-content:center;max-width:350px;margin:0 auto;">
-                                ${plot}
-                            </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:18px;">
-                                ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:18px;" onclick="GAMES['3.MD.4'].pick(${n}, this)">${n}</button>`
-                                ).join('')}
-                            </div>
-                        </div>`;
-                    this._state = state; this._answered = false;
-                },
-                pick(n, el) {
-                    if (this._answered) return;
-                    this._answered = true;
-                    const correct = n === this._state.answer;
-                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.answer} items measure ${this._state.askVal} inches`), 700);
-                }
-            },
-
             // --- 3.MD.6: Square Counter (count unit squares) ---
             '3.MD.6': {
                 name: 'Square Counter',
@@ -4257,89 +4141,6 @@
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
                     setTimeout(() => gameEngine.handleAnswer(correct, `Area = ${this._state.l} × ${this._state.w} = ${this._state.answer} sq units`), 700);
-                }
-            },
-
-            // --- 3.MD.8: Fence Builder (perimeter) ---
-            '3.MD.8': {
-                name: 'Fence Builder',
-                icon: '🏡',
-                rounds: 5,
-                init(round) {
-                    const l = rnd(3,12), w = rnd(2,10);
-                    const answer = 2*(l+w);
-                    const wrong = [l*w, l+w, answer+rnd(2,6)].map(n => Math.max(1,n));
-                    return { l, w, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
-                },
-                render(state, area) {
-                    area.innerHTML = `
-                        <div class="game-prompt">Find the perimeter of this rectangle</div>
-                        <div class="game-prompt-sub">Length = ${state.l}, Width = ${state.w}</div>
-                        <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-block;width:${Math.min(state.l*24,220)}px;height:${Math.min(state.w*24,160)}px;border:4px dashed #16a34a;border-radius:6px;position:relative;background:#f0fdf4;">
-                                <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-weight:700;color:#16a34a;">${state.l}</span>
-                                <span style="position:absolute;right:-36px;top:50%;transform:translateY(-50%);font-weight:700;color:#16a34a;">${state.w}</span>
-                            </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
-                                ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:18px;" onclick="GAMES['3.MD.8'].pick(${n}, this)">${n} units</button>`
-                                ).join('')}
-                            </div>
-                        </div>`;
-                    this._state = state; this._answered = false;
-                },
-                pick(n, el) {
-                    if (this._answered) return;
-                    this._answered = true;
-                    const correct = n === this._state.answer;
-                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `Perimeter = 2 × (${this._state.l} + ${this._state.w}) = ${this._state.answer} units`), 700);
-                }
-            },
-
-            // --- 3.G.1: Shape Sorter ---
-            '3.G.1': {
-                name: 'Shape Sorter',
-                icon: '🔷',
-                rounds: 5,
-                init(round) {
-                    const shapes = [
-                        { name: 'Square', sides: 4, angles: '4 right', category: 'quadrilateral' },
-                        { name: 'Rectangle', sides: 4, angles: '4 right', category: 'quadrilateral' },
-                        { name: 'Rhombus', sides: 4, angles: '4 equal sides', category: 'quadrilateral' },
-                        { name: 'Triangle', sides: 3, angles: '3 angles', category: 'triangle' },
-                        { name: 'Pentagon', sides: 5, angles: '5 angles', category: 'polygon' },
-                        { name: 'Hexagon', sides: 6, angles: '6 angles', category: 'polygon' }
-                    ];
-                    const shape = pick(shapes);
-                    const question = pick([
-                        { q: `How many sides does a ${shape.name} have?`, a: shape.sides, wrong: [shape.sides+1, shape.sides-1, shape.sides+2] },
-                        { q: `A ${shape.name} is a type of...`, a: shape.category, wrong: ['circle','line','point'].filter(w => w !== shape.category) }
-                    ]);
-                    if (typeof question.a === 'number') {
-                        return { question: question.q, answer: question.a, options: shuffleArray([question.a,...question.wrong.map(n => Math.max(1,n))].slice(0,4)), isNum: true };
-                    }
-                    return { question: question.q, answer: question.a, options: shuffleArray([question.a,...question.wrong].slice(0,4)), isNum: false };
-                },
-                render(state, area) {
-                    area.innerHTML = `
-                        <div class="game-prompt">${state.question}</div>
-                        <div class="game-prompt-sub">Pick the correct answer!</div>
-                        <div class="game-canvas">
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                                ${state.options.map((o,i) =>
-                                    `<button class="factor-card" style="padding:14px 22px;font-size:18px;" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
-                                ).join('')}
-                            </div>
-                        </div>`;
-                    this._state = state; this._answered = false;
-                },
-                pick(i, el) {
-                    if (this._answered) return;
-                    this._answered = true;
-                    const correct = this._state.options[i] === this._state.answer || this._state.options[i] == this._state.answer;
-                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `Answer: ${this._state.answer}`), 700);
                 }
             },
 
@@ -4602,13 +4403,9 @@
                 { code: '3.NF.3', name: 'Equivalent Fractions', cluster: 'major' },
                 { code: '3.MD.1', name: 'Time & Elapsed Time', cluster: 'additional' },
                 { code: '3.MD.2', name: 'Liquid Volume & Mass', cluster: 'additional' },
-                { code: '3.MD.3', name: 'Scaled Graphs', cluster: 'additional' },
-                { code: '3.MD.4', name: 'Line Plots', cluster: 'additional' },
                 { code: '3.MD.5', name: 'Area (Unit Squares)', cluster: 'major' },
                 { code: '3.MD.6', name: 'Measure Area by Counting', cluster: 'major' },
                 { code: '3.MD.7', name: 'Area & Multiplication', cluster: 'major' },
-                { code: '3.MD.8', name: 'Perimeter', cluster: 'major' },
-                { code: '3.G.1', name: 'Shape Attributes', cluster: 'additional' },
                 { code: '3.G.2', name: 'Partition into Equal Areas', cluster: 'additional' }
             ],
             drawingState: {
