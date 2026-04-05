@@ -16,14 +16,14 @@ async function setupProfile(page) {
   await expect(page.locator('#scDashboard')).toHaveClass(/active/);
 }
 
-test.describe('Expanded Standards — 25 Individual Cards', () => {
+test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)', () => {
   test.beforeEach(async ({ page }) => {
     await setupProfile(page);
   });
 
-  test('dashboard shows exactly 25 standard cards', async ({ page }) => {
+  test('dashboard shows exactly 21 standard cards (post-test excluded)', async ({ page }) => {
     const cards = page.locator('.category-card');
-    await expect(cards).toHaveCount(25);
+    await expect(cards).toHaveCount(21);
   });
 
   test('all OA standards (3.OA.1 through 3.OA.9) have their own card', async ({ page }) => {
@@ -50,26 +50,31 @@ test.describe('Expanded Standards — 25 Individual Cards', () => {
     }
   });
 
-  test('all MD standards (3.MD.1 through 3.MD.8) have their own card', async ({ page }) => {
+  test('tested MD standards (3.MD.1,2,5,6,7) have their own card; post-test excluded', async ({ page }) => {
     const allText = await page.locator('.category-card').allTextContents();
-    for (let i = 1; i <= 8; i++) {
+    for (const i of [1, 2, 5, 6, 7]) {
       const found = allText.some(t => t.includes(`3.MD.${i}`));
       expect(found, `3.MD.${i} card should exist`).toBe(true);
     }
+    // Post-test standards should NOT be on the dashboard
+    for (const i of [3, 4, 8]) {
+      const found = allText.some(t => t.includes(`3.MD.${i}`));
+      expect(found, `3.MD.${i} should NOT exist (post-test)`).toBe(false);
+    }
   });
 
-  test('geometry standards (3.G.1 and 3.G.2) have their own card', async ({ page }) => {
+  test('3.G.2 has its own card; 3.G.1 excluded (post-test)', async ({ page }) => {
     const allText = await page.locator('.category-card').allTextContents();
-    expect(allText.some(t => t.includes('3.G.1')), '3.G.1 card').toBe(true);
+    expect(allText.some(t => t.includes('3.G.1')), '3.G.1 should NOT exist (post-test)').toBe(false);
     expect(allText.some(t => t.includes('3.G.2')), '3.G.2 card').toBe(true);
   });
 
   test('every card has Chart, Practice, and Game buttons', async ({ page }) => {
     const cards = page.locator('.category-card');
     const count = await cards.count();
-    expect(count).toBe(25);
+    expect(count).toBe(21);
     // Spot-check first and last card
-    for (const idx of [0, 24]) {
+    for (const idx of [0, 20]) {
       const card = cards.nth(idx);
       await expect(card.locator('button:has-text("Chart")')).toBeVisible();
       await expect(card.locator('button:has-text("Practice")')).toBeVisible();
@@ -109,7 +114,7 @@ test.describe('XP System Removed', () => {
     } else {
       await page.locator('#crInput').fill('1');
     }
-    await page.locator('#submitBtn').click();
+    await page.locator('button:has-text("Submit")').click();
 
     // XP popup should never appear
     await expect(page.locator('.xp-popup')).toHaveCount(0);
@@ -174,7 +179,7 @@ test.describe('Anchor Charts for All Standards', () => {
   test('every standard card Chart button opens an anchor chart', async ({ page }) => {
     const cards = page.locator('.category-card');
     const count = await cards.count();
-    // Test first 3 and last 2 cards to keep test fast
+    // Test first 3 and last 2 cards to keep test fast (21 cards total)
     for (const idx of [0, 1, 2, count - 2, count - 1]) {
       await cards.nth(idx).locator('button:has-text("Chart")').click();
       await expect(page.locator('#anchorOverlay')).toBeVisible();
@@ -184,16 +189,16 @@ test.describe('Anchor Charts for All Standards', () => {
     }
   });
 
-  test('geometry 3.G.1 has an anchor chart', async ({ page }) => {
+  test('geometry 3.G.2 has an anchor chart', async ({ page }) => {
     const cards = page.locator('.category-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
       const text = await cards.nth(i).textContent();
-      if (text.includes('3.G.1')) {
+      if (text.includes('3.G.2')) {
         await cards.nth(i).locator('button:has-text("Chart")').click();
         await expect(page.locator('.anchor-card')).toBeVisible();
         const chartText = await page.locator('.anchor-card').textContent();
-        expect(chartText).toMatch(/[Ss]hape|[Aa]ttribute|[Gg]eometry/);
+        expect(chartText).toMatch(/[Pp]artition|[Ee]qual|[Ff]raction|[Ss]hare/);
         break;
       }
     }
@@ -211,16 +216,14 @@ test.describe('Games for All Standards', () => {
     await expect(page.locator('#gameTitle')).toBeVisible();
   });
 
-  test('geometry 3.G.1 Game button opens Shape Sorter', async ({ page }) => {
+  test('geometry 3.G.2 Game button opens Fair Shares', async ({ page }) => {
     const cards = page.locator('.category-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
       const text = await cards.nth(i).textContent();
-      if (text.includes('3.G.1')) {
+      if (text.includes('3.G.2')) {
         await cards.nth(i).locator('button:has-text("Game")').click();
         await expect(page.locator('#scGame')).toHaveClass(/active/);
-        const title = await page.locator('#gameTitle').textContent();
-        expect(title).toMatch(/[Ss]hape|[Ss]ort/);
         break;
       }
     }
