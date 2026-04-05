@@ -24,6 +24,29 @@
             box-sizing: border-box;
         }
 
+        /* Global focus-visible ring — applies to all interactive elements */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content link for keyboard users */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 8px;
+            z-index: 9999;
+            padding: 8px 16px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            left: 8px;
+        }
+
         html, body {
             font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
             background: #f1f5f9;
@@ -43,6 +66,10 @@
             --danger: #ef4444;
             --light-gray: #f8fafc;
             --border-gray: #e2e8f0;
+            /* Text scale tokens — replaces hard-coded #666, #999, #555 */
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-secondary: #475569;
             --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
             --card-shadow-hover: 0 8px 30px rgba(99,102,241,.15), 0 2px 8px rgba(0,0,0,.08);
             --glass-bg: rgba(255,255,255,.75);
@@ -163,8 +190,8 @@
         }
 
         .btn-icon {
-            width: 36px;
-            height: 34px;
+            min-width: 44px;
+            min-height: 44px;
             padding: 0;
             display: flex;
             align-items: center;
@@ -183,58 +210,90 @@
             padding: 32px 24px;
         }
 
+        /* Hero: editorial left-heavy layout — feels like a game HUD, not a SaaS dashboard */
         .hero-section {
-            background: var(--gradient-hero);
+            background: var(--gradient-dark);
             color: white;
-            padding: 36px;
+            padding: 28px 32px;
             border-radius: var(--radius-lg);
-            margin-bottom: 32px;
-            box-shadow: 0 8px 32px rgba(99,102,241,.2);
+            margin-bottom: 28px;
+            box-shadow: 0 8px 32px rgba(0,0,0,.2);
             position: relative;
             overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 24px;
         }
 
+        /* Accent stripe instead of blob */
         .hero-section::before {
             content: '';
             position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255,255,255,.15) 0%, transparent 70%);
-            border-radius: 50%;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent), #a855f7);
+        }
+
+        .hero-left { min-width: 0; }
+
+        .hero-eyebrow {
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-light);
+            margin-bottom: 6px;
         }
 
         .hero-title {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 16px;
-            position: relative;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -.5px;
+            line-height: 1.15;
+            margin-bottom: 0;
+            color: #fff;
+        }
+
+        .hero-subtitle {
+            font-size: 13px;
+            color: rgba(255,255,255,.6);
+            margin-top: 6px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 32px;
-            font-size: 16px;
-            margin-top: 20px;
-            position: relative;
+            gap: 4px;
+            margin-top: 0;
         }
 
         .hero-stat {
             display: flex;
             flex-direction: column;
-        }
-
-        .hero-stat-label {
-            font-size: 13px;
-            opacity: 0.85;
-            margin-bottom: 4px;
+            align-items: center;
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: var(--radius-md);
+            padding: 12px 16px;
+            min-width: 80px;
         }
 
         .hero-stat-value {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 900;
             letter-spacing: -.5px;
+            color: #fff;
+        }
+
+        .hero-stat-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: rgba(255,255,255,.5);
+            margin-top: 2px;
         }
 
         .section-title {
@@ -296,7 +355,7 @@
 
         .progress-text {
             font-size: 13px;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 12px;
         }
 
@@ -371,7 +430,7 @@
 
         .category-description {
             font-size: 13px;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 12px;
             line-height: 1.4;
         }
@@ -385,7 +444,7 @@
 
         .category-count {
             font-size: 12px;
-            color: #999;
+            color: var(--text-subtle);
         }
 
         .category-progress {
@@ -602,6 +661,12 @@
             box-shadow: 0 0 0 3px rgba(99,102,241,.1);
         }
 
+        .response-input input:focus-visible,
+        .response-input textarea:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         .response-input textarea {
             min-height: 100px;
             resize: vertical;
@@ -630,7 +695,7 @@
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            color: #666;
+            color: var(--text-muted);
             border-bottom: 3px solid transparent;
             transition: all 0.2s ease;
         }
@@ -677,8 +742,8 @@
         }
 
         .canvas-tool {
-            width: 40px;
-            height: 40px;
+            min-width: 44px;
+            min-height: 44px;
             padding: 0;
             border: 2px solid var(--border-gray);
             background: white;
@@ -707,10 +772,15 @@
             padding: 16px;
             border: none;
             resize: none;
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
+            font-family: inherit;
+            font-size: 15px;
             outline: none;
             background: #fff;
+        }
+
+        #typePane textarea:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
         }
 
         /* FEEDBACK */
@@ -772,7 +842,7 @@
             padding: 8px 0;
             padding-left: 24px;
             position: relative;
-            color: #555;
+            color: var(--text-secondary);
         }
 
         .step-list li:before {
@@ -816,7 +886,7 @@
 
         .results-percentage {
             font-size: 24px;
-            color: #666;
+            color: var(--text-muted);
             margin-bottom: 16px;
         }
 
@@ -886,7 +956,7 @@
 
         .result-standard {
             font-size: 12px;
-            color: #999;
+            color: var(--text-subtle);
         }
 
         .results-actions {
@@ -916,7 +986,7 @@
 
         .hint-text {
             font-size: 14px;
-            color: #333;
+            color: var(--text-secondary);
             line-height: 1.5;
         }
 
@@ -941,8 +1011,12 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 24px;
+            .hero-section {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                justify-content: flex-start;
             }
 
             .categories-grid {
@@ -977,6 +1051,61 @@
             }
         }
 
+        /* Small phone breakpoint — 480px */
+        @media (max-width: 480px) {
+            .dashboard-content {
+                padding: 20px 16px;
+            }
+
+            .hero-section {
+                padding: 24px 20px;
+            }
+
+            .hero-title {
+                font-size: 20px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+
+            .hero-stat-value {
+                font-size: 22px;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .category-card {
+                padding: 16px;
+            }
+
+            .question-stem {
+                font-size: 16px;
+                padding: 16px;
+            }
+
+            .question-choices {
+                padding: 0 16px;
+            }
+
+            .choice-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .setup-card {
+                padding: 24px 20px;
+            }
+
+            .avatar-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* ANIMATIONS */
         @keyframes slideIn {
             from {
@@ -995,15 +1124,8 @@
         }
 
         @keyframes checkmark {
-            0% {
-                transform: scale(0);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         .animate-in {
@@ -1011,7 +1133,7 @@
         }
 
         .checkmark-animate {
-            animation: checkmark 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: checkmark 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         /* ============ GAMIFICATION STYLES ============ */
@@ -1051,13 +1173,12 @@
         }
 
         .setup-card {
-            background: rgba(255,255,255,.95);
-            backdrop-filter: blur(20px);
+            background: #fff;
             border-radius: var(--radius-xl);
             padding: 40px;
             max-width: 460px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.1) inset;
+            box-shadow: 0 20px 60px rgba(0,0,0,.2);
             text-align: center;
             position: relative;
             z-index: 1;
@@ -1131,6 +1252,11 @@
             box-shadow: 0 0 0 3px rgba(99,102,241,.1);
         }
 
+        .nickname-input:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+
         .start-button {
             width: 100%;
             padding: 16px 24px;
@@ -1195,31 +1321,7 @@
             color: var(--primary);
         }
 
-        .xp-bar-container {
-            width: 100%;
-            margin-top: 6px;
-        }
-
-        .xp-bar {
-            width: 100%;
-            height: 6px;
-            background: #e5e5e5;
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .xp-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.5s ease;
-        }
-
-        .xp-text {
-            font-size: 11px;
-            color: #666;
-            margin-top: 2px;
-        }
+        /* XP bar removed — replaced by standards-mastered metric */
 
         .profile-right {
             display: flex;
@@ -1227,23 +1329,7 @@
             gap: 16px;
         }
 
-        .level-badge {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .level-badge.rookie { background: #9ca3af; }
-        .level-badge.explorer { background: #3b82f6; }
-        .level-badge.pro { background: #8b5cf6; }
-        .level-badge.master { background: #f59e0b; }
-        .level-badge.legend { background: #ef4444; }
+        /* Level badge removed — replaced by standards-mastered metric */
 
         .streak-counter {
             display: flex;
@@ -1264,77 +1350,7 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
 
-        @keyframes floatUp {
-            0% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-        }
-
-        .xp-popup {
-            position: fixed;
-            font-size: 18px;
-            font-weight: 700;
-            color: #667eea;
-            pointer-events: none;
-            animation: floatUp 1s ease forwards;
-        }
-
-        /* BADGES SECTION */
-        .badges-section {
-            padding: 20px 24px;
-            background: white;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .badges-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badges-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .badge-card {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            cursor: help;
-            border: 2px solid #e5e5e5;
-            background: white;
-            position: relative;
-            transition: all 0.2s ease;
-        }
-
-        .badge-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .badge-card.locked {
-            opacity: 0.4;
-            background: #f5f5f5;
-        }
-
-        .badge-card.earned {
-            border-color: #667eea;
-            background: rgba(102, 126, 234, 0.05);
-        }
+        /* XP popup, badges removed — no longer used */
 
         /* LEADERBOARD SECTION */
         .leaderboard-section {
@@ -1444,62 +1460,7 @@
             margin: 0 -8px;
         }
 
-        /* LEVEL UP CELEBRATION */
-        .levelup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .levelup-content {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            text-align: center;
-            animation: slideIn 0.4s ease;
-            max-width: 400px;
-        }
-
-        .levelup-emoji {
-            font-size: 64px;
-            margin-bottom: 16px;
-            animation: pulse 0.6s ease;
-        }
-
-        .levelup-text {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .levelup-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 24px;
-        }
-
-        .levelup-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .levelup-button:hover {
-            transform: translateY(-2px);
-        }
+        /* Level-up overlay removed — no longer used */
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -1769,7 +1730,7 @@
 
         .game-prompt-sub {
             font-size: 14px;
-            color: #666;
+            color: var(--text-muted);
             text-align: center;
             margin-top: -8px;
         }
@@ -2150,7 +2111,7 @@
 
         .game-results-emoji { font-size: 56px; margin-bottom: 12px; }
         .game-results-title { font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
-        .game-results-score { font-size: 18px; color: #666; margin-bottom: 20px; }
+        .game-results-score { font-size: 18px; color: var(--text-muted); margin-bottom: 20px; }
 
         .game-results-stars {
             display: flex;
@@ -2184,50 +2145,69 @@
             .factor-grid { grid-template-columns: repeat(2, 1fr); }
             .game-prompt { font-size: 18px; }
         }
+
+        /* Reduced motion — disable all animations for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+    <!-- Status announcer for screen readers -->
+    <div id="srAnnouncer" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;"></div>
+
     <!-- SETUP SCREEN -->
-    <div id="scSetup" class="screen sc-setup">
+    <div id="scSetup" class="screen sc-setup" role="main" aria-label="Profile setup">
         <div class="setup-card">
-            <div class="setup-title">Welcome! 🎉</div>
-            <div class="setup-subtitle">Create your profile to get started</div>
+            <h1 class="setup-title">Welcome! 🎉</h1>
+            <p class="setup-subtitle">Create your profile to get started</p>
 
             <div style="margin-bottom: 24px;">
-                <div style="font-size: 12px; font-weight: 600; color: #666; text-align: left; margin-bottom: 8px;">Pick your avatar:</div>
-                <div class="avatar-grid" id="avatarGrid"></div>
+                <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); text-align: left; margin-bottom: 8px;" id="avatarLabel">Pick your avatar:</div>
+                <div class="avatar-grid" id="avatarGrid" role="radiogroup" aria-labelledby="avatarLabel"></div>
             </div>
 
-            <input type="text" class="nickname-input" id="nicknameInput" placeholder="Your nickname (max 12 chars)" maxlength="12">
+            <label for="nicknameInput" style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);text-align:left;margin-bottom:6px;">Your nickname</label>
+            <input type="text" class="nickname-input" id="nicknameInput" placeholder="Max 12 characters" maxlength="12" aria-describedby="nicknameHint">
+            <div id="nicknameHint" style="font-size:11px;color:var(--text-muted);text-align:left;margin-top:4px;margin-bottom:20px;">Choose a fun name to display on the leaderboard.</div>
 
-            <button class="start-button" id="startButton" onclick="app.startSetup()" disabled>Start Playing! 🚀</button>
+            <button class="start-button" id="startButton" onclick="app.startSetup()" disabled aria-disabled="true">Start Playing! 🚀</button>
         </div>
     </div>
 
     <!-- DASHBOARD SCREEN -->
     <div id="scDashboard" class="screen sc-dashboard">
-        <div class="header">
+        <header class="header" role="banner">
             <div class="header-title">Next<em>erra</em> — Math Practice</div>
             <div class="header-spacer"></div>
-            <div class="student-name" id="dashboardStudentName"></div>
-            <button class="btn btn-ghost" onclick="app.goHome()">← Back to Portal</button>
-        </div>
+            <div class="student-name" id="dashboardStudentName" aria-label="Logged in as"></div>
+            <button class="btn btn-ghost" onclick="app.goHome()" aria-label="Back to Portal">← Back to Portal</button>
+        </header>
 
-        <div class="dashboard-content">
-            <div class="hero-section">
-                <div class="hero-title">3rd Grade Math Practice</div>
-                <div class="hero-stats">
+        <main id="mainContent" class="dashboard-content">
+            <div class="hero-section" role="region" aria-label="Your progress overview">
+                <div class="hero-left">
+                    <div class="hero-eyebrow">NYS Grade 3 · Math Test Prep</div>
+                    <h1 class="hero-title">Ready to Practice?</h1>
+                    <div class="hero-subtitle" id="heroSubtitle">Choose a standard below to get started.</div>
+                </div>
+                <div class="hero-stats" aria-label="Your stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-label">Total Completed</div>
                         <div class="hero-stat-value" id="totalQuestions">0</div>
+                        <div class="hero-stat-label">Done</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-label">Overall Score</div>
-                        <div class="hero-stat-value" id="overallScore">0%</div>
+                        <div class="hero-stat-value" id="overallScore">—</div>
+                        <div class="hero-stat-label">Score</div>
                     </div>
                     <div class="hero-stat">
-                        <div class="hero-stat-label">Study Time</div>
                         <div class="hero-stat-value" id="studyTime">0m</div>
+                        <div class="hero-stat-label">Time</div>
                     </div>
                 </div>
             </div>
@@ -2248,17 +2228,17 @@
 
             <!-- LEADERBOARD SECTION -->
             <div class="leaderboard-section">
-                <div class="leaderboard-title" style="display:flex;align-items:center;justify-content:space-between;">
+                <h2 class="leaderboard-title" style="display:flex;align-items:center;justify-content:space-between;">
                     Leaderboard
                     <a href="leaderboard.html" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:none;">View Full Board →</a>
-                </div>
+                </h2>
                 <div class="leaderboard-list" id="leaderboardList">
-                    <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">Loading leaderboard...</div>
+                    <div style="text-align: center; padding: 20px; color: var(--text-subtle); font-size: 12px;">Loading leaderboard...</div>
                 </div>
             </div>
 
             <div id="continueSection" style="display:none;">
-                <div class="section-title">Continue Practicing</div>
+                <h2 class="section-title">Continue Practicing</h2>
                 <div class="continue-section" id="continueCards"></div>
             </div>
 
@@ -2272,76 +2252,76 @@
                 <div class="daily-challenge-arrow">→</div>
             </div>
 
-            <div class="section-title">Practice by Standard</div>
-            <div class="categories-grid" id="categoriesGrid"></div>
-        </div>
+            <h2 class="section-title">Practice by Standard</h2>
+            <div class="categories-grid" id="categoriesGrid" role="list" aria-label="Math standards to practice"></div>
+        </main>
     </div>
 
     <!-- QUESTION SCREEN -->
     <div id="scQuestion" class="screen sc-question">
-        <div class="question-header">
+        <header class="question-header" role="banner">
             <div class="question-info">
-                <div class="question-standard" id="qStandard"></div>
-                <div class="question-counter">Question <span id="qNumber">1</span> of <span id="qTotal">5</span></div>
+                <div class="question-standard" id="qStandard" aria-label="Standard"></div>
+                <div class="question-counter" aria-live="polite">Question <span id="qNumber">1</span> of <span id="qTotal">5</span></div>
             </div>
             <div style="flex:1;display:flex;justify-content:center;">
-                <div class="progress-dots" id="progressDots"></div>
+                <div class="progress-dots" id="progressDots" aria-hidden="true"></div>
             </div>
-            <button class="btn btn-ghost" onclick="app.backToDashboard()">← Back</button>
-        </div>
+            <button class="btn btn-ghost" onclick="app.backToDashboard()" aria-label="Back to dashboard">← Back</button>
+        </header>
 
-        <div class="question-content">
-            <div class="question-top">
-                <div class="question-stem" id="questionStem"></div>
-                <div class="question-choices" id="questionChoices"></div>
+        <main class="question-content" id="questionMain">
+            <section class="question-top" aria-label="Question">
+                <div class="question-stem" id="questionStem" role="heading" aria-level="2"></div>
+                <div class="question-choices" id="questionChoices" role="group" aria-label="Answer choices"></div>
                 <div class="response-input" id="responseInput"></div>
                 <div class="question-actions" id="questionActions"></div>
-                <div class="feedback" id="feedback"></div>
-            </div>
+                <div class="feedback" id="feedback" aria-live="assertive" aria-atomic="true"></div>
+            </section>
 
-            <div class="question-workspace">
-                <div class="workspace-tabs">
-                    <button class="workspace-tab active" onclick="app.switchWorkspaceTab('draw')">✏️ Draw</button>
-                    <button class="workspace-tab" onclick="app.switchWorkspaceTab('type')">✍️ Type</button>
+            <aside class="question-workspace" aria-label="Work space">
+                <div class="workspace-tabs" role="tablist" aria-label="Workspace mode">
+                    <button class="workspace-tab active" onclick="app.switchWorkspaceTab('draw')" role="tab" aria-selected="true" aria-controls="drawPane">✏️ Draw</button>
+                    <button class="workspace-tab" onclick="app.switchWorkspaceTab('type')" role="tab" aria-selected="false" aria-controls="typePane">✍️ Type</button>
                 </div>
 
-                <div class="workspace-pane active" id="drawPane">
+                <div class="workspace-pane active" id="drawPane" role="tabpanel">
                     <div class="canvas-container">
-                        <canvas id="drawCanvas"></canvas>
+                        <canvas id="drawCanvas" aria-label="Drawing canvas for working out problems"></canvas>
                     </div>
-                    <div class="canvas-tools">
-                        <button class="canvas-tool active" onclick="app.setDrawingMode('pen')" title="Pen">✏️</button>
-                        <button class="canvas-tool" onclick="app.setDrawingMode('eraser')" title="Eraser">⊗</button>
-                        <button class="canvas-tool" onclick="app.undo()" title="Undo">↶</button>
-                        <button class="canvas-tool" onclick="app.redo()" title="Redo">↷</button>
-                        <button class="canvas-tool" onclick="app.clearCanvas()" title="Clear">🗑️</button>
+                    <div class="canvas-tools" role="toolbar" aria-label="Drawing tools">
+                        <button class="canvas-tool active" onclick="app.setDrawingMode('pen')" title="Pen" aria-label="Pen tool" aria-pressed="true">✏️</button>
+                        <button class="canvas-tool" onclick="app.setDrawingMode('eraser')" title="Eraser" aria-label="Eraser tool" aria-pressed="false">⊗</button>
+                        <button class="canvas-tool" onclick="app.undo()" title="Undo" aria-label="Undo">↶</button>
+                        <button class="canvas-tool" onclick="app.redo()" title="Redo" aria-label="Redo">↷</button>
+                        <button class="canvas-tool" onclick="app.clearCanvas()" title="Clear" aria-label="Clear canvas">🗑️</button>
                     </div>
                 </div>
 
-                <div class="workspace-pane" id="typePane">
-                    <textarea placeholder="Type your work here..." id="typeWorkspace"></textarea>
+                <div class="workspace-pane" id="typePane" role="tabpanel">
+                    <textarea placeholder="Type your work here..." id="typeWorkspace" aria-label="Work space for typing your solution"></textarea>
                 </div>
-            </div>
-        </div>
+            </aside>
+        </main>
     </div>
 
     <!-- RESULTS SCREEN -->
     <div id="scResults" class="screen sc-results">
-        <div class="header">
+        <header class="header" role="banner">
             <div class="header-title">Next<em>erra</em> — Results</div>
             <div class="header-spacer"></div>
-            <button class="btn btn-ghost" onclick="app.backToDashboard()">← Back to Practice</button>
-        </div>
+            <button class="btn btn-ghost" onclick="app.backToDashboard()" aria-label="Back to Practice">← Back to Practice</button>
+        </header>
 
-        <div class="results-content">
+        <main class="results-content" aria-label="Practice session results" aria-live="polite">
             <div class="results-header">
-                <div class="results-score" id="finalScore">0/5</div>
+                <div class="results-score" id="finalScore" aria-label="Score">0/5</div>
                 <div class="results-percentage" id="finalPercentage">0%</div>
                 <div class="results-status" id="finalStatus"></div>
             </div>
 
             <div class="results-breakdown">
-                <div class="results-breakdown-title">Question Breakdown</div>
+                <h2 class="results-breakdown-title">Question Breakdown</h2>
                 <div id="resultsList"></div>
             </div>
 
@@ -2349,20 +2329,20 @@
                 <button class="btn btn-primary" onclick="app.practiceAgain()" style="width: 100%; padding: 16px;">Practice Again</button>
                 <button class="btn btn-secondary" onclick="app.backToDashboard()" style="width: 100%; padding: 16px;">Choose Another Topic</button>
             </div>
-        </div>
+        </main>
     </div>
 
     <!-- GAME SCREEN -->
     <div id="scGame" class="screen sc-game">
-        <div class="game-header">
-            <button class="btn btn-ghost" onclick="app.exitGame()">← Back</button>
-            <div class="game-title" id="gameTitle">Game</div>
-            <div class="game-round-info">Round <span id="gameRound">1</span> of <span id="gameTotalRounds">5</span></div>
-            <div class="game-score-bar" id="gameScoreBar"></div>
-        </div>
-        <div class="game-area" id="gameArea">
+        <header class="game-header" role="banner">
+            <button class="btn btn-ghost" onclick="app.exitGame()" aria-label="Back to dashboard">← Back</button>
+            <h1 class="game-title" id="gameTitle">Game</h1>
+            <div class="game-round-info" aria-live="polite">Round <span id="gameRound">1</span> of <span id="gameTotalRounds">5</span></div>
+            <div class="game-score-bar" id="gameScoreBar" aria-hidden="true"></div>
+        </header>
+        <main class="game-area" id="gameArea" aria-live="polite">
             <!-- Game content rendered dynamically -->
-        </div>
+        </main>
     </div>
 
     <!-- ANCHOR CHART MODAL (rendered dynamically) -->
@@ -2853,7 +2833,7 @@
                 svg: `<svg viewBox="0 0 400 160" width="380">
                     <text x="10" y="20" font-size="13" font-weight="700" fill="#374151">3 groups of 4 = 3 × 4 = 12</text>
                     ${[0,1,2].map(r => [0,1,2,3].map(c =>
-                        `<rect x="${60+c*42}" y="${35+r*38}" width="34" height="30" rx="6" fill="#667eea" opacity=".85"/>
+                        `<rect x="${60+c*42}" y="${35+r*38}" width="34" height="30" rx="6" fill="#6366f1" opacity=".85"/>
                          <text x="${77+c*42}" y="${55+r*38}" font-size="16" fill="white" text-anchor="middle">⭐</text>`
                     ).join('')).join('')}
                     <text x="250" y="55" font-size="14" fill="#374151" font-weight="600">← 4 columns</text>
@@ -2871,8 +2851,8 @@
                 svg: `<svg viewBox="0 0 400 140" width="380">
                     <text x="10" y="20" font-size="13" font-weight="700" fill="#374151">12 ÷ 3 = 4 (12 shared into 3 equal groups)</text>
                     ${[0,1,2].map(g => `
-                        <rect x="${30+g*130}" y="35" width="110" height="70" rx="12" fill="none" stroke="#667eea" stroke-width="2" stroke-dasharray="6"/>
-                        <text x="${85+g*130}" y="50" font-size="11" fill="#667eea" font-weight="700" text-anchor="middle">Group ${g+1}</text>
+                        <rect x="${30+g*130}" y="35" width="110" height="70" rx="12" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="6"/>
+                        <text x="${85+g*130}" y="50" font-size="11" fill="#6366f1" font-weight="700" text-anchor="middle">Group ${g+1}</text>
                         ${[0,1,2,3].map(i => `<circle cx="${50+g*130+(i%2)*40}" cy="${70+(Math.floor(i/2))*22}" r="9" fill="#f59e0b"/>`).join('')}
                     `).join('')}
                     <text x="10" y="130" font-size="12" fill="#666">Fact family: 3 × 4 = 12, 4 × 3 = 12, 12 ÷ 3 = 4, 12 ÷ 4 = 3</text>
@@ -2889,7 +2869,7 @@
                     <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Skip counting by 4:</text>
                     <line x1="20" y1="50" x2="380" y2="50" stroke="#d1d5db" stroke-width="3"/>
                     ${[0,4,8,12,16,20,24].map((n,i) => `
-                        <circle cx="${30+i*52}" cy="50" r="14" fill="${i<6 ? '#667eea' : '#e5e7eb'}" />
+                        <circle cx="${30+i*52}" cy="50" r="14" fill="${i<6 ? '#6366f1' : '#e5e7eb'}" />
                         <text x="${30+i*52}" y="54" font-size="11" fill="${i<6 ? 'white' : '#999'}" text-anchor="middle" font-weight="700">${n}</text>
                         ${i>0 && i<6 ? `<path d="M${30+(i-1)*52+14},35 Q${30+(i-0.5)*52},15 ${30+i*52-14},35" fill="none" stroke="#f59e0b" stroke-width="2"/>
                         <text x="${30+(i-0.5)*52}" y="24" font-size="10" fill="#d97706" text-anchor="middle">+4</text>` : ''}
@@ -2983,14 +2963,14 @@
                         return `<text x="${90+48*Math.cos(a)}" y="${85+48*Math.sin(a)+5}" font-size="13" font-weight="700" fill="#374151" text-anchor="middle">${n}</text>`;
                     }).join('')}
                     <line x1="90" y1="85" x2="90" y2="45" stroke="#374151" stroke-width="4" stroke-linecap="round"/>
-                    <line x1="90" y1="85" x2="125" y2="85" stroke="#667eea" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="90" y1="85" x2="125" y2="85" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
                     <circle cx="90" cy="85" r="4" fill="#374151"/>
                     <text x="180" y="45" font-size="13" font-weight="700" fill="#374151">This clock shows 3:00</text>
                     <text x="180" y="65" font-size="12" fill="#666">Short hand → hour (3)</text>
-                    <text x="180" y="82" font-size="12" fill="#667eea">Long hand → minutes (00)</text>
+                    <text x="180" y="82" font-size="12" fill="#6366f1">Long hand → minutes (00)</text>
                     <text x="180" y="110" font-size="13" font-weight="700" fill="#374151">Elapsed time example:</text>
                     <text x="180" y="130" font-size="12" fill="#666">Start: 2:15  End: 2:45</text>
-                    <text x="180" y="148" font-size="12" fill="#667eea" font-weight="600">Elapsed = 30 minutes</text>
+                    <text x="180" y="148" font-size="12" fill="#6366f1" font-weight="600">Elapsed = 30 minutes</text>
                 </svg>`,
                 example: 'School starts at 8:30 a.m. and ends at 3:00 p.m. How much time is that? Count: 8:30 → 9:30 → 10:30 → 11:30 → 12:30 → 1:30 → 2:30 → 3:00 = 6 hours 30 minutes.',
                 remember: 'The short hand tells the HOUR. The long hand tells the MINUTES. Count by 5s around the clock!'
@@ -3509,7 +3489,7 @@
                                 </div>
                                 <div style="position:absolute;left:${5 + ((state.n - state.low) / (state.high - state.low)) * 90}%;top:50%;transform:translate(-50%,-50%);">
                                     <div style="font-size:24px;">📍</div>
-                                    <div style="font-size:12px;font-weight:700;color:#667eea;text-align:center;">${state.n}</div>
+                                    <div style="font-size:12px;font-weight:700;color:#6366f1;text-align:center;">${state.n}</div>
                                 </div>
                             </div>
                             <div style="display:flex;gap:16px;justify-content:center;margin-top:16px;">
@@ -4081,7 +4061,7 @@
                 },
                 render(state, area) {
                     const grid = Array.from({length: state.rows * state.cols}, () =>
-                        `<div style="width:28px;height:28px;border:1px solid #667eea;background:#eef2ff;border-radius:2px;"></div>`
+                        `<div style="width:28px;height:28px;border:1px solid #6366f1;background:#eef2ff;border-radius:2px;"></div>`
                     ).join('');
                     area.innerHTML = `
                         <div class="game-prompt">Count the unit squares!</div>
@@ -4334,7 +4314,7 @@
         };
 
         function spawnConfetti() {
-            const colors = ['#667eea','#f59e0b','#4ade80','#f87171','#a78bfa','#06b6d4'];
+            const colors = ['#6366f1','#f59e0b','#4ade80','#f87171','#a78bfa','#06b6d4'];
             for (let i = 0; i < 40; i++) {
                 const piece = document.createElement('div');
                 piece.className = 'confetti-piece';
@@ -4458,7 +4438,9 @@
             updateStartButtonState() {
                 const btn = document.getElementById('startButton');
                 const nickname = document.getElementById('nicknameInput').value.trim();
-                btn.disabled = !this.selectedAvatar || !nickname;
+                const isDisabled = !this.selectedAvatar || !nickname;
+                btn.disabled = isDisabled;
+                btn.setAttribute('aria-disabled', String(isDisabled));
             },
 
             startSetup() {
@@ -4655,7 +4637,7 @@
             renderLeaderboard() {
                 const list = document.getElementById('leaderboardList');
                 if (this.leaderboardData.length === 0) {
-                    list.innerHTML = '<div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">Loading leaderboard...</div>';
+                    list.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-subtle); font-size: 12px;">Loading leaderboard...</div>';
                     return;
                 }
 
