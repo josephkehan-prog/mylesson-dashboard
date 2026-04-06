@@ -884,6 +884,7 @@ body { background: #e8edf4; color: #1a1a2e; }
       <span id="t-title-bar">2025 NYS Released</span>
     </div>
     <div class="t-hmain">
+      <button class="t-h-review" onclick="exitToTestList()" title="Save and return to test list" style="background:#4a5060;margin-right:4px;">← Tests</button>
       <button class="t-h-review" onclick="showReview()">Review</button>
       <div class="t-hcenter">
         <span class="t-hqnum" id="t-hqnum">Question 1</span>
@@ -3843,6 +3844,18 @@ function saveProgress() {
     };
     safeLS.setJSON('nxt_prog_' + ST.lesson.id, data);
   }, 2000); // debounce: write at most once every 2 seconds
+}
+function exitToTestList() {
+  // Flush progress immediately (bypass 2-sec debounce) so nothing is lost
+  if (ST.lesson) {
+    clearTimeout(_saveProgressTimer);
+    safeLS.setJSON('nxt_prog_' + ST.lesson.id, {
+      answers: ST.answers, bookmarks: ST.bookmarks, eliminated: ST.eliminated,
+      currentQ: ST.currentQ, timerSec: ST.timerSec
+    });
+  }
+  renderTestList();
+  show('sc-tests');
 }
 function getSavedProgress(lessonId) {
   return safeLS.getJSON('nxt_prog_' + lessonId, null);
