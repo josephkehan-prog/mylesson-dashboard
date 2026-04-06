@@ -1462,9 +1462,6 @@
                 padding: 24px 20px;
             }
 
-            .avatar-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
         }
 
         /* ANIMATIONS */
@@ -1569,18 +1566,19 @@
 
         .avatar-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+            gap: 10px;
             margin-bottom: 28px;
         }
 
         .avatar-button {
-            width: 64px;
-            height: 64px;
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 64px;
             border-radius: 50%;
             border: 3px solid var(--border-gray);
             background: var(--surface);
-            font-size: 32px;
+            font-size: clamp(22px, 5vw, 32px);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -1676,10 +1674,6 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .avatar-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
             .setup-card {
                 padding: 24px;
             }
