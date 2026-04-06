@@ -51,18 +51,24 @@ CREATE TABLE IF NOT EXISTS logins (
 -- allowed — submissions are append-only.
 
 ALTER TABLE submissions ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "anon_insert_submissions" ON submissions;
+DROP POLICY IF EXISTS "anon_select_submissions" ON submissions;
 CREATE POLICY "anon_insert_submissions" ON submissions
   FOR INSERT WITH CHECK (true);
 CREATE POLICY "anon_select_submissions" ON submissions
   FOR SELECT USING (true);
 
 ALTER TABLE reopens ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "anon_insert_reopens" ON reopens;
+DROP POLICY IF EXISTS "anon_select_reopens" ON reopens;
 CREATE POLICY "anon_insert_reopens" ON reopens
   FOR INSERT WITH CHECK (true);
 CREATE POLICY "anon_select_reopens" ON reopens
   FOR SELECT USING (true);
 
 ALTER TABLE logins ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "anon_insert_logins" ON logins;
+DROP POLICY IF EXISTS "anon_select_logins" ON logins;
 CREATE POLICY "anon_insert_logins" ON logins
   FOR INSERT WITH CHECK (true);
 CREATE POLICY "anon_select_logins" ON logins
