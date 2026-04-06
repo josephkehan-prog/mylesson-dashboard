@@ -3978,7 +3978,15 @@ function refreshTeacher() {
       .then(r => r.json())
       .then(rows => {
         _sheetsAbortController = null;
-        window._sheetsRows = Array.isArray(rows) ? rows : [];
+        // Normalize snake_case Supabase fields → camelCase expected by renderTeacherTable
+        const normalize = r => Object.assign({}, r, {
+          classCode:   r.classCode   || r.class_code   || '',
+          timeTaken:   r.timeTaken   || r.time_taken   || '',
+          submittedAt: r.submittedAt || r.submitted_at || '',
+          lessonId:    r.lessonId    || r.lesson_id    || '',
+          pct:         r.pct !== undefined ? r.pct : (r.percent !== undefined ? r.percent * 100 : 0)
+        });
+        window._sheetsRows = Array.isArray(rows) ? rows.map(normalize) : [];
         _lastSheetsRefresh = Date.now();
         renderTeacherTable(window._sheetsRows, 'supabase');
         lastEl.textContent = 'Live · Updated ' + new Date().toLocaleTimeString();
@@ -4059,7 +4067,7 @@ function renderTeacherTable(rows, source) {
       const passThresh = _getRowPassThreshold(r);
       const pctCls = pct >= passThresh ? 'score-pass' : pct >= (passThresh - 15) ? 'score-warn' : 'score-fail';
       const title = r.lesson || r.title || '—';
-      const time = r.time ? new Date(r.time).toLocaleString() : (r.submittedAt ? new Date(r.submittedAt).toLocaleString() : '—');
+      const time = (r.time || r.submittedAt || r.submitted_at) ? new Date(r.time || r.submittedAt || r.submitted_at).toLocaleString() : '—';
       const score = (r.score && !r.score.includes('undefined')) ? r.score : ((r.correct || '?') + '/' + (r.total || '?'));
       const origIdx = rows.indexOf(r);
       const viewBtn = source === 'sheets'
