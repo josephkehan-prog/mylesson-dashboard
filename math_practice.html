@@ -235,15 +235,15 @@
 
         .dashboard-content {
             width: 100%;
-            padding: 24px 32px 32px;
+            padding: 16px 24px 24px;
         }
 
         /* ── DOMAIN HUB ── */
         .domain-hub {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
+            gap: 14px;
+            margin-top: 14px;
         }
 
         /* OA tile spans 2 cols on first row to balance 9 standards vs smaller groups */
@@ -252,7 +252,7 @@
             background: var(--bg-card);
             border: 1.5px solid var(--border-gray);
             border-radius: var(--radius-lg);
-            padding: 28px 24px 22px;
+            padding: 18px 18px 14px;
             cursor: pointer;
             text-align: left;
             transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
@@ -260,8 +260,8 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            min-height: 180px;
+            gap: 8px;
+            min-height: 0;
         }
 
         .domain-hub-tile::before {
@@ -899,28 +899,28 @@
         }
 
         .question-stem {
-            padding: 32px;
-            font-size: 20px;
+            padding: 20px 24px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--primary);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .question-choices {
-            padding: 0 32px;
+            padding: 0 24px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 12px;
         }
 
         .choice-btn {
-            padding: 16px 20px;
+            padding: 12px 16px;
             border: 2px solid var(--border-gray);
             background: var(--bg-card);
             border-radius: var(--radius-md);
             text-align: left;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             line-height: 1.4;
             cursor: pointer;
@@ -1308,8 +1308,8 @@
 
         /* HINT BOX */
         .hint-box {
-            margin: 16px 32px 0;
-            padding: 16px;
+            margin: 8px 24px 0;
+            padding: 10px 14px;
             background: var(--warning-bg);
             border: 2px solid var(--warning);
             border-radius: var(--radius-md);
@@ -1362,6 +1362,7 @@
 
             .domain-hub {
                 grid-template-columns: 1fr 1fr;
+                gap: 10px;
             }
 
             .domain-subgrid {
@@ -1377,71 +1378,7 @@
             }
 
             .dashboard-content {
-                padding: 16px 16px 24px;
-            }
-
-            .question-stem {
-                font-size: 18px;
-                padding: 24px;
-            }
-
-            .choice-btn {
-                padding: 14px;
-                font-size: 14px;
-            }
-
-            .header {
-                flex-direction: column;
-                gap: 8px;
-                align-items: flex-start;
-                height: auto;
-                padding: 12px 16px;
-            }
-
-            .header-right {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-
-        /* Small phone breakpoint — 480px */
-        @media (max-width: 480px) {
-            .dashboard-content {
-                padding: 20px 16px;
-            }
-
-            .hero-section {
-                padding: 16px 16px;
-            }
-
-            .hero-title {
-                font-size: 20px;
-            }
-
-            .hero-stats {
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-
-            .hero-stat-value {
-                font-size: 22px;
-            }
-
-            .domain-hub {
-                grid-template-columns: 1fr;
-            }
-
-            .domain-subgrid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-
-            .domain-cards-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .category-card {
-                padding: 16px;
+                padding: 12px 14px 18px;
             }
 
             .question-stem {
@@ -1449,17 +1386,82 @@
                 padding: 16px;
             }
 
-            .question-choices {
-                padding: 0 16px;
-            }
-
             .choice-btn {
-                padding: 12px;
+                padding: 10px 14px;
                 font-size: 14px;
             }
 
+            .header {
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+                height: 48px;
+                padding: 0 14px;
+            }
+
+            .header-right {
+                justify-content: flex-end;
+            }
+        }
+
+        /* Small phone breakpoint — 480px */
+        @media (max-width: 480px) {
+            .dashboard-content {
+                padding: 10px 12px 16px;
+            }
+
+            .hero-section {
+                padding: 12px;
+            }
+
+            .hero-title {
+                font-size: 18px;
+            }
+
+            .hero-stats {
+                gap: 14px;
+                flex-wrap: wrap;
+            }
+
+            .hero-stat-value {
+                font-size: 20px;
+            }
+
+            .domain-hub {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .domain-subgrid {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .domain-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card {
+                padding: 12px;
+            }
+
+            .question-stem {
+                font-size: 15px;
+                padding: 12px;
+            }
+
+            .question-choices {
+                padding: 0 12px;
+                gap: 6px;
+            }
+
+            .choice-btn {
+                padding: 10px;
+                font-size: 13px;
+            }
+
             .setup-card {
-                padding: 24px 20px;
+                padding: 20px 16px;
             }
 
         }
@@ -1540,7 +1542,7 @@
         .setup-card {
             background: var(--bg-card);
             border-radius: var(--radius-xl);
-            padding: 40px;
+            padding: 28px 28px 24px;
             max-width: 460px;
             width: 100%;
             box-shadow: 0 20px 60px rgba(0,0,0,.2);
@@ -1551,24 +1553,24 @@
         }
 
         .setup-title {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 900;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             letter-spacing: -.5px;
         }
 
         .setup-subtitle {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .avatar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
-            gap: 10px;
-            margin-bottom: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+            gap: 8px;
+            margin-bottom: 16px;
         }
 
         .avatar-button {
@@ -1602,13 +1604,13 @@
 
         .nickname-input {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 16px;
             border: 2px solid var(--border-gray);
             border-radius: var(--radius-md);
-            font-size: 16px;
+            font-size: 15px;
             font-family: inherit;
             font-weight: 500;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             transition: border-color var(--t-fast), box-shadow var(--t-fast);
         }
 
@@ -1625,7 +1627,7 @@
 
         .start-button {
             width: 100%;
-            padding: 16px 24px;
+            padding: 14px 20px;
             background: var(--gradient-primary);
             color: white;
             border: none;
@@ -2850,31 +2852,31 @@
    PL-5000 RETRO DEVICE — VARIABLE OVERRIDES
 ════════════════════════════════════════ */
 :root {
-  --primary: #f0e0db;
+  --primary: #f5ede9;
   --accent: #008DD5;
-  --accent-light: #33aaee;
-  --success: #33aaee;
-  --success-bg: rgba(0,141,213,.1);
-  --warning: #008DD5;
-  --warning-bg: rgba(0,141,213,.08);
+  --accent-light: #44bbff;
+  --success: #44bbff;
+  --success-bg: rgba(0,141,213,.12);
+  --warning: #44bbff;
+  --warning-bg: rgba(0,141,213,.1);
   --danger: #F56476;
-  --danger-bg: rgba(245,100,118,.08);
+  --danger-bg: rgba(245,100,118,.1);
   --surface: #4a5368;
-  --surface-alt: rgba(0,141,213,.06);
+  --surface-alt: rgba(0,141,213,.08);
   --bg: #282e3d;
   --bg-card: #373F51;
   --bg-feedback: #373F51;
   --border-gray: #4a5368;
-  --text-muted: #d4beb8;
-  --text-subtle: #a09880;
-  --text-secondary: #d4beb8;
-  --text-body: #f0e0db;
-  --text-on-dark: rgba(240,234,208,.85);
-  --text-on-dark-muted: rgba(240,234,208,.6);
-  --text-on-dark-dim: rgba(240,234,208,.4);
+  --text-muted: #DFBBB1;
+  --text-subtle: #c4a89e;
+  --text-secondary: #DFBBB1;
+  --text-body: #f5ede9;
+  --text-on-dark: rgba(245,237,233,.9);
+  --text-on-dark-muted: rgba(245,237,233,.65);
+  --text-on-dark-dim: rgba(245,237,233,.45);
   --dot-default: #4a5368;
   --dot-current: #008DD5;
-  --dot-answered: #33aaee;
+  --dot-answered: #44bbff;
   --card-shadow: 0 2px 0 rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04);
   --card-shadow-hover: 0 0 16px rgba(0,141,213,.12), 0 2px 0 rgba(0,0,0,.3);
   --glass-bg: rgba(59,58,54,.85);
@@ -2908,12 +2910,12 @@ html, body {
   letter-spacing: 1px !important;
   color: #008DD5 !important;
 }
-.header-title em { color: #33aaee !important; }
+.header-title em { color: #44bbff !important; }
 
 .student-name {
   font-family: 'VT323', monospace !important;
   font-size: 18px !important;
-  color: #33aaee !important;
+  color: #44bbff !important;
   text-shadow: 0 0 6px rgba(0,141,213,.3);
 }
 
@@ -2941,8 +2943,8 @@ html, body {
 
 .btn-secondary {
   background: #4a5368 !important;
-  color: #f0e0db !important;
-  border: 2px solid #4a5368 !important;
+  color: #f5ede9 !important;
+  border: 2px solid #5a6578 !important;
 }
 .btn-secondary:hover {
   background: #5a6578 !important;
@@ -2951,8 +2953,8 @@ html, body {
 
 .btn-ghost {
   background: rgba(82,80,74,.5) !important;
-  border: 2px solid #4a5368 !important;
-  color: #f0e0db !important;
+  border: 2px solid #5a6578 !important;
+  color: #f5ede9 !important;
   backdrop-filter: none !important;
 }
 .btn-ghost:hover { background: rgba(82,80,74,.7) !important; }
@@ -2963,8 +2965,8 @@ html, body {
   box-shadow: 0 2px 0 rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04) !important;
 }
 .domain-hub-tile[data-domain='OA'] { border-top: 4px solid #008DD5 !important; }
-.domain-hub-tile[data-domain='NBT'] { border-top: 4px solid #33aaee !important; }
-.domain-hub-tile[data-domain='NF'] { border-top: 4px solid #33aaee !important; }
+.domain-hub-tile[data-domain='NBT'] { border-top: 4px solid #44bbff !important; }
+.domain-hub-tile[data-domain='NF'] { border-top: 4px solid #44bbff !important; }
 .domain-hub-tile[data-domain='MD'] { border-top: 4px solid #E43F6F !important; }
 .domain-hub-tile[data-domain='G'] { border-top: 4px solid #F56476 !important; }
 .domain-hub-tile:hover {
@@ -2990,8 +2992,8 @@ html, body {
 .domain-hub-mastered-badge {
   font-family: 'VT323', monospace !important;
   font-size: 16px !important;
-  background: rgba(0,141,213,.1) !important;
-  color: #33aaee !important;
+  background: rgba(0,141,213,.12) !important;
+  color: #44bbff !important;
   border: 1px solid rgba(0,141,213,.25) !important;
   border-radius: 3px !important;
 }
@@ -3510,10 +3512,10 @@ input[type=text]:focus {
             for (let i = 3; i > 0; i--) { const j = Math.floor(Math.random() * (i+1)); [a[i],a[j]]=[a[j],a[i]]; }
             return a;
         }
-        function mc(standard, stem, choices, correctVal, rationale) {
+        function mc(standard, stem, choices, correctVal, rationale, hintText) {
             const all = shuffle4(choices);
             return { type:'mc', standard, stem, choices: all, answer: String(correctVal),
-                hint: rationale, steps: [rationale] };
+                hint: hintText || rationale, steps: [rationale] };
         }
         function cr(standard, stem, answer, hint, steps) {
             return { type:'cr', standard, stem, answer: String(answer), hint, steps };
@@ -3529,7 +3531,8 @@ input[type=text]:focus {
                 `${name} has ${a} ${group} with ${b} ${item} in each ${group.slice(0,-1)}. Which expression shows the total number of ${item}?`,
                 [`${a} × ${b}`, `${a} + ${b}`, `${a*b} ÷ ${b}`, `${a} × ${a}`],
                 `${a} × ${b}`,
-                `There are ${a} groups of ${b}, so the expression is ${a} × ${b}.`
+                `There are ${a} groups of ${b}, so the expression is ${a} × ${b}.`,
+                'How many groups? How many in each? Which operation combines equal groups?'
             );
         }
 
@@ -3542,7 +3545,8 @@ input[type=text]:focus {
                 `${name} has ${dividend} ${item} and puts them equally into ${divisor} ${group}. Which expression shows how many ${item} are in each ${group.slice(0,-1)}?`,
                 [`${dividend} ÷ ${divisor}`, `${dividend} − ${divisor}`, `${dividend} ÷ ${quotient}`, `${divisor} × ${divisor}`],
                 `${dividend} ÷ ${divisor}`,
-                `${dividend} objects shared equally among ${divisor} groups means ${dividend} ÷ ${divisor} = ${quotient}.`
+                `${dividend} objects shared equally among ${divisor} groups means ${dividend} ÷ ${divisor} = ${quotient}.`,
+                'You are sharing equally into groups. Which operation splits a total into equal parts?'
             );
         }
 
@@ -3555,7 +3559,8 @@ input[type=text]:focus {
                     `${name} buys ${groups} ${container} of ${item}. Each ${container.slice(0,-1)} has ${per} ${item}. How many ${item} does ${name} buy in all?`,
                     [String(total), String(groups+per), String(total+per), String(total-groups)],
                     String(total),
-                    `${groups} × ${per} = ${total}.`
+                    `${groups} × ${per} = ${total}.`,
+                    'Multiply: number of groups × number in each group.'
                 );
             } else {
                 const per = rnd(3,8), groups = rnd(2,7), total = per*groups;
@@ -3564,7 +3569,8 @@ input[type=text]:focus {
                     `${name} has ${total} ${item}. She puts ${per} ${item} in each cup. How many cups does ${name} use?`,
                     [String(groups), String(per), String(total-per), String(groups+1)],
                     String(groups),
-                    `${total} ÷ ${per} = ${groups}.`
+                    `${total} ÷ ${per} = ${groups}.`,
+                    'You know the total and how many go in each cup. Divide to find the number of cups.'
                 );
             }
         }
@@ -3577,13 +3583,14 @@ input[type=text]:focus {
                     `What number makes this equation true?\n${a} × ___ = ${p}`,
                     [String(b), String(b+1), String(p-a), String(a)],
                     String(b),
-                    `${a} × ${b} = ${p}, so the unknown is ${b}.`
+                    `${a} × ${b} = ${p}, so the unknown is ${b}.`,
+                    `Think: what number times ${a} gives you ${p}? Try dividing to find the missing factor.`
                 );
             } else {
                 return cr('3.OA.4',
                     `What number makes this equation true?\n___ × ${a} = ${p}\nAnswer: ___`,
                     String(b),
-                    `Think: what times ${a} equals ${p}?`,
+                    `Try dividing the total by ${a} to find the missing factor.`,
                     [`${a} × ___ = ${p}`, `___ = ${p} ÷ ${a}`, `___ = ${b}`]
                 );
             }
@@ -3596,7 +3603,8 @@ input[type=text]:focus {
                 `Which expression has the same value as ${a} × ${b}?`,
                 [`${b} × ${a}`, `${a} + ${b}`, `${a} × ${a}`, `${b} + ${a} × 1`],
                 `${b} × ${a}`,
-                `The commutative property: ${a} × ${b} = ${b} × ${a}.`
+                `The commutative property: ${a} × ${b} = ${b} × ${a}.`,
+                'Remember: you can swap the order of the numbers when multiplying and get the same answer.'
             );
         }
 
@@ -3607,7 +3615,8 @@ input[type=text]:focus {
                 `To find ${p} ÷ ${a}, you can think: ${a} × ___ = ${p}. What is ${p} ÷ ${a}?`,
                 [String(b), String(a), String(p-a), String(b+1)],
                 String(b),
-                `${a} × ${b} = ${p}, so ${p} ÷ ${a} = ${b}.`
+                `${a} × ${b} = ${p}, so ${p} ÷ ${a} = ${b}.`,
+                'Division is the opposite of multiplication. What number times the divisor gives the total?'
             );
         }
 
@@ -3617,11 +3626,13 @@ input[type=text]:focus {
             if (Math.random() < 0.5) {
                 return mc('3.OA.7', `What is ${a} × ${b}?`,
                     [String(p), String(p+a), String(p-b), String(a+b)],
-                    String(p), `${a} × ${b} = ${p}.`);
+                    String(p), `${a} × ${b} = ${p}.`,
+                    `Think about your multiplication facts. Try skip-counting by ${Math.min(a,b)}.`);
             } else {
                 return mc('3.OA.7', `What is ${p} ÷ ${a}?`,
                     [String(b), String(a), String(b+1), String(p-a)],
-                    String(b), `${p} ÷ ${a} = ${b}.`);
+                    String(b), `${p} ÷ ${a} = ${b}.`,
+                    `Think: what number times ${a} gives you ${p}? Use your multiplication facts.`);
             }
         }
 
@@ -3634,7 +3645,7 @@ input[type=text]:focus {
             return cr('3.OA.8',
                 `${name} buys ${packs} packs of markers. Each pack has ${perPack} markers. ${name} gives ${gave} markers to a friend.\nHow many markers does ${name} have left?\nShow your work.\nAnswer: ___ markers`,
                 String(left),
-                `Step 1: ${packs} × ${perPack} = ${total}. Step 2: ${total} − ${gave} = ${left}.`,
+                'This is a two-step problem. First find the total, then take away what was given.',
                 [`Multiply: ${packs} × ${perPack} = ${total}`, `Subtract: ${total} − ${gave} = ${left}`, `Answer: ${left} markers`]
             );
         }
@@ -3647,7 +3658,8 @@ input[type=text]:focus {
                 `What is the next number in this pattern?\n${seq.join(', ')}, ___`,
                 [String(factor*6), String(factor*6+factor), String(seq[4]+1), String(seq[4]+factor-1)],
                 String(factor*6),
-                `The pattern adds ${factor} each time. ${seq[4]} + ${factor} = ${factor*6}.`
+                `The pattern adds ${factor} each time. ${seq[4]} + ${factor} = ${factor*6}.`,
+                'Look at the difference between each number. The pattern adds the same amount each time.'
             );
         }
 
@@ -3660,7 +3672,8 @@ input[type=text]:focus {
                     `What is ${n} rounded to the nearest hundred?`,
                     [String(rounded), String(Math.round(n/10)*10), String(rounded+100), String(Math.max(0,rounded-100))],
                     String(rounded),
-                    `${n} rounded to the nearest hundred is ${rounded}.`
+                    `${n} rounded to the nearest hundred is ${rounded}.`,
+                    'Look at the tens digit. If it is 5 or more, round up. If it is less than 5, round down.'
                 );
             } else {
                 const n = rnd(102,897);
@@ -3669,7 +3682,8 @@ input[type=text]:focus {
                     `What is ${n} rounded to the nearest ten?`,
                     [String(rounded), String(Math.round(n/100)*100), String(rounded+10), String(Math.max(0,rounded-10))],
                     String(rounded),
-                    `${n} rounded to the nearest ten is ${rounded}.`
+                    `${n} rounded to the nearest ten is ${rounded}.`,
+                    'Look at the ones digit. If it is 5 or more, round up. If less than 5, round down.'
                 );
             }
         }
@@ -3680,12 +3694,14 @@ input[type=text]:focus {
                 const a = rnd(200,600), b = rnd(100,399), total = a+b;
                 return mc('3.NBT.2', `What is ${a} + ${b}?`,
                     [String(total), String(total+10), String(total-10), String(Math.abs(a-b))],
-                    String(total), `${a} + ${b} = ${total}.`);
+                    String(total), `${a} + ${b} = ${total}.`,
+                    'Add the hundreds, then the tens, then the ones. Regroup if needed.');
             } else {
                 const a = rnd(500,999), b = rnd(100,a-100), diff = a-b;
                 return mc('3.NBT.2', `What is ${a} − ${b}?`,
                     [String(diff), String(diff+10), String(diff-10), String(a+b)],
-                    String(diff), `${a} − ${b} = ${diff}.`);
+                    String(diff), `${a} − ${b} = ${diff}.`,
+                    'Subtract place by place: hundreds, tens, then ones. Borrow if a digit is too small.');
             }
         }
 
@@ -3697,7 +3713,8 @@ input[type=text]:focus {
             return mc('3.NBT.3', `What is ${a} × ${b}?`,
                 [String(p), String(a*(b/10)), String(p+10), String(a+b)],
                 String(p),
-                `${a} × ${b} = ${p}. Think: ${a} × ${b/10} = ${a*(b/10)}, then × 10.`
+                `${a} × ${b} = ${p}. Think: ${a} × ${b/10} = ${a*(b/10)}, then × 10.`,
+                'Ignore the zero, multiply the other digits, then put the zero back at the end.'
             );
         }
 
@@ -3710,7 +3727,8 @@ input[type=text]:focus {
                 `A pie is cut into ${denom} equal slices. ${name} eats ${numer} slices. What fraction of the pie did ${name} eat?`,
                 [`${numer}/${denom}`, `${denom}/${numer}`, `${numer}/${denom+1}`, `${denom-numer}/${denom}`],
                 `${numer}/${denom}`,
-                `${numer} out of ${denom} equal parts = ${numer}/${denom}.`
+                `${numer} out of ${denom} equal parts = ${numer}/${denom}.`,
+                'The bottom number is the total equal pieces. The top number is how many were eaten.'
             );
         }
 
@@ -3723,7 +3741,8 @@ input[type=text]:focus {
                 `A number line goes from 0 to 1 and is divided into ${denom} equal parts. Point P is at the ${ord} mark from 0. What fraction does Point P represent?`,
                 [`${numer}/${denom}`, `${denom}/${numer}`, `${numer}/${denom+1}`, `${numer+1}/${denom}`],
                 `${numer}/${denom}`,
-                `Point P is ${numer} out of ${denom} equal parts = ${numer}/${denom}.`
+                `Point P is ${numer} out of ${denom} equal parts = ${numer}/${denom}.`,
+                'Count the equal jumps from 0 to Point P (top number). Count total jumps to 1 (bottom number).'
             );
         }
 
@@ -3735,7 +3754,8 @@ input[type=text]:focus {
                 `Which fraction is equivalent to ${n1}/${d1}?`,
                 [`${n2}/${d2}`, `${n1+1}/${d1}`, `${n1}/${d1+1}`, `${n2+1}/${d2}`],
                 `${n2}/${d2}`,
-                `${n1}/${d1} = ${n2}/${d2} because both name the same amount of the whole.`
+                `${n1}/${d1} = ${n2}/${d2} because both name the same amount of the whole.`,
+                'Multiply or divide the top and bottom by the same number to find an equivalent fraction.'
             );
         }
 
@@ -3751,7 +3771,8 @@ input[type=text]:focus {
                 `A movie starts at ${hour}:${fmt(minute)} and lasts ${added} minutes. What time does it end?`,
                 [`${endH}:${fmt(finalMin)}`, `${endH}:${fmt(Math.max(0,finalMin-15))}`, `${hour}:${fmt(minute+added)}`, `${endH-1}:${fmt(finalMin)}`],
                 `${endH}:${fmt(finalMin)}`,
-                `${minute} + ${added} = ${endMin} minutes = ${endH} hours and ${finalMin} minutes.`
+                `${minute} + ${added} = ${endMin} minutes = ${endH} hours and ${finalMin} minutes.`,
+                'Add the minutes. If the total is 60 or more, that means a new hour started.'
             );
         }
 
@@ -3763,7 +3784,8 @@ input[type=text]:focus {
                 `${name} fills ${containers} bottles. Each bottle holds ${liters} liters. How many liters in all?`,
                 [String(total), String(total+liters), String(containers+liters), String(total-containers)],
                 String(total),
-                `${containers} × ${liters} = ${total} liters.`
+                `${containers} × ${liters} = ${total} liters.`,
+                'Multiply: number of containers × liters in each one.'
             );
         }
 
@@ -3776,7 +3798,8 @@ input[type=text]:focus {
                 `A bar graph shows favorite fruits: Apples = ${v1}, Bananas = ${v2}, Grapes = ${v3}, Oranges = ${v4}. How many more students chose Apples than Bananas?`,
                 [String(diff), String(v2), String(v1+v2), String(diff+2)],
                 String(diff),
-                `${v1} − ${v2} = ${diff}.`
+                `${v1} − ${v2} = ${diff}.`,
+                '"How many more" means subtract the smaller amount from the larger amount.'
             );
         }
 
@@ -3787,7 +3810,7 @@ input[type=text]:focus {
             return cr('3.MD.4',
                 `A student measured 5 pencils. The lengths in inches were: ${lengths.join(', ')}. What is the total length of all the pencils?\nAnswer: ___ inches`,
                 String(total),
-                `Add all the lengths: ${lengths.join(' + ')} = ${total}.`,
+                'Add all the measurements together to find the total.',
                 [`Add the lengths: ${lengths.join(' + ')}`, `Total = ${total} inches`]
             );
         }
@@ -3799,7 +3822,8 @@ input[type=text]:focus {
                 `A rectangle has ${l} rows and ${w} columns of unit squares. What is the area?`,
                 [`${area} square units`, `${area+2} square units`, `${area-2} square units`, `${l+w} square units`],
                 `${area} square units`,
-                `Area = rows × columns = ${l} × ${w} = ${area} square units.`
+                `Area = rows × columns = ${l} × ${w} = ${area} square units.`,
+                'Area = rows × columns. Multiply to find how many unit squares cover the shape.'
             );
         }
 
@@ -3811,7 +3835,8 @@ input[type=text]:focus {
                 `A shape is drawn on grid paper. It covers ${area} unit squares. What is the area of the shape?`,
                 [`${area} square units`, `${area+1} square units`, `${area-1} square units`, `${rows+cols} square units`],
                 `${area} square units`,
-                `Count each unit square the shape covers. There are ${area} unit squares, so the area is ${area} square units.`
+                `Count each unit square the shape covers. There are ${area} unit squares, so the area is ${area} square units.`,
+                'Count every unit square the shape covers. That total is the area.'
             );
         }
 
@@ -3822,7 +3847,8 @@ input[type=text]:focus {
                 `What is the area of a rectangle with length ${l} units and width ${w} units?`,
                 [`${area} square units`, `${l+w} square units`, `${area+l} square units`, `${area-w} square units`],
                 `${area} square units`,
-                `Area = length × width = ${l} × ${w} = ${area} square units.`
+                `Area = length × width = ${l} × ${w} = ${area} square units.`,
+                'Area of a rectangle = length × width. Multiply the two side lengths.'
             );
         }
 
@@ -3833,7 +3859,8 @@ input[type=text]:focus {
                 `What is the perimeter of a rectangle with length ${l} and width ${w}?`,
                 [`${perimeter} units`, `${perimeter+2} units`, `${perimeter-2} units`, `${l*w} units`],
                 `${perimeter} units`,
-                `Perimeter = 2 × (length + width) = 2 × (${l} + ${w}) = ${perimeter} units.`
+                `Perimeter = 2 × (length + width) = 2 × (${l} + ${w}) = ${perimeter} units.`,
+                'Perimeter is the distance all the way around. Add all four sides together.'
             );
         }
 
@@ -3848,7 +3875,8 @@ input[type=text]:focus {
                 `How many sides does a ${s.name} have?`,
                 [String(s.sides), String(s.sides+1), String(s.sides-1), String(s.sides+2)],
                 String(s.sides),
-                `A ${s.name} has ${s.sides} sides.`
+                `A ${s.name} has ${s.sides} sides.`,
+                'Think about the name: tri = 3, quad = 4, penta = 5, hexa = 6.'
             );
         }
 
@@ -3860,7 +3888,8 @@ input[type=text]:focus {
                 `A square is divided into ${parts} equal parts. What fraction of the square does each part represent?`,
                 [`1/${parts}`, `${idx}/${parts}`, `1/${parts+1}`, `${parts}/1`],
                 `1/${parts}`,
-                `Each of ${parts} equal parts of a whole = 1/${parts}.`
+                `Each of ${parts} equal parts of a whole = 1/${parts}.`,
+                'When a whole is cut into equal parts, each piece is ONE out of the total number of parts.'
             );
         }
 
