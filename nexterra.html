@@ -1071,21 +1071,7 @@ body {
       <button onclick="_teacherPinClose()" class="tpm-cancel">✕ Cancel</button>
     </div>
 
-    <!-- Step 2a: First-time PIN setup -->
-    <div id="tpm-setup" class="tpm-step">
-      <div class="tpm-title">🔐 Create Teacher PIN</div>
-      <div class="tpm-sub" id="tpm-setup-classname"></div>
-      <div class="tpm-sub">Set a PIN to secure teacher access. You can reset it from the dashboard settings.</div>
-      <input id="tpm-new" type="password" placeholder="New PIN (min. 4 characters)" autocomplete="new-password"
-        class="tpm-input" onkeydown="if(event.key==='Enter')_teacherPinSetup()">
-      <input id="tpm-confirm" type="password" placeholder="Confirm PIN" autocomplete="new-password"
-        class="tpm-input" onkeydown="if(event.key==='Enter')_teacherPinSetup()">
-      <div id="tpm-setup-err" class="tpm-err" role="alert"></div>
-      <button onclick="_teacherPinSetup()" class="tpm-btn">Create PIN</button>
-      <button onclick="_teacherPinClose()" class="tpm-cancel">✕ Cancel</button>
-    </div>
-
-    <!-- Step 2b: Verify existing PIN -->
+    <!-- Verify PIN (hardcoded: "teacher") -->
     <div id="tpm-verify" class="tpm-step">
       <div class="tpm-title">🔐 Teacher Access</div>
       <div class="tpm-sub" id="tpm-verify-classname"></div>
@@ -3155,30 +3141,14 @@ function _teacherSelectClass(classCode) {
   _teacherSelectedClass = classCode;
   const classInfo = CLASSES[classCode] || {};
   const label = classInfo.name || classCode;
-  /* Per-class PIN key so each teacher has their own PIN */
-  const pinKey = _TPIN_KEY + '_' + classCode;
-  const stored = safeLS.get(pinKey);
-  const isFirst = !stored;
 
   document.getElementById('tpm-class-select').style.display = 'none';
-
-  if (isFirst) {
-    document.getElementById('tpm-setup-classname').textContent = label;
-    document.getElementById('tpm-setup').classList.add('open');
-    document.getElementById('tpm-verify').classList.remove('open');
-    setTimeout(() => { const el = document.getElementById('tpm-new'); if (el) { el.value = ''; el.focus(); } }, 60);
-  } else {
-    document.getElementById('tpm-verify-classname').textContent = label;
-    document.getElementById('tpm-verify').classList.add('open');
-    document.getElementById('tpm-setup').classList.remove('open');
-    const err = document.getElementById('tpm-verify-err');
-    const lockKey = _TPIN_LOCK_KEY + '_' + classCode;
-    if (err && _isPinLocked(lockKey)) {
-      err.textContent = 'Too many incorrect attempts. Try again in 15 minutes.';
-      err.style.display = 'block';
-    } else if (err) { err.style.display = 'none'; }
-    setTimeout(() => { const el = document.getElementById('tpm-pin'); if (el) { el.value = ''; el.focus(); } }, 60);
-  }
+  document.getElementById('tpm-setup').classList.remove('open');
+  document.getElementById('tpm-verify-classname').textContent = label;
+  document.getElementById('tpm-verify').classList.add('open');
+  const err = document.getElementById('tpm-verify-err');
+  if (err) err.style.display = 'none';
+  setTimeout(() => { const el = document.getElementById('tpm-pin'); if (el) { el.value = ''; el.focus(); } }, 60);
 }
 
 function _teacherPinClose() {
@@ -3186,76 +3156,26 @@ function _teacherPinClose() {
   _teacherSelectedClass = null;
 }
 
-async function _teacherPinSetup() {
-  const pin  = document.getElementById('tpm-new').value;
-  const conf = document.getElementById('tpm-confirm').value;
-  const err  = document.getElementById('tpm-setup-err');
-  if (pin.length < 4) { err.textContent = 'PIN must be at least 4 characters.'; err.style.display = 'block'; return; }
-  if (pin !== conf)   { err.textContent = 'PINs do not match — try again.'; err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  const pinKey = _TPIN_KEY + '_' + (_teacherSelectedClass || 'default');
-  safeLS.set(pinKey, await _sha256(pin));
-  _teacherPinClose();
-  loadTeacher(_teacherSelectedClass);
-}
+/* PIN setup removed — hardcoded PIN "teacher" */
 
-async function _teacherPinVerify() {
+function _teacherPinVerify() {
   const classCode = _teacherSelectedClass || 'default';
-  const pinKey  = _TPIN_KEY  + '_' + classCode;
-  const failKey = _TPIN_FAIL_KEY + '_' + classCode;
-  const lockKey = _TPIN_LOCK_KEY + '_' + classCode;
   const err = document.getElementById('tpm-verify-err');
-  if (_isPinLocked(lockKey)) {
-    err.textContent = 'Too many incorrect attempts. Try again in 15 minutes.';
-    err.style.display = 'block';
-    return;
-  }
   const pin = document.getElementById('tpm-pin').value;
-  if (!pin) { err.textContent = 'Please enter your PIN.'; err.style.display = 'block'; return; }
-  const hash = await _sha256(pin);
-  if (hash === safeLS.get(pinKey)) {
-    safeLS.remove(failKey);
-    safeLS.remove(lockKey);
+  if (!pin) { err.textContent = 'Please enter the PIN.'; err.style.display = 'block'; return; }
+  if (pin === 'teacher') {
     err.style.display = 'none';
     _teacherPinClose();
     loadTeacher(classCode);
   } else {
-    const fails = parseInt(safeLS.get(failKey) || '0') + 1;
-    safeLS.set(failKey, String(fails));
-    if (fails >= _TPIN_MAX_FAILS) {
-      safeLS.set(lockKey, String(Date.now()));
-      err.textContent = 'Too many incorrect attempts. Locked for 15 minutes.';
-    } else {
-      const left = _TPIN_MAX_FAILS - fails;
-      err.textContent = `Incorrect PIN — ${left} attempt${left === 1 ? '' : 's'} remaining.`;
-    }
+    err.textContent = 'Incorrect PIN — try again.';
     err.style.display = 'block';
     const el = document.getElementById('tpm-pin');
     el.value = ''; el.focus();
   }
 }
 
-function _teacherPinForgot() {
-  const classCode = _teacherSelectedClass || 'default';
-  if (!confirm('Reset your teacher PIN?\n\nYou will need to create a new one before accessing the dashboard.')) return;
-  safeLS.remove(_TPIN_KEY  + '_' + classCode);
-  safeLS.remove(_TPIN_FAIL_KEY + '_' + classCode);
-  safeLS.remove(_TPIN_LOCK_KEY + '_' + classCode);
-  document.getElementById('tpm-verify').classList.remove('open');
-  document.getElementById('tpm-setup').classList.add('open');
-  document.getElementById('tpm-setup-err').style.display = 'none';
-  setTimeout(() => { const el = document.getElementById('tpm-new'); if (el) { el.value = ''; el.focus(); } }, 60);
-}
-
-/* Allow teachers to change their PIN from the dashboard settings tab */
-function teacherChangePIN() {
-  const modal = document.getElementById('teacher-pin-modal');
-  modal.style.display = 'flex';
-  document.getElementById('tpm-setup').style.display = 'block';
-  document.getElementById('tpm-verify').style.display = 'none';
-  document.getElementById('tpm-setup-err').style.display = 'none';
-  setTimeout(() => { const el = document.getElementById('tpm-new'); if (el) { el.value = ''; el.focus(); } }, 60);
-}
+/* PIN forgot/change removed — hardcoded PIN "teacher" */
 
 function doLogout() {
   // stop timer if running

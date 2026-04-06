@@ -3072,6 +3072,263 @@ input[type=text]:focus { border-color: #008DD5 !important; }
   border-radius: 2px !important;
 }
 
+/* ════════════════════════════════════════
+   PL-5000 ANIMATIONS — RETRO GLITCH & GLOW
+════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes pl-bootUp {
+  0%   { opacity: 0; transform: scale(.95) translateY(12px); filter: blur(4px); }
+  60%  { opacity: 1; filter: blur(0); }
+  80%  { transform: scale(1.01) translateY(-2px); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes pl-scanFlicker {
+  0%, 100% { opacity: 1; }
+  3%       { opacity: .92; }
+  6%       { opacity: 1; }
+  48%      { opacity: 1; }
+  50%      { opacity: .96; }
+  52%      { opacity: 1; }
+}
+
+@keyframes pl-glowPulse {
+  0%, 100% { text-shadow: 0 0 6px rgba(0,141,213,.3), 0 0 12px rgba(0,141,213,.1); }
+  50%      { text-shadow: 0 0 12px rgba(0,141,213,.5), 0 0 24px rgba(0,141,213,.2); }
+}
+
+@keyframes pl-tileEnter {
+  0%   { opacity: 0; transform: translateY(20px) scale(.96); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pl-cardSlideUp {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pl-headerSlide {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pl-btnReady {
+  0%   { box-shadow: 0 3px 0 #004a70; }
+  50%  { box-shadow: 0 3px 0 #004a70, 0 0 12px rgba(0,141,213,.3); }
+  100% { box-shadow: 0 3px 0 #004a70; }
+}
+
+@keyframes pl-dotBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .5; }
+}
+
+@keyframes pl-choiceReveal {
+  0%   { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pl-correctFlash {
+  0%   { background: rgba(0,141,213,.08); }
+  30%  { background: rgba(0,141,213,.25); }
+  100% { background: rgba(0,141,213,.08); }
+}
+
+@keyframes pl-incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  15%      { transform: translateX(-6px); }
+  30%      { transform: translateX(6px); }
+  45%      { transform: translateX(-4px); }
+  60%      { transform: translateX(4px); }
+  75%      { transform: translateX(-2px); }
+}
+
+@keyframes pl-scoreCount {
+  0%   { transform: scale(.5); opacity: 0; }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pl-progressFill {
+  0%   { width: 0; }
+}
+
+@keyframes pl-floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+@keyframes pl-borderGlow {
+  0%, 100% { border-color: #4a5368; }
+  50%      { border-color: #008DD5; }
+}
+
+@keyframes pl-typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ── Apply animations ── */
+
+/* Screen transitions — boot-up effect */
+.screen.active {
+  animation: pl-bootUp .5s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Subtle CRT scanline flicker on body */
+body {
+  animation: pl-scanFlicker 8s ease-in-out infinite;
+}
+
+/* Header slides in from top */
+.header {
+  animation: pl-headerSlide .4s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Glowing title text */
+.header-title {
+  animation: pl-glowPulse 3s ease-in-out infinite;
+}
+
+/* Domain tiles stagger in */
+.domain-hub-tile {
+  animation: pl-tileEnter .4s cubic-bezier(.22,1,.36,1) both;
+}
+.domain-hub-tile:nth-child(1) { animation-delay: .05s; }
+.domain-hub-tile:nth-child(2) { animation-delay: .1s; }
+.domain-hub-tile:nth-child(3) { animation-delay: .15s; }
+.domain-hub-tile:nth-child(4) { animation-delay: .2s; }
+.domain-hub-tile:nth-child(5) { animation-delay: .25s; }
+
+/* Domain tile hover — border glow */
+.domain-hub-tile:hover {
+  animation: pl-borderGlow 1.5s ease-in-out infinite;
+}
+
+/* Setup card entrance */
+.setup-card {
+  animation: pl-cardSlideUp .5s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: .15s;
+}
+
+/* Start button glow pulse when enabled */
+.start-button:not(:disabled) {
+  animation: pl-btnReady 2s ease-in-out infinite;
+}
+
+/* Choice buttons stagger reveal */
+.choice-btn {
+  animation: pl-choiceReveal .3s cubic-bezier(.22,1,.36,1) both;
+}
+.choice-btn:nth-child(1) { animation-delay: .05s; }
+.choice-btn:nth-child(2) { animation-delay: .1s; }
+.choice-btn:nth-child(3) { animation-delay: .15s; }
+.choice-btn:nth-child(4) { animation-delay: .2s; }
+
+/* Correct answer flash */
+.choice-btn.correct {
+  animation: pl-correctFlash .6s ease both !important;
+}
+
+/* Wrong answer shake */
+.choice-btn.incorrect {
+  animation: pl-incorrectShake .5s ease both !important;
+}
+
+/* Progress bar fill animation */
+.domain-hub-bar-fill {
+  animation: pl-progressFill .8s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Progress dots — current one blinks */
+.progress-dot.current {
+  animation: pl-dotBlink 1s ease-in-out infinite;
+}
+
+/* Results screen — score counter pop */
+.results-score-ring-inner {
+  animation: pl-scoreCount .6s cubic-bezier(.22,1,.36,1) both;
+  animation-delay: .3s;
+}
+
+/* Mastered badge floats gently */
+.domain-hub-mastered-badge {
+  animation: pl-floatBadge 3s ease-in-out infinite;
+}
+
+/* Standard cards stagger */
+.std-card {
+  animation: pl-tileEnter .35s cubic-bezier(.22,1,.36,1) both;
+}
+.std-card:nth-child(1) { animation-delay: .03s; }
+.std-card:nth-child(2) { animation-delay: .06s; }
+.std-card:nth-child(3) { animation-delay: .09s; }
+.std-card:nth-child(4) { animation-delay: .12s; }
+.std-card:nth-child(5) { animation-delay: .15s; }
+.std-card:nth-child(6) { animation-delay: .18s; }
+.std-card:nth-child(7) { animation-delay: .21s; }
+
+/* Question stem text glow */
+.q-stem {
+  animation: pl-glowPulse 4s ease-in-out infinite;
+}
+
+/* Feedback cards slide up */
+.feedback-correct,
+.feedback-incorrect {
+  animation: pl-cardSlideUp .4s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Avatar buttons pop in */
+.setup-avatar-btn {
+  animation: pl-tileEnter .3s cubic-bezier(.22,1,.36,1) both;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+}
+.setup-avatar-btn:hover {
+  transform: scale(1.12) !important;
+  box-shadow: 0 0 12px rgba(0,141,213,.25) !important;
+}
+
+/* Input focus glow */
+input[type=text]:focus {
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.12), 0 0 12px rgba(0,141,213,.2) !important;
+  transition: box-shadow .2s, border-color .2s;
+}
+
+/* Game header elements */
+.game-header {
+  animation: pl-headerSlide .35s cubic-bezier(.22,1,.36,1) both;
+}
+
+/* Section labels glow */
+.section-label, .dashboard-hero-title,
+.results-title, .setup-title {
+  animation: pl-glowPulse 4s ease-in-out infinite;
+}
+
+/* Buttons — retro press with spring */
+.btn:hover {
+  transform: translateY(-1px) !important;
+  transition: all .12s cubic-bezier(.22,1,.36,1) !important;
+}
+.btn:active {
+  transform: translateY(2px) scale(.98) !important;
+  transition: all .06s !important;
+}
+
+/* Scrollbar thumb glow on hover */
+::-webkit-scrollbar-thumb:hover { background: #008DD5; }
+
+/* ── Reduced motion — respect a11y ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
     </style>
 </head>
 <body>
