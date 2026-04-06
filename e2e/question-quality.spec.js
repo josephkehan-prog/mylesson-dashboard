@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-// Helper: complete setup and navigate to a topic
+// Helper: complete setup and navigate to a topic (opens first domain, then nth card)
 async function setupAndGoTo(page, topicIndex = 0) {
   await page.goto('/math_practice.html');
   await page.evaluate(() => {
@@ -13,9 +13,18 @@ async function setupAndGoTo(page, topicIndex = 0) {
   await page.locator('#startButton').click();
   await expect(page.locator('#scDashboard')).toBeVisible();
 
-  // Card itself is the Practice button — click the nth card
+  // Open first domain (OA) to access standard cards
+  await page.locator('.domain-hub-tile').first().click();
+  await expect(page.locator('.domain-cards-grid')).toBeVisible();
+
   await page.locator('.category-card').nth(topicIndex).click();
   await expect(page.locator('#scQuestion')).toBeVisible();
+}
+
+// Helper: open first domain after reaching dashboard via fresh setup
+async function openFirstDomainAfterSetup(page) {
+  await page.locator('.domain-hub-tile').first().click();
+  await expect(page.locator('.domain-cards-grid')).toBeVisible();
 }
 
 test.describe('NYS Question Quality', () => {
@@ -44,7 +53,8 @@ test.describe('NYS Question Quality', () => {
     await page.fill('#nicknameInput', 'TestKid');
     await page.locator('#startButton').click();
 
-    // Card itself is the Practice button
+    // Open first domain then click first card
+    await openFirstDomainAfterSetup(page);
     await page.locator('.category-card').first().click();
     await expect(page.locator('#scQuestion')).toBeVisible();
 
@@ -129,7 +139,9 @@ test.describe('NYS Question Quality', () => {
     await page.fill('#nicknameInput', 'TestKid');
     await page.locator('#startButton').click();
 
-    // Find NF topic card
+    // NF is domain tile index 2 — open it and find first NF card
+    await page.locator('.domain-hub-tile').nth(2).click();
+    await expect(page.locator('.domain-cards-grid')).toBeVisible();
     const cards = page.locator('.category-card');
     const count = await cards.count();
     let clicked = false;
@@ -142,8 +154,7 @@ test.describe('NYS Question Quality', () => {
       }
     }
     if (!clicked) {
-      // fallback: click 4th card
-      await page.locator('.category-card').nth(3).click();
+      await page.locator('.category-card').first().click();
     }
 
     await expect(page.locator('#scQuestion')).toBeVisible();
@@ -162,6 +173,9 @@ test.describe('NYS Question Quality', () => {
     await page.fill('#nicknameInput', 'TestKid');
     await page.locator('#startButton').click();
 
+    // MD is domain tile index 3 — open it and find first MD card
+    await page.locator('.domain-hub-tile').nth(3).click();
+    await expect(page.locator('.domain-cards-grid')).toBeVisible();
     const cards = page.locator('.category-card');
     const count = await cards.count();
     let mdClicked = false;
@@ -174,7 +188,7 @@ test.describe('NYS Question Quality', () => {
       }
     }
     if (!mdClicked) {
-      await page.locator('.category-card').nth(4).click();
+      await page.locator('.category-card').first().click();
     }
 
     await expect(page.locator('#scQuestion')).toBeVisible();

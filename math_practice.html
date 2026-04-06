@@ -16,7 +16,7 @@
     ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -48,7 +48,7 @@
         }
 
         html, body {
-            font-family: 'Crimson Pro', Georgia, serif;
+            font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
             background: var(--bg);
             color: var(--primary);
             height: 100%;
@@ -57,53 +57,45 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, .header-title, .domain-hub-name, .domain-cards-title,
-        .setup-title, .leaderboard-title, .section-title, .game-title-text,
-        .category-name, .anchor-card-title {
-            font-family: 'Cinzel', 'Times New Roman', serif;
-        }
-
         :root {
-            /* ── Medieval palette ── */
-            --primary: #1a0e00;          /* near-black parchment ink */
-            --accent: #8b1a1a;           /* crimson / royal red */
-            --accent-light: #c0392b;     /* brighter crimson for hover */
-            --success: #2d6a2d;          /* forest green */
-            --success-bg: #d4edda;
-            --warning: #b8860b;          /* dark gold */
-            --warning-bg: #fff8dc;
-            --danger: #8b1a1a;
-            --danger-bg: #fde8e8;
-            --surface: #f5f0e8;          /* parchment */
-            --surface-alt: #ede5d0;      /* darker parchment hover */
-            --bg: #e8dfc8;               /* aged parchment background */
-            --bg-card: #faf6ee;          /* light parchment card */
-            --bg-feedback: #f5f0e8;
-            --border-gray: #c4a96d;      /* golden border */
-            --border: #c4a96d;
+            --primary: #0f172a;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --success: #10b981;
+            --success-bg: #d1fae5;
+            --warning: #f59e0b;
+            --warning-bg: #fffbeb;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --surface: #f8fafc;
+            --surface-alt: #f0f2ff;  /* accent-tinted hover */
+            --bg: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-feedback: #fafafa;
+            --border-gray: #e2e8f0;
             /* Text tokens */
-            --text-muted: #6b4c1e;
-            --text-subtle: #9b7740;
-            --text-secondary: #4a3010;
-            --text-body: #2d1a00;
-            --text-on-dark: rgba(255,245,220,.9);
-            --text-on-dark-muted: rgba(255,245,220,.65);
-            --text-on-dark-dim: rgba(255,245,220,.45);
+            --text-muted: #64748b;
+            --text-subtle: #94a3b8;
+            --text-secondary: #475569;
+            --text-body: #334155;
+            --text-on-dark: rgba(255,255,255,.85);
+            --text-on-dark-muted: rgba(255,255,255,.6);
+            --text-on-dark-dim: rgba(255,255,255,.5);
             /* Progress dots */
-            --dot-default: #7a5c2e;
+            --dot-default: #5a6070;
             --dot-current: var(--accent);
-            --dot-answered: #2d6a2d;
+            --dot-answered: #4ade80;
             /* Card / shadow */
-            --card-shadow: 0 1px 3px rgba(90,50,0,.1), 0 4px 16px rgba(90,50,0,.08);
-            --card-shadow-hover: 0 8px 30px rgba(139,26,26,.18), 0 2px 8px rgba(90,50,0,.12);
-            --glass-bg: rgba(250,246,238,.85);
-            --glass-border: rgba(196,169,109,.4);
-            --radius-sm: 4px;            /* sharper corners — more medieval */
-            --radius-md: 6px;
-            --radius-lg: 10px;
-            --radius-xl: 14px;
-            --gradient-primary: linear-gradient(135deg, #8b1a1a, #6b1010, #4a0e0e);
-            --gradient-dark: linear-gradient(135deg, #1a0800, #2d1400, #1a0e00);
+            --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+            --card-shadow-hover: 0 8px 30px rgba(99,102,241,.15), 0 2px 8px rgba(0,0,0,.08);
+            --glass-bg: rgba(255,255,255,.75);
+            --glass-border: rgba(255,255,255,.3);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
+            --gradient-dark: linear-gradient(135deg, #0f172a, #1e293b);
             /* Transition scale */
             --t-fast: 150ms cubic-bezier(.22,1,.36,1);
             --t-base: 200ms cubic-bezier(.22,1,.36,1);
@@ -1668,147 +1660,6 @@
             animation: pulse 1.5s ease-in-out infinite;
         }
 
-        /* LEADERBOARD SECTION — collapsible */
-        .leaderboard-section {
-            background: var(--bg-card);
-            border-radius: var(--radius-md);
-            margin-bottom: 16px;
-            box-shadow: var(--card-shadow);
-            overflow: hidden;
-        }
-
-        .leaderboard-toggle {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            text-align: left;
-        }
-
-        .leaderboard-toggle:hover { background: var(--surface); }
-
-        .leaderboard-title {
-            font-size: 11px;
-            font-weight: 800;
-            color: var(--text-subtle);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin: 0;
-        }
-
-        .leaderboard-chevron {
-            font-size: 12px;
-            color: var(--text-subtle);
-            transition: transform var(--t-fast);
-        }
-
-        .leaderboard-section.open .leaderboard-chevron {
-            transform: rotate(180deg);
-        }
-
-        .leaderboard-body {
-            display: none;
-            padding: 0 16px 12px;
-        }
-
-        .leaderboard-section.open .leaderboard-body {
-            display: block;
-        }
-
-        .leaderboard-list {
-            max-height: 180px;
-            overflow-y: auto;
-        }
-
-        .leaderboard-row {
-            display: flex;
-            align-items: center;
-            padding: 7px 0;
-            border-bottom: 1px solid var(--border-gray);
-            gap: 8px;
-        }
-
-        .leaderboard-row:last-child {
-            border-bottom: none;
-        }
-
-        .leaderboard-rank {
-            width: 32px;
-            height: 32px;
-            border-radius: 10px;
-            background: var(--surface);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 12px;
-            color: var(--text-muted);
-            flex-shrink: 0;
-        }
-
-        .leaderboard-row.rank-1 .leaderboard-rank {
-            background: linear-gradient(135deg, #fde68a, #fbbf24);
-            color: #92400e;
-        }
-
-        .leaderboard-row.rank-2 .leaderboard-rank {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-            color: #475569;
-        }
-
-        .leaderboard-row.rank-3 .leaderboard-rank {
-            background: linear-gradient(135deg, #fed7aa, #fdba74);
-            color: #9a3412;
-        }
-
-        .leaderboard-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--surface), var(--border-gray));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .leaderboard-name {
-            flex: 1;
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--primary);
-            min-width: 100px;
-        }
-
-        .leaderboard-xp {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-right: 8px;
-        }
-
-        .leaderboard-level {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: var(--radius-sm);
-            background: var(--surface);
-            color: var(--text-muted);
-        }
-
-        .leaderboard-row.current {
-            background: rgba(99,102,241,.05);
-            border-radius: var(--radius-sm);
-            padding-left: 8px;
-            padding-right: 8px;
-            margin: 0 -8px;
-        }
 
         /* Level-up overlay removed — no longer used */
 
@@ -1832,9 +1683,6 @@
                 justify-content: space-between;
             }
 
-            .leaderboard-name {
-                min-width: auto;
-            }
         }
 
         /* ============ ANCHOR CHART MODAL ============ */
@@ -2492,6 +2340,491 @@
             flex-direction: column;
         }
 
+        /* ===== GAME LAYOUT UTILITIES ===== */
+
+        /* Horizontal choice row (factor cards in a row) */
+        .game-choices {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        /* Two-column step layout (Step 1 → Step 2) */
+        .game-steps {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .game-step {
+            flex: 1;
+            border-radius: var(--radius-md);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .game-step--done {
+            background: var(--success-bg);
+            border: 2px solid var(--success);
+        }
+
+        .game-step--todo {
+            background: var(--surface-alt);
+            border: 2px solid var(--accent);
+        }
+
+        .game-step__label {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            margin-bottom: 4px;
+        }
+
+        .game-step--done .game-step__label { color: var(--success); }
+        .game-step--todo .game-step__label { color: var(--accent); }
+
+        .game-step__expr {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .game-step__result {
+            font-size: 17px;
+            font-weight: 900;
+            margin-top: 3px;
+        }
+
+        .game-step--done .game-step__result { color: var(--success); }
+        .game-step--todo .game-step__result { color: var(--accent); }
+
+        .game-step-arrow {
+            font-size: 20px;
+            color: var(--text-subtle);
+            flex-shrink: 0;
+        }
+
+        /* Monospace place-value display */
+        .game-pv-box {
+            font-family: monospace;
+            background: var(--surface);
+            border: 2px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            display: inline-block;
+            margin-bottom: 14px;
+        }
+
+        .game-pv-header {
+            display: grid;
+            gap: 4px;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .game-pv-label {
+            font-size: 10px;
+            color: var(--text-subtle);
+            font-weight: 600;
+        }
+
+        .game-pv-digit {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .game-pv-op {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .game-pv-line {
+            border-top: 3px solid var(--primary);
+            margin: 6px 0;
+        }
+
+        .game-pv-answer {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .game-pv-note {
+            font-size: 11px;
+            color: var(--warning);
+            text-align: center;
+            margin-top: 4px;
+        }
+
+        /* Data canvas (graphs, number lines, shapes) */
+        .game-data-panel {
+            background: var(--surface);
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .game-data-panel__title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-subtle);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        /* Formula chip */
+        .game-formula {
+            background: var(--surface-alt);
+            border: 2px solid var(--accent);
+            border-radius: var(--radius-md);
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin: 8px auto 14px;
+            max-width: 280px;
+        }
+
+        /* Perimeter shape display */
+        .game-shape-wrap {
+            display: inline-block;
+            position: relative;
+            margin: 24px 36px;
+        }
+
+        .game-shape-box {
+            width: 160px;
+            height: 100px;
+            border: 4px dashed var(--success);
+            border-radius: var(--radius-sm);
+            background: var(--success-bg);
+        }
+
+        .game-side-label {
+            position: absolute;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--success);
+            background: var(--bg-card);
+            border: 1px solid var(--success-bg);
+            border-radius: 4px;
+            padding: 2px 5px;
+        }
+
+        .game-side-label--top    { top: -18px; left: 50%; transform: translateX(-50%); }
+        .game-side-label--bottom { bottom: -18px; left: 50%; transform: translateX(-50%); }
+        .game-side-label--left   { left: -26px; top: 50%; transform: translateY(-50%); }
+        .game-side-label--right  { right: -26px; top: 50%; transform: translateY(-50%); }
+
+        /* Visual object tiles (pour & weigh) */
+        .game-object-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+        }
+
+        .game-object-tile {
+            text-align: center;
+            border-radius: var(--radius-md);
+            padding: 10px 14px;
+            min-width: 60px;
+        }
+
+        .game-object-tile--a {
+            background: var(--warning-bg);
+            border: 2px solid var(--warning);
+        }
+
+        .game-object-tile--b {
+            background: var(--success-bg);
+            border: 2px solid var(--success);
+        }
+
+        .game-object-tile--result {
+            background: var(--surface-alt);
+            border: 2px dashed var(--accent);
+        }
+
+        .game-object-tile__icon { font-size: 22px; }
+        .game-object-tile__val  { font-size: 15px; font-weight: 800; color: var(--primary); }
+        .game-operator-sym { font-size: 22px; font-weight: 700; color: var(--text-muted); padding-bottom: 12px; }
+
+        /* Number line container */
+        .game-number-line {
+            background: var(--success-bg);
+            border: 2px solid var(--accent);
+            border-radius: var(--radius-md);
+            padding: 20px 12px 40px;
+            position: relative;
+            min-height: 100px;
+            margin: 10px 0;
+        }
+
+        .game-nl-track {
+            position: absolute;
+            top: 30px;
+            left: 6%; right: 6%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            border-radius: 99px;
+        }
+
+        .game-nl-arrow-l { position: absolute; top: 22px; left: 4%; }
+        .game-nl-arrow-r { position: absolute; top: 22px; right: 4%; }
+
+        .game-nl-ticks {
+            position: absolute;
+            top: 14px;
+            left: 6%; right: 6%;
+        }
+
+        .game-nl-tick {
+            position: absolute;
+            transform: translateX(-50%);
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .game-nl-tick__mark {
+            width: 2px;
+            height: 18px;
+            background: var(--primary);
+            margin: 0 auto;
+        }
+
+        .game-nl-tick__label {
+            margin-top: 2px;
+            font-size: 12px;
+            font-weight: 700;
+            background: var(--bg-card);
+            border: 2px solid var(--border-gray);
+            border-radius: 6px;
+            padding: 2px 5px;
+            color: var(--primary);
+            transition: border-color var(--t-fast), background var(--t-fast);
+        }
+
+        .game-nl-tick__label--endpoint {
+            font-size: 14px;
+            font-weight: 800;
+            border-color: var(--primary);
+        }
+
+        .game-nl-tick:hover .game-nl-tick__label { border-color: var(--accent); background: var(--surface-alt); }
+        .game-nl-tick.picked .game-nl-tick__label { border-color: var(--accent); background: var(--surface-alt); }
+
+        /* Bar graph bars */
+        .game-bar-chart {
+            display: flex;
+            gap: 6px;
+            align-items: flex-end;
+            justify-content: center;
+            border-bottom: 3px solid var(--border-gray);
+            padding-bottom: 0;
+        }
+
+        .game-bar-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .game-bar-val {
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .game-bar-track {
+            width: 34px;
+            background: var(--surface);
+            border-radius: 4px 4px 0 0;
+            border: 1px solid var(--border-gray);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .game-bar-fill {
+            width: 100%;
+            border-radius: 4px 4px 0 0;
+            transition: height .4s;
+        }
+
+        .game-bar-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-body);
+            text-align: center;
+            max-width: 40px;
+            margin-top: 4px;
+        }
+
+        /* Line plot */
+        .game-line-plot {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            align-items: flex-end;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 4px;
+        }
+
+        .game-plot-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .game-plot-xs {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 2px;
+            min-height: 80px;
+            justify-content: flex-start;
+        }
+
+        .game-plot-x { font-size: 18px; line-height: 1; color: var(--accent); font-weight: 700; }
+        .game-plot-tick { width: 1px; height: 8px; background: var(--primary); margin: 0 auto; }
+        .game-plot-label { font-size: 11px; font-weight: 700; color: var(--primary); }
+
+        /* Pattern chain (NBT.3) */
+        .game-pattern-chain {
+            background: var(--warning-bg);
+            border: 2px solid var(--warning);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-bottom: 14px;
+        }
+
+        .game-pattern-chain__title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .game-pattern-chain__row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .game-pattern-box {
+            background: var(--bg-card);
+            border: 2px solid var(--warning);
+            border-radius: var(--radius-sm);
+            padding: 8px 12px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .game-pattern-box--highlighted {
+            background: var(--warning-bg);
+        }
+
+        .game-pattern-box__sub {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .game-pattern-box__expr {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .game-pattern-box__hint {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        /* Shape sorter gallery */
+        .game-shape-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .game-shape-item {
+            text-align: center;
+        }
+
+        .game-shape-item__name {
+            font-size: 10px;
+            color: var(--text-subtle);
+            margin-top: 2px;
+        }
+
+        /* Rectangle fill grid */
+        .game-rect-wrap {
+            display: inline-block;
+            position: relative;
+            margin: 8px 36px 36px;
+        }
+
+        .game-rect-grid {
+            display: inline-grid;
+            gap: 0;
+            border: 3px solid var(--accent);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .game-rect-cell {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--accent);
+            font-size: 9px;
+            color: var(--accent);
+        }
+
+        .game-rect-cell--first { background: var(--accent-light); }
+        .game-rect-cell--rest  { background: #e0e7ff; }
+
+        .game-rect-label--bottom {
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .game-rect-label--right {
+            position: absolute;
+            right: -34px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
         @media (max-width: 768px) {
             .match-grid { grid-template-columns: repeat(3, 1fr); }
             .factor-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2526,7 +2859,7 @@
 
             <label for="nicknameInput" style="display:block;font-size:12px;font-weight:600;color:var(--text-muted);text-align:left;margin-bottom:6px;">Your nickname</label>
             <input type="text" class="nickname-input" id="nicknameInput" placeholder="Max 12 characters" maxlength="12" aria-describedby="nicknameHint">
-            <div id="nicknameHint" style="font-size:11px;color:var(--text-muted);text-align:left;margin-top:4px;margin-bottom:20px;">Choose a fun name to display on the leaderboard.</div>
+            <div id="nicknameHint" style="font-size:11px;color:var(--text-muted);text-align:left;margin-top:4px;margin-bottom:20px;">Choose a fun name for your quest.</div>
 
             <button class="start-button" id="startButton" onclick="app.startSetup()" disabled aria-disabled="true">Start Playing! 🚀</button>
         </div>
@@ -2572,22 +2905,6 @@
 
             <!-- profileNickname kept for JS backward-compat -->
             <span id="profileNickname" style="display:none;"></span>
-
-            <!-- LEADERBOARD — collapsible -->
-            <div class="leaderboard-section open" id="leaderboardSection">
-                <button class="leaderboard-toggle" onclick="app.toggleLeaderboard()" aria-expanded="true" aria-controls="leaderboardBody">
-                    <h2 class="leaderboard-title">🏆 Leaderboard</h2>
-                    <div style="display:flex;align-items:center;gap:12px;">
-                        <a href="leaderboard.html" onclick="event.stopPropagation()" title="Open full leaderboard page" style="font-size:11px;font-weight:700;color:var(--accent);text-decoration:underline;text-underline-offset:2px;">Full board ↗</a>
-                        <span class="leaderboard-chevron">▼</span>
-                    </div>
-                </button>
-                <div class="leaderboard-body" id="leaderboardBody">
-                    <div class="leaderboard-list" id="leaderboardList">
-                        <div style="text-align:center;padding:16px;color:var(--text-subtle);font-size:12px;">Loading…</div>
-                    </div>
-                </div>
-            </div>
 
             <div id="dashboardMain"></div>
         </main>
@@ -3653,6 +3970,54 @@
                 example: 'A rectangle is 7 m long and 4 m wide. P = 7+4+7+4 = 22 m. Or: 2×(7+4) = 2×11 = 22 m.',
                 remember: 'Perimeter = add ALL the sides. Shortcut for rectangles: 2 × (length + width)!'
             },
+            '3.MD.3': {
+                title: 'Scaled Bar & Picture Graphs',
+                domain: 'md', icon: '📊',
+                vocab: ['bar graph', 'picture graph', 'scale', 'key', 'data', 'category', 'axis'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="16" font-size="13" font-weight="700" fill="#374151">Scaled Bar Graph (scale = 2)</text>
+                    ${[['Dogs',5],['Cats',3],['Birds',4],['Fish',2]].map(([label,val],i) => {
+                        const colors = ['#6366f1','#f59e0b','#10b981','#f87171'];
+                        const bw = 48, gap = 16, x = 40 + i*(bw+gap), maxH = 80, barH = Math.round(val/5*maxH);
+                        return `<rect x="${x}" y="${130-barH}" width="${bw}" height="${barH}" rx="3" fill="${colors[i]}" opacity=".9"/>
+                        <text x="${x+bw/2}" y="${125-barH}" text-anchor="middle" font-size="10" font-weight="700" fill="${colors[i]}">${val*2}</text>
+                        <text x="${x+bw/2}" y="144" text-anchor="middle" font-size="10" fill="#374151">${label}</text>`;
+                    }).join('')}
+                    <line x1="30" y1="50" x2="30" y2="132" stroke="#94a3b8" stroke-width="1.5"/>
+                    <line x1="30" y1="132" x2="310" y2="132" stroke="#94a3b8" stroke-width="1.5"/>
+                    <text x="330" y="16" font-size="11" fill="#374151" font-weight="600">Scale = 2</text>
+                    <text x="330" y="30" font-size="11" fill="#6366f1">Each bar</text>
+                    <text x="330" y="42" font-size="11" fill="#6366f1">= votes × 2</text>
+                </svg>`,
+                example: 'If the scale is 2 and the Dogs bar reaches 5, then dogs got 5 × 2 = 10 votes.',
+                remember: 'Always check the SCALE or KEY before reading a graph!'
+            },
+            '3.MD.4': {
+                title: 'Line Plots with Measurements',
+                domain: 'md', icon: '📈',
+                vocab: ['line plot', 'data', 'measurement', 'X mark', 'range', 'mode', 'frequency'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="16" font-size="13" font-weight="700" fill="#374151">Line Plot — pencil lengths (inches):</text>
+                    ${[2,3,4,5,6].map((v,i) => {
+                        const x = 60 + i*62;
+                        const counts = [1,3,2,4,1][i];
+                        const xs = Array.from({length:counts}, (_,j) =>
+                            `<text x="${x}" y="${110-j*18}" text-anchor="middle" font-size="16" font-weight="700" fill="#6366f1">✕</text>`
+                        ).join('');
+                        return `${xs}
+                        <line x1="${x}" y1="112" x2="${x}" y2="120" stroke="#374151" stroke-width="1.5"/>
+                        <text x="${x}" y="132" text-anchor="middle" font-size="12" font-weight="600" fill="#374151">${v}</text>`;
+                    }).join('')}
+                    <line x1="36" y1="112" x2="370" y2="112" stroke="#374151" stroke-width="2"/>
+                    <text x="190" y="148" text-anchor="middle" font-size="11" fill="#374151">Length (inches)</text>
+                    <text x="320" y="60" font-size="11" fill="#6366f1">Mode = 5</text>
+                    <text x="320" y="74" font-size="11" fill="#374151">(most ✕s)</text>
+                    <text x="320" y="90" font-size="11" fill="#10b981">Range = 4</text>
+                    <text x="320" y="104" font-size="11" fill="#374151">(6 − 2)</text>
+                </svg>`,
+                example: 'Count the ✕ marks above each number. The number with the most ✕s is the mode.',
+                remember: 'Mode = most frequent. Range = biggest − smallest. Count each ✕ mark carefully!'
+            },
             '3.G.1': {
                 title: 'Shape Attributes',
                 domain: 'g', icon: '🔷',
@@ -4559,24 +4924,24 @@
                 },
                 render(state, area) {
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:14px;max-width:420px;margin:0 auto;line-height:1.6;">${state.stem}</div>
+                        <div class="game-prompt" style="font-size:15px;line-height:1.6;">${state.stem}</div>
                         <div class="game-canvas">
-                            <div style="display:flex;gap:10px;margin-bottom:14px;">
-                                <div style="flex:1;background:#dcfce7;border:2px solid #16a34a;border-radius:10px;padding:10px;text-align:center;">
-                                    <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:4px;">STEP 1</div>
-                                    <div style="font-size:20px;font-weight:800;color:#374151;">${state.step1Expr}</div>
-                                    <div style="font-size:18px;font-weight:900;color:#15803d;margin-top:4px;">= ${state.step1Answer}</div>
+                            <div class="game-steps">
+                                <div class="game-step game-step--done">
+                                    <div class="game-step__label">Step 1</div>
+                                    <div class="game-step__expr">${state.step1Expr}</div>
+                                    <div class="game-step__result">= ${state.step1Answer}</div>
                                 </div>
-                                <div style="display:flex;align-items:center;font-size:22px;">→</div>
-                                <div style="flex:1;background:#dbeafe;border:2px solid #3b82f6;border-radius:10px;padding:10px;text-align:center;">
-                                    <div style="font-size:11px;font-weight:700;color:#3b82f6;margin-bottom:4px;">STEP 2</div>
-                                    <div style="font-size:20px;font-weight:800;color:#374151;">${state.step2Expr}</div>
-                                    <div style="font-size:18px;font-weight:900;color:#1d4ed8;margin-top:4px;">= ?</div>
+                                <div class="game-step-arrow">→</div>
+                                <div class="game-step game-step--todo">
+                                    <div class="game-step__label">Step 2</div>
+                                    <div class="game-step__expr">${state.step2Expr}</div>
+                                    <div class="game-step__result">= ?</div>
                                 </div>
                             </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.OA.8'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.OA.8'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4611,31 +4976,29 @@
                     const regroup = state.op === '+' && (state.aO + state.bO >= 10 || state.aT + state.bT >= 10);
                     area.innerHTML = `
                         <div class="game-prompt">Solve ${state.a} ${state.op} ${state.b}</div>
-                        <div class="game-canvas">
-                            <div style="display:flex;justify-content:center;margin-bottom:16px;">
-                                <div style="font-family:monospace;background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:160px;">
-                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;text-align:center;margin-bottom:4px;">
-                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">H</span>
-                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">T</span>
-                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">O</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aH}</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aT}</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aO}</span>
-                                    </div>
-                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;text-align:center;align-items:center;">
-                                        <span style="font-size:20px;font-weight:700;color:#6366f1;">${state.op}</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bH}</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bT}</span>
-                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bO}</span>
-                                    </div>
-                                    <div style="border-top:3px solid #374151;margin:8px 0;grid-column:1/-1;"></div>
-                                    <div style="text-align:center;font-size:18px;font-weight:700;color:#6366f1;margin-top:4px;">?</div>
-                                    ${regroup ? `<div style="font-size:11px;color:#f59e0b;text-align:center;margin-top:4px;">⚠️ Regrouping needed!</div>` : ''}
+                        <div class="game-canvas" style="text-align:center;">
+                            <div class="game-pv-box" style="grid-template-columns:repeat(3,1fr);">
+                                <div class="game-pv-header" style="grid-template-columns:repeat(3,1fr);">
+                                    <span class="game-pv-label">H</span>
+                                    <span class="game-pv-label">T</span>
+                                    <span class="game-pv-label">O</span>
+                                    <span class="game-pv-digit">${state.aH}</span>
+                                    <span class="game-pv-digit">${state.aT}</span>
+                                    <span class="game-pv-digit">${state.aO}</span>
                                 </div>
+                                <div class="game-pv-header" style="grid-template-columns:repeat(4,1fr);">
+                                    <span class="game-pv-op">${state.op}</span>
+                                    <span class="game-pv-digit">${state.bH}</span>
+                                    <span class="game-pv-digit">${state.bT}</span>
+                                    <span class="game-pv-digit">${state.bO}</span>
+                                </div>
+                                <div class="game-pv-line"></div>
+                                <div class="game-pv-answer">?</div>
+                                ${regroup ? `<div class="game-pv-note">⚠️ Regrouping needed!</div>` : ''}
                             </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.NBT.2'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.NBT.2'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4664,28 +5027,27 @@
                 },
                 render(state, area) {
                     const tens = state.b / 10;
-                    const zeros = '0'.repeat(Math.ceil(Math.log10(state.b)));
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:28px;">${state.a} × ${state.b} = ?</div>
+                        <div class="game-prompt">${state.a} × ${state.b} = ?</div>
                         <div class="game-canvas">
-                            <div style="background:#fff7ed;border:2px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:14px;">
-                                <div style="text-align:center;margin-bottom:10px;font-size:13px;font-weight:600;color:#92400e;">Pattern Chain</div>
-                                <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
-                                    <div style="background:#fff;border:2px solid #f59e0b;border-radius:8px;padding:8px 12px;text-align:center;">
-                                        <div style="font-size:10px;color:#92400e;">basic fact</div>
-                                        <div style="font-size:18px;font-weight:800;">${state.a} × ${tens} = <span style="color:#d97706;">${state.baseFact}</span></div>
+                            <div class="game-pattern-chain">
+                                <div class="game-pattern-chain__title">Pattern Chain</div>
+                                <div class="game-pattern-chain__row">
+                                    <div class="game-pattern-box">
+                                        <div class="game-pattern-box__sub">basic fact</div>
+                                        <div class="game-pattern-box__expr">${state.a} × ${tens} = ${state.baseFact}</div>
                                     </div>
-                                    <div style="font-size:20px;color:#f59e0b;">→</div>
-                                    <div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:8px;padding:8px 12px;text-align:center;">
-                                        <div style="font-size:10px;color:#92400e;">×10 (add a zero)</div>
-                                        <div style="font-size:18px;font-weight:800;">${state.a} × ${state.b} = <span style="color:#ea580c;">?</span></div>
+                                    <div class="game-step-arrow">→</div>
+                                    <div class="game-pattern-box game-pattern-box--highlighted">
+                                        <div class="game-pattern-box__sub">×10 (add a zero)</div>
+                                        <div class="game-pattern-box__expr">${state.a} × ${state.b} = ?</div>
                                     </div>
                                 </div>
-                                <div style="text-align:center;margin-top:10px;font-size:12px;color:#92400e;">💡 ${state.baseFact} with a zero = ?</div>
+                                <div class="game-pattern-box__hint">💡 ${state.baseFact} with a zero = ?</div>
                             </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.NBT.3'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.NBT.3'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4714,22 +5076,23 @@
                     const pct = i => Math.round(6 + (i / state.denom) * 88);
                     const ticks = [];
                     for (let i = 0; i <= state.denom; i++) {
-                        const isZero = i === 0, isOne = i === state.denom;
+                        const isEndpoint = i === 0 || i === state.denom;
+                        const label = i === 0 ? '0' : i === state.denom ? '1' : `${i}/${state.denom}`;
                         ticks.push(`
-                            <div style="position:absolute;left:${pct(i)}%;transform:translateX(-50%);text-align:center;cursor:pointer;" onclick="GAMES['3.NF.2'].pick(${i}, this)" data-fidx="${i}">
-                                <div style="width:2px;height:18px;background:#374151;margin:0 auto;"></div>
-                                <div style="margin-top:2px;font-size:${isZero||isOne?14:12}px;font-weight:${isZero||isOne?800:600};color:${isZero||isOne?'#374151':'#6366f1'};background:white;border:2px solid ${isZero||isOne?'#374151':'#c7d2fe'};border-radius:6px;padding:2px 5px;">${isZero?'0':isOne?'1':i+'/'+state.denom}</div>
+                            <div class="game-nl-tick${isEndpoint ? '' : ''}" style="left:${pct(i)}%;" onclick="GAMES['3.NF.2'].pick(${i}, this)" data-fidx="${i}">
+                                <div class="game-nl-tick__mark"></div>
+                                <div class="game-nl-tick__label${isEndpoint ? ' game-nl-tick__label--endpoint' : ''}">${label}</div>
                             </div>`);
                     }
                     area.innerHTML = `
                         <div class="game-prompt">Place <strong>${state.numer}/${state.denom}</strong> on the number line</div>
                         <div class="game-prompt-sub">🐸 Click the correct tick mark!</div>
                         <div class="game-canvas">
-                            <div style="background:#f0fdf4;border:2px solid #6366f1;border-radius:12px;padding:20px 12px 36px;margin:10px 0;position:relative;min-height:100px;">
-                                <div style="position:absolute;top:30px;left:6%;right:6%;height:4px;background:linear-gradient(90deg,#6366f1,#a855f7);border-radius:99px;"></div>
-                                <div style="position:absolute;top:22px;left:6%;transform:translateX(-50%);">◀</div>
-                                <div style="position:absolute;top:22px;right:6%;transform:translateX(50%);">▶</div>
-                                <div style="position:absolute;top:14px;left:6%;right:6%;">${ticks.join('')}</div>
+                            <div class="game-number-line">
+                                <div class="game-nl-track"></div>
+                                <div class="game-nl-arrow-l">◀</div>
+                                <div class="game-nl-arrow-r">▶</div>
+                                <div class="game-nl-ticks">${ticks.join('')}</div>
                             </div>
                         </div>`;
                     this._state = state; this._answered = false;
@@ -4738,8 +5101,8 @@
                     if (this._answered) return;
                     this._answered = true;
                     const correct = i === this._state.answer;
-                    const targetDiv = el.querySelector('div:last-child') || el;
-                    el.style.background = correct ? '#dcfce7' : '#fee2e2';
+                    el.classList.add('picked');
+                    el.style.background = correct ? 'var(--success-bg)' : 'var(--danger-bg)';
                     el.style.borderRadius = '8px';
                     const ord = n => n===1?'1st':n===2?'2nd':n===3?'3rd':n+'th';
                     setTimeout(() => gameEngine.handleAnswer(correct,
@@ -4755,7 +5118,7 @@
                 rounds: 5,
                 init(round) {
                     const type = Math.random() < 0.5 ? 'liters' : 'grams';
-                    let a, b, op, answer, stem, visual;
+                    let a, b, op, answer, stem, objA, objB, labelA, labelB;
                     if (type === 'liters') {
                         a = rnd(3,15); b = rnd(1, a-1);
                         op = Math.random() < 0.5 ? '+' : '−';
@@ -4767,62 +5130,41 @@
                             stem = `A bucket has <strong>${a} liters</strong>. You pour out <strong>${b} liters</strong>. How many liters are left?`;
                             answer = a - b;
                         }
-                        const fillPct = Math.min(85, Math.round((a/20)*80));
-                        visual = `<div style="display:flex;gap:20px;justify-content:center;align-items:flex-end;">
-                            <div style="text-align:center;">
-                                <div style="width:50px;height:100px;border:3px solid #3b82f6;border-top:none;border-radius:0 0 10px 10px;background:linear-gradient(to top,#bfdbfe 0%,#bfdbfe ${fillPct}%,transparent ${fillPct}%);position:relative;margin:0 auto;">
-                                    <div style="position:absolute;bottom:4px;left:0;right:0;font-size:10px;font-weight:700;color:#1d4ed8;text-align:center;">${a}L</div>
-                                </div>
-                                <div style="font-size:12px;font-weight:600;color:#3b82f6;margin-top:4px;">Start</div>
-                            </div>
-                            <div style="font-size:24px;font-weight:700;color:#6366f1;padding-bottom:30px;">${op === '+' ? '+' : '−'}</div>
-                            <div style="text-align:center;">
-                                <div style="width:50px;height:100px;border:3px solid #06b6d4;border-top:none;border-radius:0 0 10px 10px;background:linear-gradient(to top,#a5f3fc 0%,#a5f3fc 40%,transparent 40%);position:relative;margin:0 auto;">
-                                    <div style="position:absolute;bottom:4px;left:0;right:0;font-size:10px;font-weight:700;color:#0e7490;text-align:center;">${b}L</div>
-                                </div>
-                                <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-top:4px;">${op === '+' ? 'Added' : 'Poured out'}</div>
-                            </div>
-                            <div style="font-size:24px;font-weight:700;color:#6366f1;padding-bottom:30px;">=</div>
-                            <div style="text-align:center;">
-                                <div style="width:50px;height:100px;border:3px dashed #6366f1;border-top:none;border-radius:0 0 10px 10px;background:#f0f4ff;position:relative;margin:0 auto;display:flex;align-items:center;justify-content:center;">
-                                    <span style="font-size:22px;font-weight:900;color:#6366f1;">?</span>
-                                </div>
-                                <div style="font-size:12px;font-weight:600;color:#6366f1;margin-top:4px;">Result</div>
-                            </div>
-                        </div>`;
+                        objA = '🪣'; labelA = `${a}L`;
+                        objB = '💧'; labelB = `${b}L ${op === '+' ? 'added' : 'out'}`;
                     } else {
                         a = rnd(50,500); b = rnd(20,200);
                         stem = `A bag weighs <strong>${a} grams</strong>. Another weighs <strong>${b} grams</strong>. Total mass?`;
-                        answer = a+b;
-                        const scaleW = 120;
-                        visual = `<div style="display:flex;justify-content:center;align-items:center;gap:8px;padding:12px;">
-                            <div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
-                                <div style="font-size:20px;">📦</div>
-                                <div style="font-size:14px;font-weight:800;color:#92400e;">${a}g</div>
-                            </div>
-                            <div style="font-size:22px;font-weight:700;color:#374151;">+</div>
-                            <div style="background:#dcfce7;border:2px solid #16a34a;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
-                                <div style="font-size:20px;">🎒</div>
-                                <div style="font-size:14px;font-weight:800;color:#166534;">${b}g</div>
-                            </div>
-                            <div style="font-size:22px;font-weight:700;color:#374151;">=</div>
-                            <div style="background:#ede9fe;border:2px dashed #7c3aed;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
-                                <div style="font-size:20px;">⚖️</div>
-                                <div style="font-size:22px;font-weight:900;color:#7c3aed;">?</div>
-                            </div>
-                        </div>`;
+                        answer = a+b; op = '+';
+                        objA = '📦'; labelA = `${a}g`;
+                        objB = '🎒'; labelB = `${b}g`;
                     }
                     const wrong = [answer+rnd(1,5), answer-rnd(1,5), answer+rnd(6,15)].map(n => Math.max(0,n)).filter(n=>n!==answer);
-                    return { stem, answer, unit: type === 'liters' ? 'liters' : 'grams', visual, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    return { stem, answer, unit: type === 'liters' ? 'liters' : 'grams', op, objA, objB, labelA, labelB, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:14px;max-width:420px;margin:0 auto;line-height:1.6;">${state.stem}</div>
+                        <div class="game-prompt" style="font-size:15px;line-height:1.6;">${state.stem}</div>
                         <div class="game-canvas">
-                            <div style="background:#f8fafc;border-radius:12px;padding:12px;margin-bottom:12px;">${state.visual}</div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-object-row">
+                                <div class="game-object-tile game-object-tile--a">
+                                    <div class="game-object-tile__icon">${state.objA}</div>
+                                    <div class="game-object-tile__val">${state.labelA}</div>
+                                </div>
+                                <div class="game-operator-sym">${state.op}</div>
+                                <div class="game-object-tile game-object-tile--b">
+                                    <div class="game-object-tile__icon">${state.objB}</div>
+                                    <div class="game-object-tile__val">${state.labelB}</div>
+                                </div>
+                                <div class="game-operator-sym">=</div>
+                                <div class="game-object-tile game-object-tile--result">
+                                    <div class="game-object-tile__icon">⚖️</div>
+                                    <div class="game-object-tile__val" style="font-size:22px;color:var(--accent);">?</div>
+                                </div>
+                            </div>
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 20px;font-size:18px;" onclick="GAMES['3.MD.2'].pick(${n}, this)">${n} ${state.unit}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.MD.2'].pick(${n}, this)">${n} ${state.unit}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4849,21 +5191,21 @@
                 },
                 render(state, area) {
                     const cells = Array.from({length: state.rows * state.cols}, (_, i) =>
-                        `<div class="area-cell" data-sc="${i}" style="width:34px;height:34px;cursor:pointer;" onclick="GAMES['3.MD.6'].tapCell(${i}, this)"></div>`
+                        `<div class="area-cell" data-sc="${i}" onclick="GAMES['3.MD.6'].tapCell(${i}, this)"></div>`
                     ).join('');
                     area.innerHTML = `
                         <div class="game-prompt">Count the unit squares!</div>
                         <div class="game-prompt-sub">Tap each square as you count — then submit</div>
                         <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-grid;grid-template-columns:repeat(${state.cols}, 34px);gap:3px;margin-bottom:14px;border:3px solid #6366f1;padding:6px;border-radius:8px;background:#f5f3ff;">
+                            <div style="display:inline-grid;grid-template-columns:repeat(${state.cols},32px);gap:2px;margin-bottom:14px;border:3px solid var(--accent);padding:6px;border-radius:var(--radius-sm);background:var(--surface-alt);">
                                 ${cells}
                             </div>
-                            <div style="font-size:16px;font-weight:700;color:#6366f1;margin-bottom:12px;">
+                            <div class="area-counter" style="margin-bottom:12px;">
                                 Tapped: <span id="scCount">0</span> / ${state.answer}
                             </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-choices">
                                 ${[state.answer-1, state.answer, state.answer+1, state.answer+state.cols].filter((n,i,a)=>a.indexOf(n)===i&&n>0).slice(0,4).map(n =>
-                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.MD.6'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.MD.6'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4910,23 +5252,21 @@
                     const cellSize = Math.min(36, Math.floor(200 / Math.max(state.l, state.w)));
                     const grid = Array.from({length: state.w}, (_, r) =>
                         Array.from({length: state.l}, (_, c) =>
-                            `<div style="width:${cellSize}px;height:${cellSize}px;background:${r===0&&c===0?'#818cf8':'#c7d2fe'};border:1px solid #6366f1;display:flex;align-items:center;justify-content:center;font-size:9px;color:#4338ca;">${r*state.l+c+1}</div>`
+                            `<div class="game-rect-cell ${r===0&&c===0?'game-rect-cell--first':'game-rect-cell--rest'}" style="width:${cellSize}px;height:${cellSize}px;">${r*state.l+c+1}</div>`
                         ).join('')
                     ).join('');
                     area.innerHTML = `
                         <div class="game-prompt">Find the area — use the formula!</div>
                         <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-block;position:relative;margin:8px 30px 30px;">
-                                <div style="display:inline-grid;grid-template-columns:repeat(${state.l}, ${cellSize}px);gap:0;border:3px solid #6366f1;border-radius:4px;overflow:hidden;">${grid}</div>
-                                <div style="position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:700;color:#6366f1;white-space:nowrap;">← length = ${state.l} →</div>
-                                <div style="position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:13px;font-weight:700;color:#7c3aed;white-space:nowrap;">width = ${state.w}</div>
+                            <div class="game-rect-wrap">
+                                <div class="game-rect-grid" style="grid-template-columns:repeat(${state.l},${cellSize}px);">${grid}</div>
+                                <div class="game-rect-label--bottom">← length = ${state.l} →</div>
+                                <div class="game-rect-label--right">width = ${state.w}</div>
                             </div>
-                            <div style="background:#ede9fe;border:2px solid #7c3aed;border-radius:10px;padding:10px 16px;margin:8px auto 14px;max-width:220px;font-size:16px;font-weight:700;color:#5b21b6;">
-                                A = length × width<br>A = ${state.l} × ${state.w} = ?
-                            </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-formula">A = length × width<br>A = ${state.l} × ${state.w} = ?</div>
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 20px;font-size:18px;" onclick="GAMES['3.MD.7'].pick(${n}, this)">${n} sq units</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.MD.7'].pick(${n}, this)">${n} sq units</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4987,9 +5327,9 @@
                         <div class="game-prompt">${state.question}</div>
                         <div class="game-canvas" style="text-align:center;">
                             <div style="margin:12px auto;">${shapeHtml}</div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+                            <div class="game-choices" style="margin-top:16px;">
                                 ${state.options.map((o,i) =>
-                                    `<button class="factor-card" style="padding:14px 22px;font-size:18px;" onclick="GAMES['3.G.2'].pick(${i}, this)">${o}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.G.2'].pick(${i}, this)">${o}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -5046,29 +5386,29 @@
                 render(state, area) {
                     const maxV = Math.max(...state.values);
                     const barH = 120;
+                    const barColors = ['var(--accent)','var(--warning)','var(--success)','var(--danger)'];
                     const bars = state.labels.map((label, i) => {
                         const h = Math.round((state.values[i] / maxV) * barH);
-                        const colors = ['#6366f1','#f59e0b','#10b981','#f87171'];
-                        return `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
-                            <div style="font-size:11px;font-weight:700;color:${colors[i]};">${state.values[i]}</div>
-                            <div style="width:32px;height:${barH}px;background:#f1f5f9;border-radius:4px 4px 0 0;position:relative;display:flex;align-items:flex-end;border:1px solid #e2e8f0;">
-                                <div style="width:100%;height:${h}px;background:${colors[i]};border-radius:4px 4px 0 0;transition:height .4s;"></div>
+                        return `<div class="game-bar-col">
+                            <div class="game-bar-val" style="color:${barColors[i]};">${state.values[i]}</div>
+                            <div class="game-bar-track" style="height:${barH}px;">
+                                <div class="game-bar-fill" style="height:${h}px;background:${barColors[i]};"></div>
                             </div>
-                            <div style="font-size:10px;font-weight:600;color:#374151;text-align:center;max-width:40px;">${label}</div>
+                            <div class="game-bar-label">${label}</div>
                         </div>`;
                     }).join('');
-                    const optsHtml = state.options.map((o,i) => typeof o === 'string'
-                        ? `<button class="factor-card" style="padding:10px 16px;font-size:14px;" onclick="GAMES['3.MD.3'].pick(${i}, this)">${o}</button>`
-                        : `<button class="factor-card" style="padding:12px 22px;font-size:20px;" onclick="GAMES['3.MD.3'].pick(${i}, this)">${o}</button>`
-                    ).join('');
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
+                        <div class="game-prompt" style="font-size:15px;line-height:1.5;">${state.question}</div>
                         <div class="game-canvas">
-                            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-bottom:12px;">
-                                <div style="font-size:10px;color:#94a3b8;text-align:right;margin-bottom:4px;">Scale: each unit = ${state.scale} vote${state.scale>1?'s':''}</div>
-                                <div style="display:flex;gap:6px;align-items:flex-end;justify-content:center;">${bars}</div>
+                            <div class="game-data-panel">
+                                <div class="game-data-panel__title">Scale: 1 unit = ${state.scale} vote${state.scale>1?'s':''}</div>
+                                <div class="game-bar-chart">${bars}</div>
                             </div>
-                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">${optsHtml}</div>
+                            <div class="game-choices">
+                                ${state.options.map((o,i) =>
+                                    `<button class="factor-card" onclick="GAMES['3.MD.3'].pick(${i}, this)">${o}</button>`
+                                ).join('')}
+                            </div>
                         </div>`;
                     this._state = state; this._answered = false;
                 },
@@ -5123,23 +5463,23 @@
                     state.data.forEach(d => { freq[d] = (freq[d]||0) + 1; });
                     const cols = vals.map(v => {
                         const count = freq[v] || 0;
-                        const xs = Array.from({length: count}, () => `<div style="font-size:18px;line-height:1;">✕</div>`).join('');
-                        return `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
-                            <div style="display:flex;flex-direction:column-reverse;gap:2px;min-height:80px;justify-content:flex-start;">${xs}</div>
-                            <div style="width:1px;height:8px;background:#374151;"></div>
-                            <div style="font-size:11px;font-weight:700;color:#374151;">${v}</div>
+                        const xs = Array.from({length: count}, () => `<div class="game-plot-x">✕</div>`).join('');
+                        return `<div class="game-plot-col">
+                            <div class="game-plot-xs">${xs}</div>
+                            <div class="game-plot-tick"></div>
+                            <div class="game-plot-label">${v}</div>
                         </div>`;
                     }).join('');
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
+                        <div class="game-prompt" style="font-size:15px;line-height:1.5;">${state.question}</div>
                         <div class="game-canvas">
-                            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-bottom:12px;">
-                                <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-bottom:8px;text-align:center;">Lengths (${state.unit})</div>
-                                <div style="display:flex;gap:16px;justify-content:center;align-items:flex-end;border-bottom:3px solid #374151;padding-bottom:4px;">${cols}</div>
+                            <div class="game-data-panel">
+                                <div class="game-data-panel__title">Lengths (${state.unit})</div>
+                                <div class="game-line-plot">${cols}</div>
                             </div>
-                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-choices">
                                 ${state.options.map((n,i) =>
-                                    `<button class="factor-card" style="padding:12px 20px;font-size:20px;" onclick="GAMES['3.MD.4'].pick(${i}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.MD.4'].pick(${i}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -5178,37 +5518,24 @@
                 },
                 render(state, area) {
                     const [t,r,b,l] = state.sides;
-                    const sideLabels = [
-                        { label: `${t}`, pos: 'top' },
-                        { label: `${r}`, pos: 'right' },
-                        { label: `${b}`, pos: 'bottom' },
-                        { label: `${l}`, pos: 'left' }
-                    ];
-                    const posStyles = {
-                        top: 'position:absolute;top:-18px;left:50%;transform:translateX(-50%);',
-                        bottom: 'position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);',
-                        left: 'position:absolute;left:-22px;top:50%;transform:translateY(-50%);',
-                        right: 'position:absolute;right:-22px;top:50%;transform:translateY(-50%);'
-                    };
-                    const labels = sideLabels.map(s =>
-                        `<div style="${posStyles[s.pos]}font-size:13px;font-weight:700;color:#16a34a;background:white;border:1px solid #d1fae5;border-radius:4px;padding:2px 5px;">${s.label}</div>`
-                    ).join('');
+                    const labels = [
+                        `<div class="game-side-label game-side-label--top">${t}</div>`,
+                        `<div class="game-side-label game-side-label--right">${r}</div>`,
+                        `<div class="game-side-label game-side-label--bottom">${b}</div>`,
+                        `<div class="game-side-label game-side-label--left">${l}</div>`
+                    ].join('');
                     const addExpr = state.sides.join(' + ');
                     area.innerHTML = `
                         <div class="game-prompt">What is the PERIMETER?</div>
                         <div class="game-prompt-sub">Add all the sides together!</div>
                         <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-block;position:relative;margin:24px 32px;">
-                                <div style="width:160px;height:100px;border:4px dashed #16a34a;border-radius:6px;background:#f0fdf4;position:relative;">
-                                    ${labels}
-                                </div>
+                            <div class="game-shape-wrap">
+                                <div class="game-shape-box">${labels}</div>
                             </div>
-                            <div style="background:#dcfce7;border:2px solid #16a34a;border-radius:10px;padding:10px;margin:8px auto 14px;max-width:280px;font-size:14px;font-weight:700;color:#15803d;">
-                                P = ${addExpr} = ?
-                            </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            <div class="game-formula">P = ${addExpr} = ?</div>
+                            <div class="game-choices">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:12px 20px;font-size:20px;" onclick="GAMES['3.MD.8'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" onclick="GAMES['3.MD.8'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -5259,25 +5586,24 @@
                 },
                 render(state, area) {
                     const svgShapes = {
-                        Square: `<svg viewBox="0 0 80 80" width="70"><rect x="10" y="10" width="60" height="60" fill="#c7d2fe" stroke="#6366f1" stroke-width="3" rx="2"/></svg>`,
-                        Rectangle: `<svg viewBox="0 0 100 70" width="90"><rect x="10" y="10" width="80" height="50" fill="#bfdbfe" stroke="#3b82f6" stroke-width="3" rx="2"/></svg>`,
-                        Triangle: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,10 10,70 70,70" fill="#fde68a" stroke="#f59e0b" stroke-width="3"/></svg>`,
-                        Rhombus: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,10 70,40 40,70 10,40" fill="#fca5a5" stroke="#ef4444" stroke-width="3"/></svg>`,
-                        Pentagon: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,8 72,30 60,68 20,68 8,30" fill="#a7f3d0" stroke="#059669" stroke-width="3"/></svg>`
+                        Square: `<svg viewBox="0 0 80 80" width="64"><rect x="10" y="10" width="60" height="60" fill="var(--primary-light,#c7d2fe)" stroke="var(--primary)" stroke-width="3" rx="2"/></svg>`,
+                        Rectangle: `<svg viewBox="0 0 100 70" width="80"><rect x="10" y="10" width="80" height="50" fill="var(--accent-light,#bfdbfe)" stroke="var(--accent)" stroke-width="3" rx="2"/></svg>`,
+                        Triangle: `<svg viewBox="0 0 80 80" width="64"><polygon points="40,10 10,70 70,70" fill="var(--warning-light,#fde68a)" stroke="var(--warning)" stroke-width="3"/></svg>`,
+                        Rhombus: `<svg viewBox="0 0 80 80" width="64"><polygon points="40,10 70,40 40,70 10,40" fill="var(--danger-light,#fca5a5)" stroke="var(--danger)" stroke-width="3"/></svg>`,
+                        Pentagon: `<svg viewBox="0 0 80 80" width="64"><polygon points="40,8 72,30 60,68 20,68 8,30" fill="var(--success-light,#a7f3d0)" stroke="var(--success)" stroke-width="3"/></svg>`
                     };
-                    const optsHtml = state.options.map((o,i) => typeof o === 'number'
-                        ? `<button class="factor-card" style="padding:12px 20px;font-size:22px;" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
-                        : `<button class="factor-card" style="padding:10px 14px;font-size:14px;" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
+                    const visibleShapes = Object.entries(svgShapes)
+                        .filter(([k]) => state.options.includes(k) || k === state.shape.name)
+                        .map(([k, svg]) => `<div class="game-shape-item"><div>${svg}</div><div class="game-shape-item__name">${k}</div></div>`)
+                        .join('');
+                    const optsHtml = state.options.map((o, i) =>
+                        `<button class="game-choice-btn" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
                     ).join('');
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
-                        <div class="game-canvas" style="text-align:center;">
-                            <div style="display:flex;justify-content:center;gap:16px;margin-bottom:14px;flex-wrap:wrap;">
-                                ${Object.entries(svgShapes).filter(([k])=>state.options.includes(k)||k===state.shape.name).map(([k,svg]) =>
-                                    `<div style="text-align:center;"><div>${svg}</div><div style="font-size:10px;color:#6b7280;margin-top:2px;">${k}</div></div>`
-                                ).join('')}
-                            </div>
-                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">${optsHtml}</div>
+                        <div class="game-prompt">${state.question}</div>
+                        <div class="game-canvas">
+                            <div class="game-shape-gallery">${visibleShapes}</div>
+                            <div class="game-choices">${optsHtml}</div>
                         </div>`;
                     this._state = state; this._answered = false;
                 },
@@ -5467,7 +5793,6 @@
             feedbackStep: 0,
             sessionStartTime: null,
             selectedAvatar: null,
-            leaderboardData: [],
             usedHintThisQuestion: false,
             standards: [
                 { code: '3.OA.1', name: 'Interpret Products', cluster: 'major' },
@@ -5513,7 +5838,6 @@
                     this.initializeSetupScreen();
                 } else {
                     this.renderDashboard();
-                    this.fetchLeaderboard();
                     this.switchScreen('scDashboard');
                 }
             },
@@ -5562,7 +5886,6 @@
                 saveProfile(this.profile);
                 try {
                     this.renderDashboard();
-                    this.fetchLeaderboard();
                 } catch (e) {
                     // Ensure we always reach the dashboard even if rendering partially fails
                 }
@@ -5736,7 +6059,6 @@
                     } else {
                         streakEl.style.display = 'none';
                     }
-                    this.renderLeaderboard();
                 }
 
                 document.getElementById('dashboardStudentName').textContent = this.progress.studentName;
@@ -5888,65 +6210,6 @@
                     `;
                     grid.appendChild(card);
                 });
-            },
-
-            renderLeaderboard() {
-                const list = document.getElementById('leaderboardList');
-                if (this.leaderboardData.length === 0) {
-                    list.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-subtle); font-size: 12px;">Loading leaderboard...</div>';
-                    return;
-                }
-
-                list.innerHTML = '';
-                this.leaderboardData.slice(0, 10).forEach((player, idx) => {
-                    const row = document.createElement('div');
-                    const isCurrent = this.profile && player.nickname === this.profile.nickname;
-                    row.className = `leaderboard-row ${isCurrent ? 'current' : ''} ${idx === 0 ? 'rank-1' : idx === 1 ? 'rank-2' : idx === 2 ? 'rank-3' : ''}`;
-                    const mastered = player.mastered || 0;
-                    row.innerHTML = `
-                        <div class="leaderboard-rank">${idx + 1}</div>
-                        <div class="leaderboard-avatar">${player.avatar}</div>
-                        <div class="leaderboard-name">${player.nickname}</div>
-                        <div class="leaderboard-xp">${mastered} Mastered</div>
-                        <div class="leaderboard-level">${mastered}/25</div>
-                    `;
-                    list.appendChild(row);
-                });
-            },
-
-            toggleLeaderboard() {
-                const section = document.getElementById('leaderboardSection');
-                const btn = section.querySelector('.leaderboard-toggle');
-                const isOpen = section.classList.toggle('open');
-                btn.setAttribute('aria-expanded', String(isOpen));
-            },
-
-            fetchLeaderboard() {
-                // Local fallback with current player
-                if (this.profile) {
-                    const mastered = countMastered(this.progress);
-                    this.leaderboardData = [{
-                        nickname: this.profile.nickname,
-                        avatar: this.profile.avatar,
-                        mastered: mastered,
-                        lastActive: new Date().toISOString()
-                    }];
-                }
-                // Fetch from local leaderboard.json
-                fetch('leaderboard.json?t=' + Date.now())
-                    .then(r => {
-                        if (!r.ok) throw new Error('Not found');
-                        return r.json();
-                    })
-                    .then(data => {
-                        if (data.players && Array.isArray(data.players)) {
-                            this.leaderboardData = data.players.sort((a, b) => (b.mastered||0) - (a.mastered||0));
-                            this.renderLeaderboard();
-                        }
-                    })
-                    .catch(() => {
-                        // Keep local fallback, no error needed
-                    });
             },
 
             calculateStats() {

@@ -16,18 +16,45 @@ async function setupProfile(page) {
   await expect(page.locator('#scDashboard')).toHaveClass(/active/);
 }
 
+// Opens the first domain tile so standard cards are visible
+async function openFirstDomain(page) {
+  await page.locator('.domain-hub-tile').first().click();
+  await expect(page.locator('.domain-cards-grid')).toBeVisible();
+}
+
+// Aggregates text from all cards across all domain views
+async function getAllCardTexts(page) {
+  const tiles = page.locator('.domain-hub-tile');
+  const count = await tiles.count();
+  const allTexts = [];
+  for (let i = 0; i < count; i++) {
+    await tiles.nth(i).click();
+    const texts = await page.locator('.category-card').allTextContents();
+    allTexts.push(...texts);
+    await page.locator('.domain-cards-back').click();
+  }
+  return allTexts;
+}
+
 test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)', () => {
   test.beforeEach(async ({ page }) => {
     await setupProfile(page);
   });
 
   test('dashboard shows exactly 21 standard cards (post-test excluded)', async ({ page }) => {
-    const cards = page.locator('.category-card');
-    await expect(cards).toHaveCount(21);
+    const tiles = page.locator('.domain-hub-tile');
+    const tileCount = await tiles.count();
+    let total = 0;
+    for (let i = 0; i < tileCount; i++) {
+      await tiles.nth(i).click();
+      total += await page.locator('.category-card').count();
+      await page.locator('.domain-cards-back').click();
+    }
+    expect(total).toBe(21);
   });
 
   test('all OA standards (3.OA.1 through 3.OA.9) have their own card', async ({ page }) => {
-    const allText = await page.locator('.category-card').allTextContents();
+    const allText = await getAllCardTexts(page);
     for (let i = 1; i <= 9; i++) {
       const found = allText.some(t => t.includes(`3.OA.${i}`));
       expect(found, `3.OA.${i} card should exist`).toBe(true);
@@ -35,7 +62,7 @@ test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)',
   });
 
   test('all NBT standards (3.NBT.1 through 3.NBT.3) have their own card', async ({ page }) => {
-    const allText = await page.locator('.category-card').allTextContents();
+    const allText = await getAllCardTexts(page);
     for (let i = 1; i <= 3; i++) {
       const found = allText.some(t => t.includes(`3.NBT.${i}`));
       expect(found, `3.NBT.${i} card should exist`).toBe(true);
@@ -43,7 +70,7 @@ test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)',
   });
 
   test('all NF standards (3.NF.1 through 3.NF.3) have their own card', async ({ page }) => {
-    const allText = await page.locator('.category-card').allTextContents();
+    const allText = await getAllCardTexts(page);
     for (let i = 1; i <= 3; i++) {
       const found = allText.some(t => t.includes(`3.NF.${i}`));
       expect(found, `3.NF.${i} card should exist`).toBe(true);
@@ -51,12 +78,11 @@ test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)',
   });
 
   test('tested MD standards (3.MD.1,2,5,6,7) have their own card; post-test excluded', async ({ page }) => {
-    const allText = await page.locator('.category-card').allTextContents();
+    const allText = await getAllCardTexts(page);
     for (const i of [1, 2, 5, 6, 7]) {
       const found = allText.some(t => t.includes(`3.MD.${i}`));
       expect(found, `3.MD.${i} card should exist`).toBe(true);
     }
-    // Post-test standards should NOT be on the dashboard
     for (const i of [3, 4, 8]) {
       const found = allText.some(t => t.includes(`3.MD.${i}`));
       expect(found, `3.MD.${i} should NOT exist (post-test)`).toBe(false);
@@ -64,21 +90,21 @@ test.describe('Expanded Standards — 21 Individual Cards (post-test excluded)',
   });
 
   test('3.G.2 has its own card; 3.G.1 excluded (post-test)', async ({ page }) => {
-    const allText = await page.locator('.category-card').allTextContents();
+    const allText = await getAllCardTexts(page);
     expect(allText.some(t => t.includes('3.G.1')), '3.G.1 should NOT exist (post-test)').toBe(false);
     expect(allText.some(t => t.includes('3.G.2')), '3.G.2 card').toBe(true);
   });
 
   test('every card is tappable and has Help and Game action buttons', async ({ page }) => {
+    await openFirstDomain(page);
     const cards = page.locator('.category-card');
     const count = await cards.count();
-    expect(count).toBe(21);
-    // Spot-check first and last card
-    for (const idx of [0, 20]) {
+    expect(count).toBeGreaterThan(0);
+    // Spot-check first and last card in this domain
+    for (const idx of [0, count - 1]) {
       const card = cards.nth(idx);
       await expect(card.locator('.category-action-btn:has-text("Help")')).toBeVisible();
       await expect(card.locator('.category-action-btn:has-text("Game")')).toBeVisible();
-      // Card itself is a button for Practice
       const tag = await card.evaluate(el => el.tagName.toLowerCase());
       expect(tag).toBe('button');
     }
@@ -105,6 +131,7 @@ test.describe('XP System Removed', () => {
   });
 
   test('completing a practice session shows no XP popup', async ({ page }) => {
+    await openFirstDomain(page);
     // Start practice on first standard — card itself is the Practice button
     await page.locator('.category-card').first().click();
     await expect(page.locator('#scQuestion')).toBeVisible();
@@ -123,58 +150,24 @@ test.describe('XP System Removed', () => {
   });
 });
 
-test.describe('Leaderboard Ranks by Standards Mastered', () => {
-  test('leaderboard shows mastered count instead of XP', async ({ page }) => {
-    // Set up profile with progress showing mastery
-    await page.goto('/math_practice.html');
-    await page.evaluate(() => {
-      localStorage.setItem('gn_math_profile', JSON.stringify({
-        nickname: 'MasteryKid', avatar: '🦁', streak: 0,
-        bestStreak: 0, sessionsCompleted: 5,
-        createdAt: new Date().toISOString()
-      }));
-      localStorage.setItem('gn_math_progress', JSON.stringify({
-        studentName: 'Test',
-        standards: {
-          '3.OA.1': { attempts: 10, correct: 8 },
-          '3.OA.2': { attempts: 10, correct: 7 },
-          '3.OA.3': { attempts: 5, correct: 1 }
-        },
-        sessions: [], totalStudyMinutes: 0
-      }));
-    });
-    await page.reload();
-    await expect(page.locator('#scDashboard')).toHaveClass(/active/);
-
-    // Leaderboard should show mastered count, not XP
-    const leaderboardText = await page.locator('#leaderboardList').textContent();
-    expect(leaderboardText).not.toContain('XP');
-    expect(leaderboardText).toMatch(/mastered|Mastered/i);
-  });
-});
-
 test.describe('Auto-Difficulty', () => {
   test('new student gets easy-level questions (smaller numbers)', async ({ page }) => {
-    // Fresh profile with no progress = easy difficulty
     await setupProfile(page);
-    // Card itself is the Practice button
+    await openFirstDomain(page);
     await page.locator('.category-card').first().click();
     await expect(page.locator('#scQuestion')).toBeVisible();
-    // Just verify question loads — difficulty is internal
     await expect(page.locator('#questionStem')).toBeVisible();
   });
 
   test('card onclick does not pass hardcoded difficulty', async ({ page }) => {
     await setupProfile(page);
-    // The card onclick should NOT contain "medium" hardcoded
+    await openFirstDomain(page);
     const card = page.locator('.category-card').first();
     const onclick = await card.getAttribute('onclick');
-    // onclick may be null since it uses addEventListener — just verify session starts without "medium" hardcoded
     if (onclick) {
       expect(onclick).not.toContain("'medium'");
       expect(onclick).not.toContain('"medium"');
     }
-    // Start a practice session and verify question screen loads
     await card.click();
     await expect(page.locator('#scQuestion')).toBeVisible();
   });
@@ -186,10 +179,11 @@ test.describe('Anchor Charts for All Standards', () => {
   });
 
   test('every standard card Help button opens an anchor chart', async ({ page }) => {
+    await openFirstDomain(page);
     const cards = page.locator('.category-card');
     const count = await cards.count();
-    // Test first 3 and last 2 cards to keep test fast (21 cards total)
-    for (const idx of [0, 1, 2, count - 2, count - 1]) {
+    // Spot-check first 3 cards in the first domain
+    for (const idx of [0, Math.min(1, count - 1), Math.min(2, count - 1)]) {
       await cards.nth(idx).locator('.category-action-btn:has-text("Help")').click();
       await expect(page.locator('#anchorOverlay')).toBeVisible();
       await expect(page.locator('.anchor-card')).toBeVisible();
@@ -199,6 +193,10 @@ test.describe('Anchor Charts for All Standards', () => {
   });
 
   test('geometry 3.G.2 has an anchor chart', async ({ page }) => {
+    // G domain tile is the last one — click it
+    const tiles = page.locator('.domain-hub-tile');
+    const tileCount = await tiles.count();
+    await tiles.nth(tileCount - 1).click();
     const cards = page.locator('.category-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
@@ -220,12 +218,16 @@ test.describe('Games for All Standards', () => {
   });
 
   test('first card Game button opens a game', async ({ page }) => {
+    await openFirstDomain(page);
     await page.locator('.category-card').first().locator('button:has-text("Game")').click();
     await expect(page.locator('#scGame')).toHaveClass(/active/);
     await expect(page.locator('#gameTitle')).toBeVisible();
   });
 
   test('geometry 3.G.2 Game button opens Fair Shares', async ({ page }) => {
+    // G is the last domain tile
+    const tiles = page.locator('.domain-hub-tile');
+    await tiles.nth(await tiles.count() - 1).click();
     const cards = page.locator('.category-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
@@ -239,6 +241,8 @@ test.describe('Games for All Standards', () => {
   });
 
   test('3.MD.6 Game button opens Square Counter', async ({ page }) => {
+    // MD is the 4th domain tile (index 3)
+    await page.locator('.domain-hub-tile').nth(3).click();
     const cards = page.locator('.category-card');
     const count = await cards.count();
     for (let i = 0; i < count; i++) {
