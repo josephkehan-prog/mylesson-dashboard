@@ -16,7 +16,7 @@
     ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -2844,6 +2844,234 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+
+/* ════════════════════════════════════════
+   PL-5000 RETRO DEVICE — VARIABLE OVERRIDES
+════════════════════════════════════════ */
+:root {
+  --primary: #f0ead0;
+  --accent: #e8a023;
+  --accent-light: #f5c040;
+  --success: #40c840;
+  --success-bg: rgba(64,200,64,.1);
+  --warning: #e8a023;
+  --warning-bg: rgba(232,160,35,.08);
+  --danger: #e84040;
+  --danger-bg: rgba(232,64,64,.08);
+  --surface: #4e4d47;
+  --surface-alt: rgba(232,160,35,.06);
+  --bg: #2a2924;
+  --bg-card: #3b3a36;
+  --bg-feedback: #3b3a36;
+  --border-gray: #52504a;
+  --text-muted: #d8d0b0;
+  --text-subtle: #a09880;
+  --text-secondary: #d8d0b0;
+  --text-body: #f0ead0;
+  --text-on-dark: rgba(240,234,208,.85);
+  --text-on-dark-muted: rgba(240,234,208,.6);
+  --text-on-dark-dim: rgba(240,234,208,.4);
+  --dot-default: #52504a;
+  --dot-current: #e8a023;
+  --dot-answered: #40c840;
+  --card-shadow: 0 2px 0 rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04);
+  --card-shadow-hover: 0 0 16px rgba(232,160,35,.12), 0 2px 0 rgba(0,0,0,.3);
+  --glass-bg: rgba(59,58,54,.85);
+  --glass-border: rgba(82,80,74,.6);
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --gradient-primary: linear-gradient(135deg, #e8a023, #c08018);
+  --gradient-dark: linear-gradient(135deg, #2a2924, #3b3a36);
+  --t-fast: 100ms cubic-bezier(.22,1,.36,1);
+  --t-base: 150ms cubic-bezier(.22,1,.36,1);
+  --t-slow: 250ms cubic-bezier(.22,1,.36,1);
+}
+
+/* ── PL-5000 font + texture overrides ── */
+html, body {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  background-image: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.03) 2px,rgba(0,0,0,.03) 4px);
+}
+
+.header {
+  background: #3b3a36 !important;
+  border-bottom: 3px solid #b07818;
+  box-shadow: 0 2px 0 #4e4d47, 0 4px 12px rgba(0,0,0,.4) !important;
+}
+
+.header-title {
+  font-family: 'VT323', monospace !important;
+  font-size: 22px !important;
+  letter-spacing: 1px !important;
+  color: #e8a023 !important;
+}
+.header-title em { color: #f5c040 !important; }
+
+.student-name {
+  font-family: 'VT323', monospace !important;
+  font-size: 18px !important;
+  color: #40c840 !important;
+  text-shadow: 0 0 6px rgba(64,200,64,.3);
+}
+
+/* Retro button styling */
+.btn {
+  font-family: 'VT323', monospace !important;
+  font-size: 18px !important;
+  letter-spacing: 1px;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,.3);
+  transition: all .1s !important;
+}
+.btn:active { transform: translateY(2px) !important; box-shadow: 0 0 0 rgba(0,0,0,.3) !important; }
+
+.btn-primary {
+  background: linear-gradient(180deg, #e8a023, #c08018) !important;
+  color: #1c1b18 !important;
+  border: 2px solid #b07818 !important;
+  box-shadow: 0 3px 0 #8a5e10 !important;
+}
+.btn-primary:hover {
+  background: linear-gradient(180deg, #f0b030, #d89020) !important;
+  transform: none !important;
+}
+
+.btn-secondary {
+  background: #585650 !important;
+  color: #f0ead0 !important;
+  border: 2px solid #52504a !important;
+}
+.btn-secondary:hover {
+  background: #6a6860 !important;
+  border-color: #e8a023 !important;
+}
+
+.btn-ghost {
+  background: rgba(82,80,74,.5) !important;
+  border: 2px solid #52504a !important;
+  color: #f0ead0 !important;
+  backdrop-filter: none !important;
+}
+.btn-ghost:hover { background: rgba(82,80,74,.7) !important; }
+
+/* Domain tiles — retro borders */
+.domain-hub-tile {
+  border-radius: 6px !important;
+  box-shadow: 0 2px 0 rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+.domain-hub-tile[data-domain='OA'] { border-top: 4px solid #e8a023 !important; }
+.domain-hub-tile[data-domain='NBT'] { border-top: 4px solid #40c840 !important; }
+.domain-hub-tile[data-domain='NF'] { border-top: 4px solid #f5c040 !important; }
+.domain-hub-tile[data-domain='MD'] { border-top: 4px solid #58a0e0 !important; }
+.domain-hub-tile[data-domain='G'] { border-top: 4px solid #e84040 !important; }
+.domain-hub-tile:hover {
+  transform: translateY(-2px) !important;
+  border-color: #e8a023 !important;
+  box-shadow: 0 0 16px rgba(232,160,35,.12) !important;
+}
+
+.domain-hub-name {
+  font-family: 'VT323', monospace !important;
+  font-size: 22px !important;
+}
+
+.domain-hub-code {
+  font-family: 'VT323', monospace !important;
+  font-size: 16px !important;
+  color: #e8a023 !important;
+}
+
+.domain-hub-bar-fill { border-radius: 2px !important; }
+.domain-hub-bar-track { border-radius: 2px !important; background: #52504a !important; }
+
+.domain-hub-mastered-badge {
+  font-family: 'VT323', monospace !important;
+  font-size: 16px !important;
+  background: rgba(64,200,64,.1) !important;
+  color: #40c840 !important;
+  border: 1px solid rgba(64,200,64,.25) !important;
+  border-radius: 3px !important;
+}
+
+/* Headings */
+.domain-cards-title, .section-label, .dashboard-hero-title,
+.results-title, .setup-title {
+  font-family: 'VT323', monospace !important;
+  color: #e8a023 !important;
+  text-shadow: 0 0 8px rgba(232,160,35,.2);
+}
+
+/* Setup screen */
+.setup-card, .setup-avatar-btn {
+  border-radius: 6px !important;
+}
+
+/* Standard cards */
+.std-card {
+  border-radius: 6px !important;
+}
+
+/* Question screen */
+.q-stem {
+  font-family: 'VT323', monospace !important;
+  font-size: 26px !important;
+}
+
+.choice-btn {
+  border-radius: 3px !important;
+  font-family: 'Space Mono', monospace !important;
+}
+
+.choice-letter {
+  font-family: 'VT323', monospace !important;
+  border-radius: 3px !important;
+}
+
+/* Feedback cards */
+.feedback-correct {
+  background: rgba(64,200,64,.08) !important;
+  border-color: rgba(64,200,64,.25) !important;
+}
+.feedback-incorrect {
+  background: rgba(232,64,64,.08) !important;
+  border-color: rgba(232,64,64,.25) !important;
+}
+
+/* Results screen */
+.results-score-ring-inner {
+  font-family: 'VT323', monospace !important;
+}
+
+/* LCD-style inputs */
+input[type=text] {
+  font-family: 'VT323', monospace !important;
+  font-size: 22px !important;
+  background: #c8d5a0 !important;
+  color: #1c2b0a !important;
+  border: 2px solid #52504a !important;
+  border-radius: 3px !important;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.12) !important;
+}
+input[type=text]:focus { border-color: #e8a023 !important; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: #52504a; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #2a2924; }
+
+/* Game screen overrides */
+.game-header {
+  font-family: 'VT323', monospace !important;
+}
+
+/* Progress dots retro */
+.progress-dot {
+  border-radius: 2px !important;
+}
+
     </style>
 </head>
 <body>
