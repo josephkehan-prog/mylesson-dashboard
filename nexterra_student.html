@@ -3895,10 +3895,15 @@ function checkAndApplyReopens(callback) {
     let changed = false;
     reopenList.forEach(r => {
       if ((r.student||'').toLowerCase() !== studentName.toLowerCase()) return;
-      if (r.type !== 'reopen' && r.score !== 'REOPEN') return;
+      // Supabase /reopens rows have no type/score field — all entries are valid reopens
+      // Legacy local rows may use type:'reopen' or score:'REOPEN' — accept all formats
       const lessonTitle = r.lesson || r.title || '';
       const lesson = _lessonByTitle.get(lessonTitle);
-      if (lesson && ST.scores[lesson.id]) { delete ST.scores[lesson.id]; changed = true; }
+      if (lesson && ST.scores[lesson.id]) {
+        delete ST.scores[lesson.id];
+        clearSavedProgress(lesson.id); // also clear in-progress saved answers
+        changed = true;
+      }
     });
     try {
       const localReopens = safeLS.getJSON('nexterra_reopens', []);
@@ -4070,9 +4075,7 @@ function renderTeacherTable(rows, source) {
       const time = (r.time || r.submittedAt || r.submitted_at) ? new Date(r.time || r.submittedAt || r.submitted_at).toLocaleString() : '—';
       const score = (r.score && !r.score.includes('undefined')) ? r.score : ((r.correct || '?') + '/' + (r.total || '?'));
       const origIdx = rows.indexOf(r);
-      const viewBtn = source === 'sheets'
-        ? `<button class="btn-start" style="padding:5px 12px;font-size:12px;background:#1a4b8c;" onclick="viewSheetRow(${origIdx})">📋 View</button>`
-        : `<button class="btn-start btn-action" data-action="view-detail" data-lid="${escHtml(r._localId||'')}" style="padding:5px 12px;font-size:12px;background:#1a4b8c;">📋 View</button>`;
+      const viewBtn = `<button class="btn-start btn-action" data-action="view-detail" data-idx="${origIdx}" style="padding:5px 12px;font-size:12px;background:#1a4b8c;">📋 View</button>`;
       const reopenBtn = `<button class="btn-start btn-action" data-action="reopen"
         data-student="${escHtml(r.student||'')}"
         data-lesson="${escHtml(title)}"
@@ -4408,6 +4411,80 @@ function viewSheetRow(idx) {
   const r = rows[idx];
   if (!r) return;
   selectStudentInRoster(r.student || '');
+}
+
+function viewStudentDetails(idx) {
+  const rows = window._currentTeacherRows || [];
+  const r = rows[idx];
+  if (!r) return;
+
+  const pct = typeof r.pct === 'number' ? r.pct : parseInt((r.pct||'0').toString().replace('%',''))||0;
+  const passThresh = (() => {
+    const lesson = _lessonByTitle.get(r.lesson || r.title || '');
+    return lesson ? getPassThreshold(lesson) : getPassThreshold(null);
+  })();
+  const pass = pct >= passThresh;
+  const submitted = (r.time || r.submittedAt || r.submitted_at)
+    ? new Date(r.time || r.submittedAt || r.submitted_at).toLocaleString() : '—';
+
+  // Build answers table if available
+  let answersHtml = '';
+  if (r.answers) {
+    let ans = r.answers;
+    if (typeof ans === 'string') { try { ans = JSON.parse(ans); } catch(e) { ans = {}; } }
+    const lesson = _lessonByTitle.get(r.lesson || r.title || '');
+    const entries = Object.entries(ans).sort((a,b) => parseInt(a[0])-parseInt(b[0]));
+    if (entries.length) {
+      answersHtml = `<div style="margin-top:14px;">
+        <div style="font-weight:700;font-size:13px;color:#444;margin-bottom:6px;">Answers</div>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <thead><tr style="background:#f0f4ff;">
+            <th style="padding:6px 10px;text-align:left;border:1px solid #dde3ee;">Q#</th>
+            <th style="padding:6px 10px;text-align:left;border:1px solid #dde3ee;">Answer</th>
+            <th style="padding:6px 10px;text-align:left;border:1px solid #dde3ee;">Correct</th>
+          </tr></thead><tbody>
+          ${entries.map(([qi, answer]) => {
+            const q = lesson && lesson.questions[parseInt(qi)];
+            const correct = q && q.answer ? String(q.answer) === String(answer) ? '✅' : '❌' : '—';
+            const stem = q ? (q.stem || '').replace(/\n/g,' ').slice(0, 60) + (q.stem && q.stem.length > 60 ? '…' : '') : `Q${parseInt(qi)+1}`;
+            return `<tr>
+              <td style="padding:5px 10px;border:1px solid #eee;">${parseInt(qi)+1}</td>
+              <td style="padding:5px 10px;border:1px solid #eee;">${escHtml(String(answer))}</td>
+              <td style="padding:5px 10px;border:1px solid #eee;text-align:center;">${correct}</td>
+            </tr>`;
+          }).join('')}
+          </tbody>
+        </table></div>`;
+    }
+  }
+
+  // Show in a modal overlay
+  let modal = document.getElementById('_view-detail-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = '_view-detail-modal';
+    modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9998;display:flex;align-items:center;justify-content:center;padding:20px;';
+    modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+    document.body.appendChild(modal);
+  }
+  modal.innerHTML = `
+    <div style="background:#fff;border-radius:14px;padding:28px;max-width:560px;width:100%;max-height:80vh;overflow-y:auto;box-shadow:0 8px 40px rgba(0,0,0,.25);">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <div style="font-size:18px;font-weight:800;color:#1a2740;">📋 Submission Detail</div>
+        <button onclick="document.getElementById('_view-detail-modal').remove()"
+          style="background:none;border:none;font-size:20px;cursor:pointer;color:#888;">✕</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:14px;">
+        <div><span style="color:#888;font-size:12px;">STUDENT</span><div style="font-weight:700;">${escHtml(r.student||'—')}</div></div>
+        <div><span style="color:#888;font-size:12px;">CLASS</span><div style="font-weight:700;">${escHtml(r.classCode||r.class_code||'—')}</div></div>
+        <div style="grid-column:1/-1;"><span style="color:#888;font-size:12px;">LESSON</span><div style="font-weight:600;">${escHtml(r.lesson||r.title||'—')}</div></div>
+        <div><span style="color:#888;font-size:12px;">SCORE</span><div style="font-weight:700;font-size:18px;color:${pass?'#137333':'#c0392b'};">${escHtml(r.score||'—')} <small>(${pct}%)</small></div></div>
+        <div><span style="color:#888;font-size:12px;">STATUS</span><div>${pass?'<span style="color:#137333;font-weight:700;">✅ PASS</span>':'<span style="color:#c0392b;font-weight:700;">❌ BELOW</span>'}</div></div>
+        <div><span style="color:#888;font-size:12px;">TIME TAKEN</span><div>${escHtml(r.timeTaken||r.time_taken||'—')}</div></div>
+        <div><span style="color:#888;font-size:12px;">SUBMITTED</span><div style="font-size:12px;">${submitted}</div></div>
+      </div>
+      ${answersHtml}
+    </div>`;
 }
 
 /* ── Analytics sub-functions ── */
@@ -5238,7 +5315,7 @@ document.addEventListener('click', function(e) {
   if (action === 'reopen') {
     reopenAssignment(el.dataset.student, el.dataset.lesson, el.dataset.classcode, el.dataset.lid);
   } else if (action === 'view-detail') {
-    viewStudentDetails(el.dataset.lid);
+    viewStudentDetails(parseInt(el.dataset.idx, 10));
   } else if (action === 'select-student') {
     selectStudentInRoster(el.dataset.student);
   } else if (action === 'grid-cell') {
