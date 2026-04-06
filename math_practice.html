@@ -16,7 +16,7 @@
     ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -48,7 +48,7 @@
         }
 
         html, body {
-            font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Crimson Pro', Georgia, serif;
             background: var(--bg);
             color: var(--primary);
             height: 100%;
@@ -57,45 +57,53 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
+        h1, h2, h3, .header-title, .domain-hub-name, .domain-cards-title,
+        .setup-title, .leaderboard-title, .section-title, .game-title-text,
+        .category-name, .anchor-card-title {
+            font-family: 'Cinzel', 'Times New Roman', serif;
+        }
+
         :root {
-            --primary: #0f172a;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --success: #10b981;
-            --success-bg: #d1fae5;
-            --warning: #f59e0b;
-            --warning-bg: #fffbeb;
-            --danger: #ef4444;
-            --danger-bg: #fef2f2;
-            --surface: #f8fafc;
-            --surface-alt: #f0f2ff;  /* accent-tinted hover */
-            --bg: #f1f5f9;
-            --bg-card: #ffffff;
-            --bg-feedback: #fafafa;
-            --border-gray: #e2e8f0;
+            /* ── Medieval palette ── */
+            --primary: #1a0e00;          /* near-black parchment ink */
+            --accent: #8b1a1a;           /* crimson / royal red */
+            --accent-light: #c0392b;     /* brighter crimson for hover */
+            --success: #2d6a2d;          /* forest green */
+            --success-bg: #d4edda;
+            --warning: #b8860b;          /* dark gold */
+            --warning-bg: #fff8dc;
+            --danger: #8b1a1a;
+            --danger-bg: #fde8e8;
+            --surface: #f5f0e8;          /* parchment */
+            --surface-alt: #ede5d0;      /* darker parchment hover */
+            --bg: #e8dfc8;               /* aged parchment background */
+            --bg-card: #faf6ee;          /* light parchment card */
+            --bg-feedback: #f5f0e8;
+            --border-gray: #c4a96d;      /* golden border */
+            --border: #c4a96d;
             /* Text tokens */
-            --text-muted: #64748b;
-            --text-subtle: #94a3b8;
-            --text-secondary: #475569;
-            --text-body: #334155;
-            --text-on-dark: rgba(255,255,255,.85);
-            --text-on-dark-muted: rgba(255,255,255,.6);
-            --text-on-dark-dim: rgba(255,255,255,.5);
+            --text-muted: #6b4c1e;
+            --text-subtle: #9b7740;
+            --text-secondary: #4a3010;
+            --text-body: #2d1a00;
+            --text-on-dark: rgba(255,245,220,.9);
+            --text-on-dark-muted: rgba(255,245,220,.65);
+            --text-on-dark-dim: rgba(255,245,220,.45);
             /* Progress dots */
-            --dot-default: #5a6070;
+            --dot-default: #7a5c2e;
             --dot-current: var(--accent);
-            --dot-answered: #4ade80;
+            --dot-answered: #2d6a2d;
             /* Card / shadow */
-            --card-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
-            --card-shadow-hover: 0 8px 30px rgba(99,102,241,.15), 0 2px 8px rgba(0,0,0,.08);
-            --glass-bg: rgba(255,255,255,.75);
-            --glass-border: rgba(255,255,255,.3);
-            --radius-sm: 8px;
-            --radius-md: 14px;
-            --radius-lg: 20px;
-            --radius-xl: 28px;
-            --gradient-primary: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-            --gradient-dark: linear-gradient(135deg, #0f172a, #1e293b);
+            --card-shadow: 0 1px 3px rgba(90,50,0,.1), 0 4px 16px rgba(90,50,0,.08);
+            --card-shadow-hover: 0 8px 30px rgba(139,26,26,.18), 0 2px 8px rgba(90,50,0,.12);
+            --glass-bg: rgba(250,246,238,.85);
+            --glass-border: rgba(196,169,109,.4);
+            --radius-sm: 4px;            /* sharper corners — more medieval */
+            --radius-md: 6px;
+            --radius-lg: 10px;
+            --radius-xl: 14px;
+            --gradient-primary: linear-gradient(135deg, #8b1a1a, #6b1010, #4a0e0e);
+            --gradient-dark: linear-gradient(135deg, #1a0800, #2d1400, #1a0e00);
             /* Transition scale */
             --t-fast: 150ms cubic-bezier(.22,1,.36,1);
             --t-base: 200ms cubic-bezier(.22,1,.36,1);
@@ -230,9 +238,173 @@
         }
 
         .dashboard-content {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 24px 24px 32px;
+            width: 100%;
+            padding: 24px 32px 32px;
+        }
+
+        /* ── DOMAIN HUB ── */
+        .domain-hub {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* OA tile spans 2 cols on first row to balance 9 standards vs smaller groups */
+        .domain-hub-tile {
+            position: relative;
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-lg);
+            padding: 28px 24px 22px;
+            cursor: pointer;
+            text-align: left;
+            transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 180px;
+        }
+
+        .domain-hub-tile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity var(--t-base);
+            border-radius: inherit;
+        }
+
+        .domain-hub-tile:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--card-shadow-hover);
+            border-color: var(--accent);
+        }
+
+        .domain-hub-tile:hover::before { opacity: 1; }
+        .domain-hub-tile:active { transform: translateY(-1px); }
+
+        .domain-hub-tile[data-domain="OA"] { border-top: 4px solid #6366f1; }
+        .domain-hub-tile[data-domain="NBT"] { border-top: 4px solid #10b981; }
+        .domain-hub-tile[data-domain="NF"]  { border-top: 4px solid #f59e0b; }
+        .domain-hub-tile[data-domain="MD"]  { border-top: 4px solid #06b6d4; }
+        .domain-hub-tile[data-domain="G"]   { border-top: 4px solid #a855f7; }
+
+        .domain-hub-icon {
+            font-size: 36px;
+            line-height: 1;
+        }
+
+        .domain-hub-name {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .domain-hub-code {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+        }
+
+        .domain-hub-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .domain-hub-bar-wrap {
+            margin-top: auto;
+        }
+
+        .domain-hub-bar-track {
+            height: 6px;
+            background: var(--border-gray);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .domain-hub-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width .6s var(--t-slow);
+        }
+
+        .domain-hub-bar-label {
+            font-size: 11px;
+            color: var(--text-subtle);
+            margin-top: 5px;
+        }
+
+        .domain-hub-mastered-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--success-bg);
+            color: var(--success);
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 99px;
+            padding: 3px 10px;
+        }
+
+        .domain-hub-arrow {
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            font-size: 18px;
+            color: var(--text-subtle);
+            transition: transform var(--t-base), color var(--t-base);
+        }
+
+        .domain-hub-tile:hover .domain-hub-arrow {
+            transform: translateX(4px);
+            color: var(--accent);
+        }
+
+        /* ── DOMAIN CARDS VIEW ── */
+        .domain-cards-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border-gray);
+        }
+
+        .domain-cards-back {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border-gray);
+            border-radius: var(--radius-sm);
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--primary);
+            transition: background var(--t-fast), border-color var(--t-fast);
+            flex-shrink: 0;
+        }
+
+        .domain-cards-back:hover {
+            background: var(--surface-alt);
+            border-color: var(--accent);
+        }
+
+        .domain-cards-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .domain-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 14px;
         }
 
         /* Greeting bar — replaces dark hero panel */
@@ -412,8 +584,36 @@
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 10px;
+            gap: 0 10px;
             margin-bottom: 24px;
+        }
+
+        .domain-section-header {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 4px 6px;
+            margin-top: 18px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 2px;
+        }
+        .domain-section-header:first-child { margin-top: 0; }
+        .domain-icon { font-size: 18px; }
+        .domain-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+        }
+
+        .domain-subgrid {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 10px;
+            margin-bottom: 8px;
         }
 
         /* Card is the primary practice tap target */
@@ -1164,12 +1364,24 @@
                 justify-content: flex-start;
             }
 
-            .categories-grid {
+            .domain-hub {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .domain-subgrid {
+                grid-template-columns: 1fr;
+            }
+
+            .domain-cards-grid {
                 grid-template-columns: 1fr;
             }
 
             .continue-section {
                 grid-template-columns: 1fr;
+            }
+
+            .dashboard-content {
+                padding: 16px 16px 24px;
             }
 
             .question-stem {
@@ -1219,9 +1431,17 @@
                 font-size: 22px;
             }
 
-            .categories-grid {
+            .domain-hub {
+                grid-template-columns: 1fr;
+            }
+
+            .domain-subgrid {
                 grid-template-columns: 1fr;
                 gap: 12px;
+            }
+
+            .domain-cards-grid {
+                grid-template-columns: 1fr;
             }
 
             .category-card {
@@ -2369,20 +2589,7 @@
                 </div>
             </div>
 
-            <div id="continueSection" style="display:none;">
-                <h2 class="section-title">Continue Practicing</h2>
-                <div class="continue-section" id="continueCards"></div>
-            </div>
-
-            <div class="standards-header">
-                <h2 class="section-title" style="margin-top:0;margin-bottom:0;">Practice by Standard</h2>
-                <div class="cluster-legend" aria-label="Color key for standard types">
-                    <span class="cluster-legend-item"><span class="cluster-legend-dot major"></span>Major</span>
-                    <span class="cluster-legend-item"><span class="cluster-legend-dot supporting"></span>Supporting</span>
-                    <span class="cluster-legend-item"><span class="cluster-legend-dot additional"></span>Additional</span>
-                </div>
-            </div>
-            <div class="categories-grid" id="categoriesGrid" role="list" aria-label="Math standards to practice"></div>
+            <div id="dashboardMain"></div>
         </main>
     </div>
 
@@ -3131,81 +3338,260 @@
                 title: 'Find the Missing Number',
                 domain: 'oa', icon: '❓',
                 vocab: ['equation', 'unknown', 'variable', 'inverse operation'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="10" y="20" width="280" height="80" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/><text x="150" y="55" text-anchor="middle" font-size="24" font-weight="800" fill="#15803d">5 × ? = 30</text><text x="150" y="85" text-anchor="middle" font-size="16" fill="#666">Think: 30 ÷ 5 = 6, so ? = 6</text></svg>`,
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="20" font-size="13" font-weight="700" fill="#374151">Use the inverse operation to solve:</text>
+                    <rect x="20" y="30" width="170" height="55" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                    <text x="105" y="62" text-anchor="middle" font-size="26" font-weight="800" fill="#15803d">5 × ? = 30</text>
+                    <text x="200" y="60" font-size="22" fill="#374151">→</text>
+                    <rect x="220" y="30" width="165" height="55" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                    <text x="302" y="62" text-anchor="middle" font-size="22" font-weight="800" fill="#15803d">30 ÷ 5 = 6</text>
+                    <text x="10" y="110" font-size="13" fill="#374151">Tape Diagram:</text>
+                    <rect x="10" y="118" width="375" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+                    ${[0,1,2,3,4].map(i => `<line x1="${10+i*75}" y1="118" x2="${10+i*75}" y2="140" stroke="#16a34a" stroke-width="1.5"/>
+                    <text x="${47+i*75}" y="133" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">6</text>`).join('')}
+                    <text x="10" y="150" font-size="12" fill="#666">5 groups of 6 = 30. The unknown is 6!</text>
+                </svg>`,
                 example: 'If 8 × ? = 56, think: 56 ÷ 8 = 7. So ? = 7.',
                 remember: 'Use the INVERSE operation to find the missing number!'
             },
             '3.OA.5': {
                 title: 'Properties of Multiplication',
                 domain: 'oa', icon: '🔄',
-                vocab: ['commutative', 'associative', 'distributive', 'property'],
-                svg: `<svg viewBox="0 0 300 140"><text x="150" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="#7c3aed">Commutative Property</text><text x="150" y="55" text-anchor="middle" font-size="20" font-weight="800" fill="#15803d">3 × 4 = 4 × 3</text><text x="150" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#7c3aed">Associative Property</text><text x="150" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#15803d">(2 × 3) × 4 = 2 × (3 × 4)</text><text x="150" y="130" text-anchor="middle" font-size="12" fill="#666">Order and grouping don't change the product!</text></svg>`,
-                example: '6 × 7 = 7 × 6 = 42. You can multiply in any order!',
+                vocab: ['commutative', 'associative', 'distributive', 'property', 'zero', 'identity'],
+                svg: `<svg viewBox="0 0 400 155" width="380">
+                    <rect x="10" y="8" width="185" height="55" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+                    <text x="102" y="26" text-anchor="middle" font-size="11" font-weight="700" fill="#7c3aed">COMMUTATIVE</text>
+                    <text x="102" y="50" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">3 × 4 = 4 × 3</text>
+                    <rect x="205" y="8" width="185" height="55" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="297" y="26" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">ASSOCIATIVE</text>
+                    <text x="297" y="50" text-anchor="middle" font-size="15" font-weight="800" fill="#374151">(2×3)×4=2×(3×4)</text>
+                    <rect x="10" y="72" width="185" height="70" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                    <text x="102" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">DISTRIBUTIVE</text>
+                    <text x="102" y="112" text-anchor="middle" font-size="14" font-weight="800" fill="#374151">6 × 7 = 6 × (5 + 2)</text>
+                    <text x="102" y="132" text-anchor="middle" font-size="13" fill="#374151">= 30 + 12 = 42</text>
+                    <rect x="205" y="72" width="88" height="70" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="249" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">ZERO</text>
+                    <text x="249" y="118" text-anchor="middle" font-size="20" font-weight="800" fill="#374151">n × 0</text>
+                    <text x="249" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#d97706">= 0</text>
+                    <rect x="302" y="72" width="88" height="70" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+                    <text x="346" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#db2777">IDENTITY</text>
+                    <text x="346" y="118" text-anchor="middle" font-size="20" font-weight="800" fill="#374151">n × 1</text>
+                    <text x="346" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#db2777">= n</text>
+                </svg>`,
+                example: '6 × 7 = 7 × 6 = 42. Or break it up: 6 × 5 + 6 × 2 = 30 + 12 = 42.',
                 remember: 'Flip or regroup factors — the answer stays the same!'
             },
             '3.OA.6': {
                 title: 'Fact Families',
                 domain: 'oa', icon: '🏠',
                 vocab: ['fact family', 'related facts', 'inverse', 'multiplication', 'division'],
-                svg: `<svg viewBox="0 0 300 140"><polygon points="150,10 50,120 250,120" fill="none" stroke="#f59e0b" stroke-width="3"/><text x="150" y="45" text-anchor="middle" font-size="24" font-weight="800" fill="#f59e0b">3, 7, 21</text><text x="70" y="105" font-size="13" fill="#374151">3 × 7 = 21</text><text x="170" y="105" font-size="13" fill="#374151">7 × 3 = 21</text><text x="70" y="125" font-size="13" fill="#374151">21 ÷ 7 = 3</text><text x="170" y="125" font-size="13" fill="#374151">21 ÷ 3 = 7</text></svg>`,
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">The Fact Family Triangle: 3 numbers, 4 facts</text>
+                    <polygon points="130,30 50,130 210,130" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                    <circle cx="130" cy="30" r="22" fill="#fbbf24"/>
+                    <text x="130" y="36" text-anchor="middle" font-size="16" font-weight="800" fill="#78350f">21</text>
+                    <circle cx="50" cy="130" r="20" fill="#a78bfa"/>
+                    <text x="50" y="136" text-anchor="middle" font-size="16" font-weight="800" fill="#4c1d95">3</text>
+                    <circle cx="210" cy="130" r="20" fill="#34d399"/>
+                    <text x="210" y="136" text-anchor="middle" font-size="16" font-weight="800" fill="#065f46">7</text>
+                    <text x="110" y="90" text-anchor="middle" font-size="10" fill="#d97706" font-weight="600">×÷</text>
+                    <rect x="230" y="28" width="160" height="112" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="310" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">4 Related Facts:</text>
+                    <text x="310" y="68" text-anchor="middle" font-size="14" font-weight="800" fill="#374151">3 × 7 = 21</text>
+                    <text x="310" y="88" text-anchor="middle" font-size="14" font-weight="800" fill="#374151">7 × 3 = 21</text>
+                    <text x="310" y="108" text-anchor="middle" font-size="14" font-weight="800" fill="#374151">21 ÷ 7 = 3</text>
+                    <text x="310" y="128" text-anchor="middle" font-size="14" font-weight="800" fill="#374151">21 ÷ 3 = 7</text>
+                </svg>`,
                 example: 'For 4, 5, 20: 4×5=20, 5×4=20, 20÷4=5, 20÷5=4.',
                 remember: 'Every fact family has 2 multiplication and 2 division facts!'
             },
             '3.OA.7': {
                 title: 'Multiply & Divide Fluently',
                 domain: 'oa', icon: '⚡',
-                vocab: ['fluency', 'times table', 'product', 'quotient'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="10" y="10" width="130" height="100" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/><text x="75" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">Multiply</text><text x="75" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">7 × 8 = 56</text><text x="75" y="90" text-anchor="middle" font-size="11" fill="#666">Know it by heart!</text><rect x="160" y="10" width="130" height="100" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><text x="225" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#f59e0b">Divide</text><text x="225" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">56 ÷ 8 = 7</text><text x="225" y="90" text-anchor="middle" font-size="11" fill="#666">Think multiplication!</text></svg>`,
-                example: 'To solve 42 ÷ 6, think: 6 × ? = 42. Answer: 7.',
+                vocab: ['fluency', 'times table', 'product', 'quotient', 'mental math'],
+                svg: `<svg viewBox="0 0 400 145" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Strategies for Fluency:</text>
+                    <rect x="10" y="26" width="115" height="110" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="67" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">SKIP COUNT</text>
+                    <text x="67" y="65" text-anchor="middle" font-size="12" fill="#374151">6×: 6,12,18,24</text>
+                    <text x="67" y="80" text-anchor="middle" font-size="12" fill="#374151">30,36,42,48...</text>
+                    <text x="67" y="100" text-anchor="middle" font-size="16" font-weight="800" fill="#3b82f6">6×7=42</text>
+                    <text x="67" y="118" text-anchor="middle" font-size="10" fill="#666">count by 6s</text>
+                    <rect x="135" y="26" width="115" height="110" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="192" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">DOUBLES</text>
+                    <text x="192" y="65" text-anchor="middle" font-size="12" fill="#374151">8×6 = 8×3×2</text>
+                    <text x="192" y="80" text-anchor="middle" font-size="12" fill="#374151">= 24 × 2</text>
+                    <text x="192" y="100" text-anchor="middle" font-size="16" font-weight="800" fill="#d97706">= 48</text>
+                    <text x="192" y="118" text-anchor="middle" font-size="10" fill="#666">halve, double</text>
+                    <rect x="260" y="26" width="130" height="110" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                    <text x="325" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">÷ THINK ×</text>
+                    <text x="325" y="65" text-anchor="middle" font-size="12" fill="#374151">56 ÷ 8 = ?</text>
+                    <text x="325" y="80" text-anchor="middle" font-size="12" fill="#374151">Think: 8×? = 56</text>
+                    <text x="325" y="100" text-anchor="middle" font-size="16" font-weight="800" fill="#16a34a">8×7 = 56 ✓</text>
+                    <text x="325" y="118" text-anchor="middle" font-size="10" fill="#666">use multiplication</text>
+                </svg>`,
+                example: 'To solve 42 ÷ 6, think: 6 × ? = 42. Count by 6s: 6,12,18,24,30,36,42. Answer: 7.',
                 remember: 'Practice your times tables — speed comes with practice!'
             },
             '3.OA.8': {
                 title: 'Two-Step Word Problems',
                 domain: 'oa', icon: '📝',
-                vocab: ['two-step', 'operation', 'equation', 'solve'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="10" y="10" width="85" height="50" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="52" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">Step 1</text><text x="52" y="48" text-anchor="middle" font-size="13" fill="#374151">Read</text><rect x="108" y="10" width="85" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><text x="150" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">Step 2</text><text x="150" y="48" text-anchor="middle" font-size="13" fill="#374151">Plan</text><rect x="206" y="10" width="85" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><text x="248" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#f59e0b">Step 3</text><text x="248" y="48" text-anchor="middle" font-size="13" fill="#374151">Solve</text><text x="150" y="90" text-anchor="middle" font-size="13" fill="#374151">Sam has 3 bags with 5 apples each. He eats 2.</text><text x="150" y="110" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d">3 × 5 = 15, then 15 - 2 = 13 apples</text></svg>`,
-                example: 'Mia buys 4 packs of 6 stickers and gives away 8. How many left? 4×6=24, 24-8=16.',
-                remember: 'Solve one step at a time. Circle the TWO questions!'
+                vocab: ['two-step', 'operation', 'equation', 'solve', 'hidden question'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Sam has 3 bags with 5 apples. He eats 2. How many left?</text>
+                    <rect x="10" y="28" width="118" height="60" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                    <text x="69" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">STEP 1 (hidden Q)</text>
+                    <text x="69" y="64" text-anchor="middle" font-size="15" font-weight="800" fill="#374151">3 × 5 = 15</text>
+                    <text x="69" y="80" text-anchor="middle" font-size="11" fill="#666">apples total</text>
+                    <text x="136" y="60" font-size="20" fill="#374151">→</text>
+                    <rect x="155" y="28" width="118" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="214" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">STEP 2 (real Q)</text>
+                    <text x="214" y="64" text-anchor="middle" font-size="15" font-weight="800" fill="#374151">15 − 2 = 13</text>
+                    <text x="214" y="80" text-anchor="middle" font-size="11" fill="#666">apples left</text>
+                    <text x="281" y="60" font-size="20" fill="#374151">→</text>
+                    <rect x="300" y="28" width="90" height="60" rx="8" fill="#fbbf24"/>
+                    <text x="345" y="55" text-anchor="middle" font-size="24" font-weight="900" fill="#78350f">13</text>
+                    <text x="345" y="75" text-anchor="middle" font-size="11" fill="#78350f">ANSWER</text>
+                    <rect x="10" y="98" width="380" height="48" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="200" y="115" text-anchor="middle" font-size="12" font-weight="700" fill="#d97706">Strategy: Read → Find hidden question → Solve both steps</text>
+                    <text x="200" y="133" text-anchor="middle" font-size="11" fill="#666">Write an equation for EACH step before solving</text>
+                </svg>`,
+                example: 'Mia buys 4 packs of 6 stickers and gives away 8. How many left? Step 1: 4×6=24 | Step 2: 24−8=16.',
+                remember: 'Solve one step at a time. Find the HIDDEN question inside the problem!'
             },
             '3.OA.9': {
                 title: 'Arithmetic Patterns',
                 domain: 'oa', icon: '🔢',
-                vocab: ['pattern', 'rule', 'even', 'odd', 'sequence'],
-                svg: `<svg viewBox="0 0 300 100"><text x="150" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#7c3aed">Skip Count by 4:</text><text x="150" y="55" text-anchor="middle" font-size="22" font-weight="800" fill="#374151">4, 8, 12, 16, 20, 24...</text><text x="150" y="80" text-anchor="middle" font-size="13" fill="#666">Rule: add 4 each time</text><text x="150" y="95" text-anchor="middle" font-size="11" fill="#16a34a">All products of 4 are EVEN!</text></svg>`,
+                vocab: ['pattern', 'rule', 'even', 'odd', 'sequence', 'multiple'],
+                svg: `<svg viewBox="0 0 400 140" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Find the rule, extend the pattern:</text>
+                    <line x1="20" y1="55" x2="380" y2="55" stroke="#d1d5db" stroke-width="2"/>
+                    ${[0,3,6,9,12,15,18].map((n,i) => {
+                        const cx = 20 + i*53;
+                        const isLast = i === 6;
+                        return `<circle cx="${cx}" cy="55" r="${isLast?14:13}" fill="${isLast?'#e5e7eb':'#7c3aed'}" opacity="${isLast?0.4:1}"/>
+                        <text x="${cx}" y="60" text-anchor="middle" font-size="12" font-weight="800" fill="${isLast?'#9ca3af':'white'}">${isLast?'?':n}</text>
+                        ${i>0 && !isLast ? `<text x="${cx-26}" y="40" text-anchor="middle" font-size="10" fill="#d97706" font-weight="700">+3</text>` : ''}`;
+                    }).join('')}
+                    <text x="10" y="90" font-size="12" fill="#374151" font-weight="600">Even/Odd rules:</text>
+                    <rect x="10" y="98" width="178" height="34" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <text x="99" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">Even × anything = EVEN</text>
+                    <rect x="198" y="98" width="192" height="34" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="294" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#d97706">Odd × odd = ODD</text>
+                </svg>`,
                 example: 'The pattern 3, 6, 9, 12... follows the rule "add 3." All multiples of 3 follow this pattern.',
                 remember: 'Look for the RULE — what happens each time? Even × anything = EVEN!'
             },
             '3.NBT.2': {
                 title: 'Add & Subtract within 1000',
                 domain: 'nbt', icon: '➕',
-                vocab: ['regroup', 'borrow', 'carry', 'place value', 'hundreds'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="50" y="10" width="200" height="100" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/><text x="150" y="40" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">  456</text><text x="150" y="65" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">+ 278</text><line x1="90" y1="72" x2="210" y2="72" stroke="#374151" stroke-width="2"/><text x="150" y="95" text-anchor="middle" font-size="18" font-weight="800" fill="#16a34a">  734</text><text x="115" y="32" font-size="10" fill="#ea580c">1</text><text x="132" y="32" font-size="10" fill="#ea580c">1</text></svg>`,
-                example: '362 + 479: Add ones (2+9=11, carry 1), tens (6+7+1=14, carry 1), hundreds (3+4+1=8). Answer: 841.',
+                vocab: ['regroup', 'borrow', 'carry', 'place value', 'hundreds', 'algorithm'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Standard Algorithm — line up by PLACE VALUE:</text>
+                    <rect x="10" y="26" width="175" height="115" rx="8" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+                    <text x="92" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#ea580c">ADDITION 456 + 278</text>
+                    <text x="80" y="65" text-anchor="middle" font-size="9" fill="#ea580c">carry</text>
+                    <text x="106" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#ea580c">1</text>
+                    <text x="120" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#ea580c">1</text>
+                    <text x="92" y="85" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">456</text>
+                    <text x="92" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">+278</text>
+                    <line x1="30" y1="110" x2="164" y2="110" stroke="#374151" stroke-width="2"/>
+                    <text x="92" y="130" text-anchor="middle" font-size="18" font-weight="800" fill="#16a34a">734</text>
+                    <rect x="195" y="26" width="195" height="115" rx="8" fill="#f0f9ff" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="292" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#3b82f6">SUBTRACTION 503 − 267</text>
+                    <text x="292" y="65" text-anchor="middle" font-size="10" fill="#3b82f6">regroup from hundreds</text>
+                    <text x="292" y="85" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">503</text>
+                    <text x="292" y="105" text-anchor="middle" font-size="18" font-weight="800" fill="#374151">−267</text>
+                    <line x1="215" y1="110" x2="375" y2="110" stroke="#374151" stroke-width="2"/>
+                    <text x="292" y="130" text-anchor="middle" font-size="18" font-weight="800" fill="#16a34a">236</text>
+                </svg>`,
+                example: '362 + 479: Add ones (2+9=11, write 1 carry 1), tens (6+7+1=14, write 4 carry 1), hundreds (3+4+1=8). Answer: 841.',
                 remember: 'Line up the digits by PLACE VALUE. Start from the ones place!'
             },
             '3.NBT.3': {
                 title: 'Multiply by Multiples of 10',
                 domain: 'nbt', icon: '✖️',
-                vocab: ['multiple of 10', 'product', 'pattern', 'zero'],
-                svg: `<svg viewBox="0 0 300 110"><text x="150" y="25" text-anchor="middle" font-size="14" font-weight="700" fill="#ea580c">Pattern:</text><text x="150" y="50" text-anchor="middle" font-size="16" fill="#374151">4 × 3 = <tspan font-weight="800">12</tspan></text><text x="150" y="72" text-anchor="middle" font-size="16" fill="#374151">4 × 30 = <tspan font-weight="800">120</tspan></text><text x="150" y="94" text-anchor="middle" font-size="16" fill="#374151">4 × 300 = <tspan font-weight="800">1200</tspan></text><text x="150" y="110" text-anchor="middle" font-size="11" fill="#16a34a">Multiply the basic fact, then add the zeros!</text></svg>`,
-                example: '6 × 50 = 6 × 5 × 10 = 30 × 10 = 300.',
+                vocab: ['multiple of 10', 'product', 'pattern', 'zero', 'place value'],
+                svg: `<svg viewBox="0 0 400 140" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Pattern: multiply the basic fact, then add zeros</text>
+                    ${[['4 × 3', '=', '12', '','#374151'],
+                       ['4 × 30', '= 4 × 3 × 10 =', '120', '+1 zero','#ea580c'],
+                       ['4 × 300', '= 4 × 3 × 100 =', '1200', '+2 zeros','#7c3aed']].map(([expr, mid, ans, note, color], i) => {
+                        const y = 38 + i * 30;
+                        return `<rect x="10" y="${y-14}" width="375" height="26" rx="4" fill="${i===0?'#f9fafb':i===1?'#fff7ed':'#faf5ff'}" stroke="${color}" stroke-width="${i===0?1:1.5}"/>
+                        <text x="20" y="${y+4}" font-size="14" font-weight="800" fill="#374151">${expr}</text>
+                        <text x="100" y="${y+4}" font-size="12" fill="#6b7280">${mid}</text>
+                        <text x="290" y="${y+4}" font-size="16" font-weight="900" fill="${color}">${ans}</text>
+                        <text x="342" y="${y+4}" font-size="10" fill="${color}" font-weight="700">${note}</text>`;
+                    }).join('')}
+                    <rect x="10" y="110" width="375" height="28" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+                    <text x="197" y="127" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">Step 1: Find 4×3=12 → Step 2: Count zeros in 30 → Step 3: 120</text>
+                </svg>`,
+                example: '6 × 50: basic fact 6×5=30, one zero in 50, so answer = 300.',
                 remember: 'Multiply the basic fact, then put back all the ZEROS!'
             },
             '3.NF.2': {
                 title: 'Fractions on a Number Line',
                 domain: 'nf', icon: '📏',
-                vocab: ['number line', 'partition', 'interval', 'unit fraction'],
-                svg: `<svg viewBox="0 0 300 80"><line x1="20" y1="40" x2="280" y2="40" stroke="#374151" stroke-width="3"/><line x1="20" y1="30" x2="20" y2="50" stroke="#374151" stroke-width="2"/><line x1="280" y1="30" x2="280" y2="50" stroke="#374151" stroke-width="2"/><text x="20" y="65" text-anchor="middle" font-size="14" font-weight="700">0</text><text x="280" y="65" text-anchor="middle" font-size="14" font-weight="700">1</text><line x1="85" y1="33" x2="85" y2="47" stroke="#3b82f6" stroke-width="1.5"/><line x1="150" y1="33" x2="150" y2="47" stroke="#3b82f6" stroke-width="1.5"/><line x1="215" y1="33" x2="215" y2="47" stroke="#3b82f6" stroke-width="1.5"/><circle cx="150" cy="40" r="6" fill="#3b82f6"/><text x="150" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#3b82f6">2/4</text><text x="85" y="25" text-anchor="middle" font-size="11" fill="#666">1/4</text><text x="215" y="25" text-anchor="middle" font-size="11" fill="#666">3/4</text></svg>`,
-                example: 'To place 3/4 on a number line: divide 0 to 1 into 4 equal parts. Count 3 parts from 0.',
+                vocab: ['number line', 'partition', 'interval', 'unit fraction', 'denominator', 'numerator'],
+                svg: `<svg viewBox="0 0 400 140" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">How to place 3/4 on a number line:</text>
+                    <text x="10" y="36" font-size="11" fill="#6b7280">Step 1: Denominator = 4, so split 0 to 1 into 4 equal parts</text>
+                    <line x1="20" y1="58" x2="380" y2="58" stroke="#374151" stroke-width="3"/>
+                    <line x1="20" y1="46" x2="20" y2="70" stroke="#374151" stroke-width="2.5"/>
+                    <line x1="380" y1="46" x2="380" y2="70" stroke="#374151" stroke-width="2.5"/>
+                    <text x="20" y="83" text-anchor="middle" font-size="13" font-weight="800" fill="#374151">0</text>
+                    <text x="380" y="83" text-anchor="middle" font-size="13" font-weight="800" fill="#374151">1</text>
+                    ${[1,2,3].map(i => {
+                        const cx = 20 + i * 90;
+                        const isTarget = i === 3;
+                        return `<line x1="${cx}" y1="48" x2="${cx}" y2="68" stroke="${isTarget?'#6366f1':'#3b82f6'}" stroke-width="2"/>
+                        <text x="${cx}" y="83" text-anchor="middle" font-size="11" font-weight="${isTarget?800:600}" fill="${isTarget?'#6366f1':'#3b82f6'}">${i}/4</text>
+                        ${isTarget ? `<circle cx="${cx}" cy="58" r="8" fill="#6366f1"/>
+                        <text x="${cx}" y="38" text-anchor="middle" font-size="13" font-weight="800" fill="#6366f1">3/4</text>
+                        <path d="M${cx},50 L${cx},46" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowUp)"/>` : ''}`;
+                    }).join('')}
+                    <defs><marker id="arrowUp" viewBox="0 0 6 6" refX="3" refY="6" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,6 L3,0 L6,6 Z" fill="#6366f1"/></marker></defs>
+                    <text x="10" y="105" font-size="11" fill="#6b7280">Step 2: Numerator = 3, so count 3 parts from 0</text>
+                    <text x="10" y="122" font-size="12" font-weight="700" fill="#6366f1">→ 3/4 is at the 3rd mark from 0</text>
+                    <text x="10" y="137" font-size="11" fill="#666">½ is in the middle. 3/4 is past the middle, closer to 1.</text>
+                </svg>`,
+                example: 'To place 3/4: divide 0–1 into 4 equal parts. Count 3 parts from 0. That is where 3/4 lives.',
                 remember: 'The DENOMINATOR tells how many equal parts. The NUMERATOR tells how many to count!'
             },
             '3.MD.2': {
                 title: 'Liquid Volume & Mass',
                 domain: 'md', icon: '🧪',
-                vocab: ['liter', 'gram', 'kilogram', 'measure', 'estimate'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="40" y="20" width="50" height="80" rx="4" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><text x="65" y="60" text-anchor="middle" font-size="20" font-weight="800" fill="#3b82f6">L</text><text x="65" y="115" text-anchor="middle" font-size="12" fill="#374151">Liter</text><rect x="130" y="40" width="40" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><text x="150" y="65" text-anchor="middle" font-size="16" font-weight="800" fill="#f59e0b">g</text><text x="150" y="115" text-anchor="middle" font-size="12" fill="#374151">Gram</text><rect x="210" y="25" width="60" height="60" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="240" y="62" text-anchor="middle" font-size="16" font-weight="800" fill="#16a34a">kg</text><text x="240" y="115" text-anchor="middle" font-size="12" fill="#374151">Kilogram</text></svg>`,
+                vocab: ['liter', 'gram', 'kilogram', 'measure', 'estimate', 'capacity'],
+                svg: `<svg viewBox="0 0 400 148" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Two types of measurement:</text>
+                    <rect x="10" y="26" width="188" height="115" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="104" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#3b82f6">LIQUID VOLUME (capacity)</text>
+                    <text x="50" y="72" text-anchor="middle" font-size="30">🧴</text>
+                    <text x="50" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Water bottle</text>
+                    <text x="50" y="104" text-anchor="middle" font-size="11" fill="#3b82f6">≈ 1 Liter</text>
+                    <text x="120" y="72" text-anchor="middle" font-size="30">🪣</text>
+                    <text x="120" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Bucket</text>
+                    <text x="120" y="104" text-anchor="middle" font-size="11" fill="#3b82f6">≈ 10 Liters</text>
+                    <text x="175" y="72" text-anchor="middle" font-size="22">🥛</text>
+                    <text x="175" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Carton</text>
+                    <text x="175" y="104" text-anchor="middle" font-size="11" fill="#3b82f6">≈ 2 L</text>
+                    <text x="104" y="130" text-anchor="middle" font-size="11" fill="#6b7280">Measured in: L (liters)</text>
+                    <rect x="206" y="26" width="185" height="115" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                    <text x="298" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">MASS (weight)</text>
+                    <text x="248" y="72" text-anchor="middle" font-size="28">📎</text>
+                    <text x="248" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Paperclip</text>
+                    <text x="248" y="104" text-anchor="middle" font-size="11" fill="#16a34a">≈ 1 gram</text>
+                    <text x="316" y="68" text-anchor="middle" font-size="26">📚</text>
+                    <text x="316" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Textbook</text>
+                    <text x="316" y="104" text-anchor="middle" font-size="11" fill="#16a34a">≈ 1 kilogram</text>
+                    <text x="370" y="72" text-anchor="middle" font-size="22">🐱</text>
+                    <text x="370" y="90" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">Cat</text>
+                    <text x="370" y="104" text-anchor="middle" font-size="11" fill="#16a34a">≈ 4 kg</text>
+                    <text x="298" y="130" text-anchor="middle" font-size="11" fill="#6b7280">g (grams) · kg (kilograms)</text>
+                </svg>`,
                 example: 'A water bottle holds about 1 liter. A paperclip weighs about 1 gram. A textbook weighs about 1 kilogram.',
-                remember: 'Liters measure LIQUID. Grams and kilograms measure how HEAVY things are!'
+                remember: 'Liters measure LIQUID VOLUME. Grams and kilograms measure MASS (weight)!'
             },
             '3.MD.6': {
                 title: 'Measure Area by Counting',
@@ -3218,34 +3604,113 @@
             '3.MD.7': {
                 title: 'Area & Multiplication',
                 domain: 'md', icon: '✖️',
-                vocab: ['area', 'length', 'width', 'formula', 'square units'],
-                svg: `<svg viewBox="0 0 300 100"><rect x="50" y="10" width="200" height="60" fill="none" stroke="#7c3aed" stroke-width="3"/><text x="150" y="48" text-anchor="middle" font-size="20" font-weight="800" fill="#7c3aed">A = l × w</text><text x="150" y="90" text-anchor="middle" font-size="14" fill="#374151">5 × 3 = 15 square units</text><text x="150" y="7" text-anchor="middle" font-size="12" fill="#666">length = 5</text><text x="38" y="45" text-anchor="end" font-size="12" fill="#666">w = 3</text></svg>`,
-                example: 'A garden is 8 feet long and 4 feet wide. Area = 8 × 4 = 32 square feet.',
-                remember: 'Area = Length × Width. Multiply instead of counting every square!'
+                vocab: ['area', 'length', 'width', 'formula', 'square units', 'decompose'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Area formula AND decomposing shapes:</text>
+                    <rect x="10" y="28" width="175" height="75" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+                    ${Array.from({length:3}, (_,r) => Array.from({length:5}, (_,c) =>
+                        `<rect x="${12+c*35}" y="${30+r*25}" width="33" height="23" fill="${r===0||c===0?'#a78bfa':'#c4b5fd'}" stroke="#7c3aed" stroke-width=".5"/>`
+                    ).join('')).join('')}
+                    <text x="97" y="120" text-anchor="middle" font-size="12" fill="#374151">← length = 5 →</text>
+                    <text x="6" y="68" text-anchor="end" font-size="12" fill="#7c3aed" transform="rotate(-90 6 68)">w=3</text>
+                    <text x="97" y="135" text-anchor="middle" font-size="14" font-weight="800" fill="#7c3aed">A = 5 × 3 = 15</text>
+                    <text x="205" y="28" font-size="12" font-weight="700" fill="#374151">Decompose:</text>
+                    <rect x="205" y="35" width="96" height="65" rx="4" fill="#c7d2fe" stroke="#6366f1" stroke-width="2"/>
+                    <text x="253" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">5 × 3</text>
+                    <rect x="306" y="35" width="84" height="65" rx="4" fill="#a5f3fc" stroke="#06b6d4" stroke-width="2"/>
+                    <text x="348" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#374151">2 × 3</text>
+                    <line x1="205" y1="68" x2="390" y2="68" stroke="#374151" stroke-width="1" stroke-dasharray="4"/>
+                    <text x="297" y="115" text-anchor="middle" font-size="11" fill="#374151">= 15 + 6 = 21</text>
+                    <text x="297" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#6366f1">(7 × 3 split into 5+2)</text>
+                </svg>`,
+                example: 'A garden is 8 feet long and 4 feet wide. Area = 8 × 4 = 32 square feet. Or split: 8×4 = (5+3)×4 = 20+12 = 32.',
+                remember: 'Area = Length × Width. You can also SPLIT a rectangle to make it easier!'
             },
             '3.MD.8': {
                 title: 'Perimeter',
                 domain: 'md', icon: '🔲',
-                vocab: ['perimeter', 'side', 'distance around', 'add'],
-                svg: `<svg viewBox="0 0 300 110"><rect x="60" y="15" width="180" height="70" fill="none" stroke="#16a34a" stroke-width="3" stroke-dasharray="8,4"/><text x="150" y="10" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">6 cm</text><text x="150" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#16a34a">6 cm</text><text x="50" y="55" text-anchor="end" font-size="13" font-weight="700" fill="#16a34a">3 cm</text><text x="250" y="55" font-size="13" font-weight="700" fill="#16a34a">3 cm</text><text x="150" y="55" text-anchor="middle" font-size="11" fill="#374151">P = 6+3+6+3 = 18 cm</text></svg>`,
-                example: 'A rectangle is 7 m long and 4 m wide. P = 7+4+7+4 = 22 m.',
-                remember: 'Perimeter = add ALL the sides. Walk around the outside!'
+                vocab: ['perimeter', 'side', 'distance around', 'add', 'polygon'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Perimeter = total distance AROUND the outside</text>
+                    <rect x="20" y="30" width="180" height="85" fill="#f0fdf4" stroke="#16a34a" stroke-width="3" stroke-dasharray="7,3" rx="3"/>
+                    <rect x="20" y="30" width="180" height="6" fill="#16a34a" rx="2"/>
+                    <rect x="20" y="109" width="180" height="6" fill="#16a34a" rx="2"/>
+                    <rect x="20" y="30" width="6" height="85" fill="#16a34a" rx="2"/>
+                    <rect x="194" y="30" width="6" height="85" fill="#16a34a" rx="2"/>
+                    <text x="110" y="24" text-anchor="middle" font-size="13" font-weight="800" fill="#16a34a">6 cm</text>
+                    <text x="110" y="130" text-anchor="middle" font-size="13" font-weight="800" fill="#16a34a">6 cm</text>
+                    <text x="13" y="75" text-anchor="end" font-size="13" font-weight="800" fill="#16a34a">3</text>
+                    <text x="207" y="75" font-size="13" font-weight="800" fill="#16a34a">3</text>
+                    <text x="110" y="78" text-anchor="middle" font-size="12" fill="#374151">P = 6+3+6+3</text>
+                    <text x="110" y="96" text-anchor="middle" font-size="16" font-weight="900" fill="#15803d">= 18 cm</text>
+                    <rect x="215" y="30" width="175" height="110" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="302" y="50" text-anchor="middle" font-size="11" font-weight="700" fill="#d97706">SHORTCUT for rectangles:</text>
+                    <text x="302" y="68" text-anchor="middle" font-size="13" fill="#374151">P = 2 × (length + width)</text>
+                    <text x="302" y="85" text-anchor="middle" font-size="13" fill="#374151">P = 2 × (6 + 3)</text>
+                    <text x="302" y="102" text-anchor="middle" font-size="13" fill="#374151">P = 2 × 9</text>
+                    <text x="302" y="122" text-anchor="middle" font-size="18" font-weight="800" fill="#d97706">P = 18 cm ✓</text>
+                </svg>`,
+                example: 'A rectangle is 7 m long and 4 m wide. P = 7+4+7+4 = 22 m. Or: 2×(7+4) = 2×11 = 22 m.',
+                remember: 'Perimeter = add ALL the sides. Shortcut for rectangles: 2 × (length + width)!'
             },
             '3.G.1': {
                 title: 'Shape Attributes',
                 domain: 'g', icon: '🔷',
-                vocab: ['quadrilateral', 'rhombus', 'rectangle', 'square', 'sides', 'angles'],
-                svg: `<svg viewBox="0 0 300 120"><rect x="20" y="30" width="60" height="60" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/><text x="50" y="110" text-anchor="middle" font-size="11">Square</text><rect x="100" y="30" width="80" height="50" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="140" y="110" text-anchor="middle" font-size="11">Rectangle</text><polygon points="230,30 260,80 200,80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/><text x="230" y="110" text-anchor="middle" font-size="11">Triangle</text><text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#7c3aed">Shapes & Their Properties</text></svg>`,
-                example: 'A square has 4 equal sides and 4 right angles. A rectangle has 4 right angles but sides can be different lengths.',
-                remember: 'ALL squares are rectangles, but NOT all rectangles are squares!'
+                vocab: ['quadrilateral', 'rhombus', 'rectangle', 'square', 'sides', 'angles', 'polygon'],
+                svg: `<svg viewBox="0 0 400 150" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Quadrilateral Family Tree:</text>
+                    <rect x="155" y="22" width="90" height="28" rx="6" fill="#7c3aed"/>
+                    <text x="200" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="white">Quadrilateral</text>
+                    <text x="200" y="52" text-anchor="middle" font-size="9" fill="white">(4 sides)</text>
+                    <line x1="120" y1="50" x2="165" y2="70" stroke="#9ca3af" stroke-width="1.5"/>
+                    <line x1="280" y1="50" x2="235" y2="70" stroke="#9ca3af" stroke-width="1.5"/>
+                    <rect x="60" y="70" width="110" height="28" rx="6" fill="#3b82f6"/>
+                    <text x="115" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="white">Rectangle</text>
+                    <text x="115" y="100" text-anchor="middle" font-size="9" fill="white">(4 right angles)</text>
+                    <rect x="230" y="70" width="110" height="28" rx="6" fill="#f59e0b"/>
+                    <text x="285" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="white">Rhombus</text>
+                    <text x="285" y="100" text-anchor="middle" font-size="9" fill="white">(4 equal sides)</text>
+                    <line x1="130" y1="98" x2="165" y2="118" stroke="#9ca3af" stroke-width="1.5"/>
+                    <line x1="270" y1="98" x2="235" y2="118" stroke="#9ca3af" stroke-width="1.5"/>
+                    <rect x="155" y="118" width="90" height="28" rx="6" fill="#16a34a"/>
+                    <text x="200" y="136" text-anchor="middle" font-size="11" font-weight="700" fill="white">Square</text>
+                    <text x="200" y="148" text-anchor="middle" font-size="9" fill="white">(all 4 + right angles)</text>
+                </svg>`,
+                example: 'A square has 4 equal sides and 4 right angles. A rectangle has 4 right angles but opposite sides equal.',
+                remember: 'ALL squares are rectangles AND rhombuses, but NOT all rectangles are squares!'
             },
             '3.G.2': {
                 title: 'Partition into Equal Parts',
                 domain: 'g', icon: '🍰',
                 vocab: ['partition', 'equal parts', 'halves', 'thirds', 'fourths', 'sixths', 'eighths'],
-                svg: `<svg viewBox="0 0 300 100"><circle cx="60" cy="50" r="35" fill="none" stroke="#374151" stroke-width="2"/><line x1="60" y1="15" x2="60" y2="85" stroke="#374151" stroke-width="1.5"/><text x="60" y="100" text-anchor="middle" font-size="11">Halves</text><circle cx="150" cy="50" r="35" fill="none" stroke="#374151" stroke-width="2"/><line x1="150" y1="15" x2="150" y2="85" stroke="#374151" stroke-width="1.5"/><line x1="120" y1="67" x2="180" y2="33" stroke="#374151" stroke-width="1.5"/><line x1="120" y1="33" x2="180" y2="67" stroke="#374151" stroke-width="1.5"/><text x="150" y="100" text-anchor="middle" font-size="11">Fourths</text><rect x="210" y="15" width="70" height="70" fill="none" stroke="#374151" stroke-width="2"/><line x1="210" y1="50" x2="280" y2="50" stroke="#374151" stroke-width="1.5"/><line x1="245" y1="15" x2="245" y2="85" stroke="#374151" stroke-width="1.5"/><text x="245" y="100" text-anchor="middle" font-size="11">Fourths</text></svg>`,
+                svg: `<svg viewBox="0 0 400 140" width="380">
+                    <text x="10" y="18" font-size="13" font-weight="700" fill="#374151">Partition = split into EQUAL pieces</text>
+                    ${[
+                        { label:'Halves', n:2, cx:55, cy:68 },
+                        { label:'Thirds', n:3, cx:145, cy:68 },
+                        { label:'Fourths', n:4, cx:235, cy:68 },
+                        { label:'Sixths', n:6, cx:325, cy:68 }
+                    ].map(({label,n,cx,cy}) => {
+                        const r = 38;
+                        let paths = '';
+                        const colors = ['#fbbf24','#fef3c7'];
+                        for (let i = 0; i < n; i++) {
+                            const a1 = (i / n) * 360 - 90, a2 = ((i+1) / n) * 360 - 90;
+                            const r1 = a1 * Math.PI / 180, r2 = a2 * Math.PI / 180;
+                            const x1 = cx + r * Math.cos(r1), y1 = cy + r * Math.sin(r1);
+                            const x2 = cx + r * Math.cos(r2), y2 = cy + r * Math.sin(r2);
+                            const large = (a2 - a1) > 180 ? 1 : 0;
+                            paths += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${large},1 ${x2},${y2} Z" fill="${i===0?'#fbbf24':'#fef3c7'}" stroke="#d97706" stroke-width="1.5"/>`;
+                        }
+                        return `${paths}
+                        <text x="${cx}" y="${cy+r+16}" text-anchor="middle" font-size="11" font-weight="700" fill="#374151">${label}</text>
+                        <text x="${cx}" y="${cy+r+29}" text-anchor="middle" font-size="10" fill="#d97706">each = 1/${n}</text>`;
+                    }).join('')}
+                    <rect x="10" y="120" width="375" height="18" rx="4" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="197" y="133" text-anchor="middle" font-size="11" font-weight="700" fill="#92400e">More parts = smaller pieces! (1/8 &lt; 1/4 &lt; 1/2)</text>
+                </svg>`,
                 example: 'A pizza cut into 6 equal slices is partitioned into sixths. Each slice is 1/6 of the whole.',
-                remember: 'Equal parts means every piece is the SAME SIZE!'
+                remember: 'Equal parts means every piece is the SAME SIZE! More parts = SMALLER pieces!'
             }
         };
 
@@ -3783,37 +4248,59 @@
                 }
             },
 
-            // --- 3.OA.3: Story Solver (match word problem to expression) ---
+            // --- 3.OA.3: Story Solver (word problem with visual groups) ---
             '3.OA.3': {
                 name: 'Story Solver',
                 icon: '📖',
                 rounds: 5,
                 init(round) {
-                    const a = rnd(2,9), b = rnd(2,9);
+                    const a = rnd(2,6), b = rnd(2,8);
                     const op = Math.random() < 0.5 ? '×' : '÷';
-                    let stem, answer, expr;
+                    let stem, answer, expr, visual;
                     const names = ['Sam','Mia','Carlos','Lily','Jamal'];
-                    const items = ['stickers','cookies','marbles','pencils','books'];
-                    const name = pick(names), item = pick(items);
+                    const emojis = ['🍪','⭐','🔵','🎈','📦'];
+                    const name = pick(names), emoji = pick(emojis);
                     if (op === '×') {
-                        stem = `${name} has ${a} bags with ${b} ${item} in each bag. How many ${item} in all?`;
-                        answer = a * b; expr = `${a} × ${b}`;
+                        stem = `${name} has <strong>${a} bags</strong> with <strong>${b} ${emoji}</strong> in each bag. How many ${emoji} in all?`;
+                        answer = a * b; expr = `${a} × ${b} = ${answer}`;
+                        visual = { type: 'groups', groups: a, each: b, emoji };
                     } else {
                         const total = a * b;
-                        stem = `${name} has ${total} ${item} to share equally among ${a} friends. How many does each friend get?`;
-                        answer = b; expr = `${total} ÷ ${a}`;
+                        stem = `${name} has <strong>${total} ${emoji}</strong> to share equally among <strong>${a} friends</strong>. How many does each friend get?`;
+                        answer = b; expr = `${total} ÷ ${a} = ${answer}`;
+                        visual = { type: 'share', total, friends: a, emoji };
                     }
                     const wrong = [answer + rnd(1,3), answer - rnd(1,3), answer + rnd(4,7)].map(n => Math.max(1, n));
-                    return { stem, answer, expr, options: shuffleArray([answer, ...wrong].slice(0,4)) };
+                    return { stem, answer, expr, visual, options: shuffleArray([answer, ...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    let visualHtml = '';
+                    const v = state.visual;
+                    if (v.type === 'groups') {
+                        const groups = Array.from({length: v.groups}, (_, gi) =>
+                            `<div style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:#f0f9ff;border:2px solid #3b82f6;border-radius:10px;padding:8px 10px;min-width:52px;">
+                                <div style="font-size:10px;color:#3b82f6;font-weight:700;">Bag ${gi+1}</div>
+                                <div style="font-size:18px;">${Array.from({length:v.each}, () => v.emoji).join('')}</div>
+                            </div>`
+                        ).join('');
+                        visualHtml = `<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:12px;">${groups}</div>`;
+                    } else {
+                        const friends = Array.from({length: v.friends}, (_, fi) =>
+                            `<div style="display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:8px 10px;min-width:52px;">
+                                <div style="font-size:18px;">🙂</div>
+                                <div style="font-size:10px;color:#16a34a;font-weight:700;">Friend ${fi+1}</div>
+                                <div style="font-size:16px;color:#d1fae5;font-weight:700;">?</div>
+                            </div>`
+                        ).join('');
+                        visualHtml = `<div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Total: ${v.total} ${v.emoji}</div><div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:8px;">${friends}</div>`;
+                    }
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:16px;max-width:400px;margin:0 auto;">${state.stem}</div>
-                        <div class="game-prompt-sub">Pick the answer:</div>
+                        <div class="game-prompt" style="font-size:15px;max-width:420px;margin:0 auto;line-height:1.6;">${state.stem}</div>
                         <div class="game-canvas">
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                            ${visualHtml}
+                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:20px;" onclick="GAMES['3.OA.3'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;font-weight:800;" onclick="GAMES['3.OA.3'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -3824,7 +4311,7 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr} = ${this._state.answer}`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr}`), 700);
                 }
             },
 
@@ -3865,36 +4352,59 @@
                 }
             },
 
-            // --- 3.OA.5: Properties of Multiplication ---
+            // --- 3.OA.5: Properties of Multiplication (visual flip/group) ---
             '3.OA.5': {
                 name: 'Property Picker',
                 icon: '🔄',
                 rounds: 5,
                 init(round) {
-                    const a = rnd(2,9), b = rnd(2,9);
-                    const type = pick(['commutative','distributive']);
-                    let prompt, answer, options;
+                    const a = rnd(2,7), b = rnd(2,7);
+                    const type = pick(['commutative','distributive','zero','identity']);
+                    let prompt, answer, options, visual, hint;
                     if (type === 'commutative') {
-                        prompt = `${a} × ${b} = ${b} × ?`;
+                        prompt = `${a} × ${b} = ${b} × __`;
                         answer = a;
-                        options = shuffleArray([a, b, a*b, a+b].filter((v,i,arr) => arr.indexOf(v)===i)).slice(0,4);
-                    } else {
+                        options = shuffleArray([a, b, a*b, a+b].filter((v,i,arr)=>arr.indexOf(v)===i).slice(0,4));
+                        visual = `<div style="display:flex;gap:20px;align-items:center;justify-content:center;">
+                            <div style="background:#ede9fe;border:2px solid #7c3aed;border-radius:10px;padding:10px 16px;font-size:22px;font-weight:800;color:#7c3aed;">${a} × ${b}</div>
+                            <div style="font-size:28px;">🔄</div>
+                            <div style="background:#dbeafe;border:2px dashed #3b82f6;border-radius:10px;padding:10px 16px;font-size:22px;font-weight:800;color:#3b82f6;">${b} × ?</div>
+                        </div>`;
+                        hint = 'Commutative: You can flip the order!';
+                    } else if (type === 'distributive') {
                         const c = rnd(1, b-1 > 0 ? b-1 : 1), d = b - c;
-                        prompt = `${a} × ${b} = (${a} × ${c}) + (${a} × ?)`;
+                        prompt = `${a} × ${b} = (${a} × ${c}) + (${a} × __)`;
                         answer = d;
-                        options = shuffleArray([d, c, a, b].filter((v,i,arr) => arr.indexOf(v)===i)).slice(0,4);
+                        options = shuffleArray([d, c, b, a].filter((v,i,arr)=>arr.indexOf(v)===i).slice(0,4));
+                        visual = `<div style="text-align:center;font-size:15px;color:#6b7280;padding:8px;"><span style="font-size:24px;font-weight:800;color:#7c3aed;">${a} × ${b}</span><br>= (${a} × ${c}) + (${a} × ?)<br><small>Break ${b} into ${c} + ${d}</small></div>`;
+                        hint = 'Distributive: Break apart one factor!';
+                    } else if (type === 'zero') {
+                        const x = rnd(2,12);
+                        prompt = `${x} × 0 = __`;
+                        answer = 0;
+                        options = shuffleArray([0, x, 1, x+1].slice(0,4));
+                        visual = `<div style="text-align:center;padding:8px;"><div style="font-size:32px;">🚫</div><div style="font-size:14px;color:#6b7280;margin-top:4px;">Any number times ZERO = ?</div></div>`;
+                        hint = 'Zero Property: Anything × 0 = 0';
+                    } else {
+                        const x = rnd(2,12);
+                        prompt = `${x} × 1 = __`;
+                        answer = x;
+                        options = shuffleArray([x, 1, x+1, x*2].slice(0,4));
+                        visual = `<div style="text-align:center;padding:8px;"><div style="font-size:32px;">1️⃣</div><div style="font-size:14px;color:#6b7280;margin-top:4px;">Any number times ONE = ?</div></div>`;
+                        hint = 'Identity Property: Anything × 1 = itself';
                     }
-                    if (!options.includes(answer)) options[0] = answer;
-                    return { prompt, answer, options: shuffleArray(options) };
+                    if (!options.includes(answer)) options[options.length-1] = answer;
+                    return { prompt, answer, options: shuffleArray(options), visual, hint };
                 },
                 render(state, area) {
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:22px;">${state.prompt}</div>
-                        <div class="game-prompt-sub">Use multiplication properties!</div>
+                        <div class="game-prompt" style="font-size:22px;letter-spacing:1px;">${state.prompt}</div>
                         <div class="game-canvas">
+                            <div style="background:#f8fafc;border-radius:12px;padding:14px;margin-bottom:14px;">${state.visual}</div>
+                            <div style="font-size:12px;color:#6366f1;font-weight:600;margin-bottom:12px;">💡 ${state.hint}</div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:22px;" onclick="GAMES['3.OA.5'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:14px 26px;font-size:22px;" onclick="GAMES['3.OA.5'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -3905,11 +4415,11 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `Answer: ${this._state.answer}`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.hint} Answer: ${this._state.answer}`), 700);
                 }
             },
 
-            // --- 3.OA.6: Fact Family Builder ---
+            // --- 3.OA.6: Fact Family Builder (triangle visual) ---
             '3.OA.6': {
                 name: 'Fact Family Builder',
                 icon: '🏠',
@@ -3921,16 +4431,31 @@
                     const shown = facts.filter((_,i) => i !== hidden);
                     const answer = facts[hidden];
                     const wrong = [`${a}+${b}=${a+b}`, `${p}-${a}=${p-a}`, `${p}÷${p}=1`];
-                    return { shown, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    return { a, b, p, shown, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    const factBoxes = state.shown.map(f =>
+                        `<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:10px 14px;font-size:17px;font-weight:700;color:#15803d;">${f}</div>`
+                    );
+                    factBoxes.push(`<div style="background:#fef3c7;border:2px dashed #f59e0b;border-radius:10px;padding:10px 14px;font-size:17px;font-weight:700;color:#d97706;letter-spacing:2px;">???</div>`);
                     area.innerHTML = `
                         <div class="game-prompt">Complete the Fact Family</div>
-                        <div class="game-prompt-sub">${state.shown.join(' &nbsp;|&nbsp; ')} &nbsp;|&nbsp; ???</div>
                         <div class="game-canvas">
-                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                            <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:12px;">
+                                <svg viewBox="0 0 200 140" width="200" height="140">
+                                    <polygon points="100,8 10,132 190,132" fill="none" stroke="#f59e0b" stroke-width="3" stroke-linejoin="round"/>
+                                    <circle cx="100" cy="8" r="22" fill="#fbbf24"/>
+                                    <text x="100" y="14" text-anchor="middle" font-size="16" font-weight="800" fill="#78350f">${state.p}</text>
+                                    <circle cx="10" cy="132" r="20" fill="#a78bfa"/>
+                                    <text x="10" y="138" text-anchor="middle" font-size="16" font-weight="800" fill="#4c1d95">${state.a}</text>
+                                    <circle cx="190" cy="132" r="20" fill="#34d399"/>
+                                    <text x="190" y="138" text-anchor="middle" font-size="16" font-weight="800" fill="#065f46">${state.b}</text>
+                                </svg>
+                            </div>
+                            <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:14px;">${factBoxes.join('')}</div>
+                            <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map((f,i) =>
-                                    `<button class="factor-card" style="padding:12px 18px;font-size:17px;" onclick="GAMES['3.OA.6'].pick(${i}, this)">${f}</button>`
+                                    `<button class="factor-card" style="padding:10px 14px;font-size:15px;" onclick="GAMES['3.OA.6'].pick(${i}, this)">${f}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -3945,11 +4470,13 @@
                 }
             },
 
-            // --- 3.OA.7: Speed Facts ---
+            // --- 3.OA.7: Speed Facts (timed countdown) ---
             '3.OA.7': {
                 name: 'Speed Facts',
                 icon: '⚡',
                 rounds: 5,
+                _timer: null,
+                _timeLeft: 0,
                 init(round) {
                     const op = Math.random() < 0.5 ? '×' : '÷';
                     let a, b, answer, expr;
@@ -3962,28 +4489,52 @@
                     return { expr, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    if (this._timer) clearInterval(this._timer);
+                    this._timeLeft = 8;
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:36px;">${state.expr} = ?</div>
-                        <div class="game-prompt-sub">Quick! Pick the answer!</div>
+                        <div class="game-prompt" style="font-size:42px;letter-spacing:2px;">${state.expr} = ?</div>
                         <div class="game-canvas">
+                            <div style="margin:0 auto 16px;max-width:280px;">
+                                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                                    <span style="font-size:13px;color:#6b7280;font-weight:600;">⏱ Time</span>
+                                    <span id="speedTimer" style="font-size:22px;font-weight:900;color:#6366f1;">8</span>
+                                </div>
+                                <div style="background:#e2e8f0;border-radius:99px;height:8px;overflow:hidden;">
+                                    <div id="speedTimerBar" style="height:100%;width:100%;background:linear-gradient(90deg,#6366f1,#a855f7);border-radius:99px;transition:width .9s linear;"></div>
+                                </div>
+                            </div>
                             <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:16px 28px;font-size:24px;" onclick="GAMES['3.OA.7'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:16px 28px;font-size:26px;" onclick="GAMES['3.OA.7'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
                     this._state = state; this._answered = false;
+                    this._timer = setInterval(() => {
+                        this._timeLeft--;
+                        const el = document.getElementById('speedTimer');
+                        const bar = document.getElementById('speedTimerBar');
+                        if (el) el.textContent = this._timeLeft;
+                        if (bar) bar.style.width = (this._timeLeft / 8 * 100) + '%';
+                        if (el) el.style.color = this._timeLeft <= 3 ? '#ef4444' : '#6366f1';
+                        if (this._timeLeft <= 0) {
+                            clearInterval(this._timer);
+                            if (!this._answered) { this._answered = true; gameEngine.handleAnswer(false, `${this._state.expr} = ${this._state.answer}. Too slow — practice!`); }
+                        }
+                    }, 1000);
                 },
                 pick(n, el) {
                     if (this._answered) return;
                     this._answered = true;
+                    clearInterval(this._timer);
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr} = ${this._state.answer}`), 600);
+                    const bonus = correct && this._timeLeft >= 6 ? ' ⚡ Lightning fast!' : '';
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr} = ${this._state.answer}${bonus}`), 600);
                 }
             },
 
-            // --- 3.OA.8: Step-by-Step (two-step word problems) ---
+            // --- 3.OA.8: Step-by-Step (two-step problems, interactive steps) ---
             '3.OA.8': {
                 name: 'Step-by-Step',
                 icon: '👣',
@@ -3991,27 +4542,41 @@
                 init(round) {
                     const a = rnd(3,8), b = rnd(2,5), c = rnd(2,9);
                     const type = pick(['add-mult','sub-mult']);
-                    let stem, answer;
+                    let stem, step1Expr, step1Answer, step2Expr, answer;
                     const name = pick(['Sam','Mia','Carlos','Lily','Jamal']);
                     if (type === 'add-mult') {
                         stem = `${name} bought ${a} packs of ${b} stickers, then got ${c} more. How many stickers total?`;
-                        answer = a*b + c;
+                        step1Expr = `${a} × ${b}`; step1Answer = a*b;
+                        step2Expr = `${a*b} + ${c}`; answer = a*b + c;
                     } else {
                         const total = a*b + c;
                         stem = `${name} had ${total} marbles and gave away ${c}. Then shared equally into ${a} bags. How many per bag?`;
-                        answer = b;
+                        step1Expr = `${total} − ${c}`; step1Answer = total - c;
+                        step2Expr = `${total-c} ÷ ${a}`; answer = b;
                     }
-                    const wrong = [answer+rnd(1,3), answer-rnd(1,2), a*b].map(n => Math.max(1,n));
-                    return { stem, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    const wrong = [answer+rnd(1,3), answer-rnd(1,2), step1Answer].map(n => Math.max(1,n)).filter(n => n !== answer);
+                    return { stem, step1Expr, step1Answer, step2Expr, answer, options: shuffleArray([answer,...wrong].slice(0,4)), type };
                 },
                 render(state, area) {
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:15px;max-width:420px;margin:0 auto;">${state.stem}</div>
-                        <div class="game-prompt-sub">Solve step by step!</div>
+                        <div class="game-prompt" style="font-size:14px;max-width:420px;margin:0 auto;line-height:1.6;">${state.stem}</div>
                         <div class="game-canvas">
+                            <div style="display:flex;gap:10px;margin-bottom:14px;">
+                                <div style="flex:1;background:#dcfce7;border:2px solid #16a34a;border-radius:10px;padding:10px;text-align:center;">
+                                    <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:4px;">STEP 1</div>
+                                    <div style="font-size:20px;font-weight:800;color:#374151;">${state.step1Expr}</div>
+                                    <div style="font-size:18px;font-weight:900;color:#15803d;margin-top:4px;">= ${state.step1Answer}</div>
+                                </div>
+                                <div style="display:flex;align-items:center;font-size:22px;">→</div>
+                                <div style="flex:1;background:#dbeafe;border:2px solid #3b82f6;border-radius:10px;padding:10px;text-align:center;">
+                                    <div style="font-size:11px;font-weight:700;color:#3b82f6;margin-bottom:4px;">STEP 2</div>
+                                    <div style="font-size:20px;font-weight:800;color:#374151;">${state.step2Expr}</div>
+                                    <div style="font-size:18px;font-weight:900;color:#1d4ed8;margin-top:4px;">= ?</div>
+                                </div>
+                            </div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:20px;" onclick="GAMES['3.OA.8'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.OA.8'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4022,11 +4587,11 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `The answer is ${this._state.answer}`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `Step 1: ${this._state.step1Expr} = ${this._state.step1Answer} → Step 2: ${this._state.step2Expr} = ${this._state.answer}`), 700);
                 }
             },
 
-            // --- 3.NBT.2: Number Climb (add/subtract within 1000) ---
+            // --- 3.NBT.2: Number Climb (vertical place value layout) ---
             '3.NBT.2': {
                 name: 'Number Climb',
                 icon: '🧗',
@@ -4034,19 +4599,43 @@
                 init(round) {
                     const op = Math.random() < 0.5 ? '+' : '−';
                     let a, b, answer;
-                    if (op === '+') { a = rnd(100,500); b = rnd(100,499); answer = a+b; }
-                    else { a = rnd(300,999); b = rnd(100, a-100); answer = a-b; }
+                    if (op === '+') { a = rnd(100,499); b = rnd(100,499); answer = a+b; }
+                    else { a = rnd(300,900); b = rnd(100, a-100); answer = a-b; }
                     const wrong = [answer+rnd(1,10), answer-rnd(1,10), answer+rnd(11,50)].map(n => Math.max(0,n));
-                    return { expr: `${a} ${op} ${b}`, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    // Place value breakdown
+                    const aH = Math.floor(a/100), aT = Math.floor((a%100)/10), aO = a%10;
+                    const bH = Math.floor(b/100), bT = Math.floor((b%100)/10), bO = b%10;
+                    return { a, b, op, answer, aH, aT, aO, bH, bT, bO, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    const regroup = state.op === '+' && (state.aO + state.bO >= 10 || state.aT + state.bT >= 10);
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:32px;">${state.expr} = ?</div>
-                        <div class="game-prompt-sub">Add or subtract within 1,000</div>
+                        <div class="game-prompt">Solve ${state.a} ${state.op} ${state.b}</div>
                         <div class="game-canvas">
+                            <div style="display:flex;justify-content:center;margin-bottom:16px;">
+                                <div style="font-family:monospace;background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:16px 24px;min-width:160px;">
+                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;text-align:center;margin-bottom:4px;">
+                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">H</span>
+                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">T</span>
+                                        <span style="font-size:10px;color:#94a3b8;font-weight:600;">O</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aH}</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aT}</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.aO}</span>
+                                    </div>
+                                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;text-align:center;align-items:center;">
+                                        <span style="font-size:20px;font-weight:700;color:#6366f1;">${state.op}</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bH}</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bT}</span>
+                                        <span style="font-size:20px;font-weight:800;color:#374151;">${state.bO}</span>
+                                    </div>
+                                    <div style="border-top:3px solid #374151;margin:8px 0;grid-column:1/-1;"></div>
+                                    <div style="text-align:center;font-size:18px;font-weight:700;color:#6366f1;margin-top:4px;">?</div>
+                                    ${regroup ? `<div style="font-size:11px;color:#f59e0b;text-align:center;margin-top:4px;">⚠️ Regrouping needed!</div>` : ''}
+                                </div>
+                            </div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:20px;" onclick="GAMES['3.NBT.2'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.NBT.2'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4057,29 +4646,46 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr} = ${this._state.answer}`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.a} ${this._state.op} ${this._state.b} = ${this._state.answer}`), 700);
                 }
             },
 
-            // --- 3.NBT.3: Ten Times (multiply by multiples of 10) ---
+            // --- 3.NBT.3: Ten Times (pattern chain with zeros) ---
             '3.NBT.3': {
                 name: 'Ten Times',
                 icon: '🔟',
                 rounds: 5,
                 init(round) {
-                    const a = rnd(1,9), b = pick([10,20,30,40,50,60,70,80,90]);
+                    const a = rnd(2,9), b = pick([10,20,30,40,50,60,70,80,90]);
+                    const baseFact = a * (b/10);
                     const answer = a * b;
-                    const wrong = [answer+10, answer-10, a*10+b].map(n => Math.max(0,n));
-                    return { expr: `${a} × ${b}`, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    const wrong = [answer+10, answer-10, baseFact*100].map(n => Math.max(0,n)).filter(n=>n!==answer);
+                    return { a, b, baseFact, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    const tens = state.b / 10;
+                    const zeros = '0'.repeat(Math.ceil(Math.log10(state.b)));
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:32px;">${state.expr} = ?</div>
-                        <div class="game-prompt-sub">Multiply by multiples of 10!</div>
+                        <div class="game-prompt" style="font-size:28px;">${state.a} × ${state.b} = ?</div>
                         <div class="game-canvas">
+                            <div style="background:#fff7ed;border:2px solid #f59e0b;border-radius:12px;padding:14px;margin-bottom:14px;">
+                                <div style="text-align:center;margin-bottom:10px;font-size:13px;font-weight:600;color:#92400e;">Pattern Chain</div>
+                                <div style="display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;">
+                                    <div style="background:#fff;border:2px solid #f59e0b;border-radius:8px;padding:8px 12px;text-align:center;">
+                                        <div style="font-size:10px;color:#92400e;">basic fact</div>
+                                        <div style="font-size:18px;font-weight:800;">${state.a} × ${tens} = <span style="color:#d97706;">${state.baseFact}</span></div>
+                                    </div>
+                                    <div style="font-size:20px;color:#f59e0b;">→</div>
+                                    <div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:8px;padding:8px 12px;text-align:center;">
+                                        <div style="font-size:10px;color:#92400e;">×10 (add a zero)</div>
+                                        <div style="font-size:18px;font-weight:800;">${state.a} × ${state.b} = <span style="color:#ea580c;">?</span></div>
+                                    </div>
+                                </div>
+                                <div style="text-align:center;margin-top:10px;font-size:12px;color:#92400e;">💡 ${state.baseFact} with a zero = ?</div>
+                            </div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:20px;" onclick="GAMES['3.NBT.3'].pick(${n}, this)">${n}</button>`
+                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.NBT.3'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4090,11 +4696,11 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.expr} = ${this._state.answer}`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.a} × ${this._state.b} = ${this._state.answer}. Basic fact ${this._state.baseFact}, add a zero!`), 700);
                 }
             },
 
-            // --- 3.NF.2: Number Line Jump (place fractions on number line) ---
+            // --- 3.NF.2: Number Line Jump (frog on number line) ---
             '3.NF.2': {
                 name: 'Number Line Jump',
                 icon: '📏',
@@ -4102,22 +4708,28 @@
                 init(round) {
                     const denom = pick([2,3,4,6,8]);
                     const numer = rnd(1, denom - 1);
-                    const zones = denom;
-                    return { numer, denom, zones, answer: numer };
+                    return { numer, denom, answer: numer };
                 },
                 render(state, area) {
+                    const pct = i => Math.round(6 + (i / state.denom) * 88);
                     const ticks = [];
                     for (let i = 0; i <= state.denom; i++) {
-                        const pct = (i / state.denom) * 100;
-                        ticks.push(`<div class="hop-tick" style="left:${pct}%;cursor:pointer;" onclick="GAMES['3.NF.2'].pick(${i}, this)">${i}/${state.denom}</div>`);
+                        const isZero = i === 0, isOne = i === state.denom;
+                        ticks.push(`
+                            <div style="position:absolute;left:${pct(i)}%;transform:translateX(-50%);text-align:center;cursor:pointer;" onclick="GAMES['3.NF.2'].pick(${i}, this)" data-fidx="${i}">
+                                <div style="width:2px;height:18px;background:#374151;margin:0 auto;"></div>
+                                <div style="margin-top:2px;font-size:${isZero||isOne?14:12}px;font-weight:${isZero||isOne?800:600};color:${isZero||isOne?'#374151':'#6366f1'};background:white;border:2px solid ${isZero||isOne?'#374151':'#c7d2fe'};border-radius:6px;padding:2px 5px;">${isZero?'0':isOne?'1':i+'/'+state.denom}</div>
+                            </div>`);
                     }
                     area.innerHTML = `
-                        <div class="game-prompt">Place ${state.numer}/${state.denom} on the number line</div>
-                        <div class="game-prompt-sub">Click the correct point!</div>
+                        <div class="game-prompt">Place <strong>${state.numer}/${state.denom}</strong> on the number line</div>
+                        <div class="game-prompt-sub">🐸 Click the correct tick mark!</div>
                         <div class="game-canvas">
-                            <div class="hop-line" style="height:80px;margin:30px 30px;">
-                                <div class="hop-line-track"></div>
-                                ${ticks.join('')}
+                            <div style="background:#f0fdf4;border:2px solid #6366f1;border-radius:12px;padding:20px 12px 36px;margin:10px 0;position:relative;min-height:100px;">
+                                <div style="position:absolute;top:30px;left:6%;right:6%;height:4px;background:linear-gradient(90deg,#6366f1,#a855f7);border-radius:99px;"></div>
+                                <div style="position:absolute;top:22px;left:6%;transform:translateX(-50%);">◀</div>
+                                <div style="position:absolute;top:22px;right:6%;transform:translateX(50%);">▶</div>
+                                <div style="position:absolute;top:14px;left:6%;right:6%;">${ticks.join('')}</div>
                             </div>
                         </div>`;
                     this._state = state; this._answered = false;
@@ -4126,43 +4738,91 @@
                     if (this._answered) return;
                     this._answered = true;
                     const correct = i === this._state.answer;
+                    const targetDiv = el.querySelector('div:last-child') || el;
                     el.style.background = correct ? '#dcfce7' : '#fee2e2';
                     el.style.borderRadius = '8px';
+                    const ord = n => n===1?'1st':n===2?'2nd':n===3?'3rd':n+'th';
                     setTimeout(() => gameEngine.handleAnswer(correct,
-                        `${this._state.numer}/${this._state.denom} is at the ${this._state.numer}${this._state.numer===1?'st':this._state.numer===2?'nd':this._state.numer===3?'rd':'th'} mark`
+                        `${this._state.numer}/${this._state.denom} is at the ${ord(this._state.numer)} mark from 0`
                     ), 700);
                 }
             },
 
-            // --- 3.MD.2: Pour & Weigh (liquid volume & mass) ---
+            // --- 3.MD.2: Pour & Weigh (visual beaker/scale) ---
             '3.MD.2': {
                 name: 'Pour & Weigh',
                 icon: '⚖️',
                 rounds: 5,
                 init(round) {
                     const type = Math.random() < 0.5 ? 'liters' : 'grams';
-                    let a, b, answer, stem;
+                    let a, b, op, answer, stem, visual;
                     if (type === 'liters') {
-                        a = rnd(2,15); b = rnd(1,10);
-                        const op = Math.random() < 0.5;
-                        if (op) { stem = `A jug has ${a} liters. You pour in ${b} more liters. How many liters now?`; answer = a+b; }
-                        else { stem = `A bucket has ${a} liters. You pour out ${Math.min(b,a-1)} liters. How many liters are left?`; b = Math.min(b,a-1); answer = a-b; }
+                        a = rnd(3,15); b = rnd(1, a-1);
+                        op = Math.random() < 0.5 ? '+' : '−';
+                        if (op === '+') {
+                            const extra = rnd(1,8);
+                            stem = `A jug has <strong>${a} liters</strong>. You pour in <strong>${extra} more liters</strong>. How many liters now?`;
+                            b = extra; answer = a + extra;
+                        } else {
+                            stem = `A bucket has <strong>${a} liters</strong>. You pour out <strong>${b} liters</strong>. How many liters are left?`;
+                            answer = a - b;
+                        }
+                        const fillPct = Math.min(85, Math.round((a/20)*80));
+                        visual = `<div style="display:flex;gap:20px;justify-content:center;align-items:flex-end;">
+                            <div style="text-align:center;">
+                                <div style="width:50px;height:100px;border:3px solid #3b82f6;border-top:none;border-radius:0 0 10px 10px;background:linear-gradient(to top,#bfdbfe 0%,#bfdbfe ${fillPct}%,transparent ${fillPct}%);position:relative;margin:0 auto;">
+                                    <div style="position:absolute;bottom:4px;left:0;right:0;font-size:10px;font-weight:700;color:#1d4ed8;text-align:center;">${a}L</div>
+                                </div>
+                                <div style="font-size:12px;font-weight:600;color:#3b82f6;margin-top:4px;">Start</div>
+                            </div>
+                            <div style="font-size:24px;font-weight:700;color:#6366f1;padding-bottom:30px;">${op === '+' ? '+' : '−'}</div>
+                            <div style="text-align:center;">
+                                <div style="width:50px;height:100px;border:3px solid #06b6d4;border-top:none;border-radius:0 0 10px 10px;background:linear-gradient(to top,#a5f3fc 0%,#a5f3fc 40%,transparent 40%);position:relative;margin:0 auto;">
+                                    <div style="position:absolute;bottom:4px;left:0;right:0;font-size:10px;font-weight:700;color:#0e7490;text-align:center;">${b}L</div>
+                                </div>
+                                <div style="font-size:12px;font-weight:600;color:#06b6d4;margin-top:4px;">${op === '+' ? 'Added' : 'Poured out'}</div>
+                            </div>
+                            <div style="font-size:24px;font-weight:700;color:#6366f1;padding-bottom:30px;">=</div>
+                            <div style="text-align:center;">
+                                <div style="width:50px;height:100px;border:3px dashed #6366f1;border-top:none;border-radius:0 0 10px 10px;background:#f0f4ff;position:relative;margin:0 auto;display:flex;align-items:center;justify-content:center;">
+                                    <span style="font-size:22px;font-weight:900;color:#6366f1;">?</span>
+                                </div>
+                                <div style="font-size:12px;font-weight:600;color:#6366f1;margin-top:4px;">Result</div>
+                            </div>
+                        </div>`;
                     } else {
                         a = rnd(50,500); b = rnd(20,200);
-                        stem = `A bag of rice weighs ${a} grams. Another weighs ${b} grams. What is the total mass?`;
+                        stem = `A bag weighs <strong>${a} grams</strong>. Another weighs <strong>${b} grams</strong>. Total mass?`;
                         answer = a+b;
+                        const scaleW = 120;
+                        visual = `<div style="display:flex;justify-content:center;align-items:center;gap:8px;padding:12px;">
+                            <div style="background:#fef3c7;border:2px solid #f59e0b;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
+                                <div style="font-size:20px;">📦</div>
+                                <div style="font-size:14px;font-weight:800;color:#92400e;">${a}g</div>
+                            </div>
+                            <div style="font-size:22px;font-weight:700;color:#374151;">+</div>
+                            <div style="background:#dcfce7;border:2px solid #16a34a;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
+                                <div style="font-size:20px;">🎒</div>
+                                <div style="font-size:14px;font-weight:800;color:#166534;">${b}g</div>
+                            </div>
+                            <div style="font-size:22px;font-weight:700;color:#374151;">=</div>
+                            <div style="background:#ede9fe;border:2px dashed #7c3aed;border-radius:8px;padding:10px;text-align:center;min-width:60px;">
+                                <div style="font-size:20px;">⚖️</div>
+                                <div style="font-size:22px;font-weight:900;color:#7c3aed;">?</div>
+                            </div>
+                        </div>`;
                     }
-                    const wrong = [answer+rnd(1,5), answer-rnd(1,5), answer+rnd(6,15)].map(n => Math.max(0,n));
-                    return { stem, answer, unit: type, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    const wrong = [answer+rnd(1,5), answer-rnd(1,5), answer+rnd(6,15)].map(n => Math.max(0,n)).filter(n=>n!==answer);
+                    return { stem, answer, unit: type === 'liters' ? 'liters' : 'grams', visual, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
                     area.innerHTML = `
-                        <div class="game-prompt" style="font-size:15px;max-width:420px;margin:0 auto;">${state.stem}</div>
-                        <div class="game-prompt-sub">Pick the correct answer in ${state.unit}:</div>
+                        <div class="game-prompt" style="font-size:14px;max-width:420px;margin:0 auto;line-height:1.6;">${state.stem}</div>
                         <div class="game-canvas">
+                            <div style="background:#f8fafc;border-radius:12px;padding:12px;margin-bottom:12px;">${state.visual}</div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:18px;" onclick="GAMES['3.MD.2'].pick(${n}, this)">${n} ${state.unit}</button>`
+                                    `<button class="factor-card" style="padding:12px 20px;font-size:18px;" onclick="GAMES['3.MD.2'].pick(${n}, this)">${n} ${state.unit}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4177,7 +4837,7 @@
                 }
             },
 
-            // --- 3.MD.6: Square Counter (count unit squares) ---
+            // --- 3.MD.6: Square Counter (click each cell to count) ---
             '3.MD.6': {
                 name: 'Square Counter',
                 icon: '🔲',
@@ -4185,27 +4845,46 @@
                 init(round) {
                     const rows = rnd(2,5), cols = rnd(2,6);
                     const answer = rows * cols;
-                    const wrong = [answer+1, answer-1, answer+rnd(2,4)].map(n => Math.max(1,n));
-                    return { rows, cols, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    return { rows, cols, answer };
                 },
                 render(state, area) {
-                    const grid = Array.from({length: state.rows * state.cols}, () =>
-                        `<div style="width:28px;height:28px;border:1px solid #6366f1;background:#eef2ff;border-radius:2px;"></div>`
+                    const cells = Array.from({length: state.rows * state.cols}, (_, i) =>
+                        `<div class="area-cell" data-sc="${i}" style="width:34px;height:34px;cursor:pointer;" onclick="GAMES['3.MD.6'].tapCell(${i}, this)"></div>`
                     ).join('');
                     area.innerHTML = `
                         <div class="game-prompt">Count the unit squares!</div>
-                        <div class="game-prompt-sub">How many square units is this shape?</div>
+                        <div class="game-prompt-sub">Tap each square as you count — then submit</div>
                         <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-grid;grid-template-columns:repeat(${state.cols}, 28px);gap:2px;margin-bottom:16px;">
-                                ${grid}
+                            <div style="display:inline-grid;grid-template-columns:repeat(${state.cols}, 34px);gap:3px;margin-bottom:14px;border:3px solid #6366f1;padding:6px;border-radius:8px;background:#f5f3ff;">
+                                ${cells}
+                            </div>
+                            <div style="font-size:16px;font-weight:700;color:#6366f1;margin-bottom:12px;">
+                                Tapped: <span id="scCount">0</span> / ${state.answer}
                             </div>
                             <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                                ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:20px;" onclick="GAMES['3.MD.6'].pick(${n}, this)">${n}</button>`
+                                ${[state.answer-1, state.answer, state.answer+1, state.answer+state.cols].filter((n,i,a)=>a.indexOf(n)===i&&n>0).slice(0,4).map(n =>
+                                    `<button class="factor-card" style="padding:12px 22px;font-size:22px;" onclick="GAMES['3.MD.6'].pick(${n}, this)">${n}</button>`
                                 ).join('')}
                             </div>
                         </div>`;
-                    this._state = state; this._answered = false;
+                    this._state = state;
+                    this._tapped = new Set();
+                    this._answered = false;
+                },
+                tapCell(i, el) {
+                    if (this._tapped.has(i)) {
+                        this._tapped.delete(i);
+                        el.classList.remove('filled');
+                        el.textContent = '';
+                    } else {
+                        this._tapped.add(i);
+                        el.classList.add('filled');
+                        el.textContent = this._tapped.size;
+                    }
+                    // Renumber all filled cells in order
+                    let count = 0;
+                    document.querySelectorAll('.area-cell.filled').forEach(c => { count++; c.textContent = count; });
+                    document.getElementById('scCount').textContent = this._tapped.size;
                 },
                 pick(n, el) {
                     if (this._answered) return;
@@ -4216,29 +4895,38 @@
                 }
             },
 
-            // --- 3.MD.7: Rectangle Fill (area & multiplication) ---
+            // --- 3.MD.7: Rectangle Fill (grid visual with formula) ---
             '3.MD.7': {
                 name: 'Rectangle Fill',
                 icon: '🟦',
                 rounds: 5,
                 init(round) {
-                    const l = rnd(2,8), w = rnd(2,6);
+                    const l = rnd(2,7), w = rnd(2,5);
                     const answer = l * w;
-                    const wrong = [l+w, 2*(l+w), answer+rnd(1,5)].map(n => Math.max(1,n));
+                    const wrong = [l+w, 2*(l+w), answer+rnd(2,6)].map(n => Math.max(1,n)).filter(n=>n!==answer);
                     return { l, w, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
                 },
                 render(state, area) {
+                    const cellSize = Math.min(36, Math.floor(200 / Math.max(state.l, state.w)));
+                    const grid = Array.from({length: state.w}, (_, r) =>
+                        Array.from({length: state.l}, (_, c) =>
+                            `<div style="width:${cellSize}px;height:${cellSize}px;background:${r===0&&c===0?'#818cf8':'#c7d2fe'};border:1px solid #6366f1;display:flex;align-items:center;justify-content:center;font-size:9px;color:#4338ca;">${r*state.l+c+1}</div>`
+                        ).join('')
+                    ).join('');
                     area.innerHTML = `
-                        <div class="game-prompt">Find the area of this rectangle</div>
-                        <div class="game-prompt-sub">Length = ${state.l}, Width = ${state.w}</div>
+                        <div class="game-prompt">Find the area — use the formula!</div>
                         <div class="game-canvas" style="text-align:center;">
-                            <div style="display:inline-block;width:${Math.min(state.l*30,240)}px;height:${Math.min(state.w*30,180)}px;background:#dbeafe;border:3px solid #3b82f6;border-radius:6px;position:relative;">
-                                <span style="position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);font-weight:700;">${state.l}</span>
-                                <span style="position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-weight:700;">${state.w}</span>
+                            <div style="display:inline-block;position:relative;margin:8px 30px 30px;">
+                                <div style="display:inline-grid;grid-template-columns:repeat(${state.l}, ${cellSize}px);gap:0;border:3px solid #6366f1;border-radius:4px;overflow:hidden;">${grid}</div>
+                                <div style="position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:700;color:#6366f1;white-space:nowrap;">← length = ${state.l} →</div>
+                                <div style="position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:13px;font-weight:700;color:#7c3aed;white-space:nowrap;">width = ${state.w}</div>
                             </div>
-                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
+                            <div style="background:#ede9fe;border:2px solid #7c3aed;border-radius:10px;padding:10px 16px;margin:8px auto 14px;max-width:220px;font-size:16px;font-weight:700;color:#5b21b6;">
+                                A = length × width<br>A = ${state.l} × ${state.w} = ?
+                            </div>
+                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
                                 ${state.options.map(n =>
-                                    `<button class="factor-card" style="padding:14px 24px;font-size:18px;" onclick="GAMES['3.MD.7'].pick(${n}, this)">${n} sq units</button>`
+                                    `<button class="factor-card" style="padding:12px 20px;font-size:18px;" onclick="GAMES['3.MD.7'].pick(${n}, this)">${n} sq units</button>`
                                 ).join('')}
                             </div>
                         </div>`;
@@ -4249,7 +4937,7 @@
                     this._answered = true;
                     const correct = n === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
-                    setTimeout(() => gameEngine.handleAnswer(correct, `Area = ${this._state.l} × ${this._state.w} = ${this._state.answer} sq units`), 700);
+                    setTimeout(() => gameEngine.handleAnswer(correct, `Area = ${this._state.l} × ${this._state.w} = ${this._state.answer} square units`), 700);
                 }
             },
 
@@ -4313,6 +5001,293 @@
                     const correct = this._state.options[i] === this._state.answer;
                     el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
                     setTimeout(() => gameEngine.handleAnswer(correct, `Each part is ${this._state.answer} of the whole`), 700);
+                }
+            },
+
+            // --- 3.MD.3: Graph Builder (read scaled bar graphs) ---
+            '3.MD.3': {
+                name: 'Graph Builder',
+                icon: '📊',
+                rounds: 5,
+                init(round) {
+                    const scale = pick([2,5,10]);
+                    const categories = ['Dogs','Cats','Birds','Fish','Rabbits'];
+                    const labels = shuffleArray(categories).slice(0,4);
+                    const values = labels.map(() => rnd(1,6) * scale);
+                    const qIdx = rnd(0, labels.length-1);
+                    const qType = pick(['most','least','value','diff']);
+                    let question, answer;
+                    const sorted = [...values].sort((a,b)=>b-a);
+                    if (qType === 'most') {
+                        question = `Which pet had the MOST votes?`;
+                        const maxV = Math.max(...values);
+                        answer = labels[values.indexOf(maxV)];
+                        const wrong = labels.filter(l => l !== answer).slice(0,3);
+                        return { labels, values, scale, question, answer, options: shuffleArray([answer,...wrong]) };
+                    } else if (qType === 'least') {
+                        question = `Which pet had the FEWEST votes?`;
+                        const minV = Math.min(...values);
+                        answer = labels[values.indexOf(minV)];
+                        const wrong = labels.filter(l => l !== answer).slice(0,3);
+                        return { labels, values, scale, question, answer, options: shuffleArray([answer,...wrong]) };
+                    } else if (qType === 'value') {
+                        question = `How many votes did <strong>${labels[qIdx]}</strong> get?`;
+                        answer = values[qIdx];
+                        const wrong = [answer+scale, answer-scale, answer+scale*2].map(n=>Math.max(scale,n)).filter(n=>n!==answer);
+                        return { labels, values, scale, question, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    } else {
+                        const i1 = 0, i2 = 1;
+                        question = `How many MORE votes did <strong>${labels[i1]}</strong> get than <strong>${labels[i2]}</strong>?`;
+                        answer = Math.abs(values[i1] - values[i2]);
+                        const wrong = [answer+scale, answer-scale, answer+scale*2].map(n=>Math.max(0,n)).filter(n=>n!==answer);
+                        return { labels, values, scale, question, answer, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                    }
+                },
+                render(state, area) {
+                    const maxV = Math.max(...state.values);
+                    const barH = 120;
+                    const bars = state.labels.map((label, i) => {
+                        const h = Math.round((state.values[i] / maxV) * barH);
+                        const colors = ['#6366f1','#f59e0b','#10b981','#f87171'];
+                        return `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+                            <div style="font-size:11px;font-weight:700;color:${colors[i]};">${state.values[i]}</div>
+                            <div style="width:32px;height:${barH}px;background:#f1f5f9;border-radius:4px 4px 0 0;position:relative;display:flex;align-items:flex-end;border:1px solid #e2e8f0;">
+                                <div style="width:100%;height:${h}px;background:${colors[i]};border-radius:4px 4px 0 0;transition:height .4s;"></div>
+                            </div>
+                            <div style="font-size:10px;font-weight:600;color:#374151;text-align:center;max-width:40px;">${label}</div>
+                        </div>`;
+                    }).join('');
+                    const optsHtml = state.options.map((o,i) => typeof o === 'string'
+                        ? `<button class="factor-card" style="padding:10px 16px;font-size:14px;" onclick="GAMES['3.MD.3'].pick(${i}, this)">${o}</button>`
+                        : `<button class="factor-card" style="padding:12px 22px;font-size:20px;" onclick="GAMES['3.MD.3'].pick(${i}, this)">${o}</button>`
+                    ).join('');
+                    area.innerHTML = `
+                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
+                        <div class="game-canvas">
+                            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div style="font-size:10px;color:#94a3b8;text-align:right;margin-bottom:4px;">Scale: each unit = ${state.scale} vote${state.scale>1?'s':''}</div>
+                                <div style="display:flex;gap:6px;align-items:flex-end;justify-content:center;">${bars}</div>
+                            </div>
+                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">${optsHtml}</div>
+                        </div>`;
+                    this._state = state; this._answered = false;
+                },
+                pick(i, el) {
+                    if (this._answered) return;
+                    this._answered = true;
+                    const answer = this._state.answer;
+                    const chosen = this._state.options[i];
+                    const correct = chosen === answer || chosen == answer;
+                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
+                    setTimeout(() => gameEngine.handleAnswer(correct, `Answer: ${answer}`), 700);
+                }
+            },
+
+            // --- 3.MD.4: Plot It (line plot with measurements) ---
+            '3.MD.4': {
+                name: 'Plot It',
+                icon: '📈',
+                rounds: 5,
+                init(round) {
+                    const unit = pick(['inches','cm','feet']);
+                    const min = rnd(1,4), range = rnd(3,5);
+                    const data = Array.from({length: rnd(6,10)}, () => min + rnd(0, range));
+                    const qType = pick(['mode','count','range']);
+                    let question, answer, options;
+                    if (qType === 'mode') {
+                        const freq = {};
+                        data.forEach(d => { freq[d] = (freq[d]||0) + 1; });
+                        const mode = parseInt(Object.entries(freq).sort((a,b)=>b[1]-a[1])[0][0]);
+                        question = `What length appears MOST often?`;
+                        answer = mode;
+                        const wrong = Object.keys(freq).map(Number).filter(n=>n!==mode).slice(0,3);
+                        options = shuffleArray([answer,...wrong].slice(0,4));
+                    } else if (qType === 'count') {
+                        const val = pick([...new Set(data)]);
+                        const cnt = data.filter(d=>d===val).length;
+                        question = `How many measurements are exactly <strong>${val} ${unit}</strong>?`;
+                        answer = cnt;
+                        const wrong = [cnt+1,cnt-1,cnt+2].map(n=>Math.max(0,n)).filter(n=>n!==cnt);
+                        options = shuffleArray([answer,...wrong].slice(0,4));
+                    } else {
+                        answer = Math.max(...data) - Math.min(...data);
+                        question = `What is the RANGE? (largest − smallest)`;
+                        const wrong = [answer+1,answer-1,answer+2].map(n=>Math.max(0,n)).filter(n=>n!==answer);
+                        options = shuffleArray([answer,...wrong].slice(0,4));
+                    }
+                    return { data, min, range, unit, question, answer, options };
+                },
+                render(state, area) {
+                    const vals = [...new Set(state.data)].sort((a,b)=>a-b);
+                    const freq = {};
+                    state.data.forEach(d => { freq[d] = (freq[d]||0) + 1; });
+                    const cols = vals.map(v => {
+                        const count = freq[v] || 0;
+                        const xs = Array.from({length: count}, () => `<div style="font-size:18px;line-height:1;">✕</div>`).join('');
+                        return `<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">
+                            <div style="display:flex;flex-direction:column-reverse;gap:2px;min-height:80px;justify-content:flex-start;">${xs}</div>
+                            <div style="width:1px;height:8px;background:#374151;"></div>
+                            <div style="font-size:11px;font-weight:700;color:#374151;">${v}</div>
+                        </div>`;
+                    }).join('');
+                    area.innerHTML = `
+                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
+                        <div class="game-canvas">
+                            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;margin-bottom:12px;">
+                                <div style="font-size:11px;font-weight:600;color:#94a3b8;margin-bottom:8px;text-align:center;">Lengths (${state.unit})</div>
+                                <div style="display:flex;gap:16px;justify-content:center;align-items:flex-end;border-bottom:3px solid #374151;padding-bottom:4px;">${cols}</div>
+                            </div>
+                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+                                ${state.options.map((n,i) =>
+                                    `<button class="factor-card" style="padding:12px 20px;font-size:20px;" onclick="GAMES['3.MD.4'].pick(${i}, this)">${n}</button>`
+                                ).join('')}
+                            </div>
+                        </div>`;
+                    this._state = state; this._answered = false;
+                },
+                pick(i, el) {
+                    if (this._answered) return;
+                    this._answered = true;
+                    const correct = this._state.options[i] == this._state.answer;
+                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
+                    setTimeout(() => gameEngine.handleAnswer(correct, `Answer: ${this._state.answer}`), 700);
+                }
+            },
+
+            // --- 3.MD.8: Fence Builder (perimeter by adding sides) ---
+            '3.MD.8': {
+                name: 'Fence Builder',
+                icon: '🏗️',
+                rounds: 5,
+                init(round) {
+                    const type = pick(['rectangle','irregular']);
+                    let sides, answer, shape;
+                    if (type === 'rectangle') {
+                        const l = rnd(3,12), w = rnd(2,8);
+                        sides = [l, w, l, w];
+                        answer = 2*(l+w);
+                        shape = 'rectangle';
+                    } else {
+                        const s = Array.from({length:4}, () => rnd(2,10));
+                        sides = s;
+                        answer = s.reduce((a,b)=>a+b,0);
+                        shape = 'quadrilateral';
+                    }
+                    const wrong = [answer+rnd(1,4), answer-rnd(1,4), answer+rnd(5,9)].map(n=>Math.max(1,n)).filter(n=>n!==answer);
+                    return { sides, answer, shape, options: shuffleArray([answer,...wrong].slice(0,4)) };
+                },
+                render(state, area) {
+                    const [t,r,b,l] = state.sides;
+                    const sideLabels = [
+                        { label: `${t}`, pos: 'top' },
+                        { label: `${r}`, pos: 'right' },
+                        { label: `${b}`, pos: 'bottom' },
+                        { label: `${l}`, pos: 'left' }
+                    ];
+                    const posStyles = {
+                        top: 'position:absolute;top:-18px;left:50%;transform:translateX(-50%);',
+                        bottom: 'position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);',
+                        left: 'position:absolute;left:-22px;top:50%;transform:translateY(-50%);',
+                        right: 'position:absolute;right:-22px;top:50%;transform:translateY(-50%);'
+                    };
+                    const labels = sideLabels.map(s =>
+                        `<div style="${posStyles[s.pos]}font-size:13px;font-weight:700;color:#16a34a;background:white;border:1px solid #d1fae5;border-radius:4px;padding:2px 5px;">${s.label}</div>`
+                    ).join('');
+                    const addExpr = state.sides.join(' + ');
+                    area.innerHTML = `
+                        <div class="game-prompt">What is the PERIMETER?</div>
+                        <div class="game-prompt-sub">Add all the sides together!</div>
+                        <div class="game-canvas" style="text-align:center;">
+                            <div style="display:inline-block;position:relative;margin:24px 32px;">
+                                <div style="width:160px;height:100px;border:4px dashed #16a34a;border-radius:6px;background:#f0fdf4;position:relative;">
+                                    ${labels}
+                                </div>
+                            </div>
+                            <div style="background:#dcfce7;border:2px solid #16a34a;border-radius:10px;padding:10px;margin:8px auto 14px;max-width:280px;font-size:14px;font-weight:700;color:#15803d;">
+                                P = ${addExpr} = ?
+                            </div>
+                            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                                ${state.options.map(n =>
+                                    `<button class="factor-card" style="padding:12px 20px;font-size:20px;" onclick="GAMES['3.MD.8'].pick(${n}, this)">${n}</button>`
+                                ).join('')}
+                            </div>
+                        </div>`;
+                    this._state = state; this._answered = false;
+                },
+                pick(n, el) {
+                    if (this._answered) return;
+                    this._answered = true;
+                    const correct = n === this._state.answer;
+                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
+                    setTimeout(() => gameEngine.handleAnswer(correct, `P = ${this._state.sides.join(' + ')} = ${this._state.answer}`), 700);
+                }
+            },
+
+            // --- 3.G.1: Shape Sorter (match shape to its attributes) ---
+            '3.G.1': {
+                name: 'Shape Sorter',
+                icon: '🔷',
+                rounds: 5,
+                init(round) {
+                    const shapes = [
+                        { name:'Square', sides:4, equal:true, rightAngles:true, emoji:'⬛', desc:'4 equal sides, 4 right angles' },
+                        { name:'Rectangle', sides:4, equal:false, rightAngles:true, emoji:'▬', desc:'4 right angles, opposite sides equal' },
+                        { name:'Triangle', sides:3, equal:false, rightAngles:false, emoji:'🔺', desc:'3 sides, 3 angles' },
+                        { name:'Rhombus', sides:4, equal:true, rightAngles:false, emoji:'🔶', desc:'4 equal sides, no right angles' },
+                        { name:'Pentagon', sides:5, equal:false, rightAngles:false, emoji:'⬠', desc:'5 sides, 5 angles' },
+                    ];
+                    const shape = pick(shapes);
+                    const qType = pick(['sides','name','attribute']);
+                    let question, answer, options;
+                    if (qType === 'sides') {
+                        question = `How many sides does a <strong>${shape.name}</strong> ${shape.emoji} have?`;
+                        answer = shape.sides;
+                        const wrong = shapes.map(s=>s.sides).filter(n=>n!==answer);
+                        options = shuffleArray([answer,...wrong].slice(0,4));
+                    } else if (qType === 'name') {
+                        question = `This shape has ${shape.sides} sides${shape.equal?' (all equal)':''}${shape.rightAngles?' and 4 right angles':''}. What is it?`;
+                        answer = shape.name;
+                        const wrong = shapes.filter(s=>s.name!==shape.name).map(s=>s.name).slice(0,3);
+                        options = shuffleArray([answer,...wrong]);
+                    } else {
+                        const allSq = shapes.find(s=>s.name==='Square');
+                        question = `Which shape is a quadrilateral with 4 EQUAL sides AND 4 right angles?`;
+                        answer = 'Square';
+                        options = shuffleArray(['Square','Rectangle','Triangle','Rhombus']);
+                    }
+                    return { shape, question, answer, options };
+                },
+                render(state, area) {
+                    const svgShapes = {
+                        Square: `<svg viewBox="0 0 80 80" width="70"><rect x="10" y="10" width="60" height="60" fill="#c7d2fe" stroke="#6366f1" stroke-width="3" rx="2"/></svg>`,
+                        Rectangle: `<svg viewBox="0 0 100 70" width="90"><rect x="10" y="10" width="80" height="50" fill="#bfdbfe" stroke="#3b82f6" stroke-width="3" rx="2"/></svg>`,
+                        Triangle: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,10 10,70 70,70" fill="#fde68a" stroke="#f59e0b" stroke-width="3"/></svg>`,
+                        Rhombus: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,10 70,40 40,70 10,40" fill="#fca5a5" stroke="#ef4444" stroke-width="3"/></svg>`,
+                        Pentagon: `<svg viewBox="0 0 80 80" width="70"><polygon points="40,8 72,30 60,68 20,68 8,30" fill="#a7f3d0" stroke="#059669" stroke-width="3"/></svg>`
+                    };
+                    const optsHtml = state.options.map((o,i) => typeof o === 'number'
+                        ? `<button class="factor-card" style="padding:12px 20px;font-size:22px;" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
+                        : `<button class="factor-card" style="padding:10px 14px;font-size:14px;" onclick="GAMES['3.G.1'].pick(${i}, this)">${o}</button>`
+                    ).join('');
+                    area.innerHTML = `
+                        <div class="game-prompt" style="font-size:14px;line-height:1.5;">${state.question}</div>
+                        <div class="game-canvas" style="text-align:center;">
+                            <div style="display:flex;justify-content:center;gap:16px;margin-bottom:14px;flex-wrap:wrap;">
+                                ${Object.entries(svgShapes).filter(([k])=>state.options.includes(k)||k===state.shape.name).map(([k,svg]) =>
+                                    `<div style="text-align:center;"><div>${svg}</div><div style="font-size:10px;color:#6b7280;margin-top:2px;">${k}</div></div>`
+                                ).join('')}
+                            </div>
+                            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">${optsHtml}</div>
+                        </div>`;
+                    this._state = state; this._answered = false;
+                },
+                pick(i, el) {
+                    if (this._answered) return;
+                    this._answered = true;
+                    const chosen = this._state.options[i];
+                    const correct = chosen == this._state.answer;
+                    el.classList.add(correct ? 'correct-flash' : 'wrong-flash');
+                    setTimeout(() => gameEngine.handleAnswer(correct, `${this._state.shape.name}: ${this._state.shape.desc}`), 700);
                 }
             }
         };
@@ -4708,45 +5683,52 @@
                 }
             },
 
-            renderDashboard() {
-                // Student-friendly hook lines for each standard
-                const HOOKS = {
-                    '3.OA.1': 'What does 3 × 4 really mean?',
-                    '3.OA.2': 'Sharing equally — dividing things up!',
-                    '3.OA.3': 'Solve stories with × and ÷',
-                    '3.OA.4': 'Find the mystery number in equations',
-                    '3.OA.5': 'Shortcuts that make multiplying easier',
-                    '3.OA.6': 'Division = a missing multiplication fact',
-                    '3.OA.7': 'Know your times tables by heart!',
-                    '3.OA.8': 'Problems that take two steps to solve',
-                    '3.OA.9': 'Spot the pattern in number sequences',
-                    '3.NBT.1': 'Round numbers to the nearest 10 or 100',
-                    '3.NBT.2': 'Add and subtract up to 1,000',
-                    '3.NBT.3': 'Multiply any number by 10, 20, 30…',
-                    '3.NF.1': 'What does ¾ actually mean?',
-                    '3.NF.2': 'Place fractions on a number line',
-                    '3.NF.3': '½ = 2/4 = 3/6 — they\'re all the same!',
-                    '3.MD.1': 'Read clocks and figure out elapsed time',
-                    '3.MD.2': 'Measure liquid volume and mass',
-                    '3.MD.3': 'Read and build scaled graphs',
-                    '3.MD.4': 'Plot measurements on a line plot',
-                    '3.MD.5': 'Area is the space inside a shape',
-                    '3.MD.6': 'Count unit squares to find area',
-                    '3.MD.7': 'Area = length × width',
-                    '3.MD.8': 'Perimeter = add up all the sides',
-                    '3.G.1': 'Sort shapes by their attributes',
-                    '3.G.2': 'Cut shapes into equal-sized parts',
-                };
+            // shared constants used by both render paths
+            _HOOKS: {
+                '3.OA.1': 'What does 3 × 4 really mean?',
+                '3.OA.2': 'Sharing equally — dividing things up!',
+                '3.OA.3': 'Solve stories with × and ÷',
+                '3.OA.4': 'Find the mystery number in equations',
+                '3.OA.5': 'Shortcuts that make multiplying easier',
+                '3.OA.6': 'Division = a missing multiplication fact',
+                '3.OA.7': 'Know your times tables by heart!',
+                '3.OA.8': 'Problems that take two steps to solve',
+                '3.OA.9': 'Spot the pattern in number sequences',
+                '3.NBT.1': 'Round numbers to the nearest 10 or 100',
+                '3.NBT.2': 'Add and subtract up to 1,000',
+                '3.NBT.3': 'Multiply any number by 10, 20, 30…',
+                '3.NF.1': 'What does ¾ actually mean?',
+                '3.NF.2': 'Place fractions on a number line',
+                '3.NF.3': '½ = 2/4 = 3/6 — they\'re all the same!',
+                '3.MD.1': 'Read clocks and figure out elapsed time',
+                '3.MD.2': 'Measure liquid volume and mass',
+                '3.MD.3': 'Read and build scaled graphs',
+                '3.MD.4': 'Plot measurements on a line plot',
+                '3.MD.5': 'Area is the space inside a shape',
+                '3.MD.6': 'Count unit squares to find area',
+                '3.MD.7': 'Area = length × width',
+                '3.MD.8': 'Perimeter = add up all the sides',
+                '3.G.1': 'Sort shapes by their attributes',
+                '3.G.2': 'Cut shapes into equal-sized parts',
+            },
 
+            _DOMAIN_LABELS: {
+                'OA':  { title: 'Operations & Algebraic Thinking', icon: '✖️',  color: '#6366f1' },
+                'NBT': { title: 'Number & Operations in Base Ten',  icon: '🔢',  color: '#10b981' },
+                'NF':  { title: 'Number & Operations — Fractions',  icon: '🍕',  color: '#f59e0b' },
+                'MD':  { title: 'Measurement & Data',               icon: '📏',  color: '#06b6d4' },
+                'G':   { title: 'Geometry',                         icon: '🔷',  color: '#a855f7' },
+            },
+
+            // current drill-down domain (null = hub)
+            _activeDomain: null,
+
+            renderDashboard() {
                 if (this.profile) {
                     document.getElementById('profileAvatar').textContent = this.profile.avatar;
                     document.getElementById('profileNickname').textContent = this.profile.nickname;
-
-                    // Update greeting bar
                     const firstName = this.profile.nickname.split(' ')[0];
                     document.getElementById('greetingName').textContent = `Hi, ${firstName}! 👋`;
-
-                    // Streak counter
                     const streakEl = document.getElementById('streakCounter');
                     if (this.profile.streak > 0) {
                         streakEl.style.display = 'flex';
@@ -4754,7 +5736,6 @@
                     } else {
                         streakEl.style.display = 'none';
                     }
-
                     this.renderLeaderboard();
                 }
 
@@ -4762,38 +5743,122 @@
 
                 const stats = this.calculateStats();
                 const hasStats = stats.total > 0;
-
-                // Only show stat pills when there's real data
                 document.getElementById('statPillDone').style.display = hasStats ? 'flex' : 'none';
                 document.getElementById('statPillScore').style.display = hasStats ? 'flex' : 'none';
                 document.getElementById('totalQuestions').textContent = stats.total;
                 document.getElementById('overallScore').textContent = stats.percentage + '%';
 
-                // Update greeting sub based on progress
                 const masteredCount = countMastered(this.progress);
                 const greetingSub = document.getElementById('greetingSub');
                 if (!hasStats) {
-                    greetingSub.innerHTML = 'Tap any card to practice. Hit <strong>💡 Help</strong> to see a study guide first!';
+                    greetingSub.innerHTML = 'Pick a domain below, then tap a standard to start.';
                 } else if (masteredCount === 0) {
                     greetingSub.textContent = `Keep going — you need 65%+ to master a standard.`;
                 } else {
                     greetingSub.textContent = `You've mastered ${masteredCount} of 25 standards. Keep it up!`;
                 }
 
+                if (this._activeDomain) {
+                    this._renderDomainCards(this._activeDomain);
+                } else {
+                    this._renderDomainHub();
+                }
+            },
+
+            _groupedStandards() {
+                const groups = {};
+                const order = [];
+                this.standards.forEach(std => {
+                    const d = std.code.split('.')[1];
+                    if (!groups[d]) { groups[d] = []; order.push(d); }
+                    groups[d].push(std);
+                });
+                return { groups, order };
+            },
+
+            _renderDomainHub() {
+                const { groups, order } = this._groupedStandards();
+                const container = document.getElementById('dashboardMain');
+                container.innerHTML = '';
+
+                const hub = document.createElement('div');
+                hub.className = 'domain-hub';
+                container.appendChild(hub);
+
+                order.forEach(domain => {
+                    const info = this._DOMAIN_LABELS[domain] || { title: domain, icon: '', color: '#6366f1' };
+                    const stds = groups[domain];
+                    const total = stds.length;
+                    const mastered = stds.filter(s => {
+                        const d = this.progress.standards[s.code] || { attempts: 0, correct: 0 };
+                        return d.attempts >= 5 && Math.round((d.correct / d.attempts) * 100) >= 65;
+                    }).length;
+                    const attempted = stds.filter(s => (this.progress.standards[s.code] || {}).attempts > 0).length;
+                    const allPcts = stds.map(s => {
+                        const d = this.progress.standards[s.code] || { attempts: 0, correct: 0 };
+                        return d.attempts > 0 ? Math.round((d.correct / d.attempts) * 100) : 0;
+                    });
+                    const avgPct = allPcts.length ? Math.round(allPcts.reduce((a, b) => a + b, 0) / allPcts.length) : 0;
+
+                    const tile = document.createElement('button');
+                    tile.className = 'domain-hub-tile';
+                    tile.setAttribute('data-domain', domain);
+                    tile.setAttribute('aria-label', `${info.title} — ${mastered} of ${total} mastered`);
+                    tile.onclick = () => { this._activeDomain = domain; this._renderDomainCards(domain); };
+
+                    const allMastered = mastered === total;
+                    tile.innerHTML = `
+                        ${allMastered ? `<span class="domain-hub-mastered-badge">✅ Complete</span>` : mastered > 0 ? `<span class="domain-hub-mastered-badge">${mastered}/${total} mastered</span>` : ''}
+                        <div class="domain-hub-icon">${info.icon}</div>
+                        <div class="domain-hub-code">3.${domain}</div>
+                        <div class="domain-hub-name">${info.title}</div>
+                        <div class="domain-hub-sub">${total} standard${total !== 1 ? 's' : ''} · ${attempted} started</div>
+                        <div class="domain-hub-bar-wrap">
+                            <div class="domain-hub-bar-track">
+                                <div class="domain-hub-bar-fill" style="width:${avgPct}%;background:${info.color}"></div>
+                            </div>
+                            <div class="domain-hub-bar-label">${avgPct > 0 ? avgPct + '% avg score' : 'Not started yet'}</div>
+                        </div>
+                        <span class="domain-hub-arrow">→</span>
+                    `;
+                    hub.appendChild(tile);
+                });
+            },
+
+            _renderDomainCards(domain) {
+                const { groups } = this._groupedStandards();
+                const stds = groups[domain] || [];
+                const info = this._DOMAIN_LABELS[domain] || { title: domain, icon: '', color: '#6366f1' };
                 const barColor = { major: 'var(--success)', supporting: 'var(--accent)', additional: 'var(--warning)' };
 
-                const grid = document.getElementById('categoriesGrid');
-                grid.innerHTML = '';
-                this.standards.forEach(std => {
+                const container = document.getElementById('dashboardMain');
+                container.innerHTML = '';
+
+                // Header with back button
+                const header = document.createElement('div');
+                header.className = 'domain-cards-header';
+                header.innerHTML = `
+                    <button class="domain-cards-back" onclick="app._activeDomain=null;app._renderDomainHub()">← All Domains</button>
+                    <span class="domain-hub-icon" style="font-size:24px">${info.icon}</span>
+                    <span class="domain-cards-title">${info.title}</span>
+                `;
+                container.appendChild(header);
+
+                const grid = document.createElement('div');
+                grid.className = 'domain-cards-grid';
+                grid.setAttribute('role', 'list');
+                container.appendChild(grid);
+
+                stds.forEach(std => {
                     const stdData = this.progress.standards[std.code] || { attempts: 0, correct: 0, lastDifficulty: 'easy' };
                     const pct = stdData.attempts > 0 ? Math.round((stdData.correct / stdData.attempts) * 100) : 0;
                     const isMastered = stdData.attempts >= 5 && pct >= 65;
-                    const hook = HOOKS[std.code] || '';
-
-                    const card = document.createElement('button');
+                    const hook = this._HOOKS[std.code] || '';
                     const isUntouched = stdData.attempts === 0;
                     const hasActiveSession = this.currentSession.length > 0 && this.currentQuestionIndex < this.currentSession.length;
                     const isActiveSession = hasActiveSession && this.currentStandard === std.code;
+
+                    const card = document.createElement('button');
                     card.className = `category-card ${std.cluster}${isMastered ? ' mastered' : ''}${isUntouched ? ' not-started' : ''}${isActiveSession ? ' in-progress' : ''}`;
                     card.setAttribute('role', 'listitem');
                     card.setAttribute('aria-label', `${isActiveSession ? 'Resume ' : 'Practice '}${std.name}`);
