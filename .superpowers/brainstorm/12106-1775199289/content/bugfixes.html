@@ -1,0 +1,76 @@
+<h2>Section 2 — Bug Fixes & Polish</h2>
+<p class="subtitle">Four things getting fixed. The font size change is the most visible — compare below.</p>
+
+<div class="section">
+  <h3 style="margin-bottom:12px">📏 Question Text Size — Before vs. After</h3>
+  <div class="split">
+    <div class="mockup">
+      <div class="mockup-header" style="background:#c00;color:#fff">BEFORE — Current Size</div>
+      <div class="mockup-body" style="padding:20px;background:#fff">
+        <p style="font-size:12px;color:#888;margin-bottom:8px">Question 1 of 10</p>
+        <p style="font-size:13px;line-height:1.4;margin-bottom:14px">Read the passage. What is the <strong>main idea</strong> of the second paragraph? Use details from the text to support your answer.</p>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="border:1.5px solid #ccc;border-radius:5px;padding:8px 12px;font-size:12px">A. The dog was very tired after playing all day.</div>
+          <div style="border:1.5px solid #ccc;border-radius:5px;padding:8px 12px;font-size:12px">B. Animals need rest just like people do.</div>
+          <div style="border:1.5px solid #ccc;border-radius:5px;padding:8px 12px;font-size:12px">C. The park is a good place to exercise.</div>
+          <div style="border:1.5px solid #ccc;border-radius:5px;padding:8px 12px;font-size:12px">D. Dogs and cats are different kinds of pets.</div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup">
+      <div class="mockup-header" style="background:#1a7a3c;color:#fff">AFTER — Readable Size</div>
+      <div class="mockup-body" style="padding:20px;background:#fff">
+        <p style="font-size:13px;color:#888;margin-bottom:10px">Question 1 of 10</p>
+        <p style="font-size:17px;line-height:1.6;margin-bottom:18px">Read the passage. What is the <strong>main idea</strong> of the second paragraph? Use details from the text to support your answer.</p>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="border:1.5px solid #ccc;border-radius:6px;padding:12px 16px;font-size:16px">A. The dog was very tired after playing all day.</div>
+          <div style="border:1.5px solid #ccc;border-radius:6px;padding:12px 16px;font-size:16px">B. Animals need rest just like people do.</div>
+          <div style="border:1.5px solid #ccc;border-radius:6px;padding:12px 16px;font-size:16px">C. The park is a good place to exercise.</div>
+          <div style="border:1.5px solid #ccc;border-radius:6px;padding:12px 16px;font-size:16px">D. Dogs and cats are different kinds of pets.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3 style="margin-bottom:10px">🔧 Other Fixes (non-visual)</h3>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div style="background:#fff;border-radius:8px;padding:14px 18px;border-left:4px solid #0070c0">
+      <strong style="font-size:14px">🔗 Dead Links</strong>
+      <p style="font-size:13px;color:#555;margin-top:4px">Scan and remove all broken internal navigation links and any missing image/resource references across every screen.</p>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:14px 18px;border-left:4px solid #9b59b6">
+      <strong style="font-size:14px">⚡ Performance</strong>
+      <p style="font-size:13px;color:#555;margin-top:4px">Remove unused code from the cleared assignments (questions, passages, images). Lazy-load the Fuse.js library only when needed. Reduce DOM size by cleaning up leftover empty lesson structures.</p>
+    </div>
+    <div style="background:#fff;border-radius:8px;padding:14px 18px;border-left:4px solid #e67e22">
+      <strong style="font-size:14px">🖥️ Broken UI</strong>
+      <p style="font-size:13px;color:#555;margin-top:4px">Audit every screen (login, test list, test interface, review, completion, teacher dashboard) and fix layout issues — overlapping elements, broken spacing, clipped content.</p>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Yes — looks good</h3>
+      <p>Font size bump to 16–17px for questions and choices, plus the three other fixes</p>
+    </div>
+  </div>
+  <div class="option" data-choice="bigger" onclick="toggleSelect(this)">
+    <div class="letter">↑</div>
+    <div class="content">
+      <h3>Make text even bigger</h3>
+      <p>Go larger than 17px — these are 3rd graders</p>
+    </div>
+  </div>
+  <div class="option" data-choice="change" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>I want changes</h3>
+      <p>Tell me what to adjust in the terminal</p>
+    </div>
+  </div>
+</div>

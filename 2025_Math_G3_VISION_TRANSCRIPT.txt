@@ -1,0 +1,350 @@
+NY STATE GRADE 3 MATHEMATICS TEST — 2025
+Released Questions — Full Vision Transcript
+============================================================
+Source: 2025-released-items-math-g3.pdf
+Transcribed via image reading (vision). All numbers, fractions,
+and expressions captured directly from page images.
+============================================================
+NOTE: Questions 1-4, 8-11, 14, 16, 18, 21-23 were NOT released
+by NYSED. The document skips those question numbers intentionally
+(~75% release policy).
+============================================================
+
+
+============================
+SESSION 1 — MULTIPLE CHOICE
+============================
+
+QUESTION 5 [Multiple Choice] — Measurement and Data
+The picture below shows water in a container.
+[Image: Cylinder/beaker with markings at 2L, 4L, 6L, 8L, 10L, 12L.
+Water level is filled to approximately the 7–8 L mark.]
+What is the total amount of water, to the nearest liter, in the container?
+  A  4
+  B  6
+  C  8
+  D  12
+
+------------------------------------------------------------
+
+QUESTION 6 [Multiple Choice] — Operations and Algebraic Thinking
+Which story problem can be represented by the expression 54 ÷ 6?
+  A  There are 54 pieces of candy and 6 are eaten.
+  B  There are 6 buses with 54 students on each bus.
+  C  Mila has 54 marbles in a bag and puts 6 more marbles into the bag.
+  D  Scott has 54 toy cars and gives an equal number of toy cars to each
+     of 6 friends.
+
+------------------------------------------------------------
+
+QUESTION 7 [Multiple Choice] — Number and Operations: Fractions
+Which fraction has a value equivalent to 3?
+  A  1/3
+  B  3/3
+  C  6/3
+  D  9/3
+
+------------------------------------------------------------
+
+QUESTION 12 [Multiple Choice] — Measurement and Data
+A rectangle made of unit squares is shown below.
+[Image: Rectangle that is 7 units wide × 3 units tall.
+KEY: □ = 1 square unit]
+What is the area, in square units, of the rectangle?
+  A  10
+  B  14
+  C  20
+  D  21
+
+------------------------------------------------------------
+
+QUESTION 13 [Multiple Choice] — Number and Operations: Fractions
+A number line with four points is shown below.
+[Image: Number line from 0 to 1 with four equally-spaced points
+labeled A, B, C, D from left to right.]
+What point on the number line represents the fraction 3/8?
+  A  point A
+  B  point B
+  C  point C
+  D  point D
+
+------------------------------------------------------------
+
+QUESTION 15 [Multiple Choice] — Operations and Algebraic Thinking
+Sarah's family drives a total of 198 miles over three days. On Day 1,
+they drive 62 miles. On Day 2, they drive 69 miles. Which value is
+CLOSEST to the number of miles Sarah's family drives on Day 3?
+  A  60
+  B  70
+  C  130
+  D  200
+
+------------------------------------------------------------
+
+QUESTION 17 [Multiple Choice] — Number and Operations in Base Ten
+What digit is in the tens place in the number 3,958?
+  A  3
+  B  5
+  C  8
+  D  9
+
+------------------------------------------------------------
+
+QUESTION 19 [Multiple Choice] — Operations and Algebraic Thinking
+Pat drinks 2 glasses of water each day for 5 days. Mary drinks 4 glasses
+of water each day for 3 days. Which set of equations can be used to find
+the total number of glasses of water, g, that both Pat and Mary drink
+on those days?
+  A  2 + 5 = 7          C  2 × 5 = 10
+     4 + 5 = 9             4 × 5 = 20
+     7 + 9 = g             10 + 20 = g
+
+  B  2 + 5 = 7          D  2 × 5 = 10
+     4 + 5 = 9             4 × 5 = 20
+     7 × 9 = g             10 × 20 = g
+
+------------------------------------------------------------
+
+QUESTION 20 [Multiple Choice] — Measurement and Data
+Part of the model shown below has been covered with unit squares without
+any gaps or overlaps.
+[Image: L-shaped figure partially covered with unit squares.
+KEY: □ = 1 square unit. Visible portion shows approximately 9 squares
+along the left column and 4-5 squares along the bottom portion.]
+What will be the area, in square units, of the model after it is
+completely covered with unit squares?
+  A  14
+  B  15
+  C  27
+  D  45
+
+------------------------------------------------------------
+
+QUESTION 24 [Multiple Choice] — Number and Operations: Fractions
+Ms. Wayne has 12 liters of lemonade. She puts an equal amount of all
+the lemonade into 6 containers. How many liters of lemonade does
+Ms. Wayne put into each container?
+  A  2
+  B  6
+  C  18
+  D  72
+
+------------------------------------------------------------
+
+QUESTION 25 [Multiple Choice] — Number and Operations: Fractions
+Which two fractions each have a value greater than 2/4?
+  A  1/4 and 2/6
+  B  3/4 and 2/3
+  C  1/3 and 1/4
+  D  1/4 and 2/6
+[NOTE: Options A and D appeared visually similar in the image —
+verify against original PDF if using this question.]
+
+============================================================
+END OF SESSION 1
+============================================================
+
+
+============================
+SESSION 2 — MULTIPLE CHOICE
+============================
+
+QUESTION 26 [Multiple Choice] — Number and Operations: Fractions
+Which number sentence is true?
+  A  1/5 = 2/4
+  B  2/4 = 6/8
+  C  3/4 > 3/6
+  D  1/2 = 4/8
+[NOTE: Fractions in answer choices were small in image — verify C and D
+against original PDF.]
+
+------------------------------------------------------------
+
+QUESTION 27 [Multiple Choice] — Operations and Algebraic Thinking
+An equation is shown below.
+     32 ÷ _?_ = 8
+Which equation can be used to solve for the unknown?
+  A  32 × 8 = _?_
+  B  32 + 8 = _?_
+  C  8 × _?_ = 32
+  D  8 ÷ _?_ = 32
+
+------------------------------------------------------------
+
+QUESTION 28 [Multiple Choice] — Measurement and Data
+The side lengths of a playground are shown below.
+[Image: L-shaped figure with dimensions labeled:
+left side = 7 m, bottom = 9 m, right side = 4 m, top notch width = 3 m]
+What is the area, in square meters, of the playground?
+  A  23
+  B  32
+  C  45
+  D  63
+
+------------------------------------------------------------
+
+QUESTION 29 [Multiple Choice] — Number and Operations: Fractions
+Point P is shown on the number line below.
+[Image: Number line from 0 to 1 with point P marked near the left,
+approximately 1/5 of the way from 0.]
+Which fraction is equivalent to the value represented by point P?
+  A  1/5
+  B  1/4
+  C  3/8
+  D  6/8
+
+------------------------------------------------------------
+
+QUESTION 30 [Multiple Choice] — Measurement and Data
+How many unit squares are needed to cover a rectangle with an area of
+15 square units without any gaps or overlaps?
+  A  3
+  B  5
+  C  15
+  D  30
+
+============================================================
+END OF SESSION 2 — MULTIPLE CHOICE
+============================================================
+
+
+============================================
+SESSION 2 — CONSTRUCTED RESPONSE (1 credit)
+============================================
+
+QUESTION 31 [Constructed Response — 1 credit] — Number and Operations: Fractions
+The model shown below is made of triangles of the same size and shape.
+[Image: Hexagonal shape divided into 6 equal triangles by lines from
+center to each vertex.]
+Each triangle is what fraction of the entire area of the model?
+
+Answer: _______________
+
+------------------------------------------------------------
+
+QUESTION 32 [Constructed Response — 1 credit] — Operations and Algebraic Thinking
+What number belongs in the blank to make the equation shown below true?
+
+     5 × 5 = (5 × 2) + (5 × _?_)
+
+Answer: _______________
+
+------------------------------------------------------------
+
+QUESTION 33 [Constructed Response — 1 credit] — Number and Operations in Base Ten
+What is the number 17,984 rounded to the nearest hundred?
+
+Answer: _______________
+
+============================================================
+
+
+============================================
+SESSION 2 — CONSTRUCTED RESPONSE (2 credits)
+============================================
+
+QUESTION 34 [Constructed Response — 2 credits] — Operations and Algebraic Thinking
+Pam uses the number line shown below to represent a multiplication equation.
+[Image: Number line from 0 to 24 with 6 equal jumps of 4 units each,
+marked at 0, 4, 8, 12, 16, 20, 24. Each arc spans one jump.]
+Write a multiplication equation that can be represented by Pam's number line.
+Explain how you know your answer is correct.
+
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+------------------------------------------------------------
+
+QUESTION 35 [Constructed Response — 2 credits] — Operations and Algebraic Thinking / Number and Operations in Base Ten
+What is the value of 8 × 90? Be sure to include how place value or
+groups of ten can be used to find your answer.
+Explain how you know your answer is correct.
+
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+------------------------------------------------------------
+
+QUESTION 36 [Constructed Response — 2 credits] — Number and Operations: Fractions
+A whole pie is cut into equal-sized pieces. Each piece of the pie is
+1/6 of the whole. How many pieces is the pie cut into?
+Be sure to include what you know about fractions or parts of a whole
+in your answer.
+Explain how you found your answer.
+
+_________________________________________________________________
+_________________________________________________________________
+_________________________________________________________________
+
+------------------------------------------------------------
+
+QUESTION 37 [Constructed Response — 2 credits] — Measurement and Data
+Cassandra wakes up at a quarter past 6 a.m. Her bus comes one-half
+hour later. At what time does Cassandra's bus come?
+Show your work.
+
+Answer: _______________ a.m.
+
+============================================================
+
+
+============================================
+SESSION 2 — CONSTRUCTED RESPONSE (3 credits)
+============================================
+
+QUESTION 38 [Constructed Response — 3 credits] — Operations and Algebraic Thinking
+Sam bakes cookies and puts all of the cookies into bags. If he puts
+6 cookies into each of 6 bags, how many cookies does Sam bake?
+Show your work.
+
+Answer: _______________ cookies
+
+Sam also bakes the same number of brownies as cookies. He puts all of
+the brownies into bags with 4 brownies in each bag. How many bags does
+Sam use for all of the brownies?
+Show your work.
+
+Answer: _______________ bags
+
+============================================================
+END OF SESSION 2
+============================================================
+
+
+============================================================
+STANDARDS MAP (from PDF page 31)
+Released questions with NY standards alignment and performance data
+============================================================
+
+Q#   Type   Pts  Standard (NGLS)              Cluster/Subscore                    % Correct
+5    MC      1   NGLS.Math.Content.NY.3.MD.2a  Measurement and Data                0.83
+6    MC      1   NGLS.Math.Content.NY.3.OA.4   Operations and Algebraic Thinking   0.72
+7    MC      1   NGLS.Math.Content.NY.3.NF.3b  Number and Operations: Fractions    0.30
+12   MC      1   NGLS.Math.Content.NY.3.MD.7a  Measurement and Data                0.90
+13   MC      1   NGLS.Math.Content.NY.3.NF.2a  Number and Operations: Fractions    0.75
+15   MC      1   NGLS.Math.Content.NY.3.OA.8a  Operations and Algebraic Thinking   0.44
+17   MC      1   NGLS.Math.Content.NY.3.NBT.4a Operations and Algebraic Thinking   0.93
+19   MC      1   NGLS.Math.Content.NY.3.OA.8a  Operations and Algebraic Thinking   (see map)
+20   MC      1   NGLS.Math.Content.NY.3.MD.6   Measurement and Data                0.85
+24   MC      1   NGLS.Math.Content.NY.3.NF.3d  Number and Operations: Fractions    (see map)
+25   MC      1   NGLS.Math.Content.NY.3.NF.3d  Number and Operations: Fractions    (see map)
+26   MC      1   NGLS.Math.Content.NY.3.NF.3a  Number and Operations: Fractions    0.65
+27   MC      1   NGLS.Math.Content.NY.3.OA.4   Operations and Algebraic Thinking   0.81
+28   MC      1   NGLS.Math.Content.NY.3.NF.3e  Number and Operations: Fractions    0.40
+29   MC      1   NGLS.Math.Content.NY.3.NF.3e  Number and Operations: Fractions    0.45
+30   MC      1   NGLS.Math.Content.NY.3.MD.7a  Measurement and Data                (see map)
+31   CR      1   NGLS.Math.Content.NY.3.OA.5   Operations and Algebraic Thinking   Avg: 0.74
+32   CR      1   NGLS.Math.Content.NY.3.NBT.1  Operations in Base Ten              Avg: 0.50
+33   CR      1   NGLS.Math.Content.NY.3.OA.5   Operations and Algebraic Thinking   Avg: 0.50
+34   CR      2   NGLS.Math.Content.NY.3.NBT.3  Number and Operations: Fractions    Avg: 0.70 / 0.70
+35   CR      2   NGLS.Math.Content.NY.3.NBT.3  (see map)                           Avg: 1.00 / 0.00
+36   CR      2   NGLS.Math.Content.NY.3.NF.1   Number and Operations: Fractions    Avg: 0.68 / 0.34
+37   CR      2   NGLS.Math.Content.NY.3.MD.1   Measurement and Data                Avg: 1.71 / 0.33
+38   CR      3   NGLS.Math.Content.NY.3.OA.3   Operations and Algebraic Thinking   (see map)
+
+NOTE: For precise standard codes and full p-value data, refer to the
+standards map image on the last page of the original PDF.
+============================================================
+END OF TRANSCRIPT

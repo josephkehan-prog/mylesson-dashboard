@@ -1,0 +1,17 @@
+{
+  "lastUpdated": "2026-04-04T12:00:00Z",
+  "players": [
+    { "nickname": "MathWhiz", "avatar": "🦁", "xp": 1250, "bestStreak": 12, "sessionsCompleted": 38 },
+    { "nickname": "FractionQueen", "avatar": "🦄", "xp": 980, "bestStreak": 9, "sessionsCompleted": 30 },
+    { "nickname": "NumberNinja", "avatar": "🐲", "xp": 870, "bestStreak": 11, "sessionsCompleted": 27 },
+    { "nickname": "StarSolver", "avatar": "🦊", "xp": 740, "bestStreak": 8, "sessionsCompleted": 22 },
+    { "nickname": "BrainBlast", "avatar": "🤖", "xp": 650, "bestStreak": 7, "sessionsCompleted": 20 },
+    { "nickname": "AreaAce", "avatar": "🐼", "xp": 520, "bestStreak": 6, "sessionsCompleted": 16 },
+    { "nickname": "DinoDigits", "avatar": "🦖", "xp": 430, "bestStreak": 5, "sessionsCompleted": 14 },
+    { "nickname": "OctoMath", "avatar": "🐙", "xp": 310, "bestStreak": 5, "sessionsCompleted": 11 },
+    { "nickname": "FrogFactors", "avatar": "🐸", "xp": 220, "bestStreak": 4, "sessionsCompleted": 8 },
+    { "nickname": "KoalaCounts", "avatar": "🐨", "xp": 150, "bestStreak": 3, "sessionsCompleted": 6 },
+    { "nickname": "TigerTimes", "avatar": "🐯", "xp": 90, "bestStreak": 3, "sessionsCompleted": 4 },
+    { "nickname": "ButterflyBrain", "avatar": "🦋", "xp": 45, "bestStreak": 2, "sessionsCompleted": 2 }
+  ]
+}

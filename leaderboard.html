@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard — Nexterra</title>
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'none';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      img-src 'self' data: blob: https:;
+      font-src 'self' https://fonts.gstatic.com;
+      connect-src 'self';
+      base-uri 'self';
+      form-action 'self';
+    ">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #00205b;
+            --accent: #0070c0;
+            --gold: #f59e0b;
+            --silver: #94a3b8;
+            --bronze: #d97706;
+            --surface: #f0f4fa;
+            --card: #fff;
+            --text: #1a1a2e;
+            --muted: #6b7a9a;
+            --border: #e2e8f0;
+            --shadow: 0 2px 12px rgba(0, 32, 91, .08);
+            --shadow-lg: 0 8px 32px rgba(0, 32, 91, .12);
+        }
+
+        html, body {
+            font-family: 'Lexend', 'Segoe UI', Arial, sans-serif;
+            background: var(--surface);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--primary);
+            color: #fff;
+            padding: 0 24px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.35);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-title {
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: -.5px;
+        }
+
+        .header-title em {
+            font-style: normal;
+            color: #7ec8f4;
+        }
+
+        .header-spacer { flex: 1; }
+
+        .header-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.3);
+            padding: 6px 14px;
+            border-radius: 5px;
+            transition: background .15s;
+        }
+
+        .header-link:hover { background: rgba(255,255,255,.25); }
+
+        /* PODIUM */
+        .podium-section {
+            background: linear-gradient(170deg, var(--primary) 0%, #003a8c 55%, var(--accent) 100%);
+            padding: 40px 24px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .podium-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 48px;
+            background: var(--surface);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .podium-title {
+            text-align: center;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: .7;
+            margin-bottom: 8px;
+        }
+
+        .podium-heading {
+            text-align: center;
+            color: #fff;
+            font-size: 28px;
+            font-weight: 900;
+            margin-bottom: 36px;
+        }
+
+        .podium {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .podium-slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            max-width: 140px;
+        }
+
+        .podium-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,.3);
+            position: relative;
+        }
+
+        .podium-slot.first .podium-avatar {
+            width: 72px;
+            height: 72px;
+            font-size: 36px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border: 3px solid #fcd34d;
+        }
+
+        .podium-slot.second .podium-avatar {
+            background: linear-gradient(135deg, #cbd5e1, #94a3b8);
+            border: 3px solid #cbd5e1;
+        }
+
+        .podium-slot.third .podium-avatar {
+            background: linear-gradient(135deg, #fdba74, #d97706);
+            border: 3px solid #fed7aa;
+        }
+
+        .podium-crown {
+            position: absolute;
+            top: -18px;
+            font-size: 22px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,.3));
+        }
+
+        .podium-name {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px;
+        }
+
+        .podium-xp {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,.7);
+            margin-bottom: 10px;
+        }
+
+        .podium-bar {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 10px;
+            font-size: 24px;
+            font-weight: 900;
+            color: rgba(255,255,255,.25);
+        }
+
+        .podium-slot.first .podium-bar {
+            height: 100px;
+            background: linear-gradient(180deg, rgba(245,158,11,.4), rgba(245,158,11,.15));
+        }
+
+        .podium-slot.second .podium-bar {
+            height: 72px;
+            background: linear-gradient(180deg, rgba(148,163,184,.35), rgba(148,163,184,.12));
+        }
+
+        .podium-slot.third .podium-bar {
+            height: 52px;
+            background: linear-gradient(180deg, rgba(217,119,6,.3), rgba(217,119,6,.1));
+        }
+
+        /* MAIN LIST */
+        .list-section {
+            max-width: 640px;
+            margin: -24px auto 0;
+            padding: 0 16px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .list-card {
+            background: var(--card);
+            border-radius: 14px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .list-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .list-tab {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--muted);
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            transition: color .2s, box-shadow .2s;
+            position: relative;
+        }
+
+        .list-tab.active {
+            color: var(--primary);
+            box-shadow: inset 0 -2px 0 var(--primary);
+        }
+
+        .list-tab:hover:not(.active) { color: var(--text); }
+
+        /* ROWS */
+        .row {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            gap: 14px;
+            border-bottom: 1px solid var(--border);
+            transition: background .15s;
+        }
+
+        .row:last-child { border-bottom: none; }
+        .row:hover { background: #f8fafd; }
+
+        .row.highlight {
+            background: #eff6ff;
+            border-left: 3px solid var(--accent);
+            padding-left: 17px;
+        }
+
+        .row-rank {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            background: var(--surface);
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        .row.rank-1 .row-rank { background: #fef3c7; color: #92400e; }
+        .row.rank-2 .row-rank { background: #e2e8f0; color: #475569; }
+        .row.rank-3 .row-rank { background: #fed7aa; color: #9a3412; }
+
+        .row-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .row-info { flex: 1; min-width: 0; }
+
+        .row-name {
+            font-size: 14px;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row-level {
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .row-stats {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .row-xp {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .row-detail {
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* YOUR RANK FOOTER */
+        .your-rank {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .your-rank .row-rank {
+            background: rgba(255,255,255,.2);
+            color: #fff;
+        }
+
+        .your-rank .row-avatar {
+            background: rgba(255,255,255,.2);
+        }
+
+        .your-rank .row-name { color: #fff; }
+        .your-rank .row-level { color: rgba(255,255,255,.7); }
+        .your-rank .row-xp { color: #fff; }
+        .your-rank .row-detail { color: rgba(255,255,255,.6); }
+
+        /* EMPTY / LOADING */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--muted);
+        }
+
+        .empty-state-icon { font-size: 40px; margin-bottom: 12px; }
+        .empty-state-text { font-size: 14px; font-weight: 600; }
+        .empty-state-sub { font-size: 12px; margin-top: 6px; opacity: .7; }
+
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+            margin: 0 auto 12px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* REFRESH */
+        .refresh-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            background: #fafbfd;
+        }
+
+        .refresh-time {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .refresh-btn {
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: background .15s;
+        }
+
+        .refresh-btn:hover { background: #e0f0ff; }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .podium-heading { font-size: 22px; }
+            .podium-slot.first .podium-avatar { width: 60px; height: 60px; font-size: 30px; }
+            .podium-avatar { width: 48px; height: 48px; font-size: 24px; }
+            .podium-name { font-size: 11px; max-width: 90px; }
+            .row { padding: 12px 14px; gap: 10px; }
+            .row-name { font-size: 13px; }
+            .row-xp { font-size: 13px; }
+            .list-section { padding: 0 10px 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="header-title"><em>Nexterra</em> Leaderboard</div>
+        <div class="header-spacer"></div>
+        <a href="math_practice.html" class="header-link">Back to Practice</a>
+    </div>
+
+    <!-- PODIUM -->
+    <div class="podium-section">
+        <div class="podium-title">Top Scholars</div>
+        <div class="podium-heading" id="podiumHeading">Loading...</div>
+        <div class="podium" id="podium"></div>
+    </div>
+
+    <!-- FULL LIST -->
+    <div class="list-section">
+        <div class="list-card">
+            <div class="list-tabs">
+                <button class="list-tab active" data-sort="xp">By XP</button>
+                <button class="list-tab" data-sort="streak">By Streak</button>
+                <button class="list-tab" data-sort="sessions">By Sessions</button>
+            </div>
+            <div class="refresh-bar">
+                <div class="refresh-time" id="refreshTime">Loading...</div>
+                <button class="refresh-btn" id="refreshBtn">Refresh</button>
+            </div>
+            <div id="listBody">
+                <div class="empty-state">
+                    <div class="spinner"></div>
+                    <div class="empty-state-text">Loading leaderboard...</div>
+                </div>
+            </div>
+            <div id="yourRank"></div>
+        </div>
+    </div>
+
+<script>
+    // ============ LEVELS (mirrors math_practice.html) ============
+    function getLevel(xp) {
+        if (xp >= 1000) return { name: 'Legend', icon: '👑', color: '#ef4444', key: 'legend' };
+        if (xp >= 600)  return { name: 'Master', icon: '⭐', color: '#f59e0b', key: 'master' };
+        if (xp >= 300)  return { name: 'Pro',    icon: '🔥', color: '#8b5cf6', key: 'pro' };
+        if (xp >= 100)  return { name: 'Explorer', icon: '🧭', color: '#3b82f6', key: 'explorer' };
+        return { name: 'Rookie', icon: '🌱', color: '#9ca3af', key: 'rookie' };
+    }
+
+    // ============ STATE ============
+    let players = [];
+    let currentSort = 'xp';
+    let localProfile = null;
+
+    // ============ LOAD LOCAL PROFILE ============
+    function loadLocalProfile() {
+        try {
+            const saved = localStorage.getItem('gn_math_profile');
+            if (saved) localProfile = JSON.parse(saved);
+        } catch (e) { /* ignore */ }
+    }
+
+    // ============ FETCH LEADERBOARD ============
+    function fetchLeaderboard() {
+        fetch('leaderboard.json?t=' + Date.now())
+            .then(r => {
+                if (!r.ok) throw new Error('Not found');
+                return r.json();
+            })
+            .then(data => {
+                if (data.players && Array.isArray(data.players)) {
+                    players = data.players;
+                    mergeLocalPlayer();
+                    render();
+                    updateRefreshTime(data.lastUpdated);
+                }
+            })
+            .catch(() => {
+                players = [];
+                mergeLocalPlayer();
+                if (players.length > 0) {
+                    render();
+                } else {
+                    showEmpty();
+                }
+                updateRefreshTime(null);
+            });
+    }
+
+    function mergeLocalPlayer() {
+        if (!localProfile) return;
+        const exists = players.some(p =>
+            p.nickname === localProfile.nickname && p.avatar === localProfile.avatar
+        );
+        if (!exists) {
+            players.push({
+                nickname: localProfile.nickname,
+                avatar: localProfile.avatar,
+                xp: localProfile.xp || 0,
+                bestStreak: localProfile.bestStreak || 0,
+                sessionsCompleted: localProfile.sessionsCompleted || 0
+            });
+        } else {
+            const idx = players.findIndex(p => p.nickname === localProfile.nickname);
+            if (idx !== -1 && localProfile.xp > players[idx].xp) {
+                players[idx].xp = localProfile.xp;
+                players[idx].bestStreak = Math.max(players[idx].bestStreak || 0, localProfile.bestStreak || 0);
+            }
+        }
+    }
+
+    function getSorted() {
+        const sorted = [...players];
+        if (currentSort === 'xp') sorted.sort((a, b) => b.xp - a.xp);
+        else if (currentSort === 'streak') sorted.sort((a, b) => (b.bestStreak || 0) - (a.bestStreak || 0));
+        else if (currentSort === 'sessions') sorted.sort((a, b) => (b.sessionsCompleted || 0) - (a.sessionsCompleted || 0));
+        return sorted;
+    }
+
+    // ============ RENDER ============
+    function render() {
+        const sorted = getSorted();
+        renderPodium(sorted);
+        renderList(sorted);
+        renderYourRank(sorted);
+    }
+
+    function renderPodium(sorted) {
+        const top3 = sorted.slice(0, 3);
+        const heading = document.getElementById('podiumHeading');
+        heading.textContent = sortLabel() + ' Rankings';
+
+        const podium = document.getElementById('podium');
+        if (top3.length < 3) {
+            podium.innerHTML = '';
+            return;
+        }
+
+        // Display order: 2nd, 1st, 3rd
+        const order = [top3[1], top3[0], top3[2]];
+        const classes = ['second', 'first', 'third'];
+        const medals = ['', '👑', ''];
+
+        podium.innerHTML = order.map((p, i) => {
+            const val = sortValue(p);
+            return `
+                <div class="podium-slot ${classes[i]}">
+                    <div class="podium-avatar">
+                        ${medals[i] ? `<div class="podium-crown">${medals[i]}</div>` : ''}
+                        ${escapeHtml(p.avatar)}
+                    </div>
+                    <div class="podium-name">${escapeHtml(p.nickname)}</div>
+                    <div class="podium-xp">${val}</div>
+                    <div class="podium-bar">${i === 1 ? '1' : i === 0 ? '2' : '3'}</div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderList(sorted) {
+        const body = document.getElementById('listBody');
+
+        if (sorted.length === 0) {
+            showEmpty();
+            return;
+        }
+
+        body.innerHTML = sorted.map((p, idx) => {
+            const level = getLevel(p.xp);
+            const isYou = localProfile && p.nickname === localProfile.nickname;
+            const rankClass = idx === 0 ? 'rank-1' : idx === 1 ? 'rank-2' : idx === 2 ? 'rank-3' : '';
+
+            return `
+                <div class="row ${rankClass} ${isYou ? 'highlight' : ''}">
+                    <div class="row-rank">${idx + 1}</div>
+                    <div class="row-avatar">${escapeHtml(p.avatar)}</div>
+                    <div class="row-info">
+                        <div class="row-name">${escapeHtml(p.nickname)}${isYou ? ' (You)' : ''}</div>
+                        <div class="row-level" style="color:${level.color}">${level.icon} ${level.name}</div>
+                    </div>
+                    <div class="row-stats">
+                        <div class="row-xp">${sortValue(p)}</div>
+                        <div class="row-detail">${sortDetail(p)}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function renderYourRank(sorted) {
+        const container = document.getElementById('yourRank');
+        if (!localProfile) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const idx = sorted.findIndex(p => p.nickname === localProfile.nickname);
+        if (idx === -1) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const p = sorted[idx];
+        const level = getLevel(p.xp);
+
+        container.innerHTML = `
+            <div class="your-rank">
+                <div class="row-rank">${idx + 1}</div>
+                <div class="row-avatar">${escapeHtml(p.avatar)}</div>
+                <div class="row-info">
+                    <div class="row-name">You — ${escapeHtml(p.nickname)}</div>
+                    <div class="row-level">${level.icon} ${level.name}</div>
+                </div>
+                <div class="row-stats">
+                    <div class="row-xp">${sortValue(p)}</div>
+                    <div class="row-detail">${sortDetail(p)}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    function showEmpty() {
+        document.getElementById('listBody').innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon">🏆</div>
+                <div class="empty-state-text">No scholars yet</div>
+                <div class="empty-state-sub">Start practicing to join the leaderboard!</div>
+            </div>
+        `;
+        document.getElementById('podium').innerHTML = '';
+        document.getElementById('podiumHeading').textContent = 'Be the First!';
+    }
+
+    // ============ SORT HELPERS ============
+    function sortLabel() {
+        if (currentSort === 'xp') return 'XP';
+        if (currentSort === 'streak') return 'Streak';
+        return 'Sessions';
+    }
+
+    function sortValue(p) {
+        if (currentSort === 'xp') return p.xp + ' XP';
+        if (currentSort === 'streak') return (p.bestStreak || 0) + ' 🔥';
+        return (p.sessionsCompleted || 0) + ' done';
+    }
+
+    function sortDetail(p) {
+        if (currentSort === 'xp') return (p.sessionsCompleted || 0) + ' sessions';
+        if (currentSort === 'streak') return p.xp + ' XP';
+        return p.xp + ' XP';
+    }
+
+    function updateRefreshTime(iso) {
+        const el = document.getElementById('refreshTime');
+        if (!iso) {
+            el.textContent = 'Using local data';
+            return;
+        }
+        const d = new Date(iso);
+        el.textContent = 'Updated ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) +
+            ' at ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    }
+
+    // ============ SECURITY ============
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // ============ TABS ============
+    document.querySelectorAll('.list-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.list-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentSort = tab.dataset.sort;
+            render();
+        });
+    });
+
+    // ============ REFRESH ============
+    document.getElementById('refreshBtn').addEventListener('click', fetchLeaderboard);
+
+    // ============ INIT ============
+    loadLocalProfile();
+    fetchLeaderboard();
+</script>
+
+</body>
+</html>

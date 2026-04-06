@@ -1,0 +1,1016 @@
+# (no title)
+URL: https://www.nysed.gov/sites/default/files/programs/state-assessment/3-8-educator-guide-ela.pdf
+
+New York State
+Testing Program
+Educator Guide to 
+the Grades 3–8 
+English Language Arts Tests
+Next Generation English Language Arts Learning Standards 
+Updated: November 2025
+Grades 3–8 English Language Arts Educator Guide
+ii
+ THE UNIVERSITY OF THE STATE OF NEW YORK
+Regents of The University
+LESTER W. YOUNG, JR., Chancellor, B.S., M.S., Ed.D. .................................................. Beechhurst
+JUDITH CHIN, Vice Chancellor, B.S., M.S. in Ed. ........................................................... Little Neck
+ROGER TILLES, B.A., J.D. ................................................................................................ Manhasset
+CHRISTINE D. CEA, B.A., M.A., Ph.D. .......................................................................... Staten Island
+WADE S. NORWOOD, B.A. ............................................................................................. Rochester
+SUSAN W. MITTLER, B.S., M.S. ...................................................................................... Ithaca
+FRANCES G. WILLS, B.A., M.A., M.Ed., C.A.S., Ph.D. ................................................ Ossining
+ARAMINA VEGA FERRER, B.A., M.S. in Ed., Ph.D. ................................................... Bronx 
+SHINO TANIKAWA, B.A., M.S. ...................................................................................... Manhattan
+ROGER P. CATANIA, B.A., M.A., M.S., C.A.S., Ph.D. .................................................. Saranac Lake
+ADRIAN I. HALE, A.S., B.A. ............................................................................................ Rochester
+HASONI L. PRATTS, B.S., M.P.A. ................................................................................... Brooklyn
+PATRICK A. MANNION, B.A., M.B.A. .......................................................................... Fayetteville
+SEEMA RIVERA, B.A., M.S., Ph.D. ................................................................................. Slingerlands
+BRIAN KRIST, B.A., M.A., J.D. ......................................................................................... New York 
+KEITH B. WILEY, B.A., M.B.A. ........................................................................................ Buffalo
+FELICIA THOMAS-WILLIAMS, B.A., M.S. ................................................................... Wheatley Heights
+Commissioner of Education and President of The Univer
+Betty A. Rosa, B.A., M.S. in Ed., M.S. in Ed., M.Ed
+Senior Deputy Commissioner, Office of Educatio
+Jeffrey A. Mattes
+Deputy Commissioner, P-12 Operational 
+Jason Ha
+Assistant Commissioner, Office of State Asses
+Zachary
+The State Education Department does not discriminate on the basis of race, creed, color, national origin, religion, age, sex, military, marital status, familial status, domestic violence victim 
+status, carrier status, disability, genetic predisposition, sexual orientation and criminal record in its recruitment, educational programs, services, and activities. NYSED has adopted a web 
+accessibility policy, and publications designed for distribution can be made available in an accessible format upon request. Inquiries regarding this policy of nondiscrimination should be 
+directed to the Office of Human Resources Management, Room 528 EB, Education Building, Albany, New York 12234.
+Copyright © 2026 by the New York State Education Department. Permission is hereby granted for school administrators and educators to reproduce these materials, located online on the 
+NYSED website (https://www.nysed.gov/), in the quantities necessary for their schools’ use, but not for sale, provided copyright notices are retained as they appear in these publications. 
+Grades 3–8 English Language Arts Educator Guide
+iii
+Table of Contents
+Foreword.....................................................................................................................................1
+New York State Grades 3–8 Testing Program .........................................................................2
+Purpose of State Testing...................................................................................................2
+New York State Educators Involvement in Test Development........................................2
+The Next Generation English Language Arts Learning Standards .....................................3
+Lifelong Practices of Readers and Writers.......................................................................3
+Reading ............................................................................................................................3
+Writing .............................................................................................................................3
+Language..........................................................................................................................3
+Speaking and Listening....................................................................................................4
+Performance Level Definitions..................................................................................................5
+NYS Level 4 ....................................................................................................................5
+NYS Level 3 ....................................................................................................................5
+NYS Level 2 ....................................................................................................................5
+NYS Level 1 ....................................................................................................................5
+Performance Level Descriptions......................................................................................5
+Assessing the Learning Standards for English Language Arts .............................................6
+Reading, Writing, and Language .....................................................................................6
+Speaking and Listening....................................................................................................6
+Text Selection...................................................................................................................7
+A Note on Texts................................................................................................................7
+Range of Informational Texts ..........................................................................................8
+The Grades 3–8 English Language Arts Tests.........................................................................9
+Testing Sessions...............................................................................................................9
+When Students Have Completed Their Tests...................................................................9
+Grades 3–8 English Language Arts Educator Guide
+iv
+Test Design.....................................................................................................................10
+Test Blueprint.................................................................................................................12
+Grades 3–5 .........................................................................................................12
+Grades 6–8 .........................................................................................................13
+Question Formats...........................................................................................................13
+Multiple-Choice Questions................................................................................13
+Constructed-Response Questions.......................................................................13
+2-Credit Constructed-Response Questions........................................................14
+4-Credit Constructed-Response Questions........................................................14
+Additional Assessment Resources .....................................................................14
+English Language Arts Rubrics .....................................................................................15
+2-Credit Constructed-Response Rubric .............................................................15
+4-Credit Constructed-Response Rubric .............................................................16
+New York State Grades 4–5 Writing Evaluation Rubric....................................17
+New York State Grades 6–8 Writing Evaluation Rubric....................................18
+Appendix A ...............................................................................................................................19
+Guidance on Constructed-Response Questions.............................................................19
+Sample Response to a 2018 Grade 3, 
+2-Credit Constructed-Response Question..........................................................20
+Sample Response to a 2018 Grade 6, 
+2-Credit Constructed-Response Question..........................................................21
+Sample Response to a 2018 Grade 4, 
+4-Credit Constructed-Response Question..........................................................22
+Sample Response to a 2018 Grade 6, 
+4-Credit Constructed-Response Question..........................................................24
+Grades 3–8 English Language Arts Educator Guide
+1
+Foreword
+The information contained in this Educator Guide is designed to raise educator awareness of the structure of 
+the New York State Grades 3–8 English Language Arts Tests aligned to the New York State Next Generation 
+Learning Standards (https://www.nysed.gov/standards-instruction/english-language-arts).
+The guide provides educators with pertinent information about the test development process, the learning 
+standards that the tests are designed to measure, and the format of the testing sessions, which includes what 
+types of questions will be asked and the average length of the testing sessions. Links to additional resources 
+are provided to further enhance educators’ understanding of the structure of the English Language Arts tests. 
+Educators are encouraged to review the guides prior to the test administration to gain familiarity with the 
+test format. The information presented can also be used as a platform for educator discussion on how to best 
+utilize student assessment results to guide future instruction.
+The Elementary and Intermediate testing schedule for the spring administration can be found on
+the Department’s website (https://www.nysed.gov/state-assessment/grades-3-8-test-schedules). Questions 
+regarding the New York State Testing Program and test design may be addressed to the Office of State 
+Assessment at emscassessinfo@nysed.gov. Questions regarding the New York State Learning Standards 
+may be addressed to the Office of Standards and Instruction at P12StandardsInstruction@nysed.gov.
+Grades 3–8 English Language Arts Educator Guide
+2
+New York State Grades 3–8 Testing Program 
+Purpose of State Testing 
+The federal Every Student Succeeds Act (2015) requires that states annually administer tests in English 
+Language Arts (ELA) and Mathematics in Grades 3–8. The Grades 3–8 ELA and Mathematics NYS Testing 
+Program has been designed to measure student knowledge and skills as defined by the grade-level New 
+York Next Generation Learning Standards (NGLS) in ELA and Mathematics. The tests are designed to 
+report student proficiency in one of four performance levels. Please refer to page 5 of this guide for further 
+information regarding the Performance Level Descriptions.
+New York State Educators Involvement in Test Development
+While teachers have always been included in the Grades 3–8 test development process, the New York State 
+Education Department (NYSED) continues to expand the number of opportunities for New York State 
+educators to become involved. This includes participating in the development of all the test questions. New 
+York State educators provide the critical input necessary to ensure that the tests are fair, valid, and appropriate 
+for students through their participation in many test development activities. 
+The test development process includes the development, review, and approval of test questions, construction 
+of operational test forms, final approval of test forms prior to administration, and the development of 
+scoring materials. NYSED remains committed to improving the quality of the State’s assessments and the 
+experiences that students have taking these tests. For more information on opportunities to participate in the 
+test development process, please visit the Test Development Participation Opportunities website (https://
+www.nysed.gov/state-assessment/test-development-participation-opportunities).
+Grades 3–8 English Language Arts Educator Guide
+3
+The Next Generation English Language Arts Learning Standards 
+The New York State Next Generation English Language Arts Learning Standards define the knowledge, 
+skills, and understandings that individuals can and do habitually demonstrate over time when exposed to 
+high-quality instructional environments and learning experiences. The standards are organized into four 
+overlapping strands, which together support the development of advanced literacy skills: Reading, Writing, 
+Language, and Speaking and Listening. 
+The information below is meant to provide the context and expectations to enable student success and inform 
+teacher practice.
+Lifelong Practices of Readers and Writers
+The Lifelong Practices of Readers and Writers reflect the changing expectations for what it means to be 
+literate today. Coursework and instruction based on the ELA Learning Standards should develop within the 
+context of the Lifelong Practices of Readers and Writers. These practices are a context for the New York 
+State ELA Learning Standards which, in turn, support these practices by specifying grade-level expectations 
+for readers and writers.
+Reading
+Students in Grades 3–8 should experience a balance of literature and informational texts in the context 
+of instruction designed to create opportunities for children to engage with a variety of topics and texts, 
+and have discussions about texts that support language development and knowledge building. Creating this 
+learning environment can take a variety of formats, including read-alouds, shared readings, paired readings, 
+independent readings (beginning in Grade 4), and other learning activities that incorporate literacy materials, 
+talking, and writing.
+Writing
+As students develop their writing skills, they will use a variety of strategies to plan, revise, and strengthen 
+their writing as they work independently and collaboratively with adults and peers to produce texts and 
+to learn about and develop oral language—written language and reading—writing connections. Students 
+will write for multiple purposes (to entertain, to explain, to persuade) and learn about various tools (print 
+and digital) to produce, share, and publish writing. In all writing tasks, students will learn to use and adjust 
+language to best communicate ideas, content, and message. From Grade 3 through Grade 8, students will 
+develop an understanding of the distinction between—and appropriate application of—conversational and 
+academic language.
+Language
+To develop academic language and background knowledge, and to enrich personal language and expression, 
+standards-based language instruction will enable students to increasingly demonstrate control of the 
+conventions of academic language, develop their knowledge of language (understanding how language 
+functions in different contexts, making effective choices for meaning and style, and comprehending more 
+fully when reading or listening), and build skills relating to vocabulary acquisition and use (learning general 
+academic and content specific words and phrases, clarifying the meaning of unknown or multiple meaning 
+words and phrases, and demonstrating understanding of figurative language and nuances in meaning).
+Grades 3–8 English Language Arts Educator Guide
+4
+Speaking and Listening
+Language develops in the classroom if there is an extended back-and-forth process of interactions among 
+students, organized around rich content and topics. Students will build their speaking and listening skills and 
+knowledge by participating effectively in a range of conversations and collaborations with diverse partners; 
+expressing ideas clearly and persuasively; integrating and evaluating information presented in diverse media 
+and formats; evaluating points of view and reasoning; reasonably and clearly presenting information with 
+supporting evidence; ensuring that organization and style are appropriate to task, purpose, and audience; 
+making strategic use of media; adapting speech to context; and demonstrating command of academic English.
+For more information about the Next Generation Learning Standards for English Language Arts 
+& Literacy, please refer to the NYSED website (https://www.nysed.gov/standards-instruction/englishlanguage-arts).
+Grades 3–8 English Language Arts Educator Guide
+5
+Performance Level Definitions
+For each subject area, students perform along a continuum of the knowledge and skills necessary to meet the 
+demands of the Learning Standards for English Language Arts and Mathematics. New York State assessments 
+are designed to classify student performance into one of four levels based on the knowledge and skills the 
+student has demonstrated. Due to the need to identify student proficiency, the state tests must provide students 
+at each performance level opportunities to demonstrate their knowledge and skills in the NGLS. For this 
+reason, the Performance Level Descriptions play a central role in the test development process, specifically 
+question writing.
+These performance levels are defined as:
+NYS Level 4
+Students performing at this level excel in standards for their grade. They demonstrate knowledge, skills, and 
+practices embodied by the Learning Standards that are considered more than sufficient for the expectations 
+at this grade.
+NYS Level 3
+Students performing at this level are proficient in standards for their grade. They demonstrate knowledge, 
+skills, and practices embodied by the Learning Standards that are considered sufficient for the expectations 
+at this grade.
+NYS Level 2
+Students performing at this level are partially proficient in standards for their grade. They demonstrate 
+knowledge, skills, and practices embodied by the Learning Standards that are considered partial but 
+insufficient for the expectations at this grade. Students performing at Level 2 are considered on track to meet 
+current New York high school graduation requirements but are not yet proficient in Learning Standards at 
+this grade.
+NYS Level 1
+Students performing at this level are below proficient in standards for their grade. They may demonstrate 
+limited knowledge, skills, and practices embodied by the Learning Standards that are considered insufficient
+for the expectations at this grade.
+Performance Level Descriptions
+For information about the Next Generation English Language Arts Performance Level Descriptions for 
+Grades 3–8, please see the website (https://www.nysed.gov/state-assessment/next-generation-learningstandards-english-language-arts).
+Grades 3–8 English Language Arts Educator Guide
+6
+Assessing the Learning Standards for English Language Arts
+The Grades 3–8 English Language Arts Tests will focus entirely on the ELA Learning Standards for
+each grade.
+Reading, Writing, and Language
+The Grades 3–8 English Language Arts Tests will assess Reading, Writing, and Language Standards 
+using multiple-choice, 2-credit constructed-response, and 4-credit constructed-response questions. All 
+questions will be based on close reading of informational and literary texts, including paired texts in 
+Grades 4–8. All texts will be grade-level appropriate. The length of the texts on the Grades 3–8 English 
+Language Arts Tests will typically be: 
+Length of Texts*
+Grade 3 525–625 words
+Grade 4 625–725 words
+Grade 5 725–825 words
+Grade 6 775–875 words
+Grade 7 825–925 words
+Grade 8 925–1025 words
+*In some instances, ranges may vary slightly for a 
+particular passage in order to create a more complete 
+excerpt that will aid student comprehension.
+Please see pages 7–8 for further information about authentic texts and text selection.
+Reading and Language Standards will be assessed using multiple-choice questions. The 2-credit constructedresponse questions will primarily assess reading, but will also require writing and command of language. 
+The 4-credit constructed-response questions will primarily assess Writing from Sources, whereby student 
+responses will be rated on the degree to which they can communicate a clear and coherent analysis of one 
+or two texts.
+Speaking and Listening
+While Speaking and Listening Standards will NOT be assessed on the State test, they remain two very 
+important components of critical building blocks in students’ ability to read and write at grade level. Speaking 
+and Listening Standards provide the dialogic building blocks that directly support students in acquiring the 
+necessary skills and knowledge. 
+Only through rigorous, structured classroom discourse will students gain valuable experiences examining 
+texts they need in order to meet the rigors of what is required in writing. It is imperative that teachers 
+continue to instruct and assess the Speaking and Listening Standards in the classroom. Instructional resources 
+and examples of formative assessments for the Speaking and Listening Standards can be found in the 
+Grades 3–8 curriculum materials (https://www.nysed.gov/standards-instruction/ela-guidance-resources).
+For more information about Curriculum Materials, please refer to the NYSED website
+(https://www.nysed.gov/standards-instruction).
+Grades 3–8 English Language Arts Educator Guide
+7
+Text Selection 
+During the test development process, NYS educators approve all passages for use on the Grades 3–8 English 
+Language Arts Tests. Selecting high-quality, grade-appropriate texts requires both objective text complexity 
+metrics and educator judgment. For the Grades 3–8 English Language Arts Tests, both qualitative and 
+quantitative measures are used to determine the complexity of the texts. Based on research and the guidance 
+of nationally recognized literacy experts,1 the following ranges for quantitative measures were used to guide 
+text selections. 
+Updated Text Complexity Grade Bands and Associated Ranges from Multiple Measures
+NYELA 
+Grade 
+Band
+ATOS
+Degrees 
+of 
+Reading 
+Power®
+FleischKincaidThe Lexile 
+Framework®
+Reading 
+Maturity
+Text 
+Evaluator
+2nd–3rd 2.75–5.14 42–54 1.98–5.34 420–820 3.53–6.13 100–590
+4th–5th 4.97–7.03 52–60 4.51–7.73 740–1010 5.42–7.92 405–720
+6th–8th 7.00–9.98 57–67 6.51–10.34 925–1185 7.04–9.57 550–940
+9th–10th 9.67–12.01 62–72 8.32–12.12 1050–1335 8.41–10.81 750–1125
+11th–CCR 11.20–14.10 67–74 10.34–14.20 1185–1385 9.57–12.00 890–1360
+A Note on Texts 
+Many of the Reading Standards require students to recognize how authors support their opinions, to 
+understand the author’s point of view and purpose, and to be able to discern well-supported arguments from 
+those that are not. To assess these standards on the test, text passages are included that express opinions and 
+theories with which not all readers may agree. Students must demonstrate their ability to determine point of 
+view, purpose, and success of argumentation with supporting evidence in subjects that they will encounter 
+both in other academic classes and in their daily lives. 
+1
+Nelson, Jessica; Perfetti, Charles; Liben, David; and Liben, Meredith, “Measures of Text Difficulty: Testing Their Predictive 
+Value for Grade Levels and Student Performance,” 2012.
+Grades 3–8 English Language Arts Educator Guide
+8
+Range of Informational Texts
+The Grades 3–8 English Language Arts Tests will have questions on a variety of informational texts. The 
+array of passages selected for the tests will assess whether students can comprehend and analyze a wide 
+range of text types. The chart below categorizes common informational texts according to their structure. 
+Please note that the chart below is not specific to any grade; rather, it is meant to help teachers understand 
+the range of informational texts that students may encounter by the end of Grade 8.
+EXPOSITORY ARGUMENTATIVE INSTRUCTIONAL NARRATIVE
+Textbooks (science) Opinion/Editorial 
+Pieces Training Manuals (Auto) Biographies
+Textbooks 
+(humanities)
+Speeches (including 
+those from seated 
+politicians)
+Contracts Histories
+Reports Advertisements User Guides/Manuals Correspondence
+Tourism Guides Political Propaganda Legal Documents Curriculum Vitae
+Product Specifications Journal Articles Recipes Memoirs
+Product/Service 
+Descriptions
+Government 
+Documents
+Product/Service 
+Descriptions News Articles
+Magazine Articles Legal Documents Essays
+Company Profiles Tourism Guides Interviews
+Legal Documents Correspondence Agendas
+Agendas Essays
+Correspondence Reviews
+Essays Memoirs
+Interviews
+Government 
+Documents
+News Articles
+Grades 3–8 English Language Arts Educator Guide
+9
+The Grades 3–8 English Language Arts Tests
+Testing Sessions
+The Grades 3–8 English Language Arts Tests consist of two sessions that are administered over two days. 
+Students will be provided as much time as necessary within the confines of the regular school day to complete 
+each test session. School personnel should use their best professional judgment and knowledge about 
+individual students to determine how long a student should be engaged in taking a particular assessment and 
+when it is in the student’s best interest to end the test session. 
+Although test duration will vary among students, the table below provides an estimated time it will take 
+students to complete each session. It is strongly encouraged for educators to share this information with 
+students and parents prior to the test administration. Additionally, educators preparing students for this test 
+are encouraged to emphasize the rubric criteria for constructed-response questions and remind students that 
+the length of their response does not necessarily improve the quality of their response. For examples of 
+concise full credit responses, see Appendix A. 
+Average Time
+to Complete
+Session 1
+Average Time
+to Complete
+Session 2
+Grade 3 60–70 Minutes 70–80 Minutes
+Grade 4 60–70 Minutes 70–80 Minutes
+Grade 5 80–90 Minutes 70–80 Minutes
+Grade 6 80–90 Minutes 90–100 Minutes
+Grade 7 80–90 Minutes 90–100 Minutes
+Grade 8 80–90 Minutes 90–100 Minutes
+The tests must be administered under standard conditions, and the directions must be followed carefully. 
+The same test administration procedures must be used with all students so that valid inferences can be drawn 
+from the test results. 
+NYSED devotes great attention to the security and integrity of the New York State Testing Program. 
+School administrators and teachers involved in the administration of State assessments are responsible for 
+understanding and adhering to the instructions set forth in the School Administrator’s Manual and the Teacher’s 
+Directions (https://www.nysed.gov/state-assessment/grades-3-8-ela-math-and-science-test-manuals). 
+When Students Have Completed Their Tests
+Students who finish their test should be encouraged to go back and check their work. Once the student checks 
+their work, or chooses not to, test materials should be collected by the proctor. After a student has submitted 
+the test, or their test materials are collected if testing on paper, the student may be permitted to read silently. 
+This privilege is granted at the discretion of each school. No talking and no other schoolwork is permitted.2
+2
+Formore detailed information about test administration, including proper procedures for proctoring, please refer to the 
+School Administrator’s Manual and the Teacher’s Directions.
+Grades 3–8 English Language Arts Educator Guide
+10
+Given that the spring tests have no time limits, schools and districts have the discretion to create their own 
+approach to ensure that all students who are productively working are given the time they need within the 
+confines of the regular school day to continue to take the tests. If the test is administered in a large-group 
+setting, school administrators may prefer to allow students to submit the test, or hand in their test materials if 
+testing on paper, as they finish and then leave the room. If so, take care that students leave the room as quietly 
+as possible so as not to disturb the students who are still working on the test.
+Test Design
+The charts below illustrate the test designs for the Grades 3–8 English Language Arts Tests. These charts 
+detail the number of passages and the type(s) of questions in each session. Session 1 consists of four reading 
+passages: two passages with only multiple-choice questions, and another two passages with both multiplechoice questions and a 2-credit constructed-response question. Session 2, Grade 3, consists of passages with 
+multiple-choice or 2-credit constructed-response questions. Session 2, Grades 4–8, consists of passages with 
+multiple-choice or 2-credit and 4-credit constructed-response questions.
+Also noted is the approximate number of informational and literary passages present on the tests. Please note 
+that embedded field test questions and passages are included in the design. It will not be apparent to students 
+whether a question is an embedded field test question that does not count toward their score or an operational 
+test question that does count toward their score.
+Grade 3 English Language Arts Test Design
+Session 1 Session 2 Total
+Passages 4 2 6
+Multiple-Choice 
+Questions 23 6 29
+2-Credit 
+ConstructedResponse Questions
+2 3 5
+4-Credit 
+ConstructedResponse Questions
+0 0 0
+Total Number of Literary Passages 3–4
+Total Number of Informational Passages 2–3
+Grades 3–8 English Language Arts Educator Guide
+11
+Grade 4 English Language Arts Test Design
+Session 1 Session 2 Total
+Passages 4 3 7
+Multiple-Choice 
+Questions 23 6 29
+2-Credit 
+ConstructedResponse Questions
+2 3 5
+4-Credit 
+ConstructedResponse Questions
+0 1 1
+Total Number of Literary Passages 3–4
+Total Number of Informational Passages 3–4
+Grades 5–6 English Language Arts Test Design
+Session 1 Session 2 Total
+Passages 4 3 7
+Multiple-Choice 
+Questions 26 7 33
+2-Credit 
+ConstructedResponse Questions
+2 3 5
+4-Credit 
+ConstructedResponse Questions
+0 1 1
+Total Number of Literary Passages 2–5
+Total Number of Informational Passages 2–5
+Grades 3–8 English Language Arts Educator Guide
+12
+Grades 7–8 English Language Arts Test Design
+Session 1 Session 2 Total
+Passages 4 4 8
+Multiple-Choice 
+Questions 26 14 40
+2-Credit 
+ConstructedResponse Questions
+2 3 5
+4-Credit 
+ConstructedResponse Questions
+0 1 1
+Total Number of Literary Passages 3–5
+Total Number of Informational Passages 3–5
+Test Blueprint
+The charts below show the percentage of credits that relate to Reading, Language, and Writing Standards. When 
+reading these charts, it is essential to remember that most questions assess many standards simultaneously. 
+Additionally, Reading Standards are divided by focus (Key Ideas, Craft and Structure, and Integration of 
+Knowledge) to help guide instruction.
+Grades 3–5
+Area of Focus Approximate Percentages
+Reading Standards 100% requires close reading
+Language and Writing Standards Up to 50% requires writing and 
+command of language
+Approximate Percentages
+Key Ideas and Details Craft and Structure Integration of Knowledge and Ideas
+Up to 65% Up to 35% Up to 30%
+Grades 3–8 English Language Arts Educator Guide
+13
+Grades 6–8
+Area of Focus Approximate Percentages
+Reading Standards 100% requires close reading
+Language and Writing Standards Up to 40% requires writing and 
+command of language
+Approximate Percentages
+Key Ideas and Details Craft and Structure Integration of Knowledge and Ideas
+Up to 60% Up to 40% Up to 40%
+The R1 Standards form the heart of all text-based instruction. Therefore, in all grades, the R1 Standards 
+provide a foundation for all questions on the tests, as all will require text-based responses. While not assessed 
+directly in questions, R1 Standards are present on the test in the form of rigorous, worthwhile texts. Similarly, 
+W1 Standards are present in all constructed-response questions, which will require students to support their 
+claims (inferences) using clear reasons and relevant evidence.
+Question Formats
+The Grades 3–8 English Language Arts Tests contain multiple-choice (1-credit), 2-credit, and 4-credit 
+constructed-response questions. For multiple-choice questions, students select the correct response from 
+four answer choices. For 2-credit and 4-credit constructed-response questions, students write an answer to 
+an open-ended question. 
+Multiple-Choice Questions
+Multiple-choice questions are designed to assess Reading and Language Standards. They will ask students to 
+analyze different aspects of a given text, including central idea, style elements, character and plot development, 
+and vocabulary. Almost all questions, including vocabulary questions, will only be answered correctly if the 
+student comprehends and makes use of the whole passage. 
+Multiple-choice questions will assess Reading and Language Standards in a range of ways. Some will ask 
+students to analyze aspects of text or vocabulary. Many questions will require students to combine skills. 
+For example, questions may ask students to identify a segment of text that best supports the central idea. To 
+answer correctly, a student must first comprehend the central idea and then show understanding of how that 
+idea is supported. Questions will require more than rote recall or identification. Students will also be required 
+to negotiate plausible, text-based distractors.3 Each distractor will require students to comprehend the whole 
+passage.
+Constructed-Response Questions
+As writers, students develop and apply a variety of distinct skills for a variety of purposes and in a variety 
+of formats. The written communication of ideas necessitates executive functioning and planning, language 
+knowledge and dexterity, creativity, and expression. Students write formally and informally, extensive pieces 
+and abbreviated vignettes, for reflection as well as expression, for academic purposes, and for personal 
+enjoyment. The expansive scope of the knowledge, skills, and understandings inherent in writing instruction 
+far exceeds what can be assessed on a single test or through a single assignment. The constructed-response 
+questions on these tests assess only a limited slice of these, as described in the question descriptions below
+3
+Adistractor is an incorrect response that may appear to be a plausible correct response to a student who has not mastered the skill 
+or concept being assessed.
+Grades 3–8 English Language Arts Educator Guide
+14
+and detailed in the corresponding rubrics, which provide a straightforward and detailed explanation of how 
+student responses are assessed. For example, the rubric calls for the use of relevant evidence and wellchosen facts, criteria which are no more or less weighted than the ability to skillfully link ideas, having a 
+clear and purposeful organization, or demonstrating insightful comprehension and analysis. The rubrics do 
+not prioritize the length of the response or reward the accumulation of evidence beyond what is asked for 
+by the question. Educators preparing students for this exam are encouraged to emphasize the quality of the 
+constructed responses consistent with the rubric criteria and remind students that the length of their response 
+does not necessarily improve the quality of their response. 
+2-Credit Constructed-Response Questions
+The 2-credit constructed-response questions are designed to assess Reading and Language Standards. These 
+are single questions for which students use textual evidence to support their own answers to an inferential 
+question. These questions ask the student to make an inference (a claim, position, or conclusion) based on 
+their analysis of the passage, state it in their own words, and then provide two pieces of text-based evidence 
+to support their answer.
+The purpose of the 2-credit constructed-response questions is to assess a student’s ability to comprehend 
+and analyze text. In responding to these questions, students will be expected to write in complete sentences. 
+Responses with a valid inference and two supporting details from the associated text receive full credit. 
+Responses should typically require no more than approximately two or three complete sentences. The rubric 
+used to evaluate these types of responses is provided on page 15. It is important to note that students who 
+answer the question only using details from the text will NOT receive full credit. A full-credit response is 
+characterized by both a valid inference and sufficient textual support.
+4-Credit Constructed-Response Questions
+The 4-credit constructed-response questions are designed to assess Writing from Sources. In Grades 4–8, 
+4-credit constructed-response questions will require students to read and analyze paired texts. Paired 
+texts are related by theme, genre, tone, time period, or other characteristics. Many 4-credit constructedresponse questions will ask students to express a position and support it with text-based details. The 4-credit 
+constructed-response questions allow students to demonstrate their ability to write a coherent essay using 
+textual evidence to support their ideas. Whether in response to an individual text or paired texts, a student 
+needs to synthesize, evaluate, and provide their thinking in a coherent and concise manner. As with 2-credit 
+constructed-response questions, students are encouraged to answer in an efficient manner. 
+Additional Assessment Resources
+The New York State Question Sampler (https://www.nysed.gov/state-assessment/question-sampler) provides 
+a preview of the question types in the computer-based testing platform designed to help students prepare for 
+testing day using the online testing tools. Passages and questions from previous Grades 3–8 assessments can 
+be found on the NYSED website (https://www.nysedregents.org/ei/ei-ela.html).
+Grades 3–8 English Language Arts Educator Guide
+15
+English Language Arts Rubrics
+The Grades 3–8 English Language Arts Tests will be scored using the rubrics below. Both the English 
+Language Arts 2-Credit and 4-Credit Constructed-Response Rubrics reflect the demands called for by the 
+Next Generation Learning Standards.
+2-Credit Constructed-Response Rubric
+The 2-credit constructed-response questions will ask students to make a claim, take a position, or draw a 
+conclusion, and then support it with details. As such, the 2-credit Constructed-Response Rubric focuses on 
+both the inference and evidence a student provides. This structure allows students to have a wide latitude in 
+responding to each prompt so long as their response is supported by the text.
+Additionally, the expectation for all 2-credit responses will be complete, coherent sentences. By weaving 
+these elements together, the questions, responses, and scores remain firmly focused on student reading ability.
+2-Credit Constructed-Response Rubric
+Score Response Features
+2 Credits
+The features of a 2-credit response are
+• Valid inferences and/or claims from the text where required by the prompt
+• Evidence of analysis of the text where required by the prompt
+• Relevant facts, definitions, concrete details, and/or other information from the text 
+to develop response according to the requirements of the prompt
+• Sufficient number of facts, definitions, concrete details, and/or other information 
+from the text as required by the prompt
+• Complete sentences where errors do not impact readability
+1 Credit
+The features of a 1-credit response are
+• A mostly literal recounting of events or details from the text as required by the 
+prompt
+• Some relevant facts, definitions, concrete details, and/or other information from 
+the text to develop response according to the requirements of the prompt
+• Incomplete sentences or bullets
+0 Credits*
+The features of a 0-credit response are
+• A response that does not address any of the requirements of the prompt or is totally 
+inaccurate
+• A response that is not written in English
+• A response that is unintelligible or indecipherable
+• If the prompt requires two texts and the student only references one text, the response can be scored 
+no higher than a 1.
+* Condition Code A is applied whenever a student who is present for a test session leaves an entire constructedresponse question in that session completely blank (no response attempted). 
+Grades 3–8 English Language Arts Educator Guide
+16
+4-Credit Constructed-Response Rubric
+One must be able to write for a purpose using information from textual sources. The 4-credit constructedresponse questions on the English Language Arts Tests will ask students to analyze texts and address 
+meaningful questions using strategic, textual details. Scores for 4-credit constructed-response questions will 
+be based on four overarching criteria:
+• Content and Analysis—the extent to which the essay conveys complex ideas and information clearly 
+and accurately in order to support claims in an analysis of topics or texts
+• Command of Evidence—the extent to which the essay presents evidence from the provided texts to 
+support analysis and reflection
+• Coherence, Organization, and Style—the extent to which the essay logically organizes complex 
+ideas, concepts, and information using formal style and precise language
+• Control of Conventions—the extent to which the essay demonstrates command of the conventions 
+of standard English grammar, usage, capitalization, punctuation, and spelling
+These four characteristics combined make up the focus of the 4-credit constructed-response tasks, Writing 
+from Sources. Whether in response to an individual text or a paired selection, a student will be asked to 
+synthesize, evaluate, and provide evidence for their thinking in a coherent and legible manner. Please note 
+the 4-Credit Writing Evaluation Rubric for Grades 4–5 is on page 17, and the rubric for Grades 6–8 is on 
+page 18.
+17
+New York State Grades 4–5 Writing Evaluation Rubric
+CRITERIA NGLS
+SCORE
+4
+Essays at this level:
+3
+Essays at this level:
+2
+Essays at this level:
+1
+Essays at this level:
+0*
+Essays at this level:
+CONTENT AND ANALYSIS:
+the extent to which the essay 
+conveys ideas and information 
+clearly and accurately in order to 
+support analysis of topics or text(s)
+W.2
+R.1–9
+—clearly introduce a topic 
+in a manner that follows 
+logically from the task and 
+purpose
+—demonstrate insightful 
+comprehension and analysis 
+of the text(s) 
+—clearly introduce a topic in 
+a manner that follows from 
+the task and purpose
+—demonstrate gradeappropriate comprehension 
+and analysis of the text(s)
+—introduce a topic in 
+a manner that follows 
+generally from the task and 
+purpose
+—demonstrate a literal 
+comprehension of the 
+text(s)
+—introduce a topic in a 
+manner that does not 
+logically follow from the 
+task and purpose
+—demonstrate little 
+understanding of the text(s)
+—demonstrate a lack of 
+comprehension of the 
+text(s) or task
+COMMAND OF EVIDENCE:
+the extent to which the essay 
+presents evidence from the 
+provided text(s) to support 
+analysis and reflection W.2 
+R.1–8
+—develop the topic with 
+relevant, well-chosen 
+facts, definitions, concrete 
+details, quotations, or other 
+information and examples 
+from the text(s)
+—sustain the use of varied, 
+relevant evidence
+—develop the topic with 
+relevant facts, definitions, 
+details, quotations, or other 
+information and examples 
+from the text(s)
+—sustain the use of relevant 
+evidence, with some lack of 
+variety
+—partially develop the topic 
+of the essay with the use 
+of some textual evidence, 
+some of which may be 
+irrelevant
+—use relevant evidence 
+with inconsistency
+—demonstrate an attempt 
+to use evidence, but only 
+develop ideas with minimal, 
+occasional evidence which 
+is generally invalid or 
+irrelevant
+—provide no evidence or 
+provide evidence that is 
+completely irrelevant
+COHERENCE, ORGANIZATION, AND 
+STYLE: 
+the extent to which the essay 
+logically organizes complex ideas, 
+concepts, and information using 
+formal style and precise language
+W.2
+L.3
+L.6
+—exhibit clear, purposeful 
+organization
+—skillfully link ideas using 
+grade-appropriate words 
+and phrases
+—use grade-appropriate, 
+stylistically sophisticated 
+language and domainspecific vocabulary
+—provide a concluding 
+statement that follows 
+clearly from the topic and 
+information presented
+—exhibit clear organization
+—link ideas using gradeappropriate words and 
+phrases
+—use grade-appropriate 
+precise language and 
+domain-specific vocabulary
+—provide a concluding 
+statement that follows from 
+the topic and information 
+presented
+—exhibit some attempt at 
+organization
+—inconsistently link ideas 
+using words and phrases
+—inconsistently use 
+appropriate language and 
+domain-specific vocabulary
+—provide a concluding 
+statement that follows 
+generally from the topic and 
+information presented
+—exhibit little attempt at 
+organization, or attempts 
+to organize are irrelevant to 
+the task
+—lack the use of linking 
+words and phrases
+—use language that is 
+imprecise or inappropriate 
+for the text(s) and task
+—provide a concluding 
+statement that is illogical or 
+unrelated to the topic and 
+information presented
+—exhibit no evidence of 
+organization 
+—exhibit no use of linking 
+words and phrases
+—use language that is 
+predominantly incoherent 
+or copied directly from the 
+text(s)
+—do not provide a 
+concluding statement
+CONTROL OF CONVENTIONS: 
+the extent to which the essay 
+demonstrates command of the 
+conventions of standard English 
+grammar, usage, capitalization, 
+punctuation, and spelling
+W.2
+L.1
+L.2
+—demonstrate gradeappropriate command of 
+conventions, with few errors
+—demonstrate gradeappropriate command of 
+conventions, with occasional 
+errors that do not hinder 
+comprehension
+—demonstrate emerging 
+command of conventions, 
+with some errors that may 
+hinder comprehension
+—demonstrate a lack of 
+command of conventions, 
+with frequent errors that 
+hinder comprehension
+—are minimal, making 
+assessment of conventions 
+unreliable
+• If the prompt requires two texts and the student only references one text, the response can be scored no higher than a 2.
+• If the student writes only a personal response and makes no reference to the text(s), the response can be scored no higher than a 1.
+• Responses totally unrelated to the topic, illegible, or incoherent should be given a 0.
+• A response totally copied from the text(s) with no original student writing should be scored a 0.
+* Condition Code A is applied whenever a student who is present for a test session leaves an entire constructed-response question in that session completely blank (no response attempted).
+18
+New York State Grades 6–8 Writing Evaluation Rubric
+CRITERIA NGLS
+SCORE
+4
+Essays at this level:
+3
+Essays at this level:
+2
+Essays at this level:
+1
+Essays at this level:
+0*
+Essays at this level:
+CONTENT AND ANALYSIS:
+the extent to which the essay 
+conveys ideas and information 
+clearly and accurately in order to 
+support analysis of topics or text(s)
+W.2
+R.1–9
+—clearly introduce a topic in 
+a manner that is compelling 
+and follows logically from 
+the task and purpose
+—demonstrate insightful 
+analysis of the text(s)
+—clearly introduce a topic in 
+a manner that follows from 
+the task and purpose 
+—demonstrate gradeappropriate analysis of the 
+text(s)
+—introduce a topic in 
+a manner that follows 
+generally from the task and 
+purpose
+—demonstrate a literal 
+comprehension of the 
+text(s)
+—introduce a topic in a 
+manner that does not 
+logically follow from the 
+task and purpose
+—demonstrate little 
+understanding of the text(s)
+—demonstrate a lack of 
+comprehension of the 
+text(s) or task
+COMMAND OF EVIDENCE:
+the extent to which the essay 
+presents evidence from the 
+provided text(s) to support 
+analysis and reflection W.2 
+R.1–8
+—develop the topic with 
+relevant, well-chosen 
+facts, definitions, concrete 
+details, quotations, or other 
+information and examples 
+from the text(s)
+—sustain the use of varied, 
+relevant evidence
+—develop the topic with 
+relevant facts, definitions, 
+details, quotations, or other 
+information and examples 
+from the text(s)
+—sustain the use of relevant 
+evidence, with some lack of 
+variety
+—partially develop the topic 
+of the essay with the use 
+of some textual evidence, 
+some of which may be 
+irrelevant
+—use relevant evidence 
+with inconsistency
+—demonstrate an attempt 
+to use evidence, but only 
+develop ideas with minimal, 
+occasional evidence which 
+is generally invalid or 
+irrelevant
+—provide no evidence or 
+provide evidence that is 
+completely irrelevant
+COHERENCE, ORGANIZATION, AND 
+STYLE: 
+the extent to which the essay 
+logically organizes complex ideas, 
+concepts, and information using 
+formal style and precise language
+W.2
+L.3
+L.6
+—exhibit clear organization, 
+with the skillful use of 
+appropriate and varied 
+transitions to create a 
+unified whole and enhance 
+meaning
+—establish and maintain a 
+formal style, using gradeappropriate, stylistically 
+sophisticated language and 
+domain-specific vocabulary 
+with a notable sense of 
+voice
+—provide a concluding 
+statement or section that 
+is compelling and follows 
+clearly from the topic and 
+information presented
+—exhibit clear organization, 
+with the use of appropriate 
+transitions to create a 
+unified whole 
+—establish and maintain a 
+formal style using precise 
+language and domainspecific vocabulary
+—provide a concluding 
+statement or section that 
+follows from the topic and 
+information presented
+—exhibit some attempt 
+at organization, with 
+inconsistent use of 
+transitions
+—establish but fail to 
+maintain a formal style, with 
+inconsistent use of language 
+and domain-specific 
+vocabulary
+—provide a concluding 
+statement or section that 
+follows generally from 
+the topic and information 
+presented
+—exhibit little attempt at 
+organization, or attempts 
+to organize are irrelevant to 
+the task
+—lack a formal style, using 
+language that is imprecise 
+or inappropriate for the 
+text(s) and task
+—provide a concluding 
+statement or section that 
+is illogical or unrelated to 
+the topic and information 
+presented
+—exhibit no evidence of 
+organization 
+—use language that is 
+predominantly incoherent 
+or copied directly from the 
+text(s)
+—do not provide a 
+concluding statement or 
+section
+CONTROL OF CONVENTIONS: 
+the extent to which the essay 
+demonstrates command of the 
+conventions of standard English 
+grammar, usage, capitalization, 
+punctuation, and spelling
+W.2
+L.1
+L.2
+—demonstrate gradeappropriate command of 
+conventions, with few errors
+—demonstrate gradeappropriate command of 
+conventions, with occasional 
+errors that do not hinder 
+comprehension
+—demonstrate emerging 
+command of conventions, 
+with some errors that may 
+hinder comprehension
+—demonstrate a lack of 
+command of conventions, 
+with frequent errors that 
+hinder comprehension
+—are minimal, making 
+assessment of conventions 
+unreliable
+• If the prompt requires two texts and the student only references one text, the response can be scored no higher than a 2.
+• If the student writes only a personal response and makes no reference to the text(s), the response can be scored no higher than a 1.
+• Responses totally unrelated to the topic, illegible, or incoherent should be given a 0.
+• A response totally copied from the text(s) with no original student writing should be scored a 0.
+* Condition Code A is applied whenever a student who is present for a test session leaves an entire constructed-response question in that session completely blank (no response attempted).
+Grades 3–8 English Language Arts Educator Guide
+19
+Appendix A
+Guidance on Constructed-Response Questions 
+This section provides examples of student responses to previously administered ELA operational 
+test questions that received full credit. Using clear and concise writing helps a student communicate 
+their message effectively. Additional examples can be referenced in the previously released 
+editions of the English Language Arts Test Materials, which can be found on the NYSED website
+(https://www.nysedregents.org/ei/ei-ela.html).
+While the following questions and sample responses have been taken from the released sections of the
+2018 ELA 3–8 Tests, items included within the tests are subject to the same scoring criteria, and the guidance 
+herein applies to the constructed-response questions on the tests.
+Grades 3–8 English Language Arts Educator Guide
+20
+Sample Response to a 2018 Grade 3, 2-Credit Constructed-Response Question
+Note below, the four-sentence response to a question assessing Reading Standard 5 from the
+2018 Grade 3 released scoring materials provided on the NYSED website (https://www.nysedregents.org/ei/
+ei-ela.html) received full credit. 
+Grades 3–8 English Language Arts Educator Guide
+21
+Sample Response to a 2018 Grade 6, 2-Credit Constructed-Response Question
+Note that the three-sentence response below from the 2018 Grade 6 released scoring materials provided on 
+the NYSED website (https://www.nysedregents.org/ei/ei-ela.html) received full credit.
+Grades 3–8 English Language Arts Educator Guide
+22
+Sample Response to a 2018 Grade 4, 4-Credit Constructed-Response Question
+Note that the 2018 Grade 4 response below from the released scoring materials on the NYSED website (https://
+www.nysedregents.org/ei/ei-ela.html) received full credit as a coherent essay which uses textual evidence. 
+See scoring information for this response on the following page.
+Grades 3–8 English Language Arts Educator Guide
+23
+Grades 3–8 English Language Arts Educator Guide
+24
+Sample Response to a 2018 Grade 6, 4-Credit Constructed-Response Question
+Note that the 2018 Grade 6 response below from the released scoring materials on the NYSED website
+(https://www.nysedregents.org/ei/ei-ela.html) received full credit as a coherent essay which uses textual 
+evidence.
+See scoring information for this response on the following page.
+Grades 3–8 English Language Arts Educator Guide
+25

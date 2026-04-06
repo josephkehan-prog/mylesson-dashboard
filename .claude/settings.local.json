@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Bash(curl -sL \"https://script.google.com/macros/s/AKfycbxfU9VczKh7GuFFS7Kf3ebioHC7ZV9KCA3XF_7Rx2gd7VtnGNywhRto8YRzDYhypF2-/exec\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(x.get\\('text',''\\)[:500]\\) for x in data if 'post' in x.get\\('text',''\\).lower\\(\\) or 'not assessed' in x.get\\('text',''\\).lower\\(\\)]\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{try{const j=JSON.parse\\(d\\);if\\(Array.isArray\\(j\\)\\){j.forEach\\(x=>{const t=x.text||'';if\\(/post.?test|not assessed/i.test\\(t\\)\\)console.log\\(t.substring\\(0,500\\)\\)}\\)}else{const t=JSON.stringify\\(j\\);const m=t.match\\(/.{0,200}post.?test.{0,200}/gi\\);if\\(m\\)m.forEach\\(x=>console.log\\(x\\)\\)}}catch\\(e\\){const m=d.match\\(/.{0,200}post.?test.{0,200}/gi\\);if\\(m\\)m.forEach\\(x=>console.log\\(x\\)\\)}}\\)\")"
+    ]
+  }
+}

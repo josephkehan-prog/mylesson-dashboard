@@ -1,0 +1,98 @@
+<h2>Section 1 — Assignment System</h2>
+<p class="subtitle">How assignments work for students and teachers. Does this flow look right?</p>
+
+<div class="section">
+  <h3 style="margin-bottom:12px">🎓 Student View — Test List (empty state)</h3>
+  <div class="mockup">
+    <div class="mockup-header">Hamilton / Holy Cross — Spring Break Practice Portal</div>
+    <div class="mockup-body" style="padding:32px;background:#eef2f8;min-height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+      <div style="font-size:40px">📋</div>
+      <div style="font-weight:700;font-size:16px;color:#00205b">No assignments yet</div>
+      <div style="font-size:13px;color:#6b7a9a;text-align:center">Your teacher hasn't added any practice tests yet.<br>Check back soon!</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3 style="margin-bottom:12px">🔒 Teacher Dashboard — Assignments Tab</h3>
+  <div class="mockup">
+    <div class="mockup-header">Teacher Dashboard → Assignments</div>
+    <div class="mockup-body" style="padding:16px;background:#f5f7fc">
+      <div style="display:flex;gap:10px;margin-bottom:16px">
+        <button class="mock-button" style="background:#00205b;color:#fff;padding:8px 18px;border-radius:6px;border:none;font-weight:700">+ Add Assignment</button>
+        <button class="mock-button" style="background:#fff;border:1.5px solid #ccc;padding:8px 18px;border-radius:6px">Import from JSON</button>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:8px;overflow:hidden">
+        <thead>
+          <tr style="background:#00205b;color:#fff">
+            <th style="padding:10px 14px;text-align:left">Title</th>
+            <th style="padding:10px 14px;text-align:left">Subject</th>
+            <th style="padding:10px 14px;text-align:left">Questions</th>
+            <th style="padding:10px 14px;text-align:left">Status</th>
+            <th style="padding:10px 14px;text-align:left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #eee">
+            <td style="padding:10px 14px;color:#999;font-style:italic" colspan="5">No assignments added yet — click "Add Assignment" to get started</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="margin-top:20px;padding:14px;background:#fff3cd;border-radius:8px;border-left:4px solid #ffa500;font-size:13px">
+        <strong>How it works:</strong> Add assignments here and they appear instantly on the student test list. Delete removes them from students' view immediately. No code editing needed.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3 style="margin-bottom:12px">➕ Add Assignment — Modal Form</h3>
+  <div class="mockup">
+    <div class="mockup-header">Add New Assignment</div>
+    <div class="mockup-body" style="padding:20px;background:#fff;max-width:480px">
+      <div style="margin-bottom:12px">
+        <label style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.6px">Title</label>
+        <input class="mock-input" value="ELA Practice Test 1" style="margin-top:4px">
+      </div>
+      <div style="margin-bottom:12px;display:flex;gap:12px">
+        <div style="flex:1">
+          <label style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.6px">Subject</label>
+          <select style="width:100%;margin-top:4px;padding:9px 12px;border:1.5px solid #ccc;border-radius:6px;font-size:14px">
+            <option>ELA</option>
+            <option>Math</option>
+          </select>
+        </div>
+        <div style="flex:1">
+          <label style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.6px">Duration (min)</label>
+          <input class="mock-input" value="45" style="margin-top:4px">
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:.6px">Paste Questions (JSON or structured text)</label>
+        <textarea style="width:100%;margin-top:4px;padding:9px 12px;border:1.5px solid #ccc;border-radius:6px;font-size:13px;font-family:monospace;height:80px">[{"type":"mc","text":"What is the main idea?","choices":["A","B","C","D"],"answer":"A"},...]</textarea>
+      </div>
+      <div style="display:flex;gap:10px;justify-content:flex-end">
+        <button style="padding:9px 20px;border:1.5px solid #ccc;border-radius:6px;background:#fff;cursor:pointer">Cancel</button>
+        <button style="padding:9px 20px;background:#00205b;color:#fff;border:none;border-radius:6px;font-weight:700;cursor:pointer">Save Assignment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Yes — this looks right</h3>
+      <p>Empty student view, teacher can add/delete from dashboard, JSON input for questions</p>
+    </div>
+  </div>
+  <div class="option" data-choice="change" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>I want changes</h3>
+      <p>Tell me what to adjust in the terminal</p>
+    </div>
+  </div>
+</div>

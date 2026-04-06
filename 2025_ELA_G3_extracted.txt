@@ -1,0 +1,723 @@
+--- PAGE 1 ---
+New York State Testing Program
+Grade 3
+English Language Arts Test
+Released Questions
+2025
+New York State administered the English Language Arts Tests in
+Spring 2025 and is making approximately 75% of the questions
+from these tests available for review and use.
+
+--- PAGE 2 ---
+THE STATE EDUCATION DEPARTMENT / THE UNIVERSITY OF THE STATE OF NEW YORK / ALBANY, NY 12234
+New York State Testing Program
+Grade 3 English Language Arts
+Released Questions from 2025 Exams
+Background
+As in past years, the New York State Education Department (NYSED) is releasing large portions of the 2025 NYS Grades
+3–8 English Language Arts and Mathematics test materials for review, discussion, and use.
+For 2025, at least 75 percent of the test questions that appeared on the 2025 tests and counted toward students'
+scores are included in these released materials. This includes all constructed-response questions. Additionally, NYSED
+is providing information about the released passages; the associated text complexity for each passage; and a map
+that details what learning standards each released question measures and the correct response to each question.
+These released materials will help students, families, educators, and the public better understand the tests and
+NYSED’s expectations for students.
+Understanding English Language Arts Questions
+Multiple-Choice Questions
+Multiple-choice questions are designed to assess the New York State P–12 Next Generation Learning Standards in
+English Language Arts (ELA). These questions ask students to analyze different aspects of a given text, including
+central idea, style elements, character and plot development, and vocabulary. Almost all questions, including
+vocabulary questions, will be answered correctly only if the student comprehends and makes use of the whole
+passage.
+For multiple-choice questions, students select the correct response from four answer choices. Multiple-choice
+questions assess reading standards in a variety of ways. Some ask students to analyze aspects of text or vocabulary.
+Many questions require students to combine skills. For example, questions may ask students to identify a segment of
+text that best supports the central idea. To answer these questions correctly, a student must first comprehend the
+central idea and then show understanding of how that idea is supported. Questions tend to require more than rote
+recall or identification.
+Two-Credit Constructed-Response Questions
+Two-credit constructed-response questions are designed to assess New York State P–12 Reading and Language
+Standards. These are single questions in which a student uses textual evidence to support their answer to an
+inferential question. These questions ask the student to make an inference (a claim, position, or conclusion) based on
+their analysis of the passage, and then provide two pieces of text-based evidence to support their answer.
+The purpose of the two-credit constructed-response questions is to assess a student’s ability to comprehend and
+analyze text. In responding to these questions, students are expected to write in complete sentences. Responses
+require no more than three complete sentences. The rubric used for evaluating two-credit constructed-response
+questions can be found in the grade-level Educator Guides at https://www.nysed.gov/state-assessment/ grades-3-8-
+ela-math-and-science-test-manuals.
+
+--- PAGE 3 ---
+New York State P–12 Next Generation Learning Standards Alignment
+The alignment to the New York State P–12 Next Generation Learning Standards for ELA is intended to identify the
+analytic skills necessary to successfully answer each question. However, some questions measure proficiencies
+described in multiple standards, including writing and additional reading and language standards. For example, two-
+credit and four-credit constructed-response questions require students to first conduct the analyses described in the
+mapped standard and then produce written responses that are rated based on writing standards. To gain greater
+insight into the measurement focus for constructed-response questions, please refer to the rubrics.
+These Released Questions Do Not Comprise a “Mini Test”
+To ensure it is possible to develop future tests, some content must remain secure. This document is not intended to
+be representative of the entire test, to show how operational tests look, or to provide information about how
+teachers should administer the test; rather, its purpose is to provide an overview of how the test reflects the demands
+of the New York State P–12 Next Generation Learning Standards.
+The released questions do not represent the full spectrum of the standards assessed on the State tests, nor do they
+represent the full spectrum of how the standards should be taught and assessed in the classroom. It should not be
+assumed that a particular standard will be measured by an identical question in future assessments.
+
+--- PAGE 4 ---
+2025 Grade 3 ELA Test Text Complexity Metrics for
+Released Questions
+Selecting high-quality, grade-appropriate passages requires both objective text
+complexity metrics and expert judgment. For the Grades 3–8 assessments based on the
+New York State P-12 Next Generation Learning Standards for English Language Arts, both
+quantitative and qualitative rubrics are used to determine the complexity of the texts and
+their appropriate placement within a grade-level ELA exam.
+Quantitative measures of text complexity are used to measure aspects of text complexity
+that are difficult for a human reader to evaluate when examining a text. These aspects
+include word frequency, word length, sentence length, and text cohesion. These aspects
+are efficiently measured by computer programs. While quantitative text complexity
+metrics are a helpful start, they are not definitive.
+Qualitative measures are a crucial complement to quantitative measures. Using
+qualitative measures of text complexity involves making an informed decision about the
+difficulty of a text in terms of one or more factors discernible to a human reader applying
+trained judgment to the task. To qualitatively determine the complexity of a text, NYS
+educators use a rubric composed of five factors; four of these factors are required and
+one factor is optional. The required criteria are: meaning, text structure, language
+features, and knowledge demands. The optional factor, graphics, is used only if a graphic
+appears in the text.
+To make the final determination as to whether a text is at grade level and thus
+appropriate to be included on a Grades 3–8 assessment, New York State uses a two-step
+review process, which is an industry best practice. First, all prospective passages undergo
+quantitative text complexity analysis using three text complexity measures. If at least two
+of the three measures suggest that the passage is grade-appropriate, the passage then
+moves to the second step, which is the qualitative review using the text-complexity
+rubrics. Only passages that are determined appropriate by at least two of three
+quantitative measures of complexity and are determined appropriate by the qualitative
+measure of complexity are deemed appropriate for use on the exam.
+
+--- PAGE 5 ---
+Text Complexity Metrics for 2025 Grade 3 Passages
+Word
+Passage Title
+Count elixeL
+diacniK-hcselF
+SOTA
+Qualitative
+Review
+Excerpt from Sea View Star 640 610 3.5 3.7 Appropriate
+Raccoons 571 620 4.5 5.3 Appropriate
+Excerpt from Big Moon Tortilla 607 590 4.0 4.7 Appropriate
+The North Wind and the Sun 213 n/a n/a n/a Appropriate
+New York State 2025 Quantitative Text Complexity Chart for Assessment and Curriculum
+To determine if a text’s quantitative complexity is at the appropriate grade level, New
+York State uses the table below. In cases where a text is excerpted from a large work, only
+the complexity of the excerpt that students see on the test is measured, not the large
+work. It is therefore possible that the complexity of a book might be above or below grade
+level, but the text used on the assessment will be at grade level. Because the
+measurement of text complexity is inexact, quantitative measures of complexity are
+defined by grade band rather than by individual grade level and then paired with the
+qualitative review by an educator.
+Degrees of
+Grade Reading The Lexile Reading
+Band ATOS Power Flesch-Kincaid Framework Maturity SourceRater
+2nd–3rd 2.75 – 5.14 42 – 54 1.98 – 5.34 420 – 820 3.53 – 6.13 0.05 – 2.48
+4th–5th 4.97 – 7.03 52 – 60 4.51 – 7.73 740 – 1010 5.42 – 7.92 0.84 – 5.75
+6th–8th 7.00 – 9.98 57 – 67 6.51 – 10.34 925 – 1185 7.04 – 9.57 4.11 – 10.66
+9th–10th 9.67 – 12.01 62 – 72 8.32 – 12.12 1050 – 1335 8.41 – 10.81 9.02 – 13.93
+11th–12th 11.20 – 14.10 67 – 74 10.34 – 14.20 1185 – 1385 9.57 – 12.00 12.30 – 14.50
+Source: Student Achievement Partners
+
+--- PAGE 6 ---
+GRADE 3 ELA SESSION 1
+Name:
+New York State
+Testing Program
+English Language Arts Test
+Session 1
+3
+Grade
+Spring 2025
+RELEASED QUESTIONS
+� NOISS3S '1"13 E 30W9
+
+--- PAGE 7 ---
+Excerpt from Sea View Star by Ali Bovis. Copyright © 2020 by ABDO Publishing Group. Used with permission of ABDO Publishing
+Company-Magic Wagon via Copyright Clearance Center.
+Excerpt from Raccoons by Meryl Magby, 2013. Copyright © 2013 by The Rosen Publishing Group. Used with permission of The Rosen
+Publishing Group, Inc. via Copyright Clearance Center.
+Developed and published under contract with the New York State Education Department by NWEA, a division of HMH, 14720 Energy Way,
+Apple Valley, MN 55124. Copyright © 2025 by the New York State Education Department.
+Session 1
+
+--- PAGE 8 ---
+Session 1
+TIPS FOR TAKING THE TEST
+Here are some ideas to help you do your best:
+• Read the whole passage before you answer the questions. Most questions will only make
+sense after you read the whole passage.
+• You might need to read the passage more than once to answer a question.
+• Read each question carefully. Take your time.
+• A question may include a quote from a passage. You might need to review both the
+quote and the whole passage to answer the question.
+When you write your answers
+• make sure to answer the whole question;
+• use examples or details from the text;
+• write in complete sentences; and
+• use correct spelling, grammar, capitalization, and punctuation.
+Session 1 Page 1
+
+--- PAGE 9 ---
+Read this story. Then answer questions 1 through 6.
+Sylvie and Sammy’s teacher has announced that students will do a project
+for “Make a Difference Day.” is means students will find a special way
+to help others. Sylvie and Sammy are doing the project together.
+Excerpt from Sea View Star
+by Ali Bovis
+1 Sylvie tapped Sammy’s shoulder and pointed to the swing set. ey
+always got their best ideas on the swings. “Race you up!” She hopped on a
+swing and pumped her legs. Sammy followed.
+2 Sylvie tightened her grip and kicked in the air. “We need to do
+something extra stellar for the animals.” . . .
+3 “Hmm.” Sammy tilted his head. “I have a few ideas too. Maybe we can
+look over our lists together.”
+4 Sylvie knew Sammy would be full of awesome ideas. Sammy slowed his
+swing and pulled out a piece of paper. He passed it to Sylvie.
+5 “An art show to raise money for animals?” asked Sylvie, waving her list.
+“I had the same idea! Here, number 139.”
+6 “Number 139?” asked Sammy, his mouth opened wide. . . .
+7 “Ready to start planning our art show for animals?” asked Sylvie. “Or
+‘Paint Out!’ Sounds more stellar, doesn’t it?”
+8 “Wait. What?” asked Sammy.
+9 “e Paint Out. We can have it on Beach Street. People can paint
+portraits of their pets outside the shops. en we can sell the paintings. We
+can donate the money to the Sea View Animal Shelter.”
+GO ON
+Page 2 Session 1
+
+--- PAGE 10 ---
+10 “ey could help all the animals in Sea View,” said Sammy. . . .
+11 ey got to work right away. Before dinner, they had gotten permission
+from the town to hold the Paint Out, informed the Sea View Animal Shelter
+of their upcoming “biggest donation ever,” and told friends and family to
+save the date. . . .
+12 With all that planning, the week had flown by. e paint, glitter, glue,
+and sprinkles were gathered, ready to decorate the blank canvases. Make a
+Difference Day was finally here! . . .
+13 How could it be 6:15 in the morning already? Sylvie flung the door
+open and pulled her best friend inside.
+14 “Sammy, thank goodness. It’s getting late!”
+15 Sammy looked at the clock. He made a confused face. “OK, we’re ready.
+Mom and Dad squeezed in the supplies you brought over yesterday into the
+car. And the booth for the dog.”
+16 A smile spread across Sylvie’s face. “Ah, yes! You mean the booth for
+my Make a Difference Day star! He’ll sit in his booth for everyone to see,
+admire, and even paint!”
+17 Sammy picked up the new boxes Sylvie had set out. “at sounds
+great,” he said. He pointed to the photo album on top of the boxes. “I
+brought some pictures of my pets that people can use as models.” . . .
+18 Two hours later, Sylvie put down her glue and took in their work. She
+and Sammy had transformed Beach Street into the biggest Paint Out party
+in the history of Sea View.
+19 Sylvie looked around. A balloon arch spelled “Happy Make a
+Difference Day” from streetlight to streetlight. Paint-themed songs blasted
+over speakers.
+20 Blank canvases lined the street from Sea View Slices to Sea View
+Scoops, and everything in between. Paint cans and buckets of brushes were
+set out on a big table. Bowls of glitter, glue, and decorative rainbow sprinkles
+sparkled in the morning light.
+GO ON
+Session 1 Page 3
+
+--- PAGE 11 ---
+21 People arrived by foot, car, and bus. And an occasional suroard.
+22 When Sylvie’s family got there, she put them into position.
+23 Sammy flipped his photo album to a picture of his bearded dragon and
+turtle. “I think we’re ready,” he said.
+24 “Just a few finishing touches,” Sylvie said. She ran to the booth and
+fluffed the dog’s pillows. She wiped drool off his jowls. She colored chalk
+stars on the street around him.
+25 “Now?” Sammy asked.
+26 Sylvie nodded. She squeezed in a few warm-up stretches and reached
+for her megaphone. “Places, people! We’re open for business. Let the Paint
+Out begin!” . . .
+27 Before long, the Paint Out was in full swing. Empty canvases filled with
+color. Rainbows swirled in water jars as paintbrushes were rinsed. Dogs,
+cats, hamsters, and even a rat adorned the art of Sea View’s citizens.
+GO ON
+Page 4 Session 1
+
+--- PAGE 12 ---
+In paragraph 7, what does Sylvie mean when she says, “Sounds more stellar, doesn’t
+1
+it?”
+A She wants people to think the event will be amazing.
+B She wants people to be sure art is part of the event.
+C She wants people to bring their own paint to the event.
+D She wants people to know the event will help animals.
+What do the details in paragraphs 2 and 9 show about Sylvie?
+2
+A She likes playing on the swings.
+B She cares about animals.
+C She knows a lot about the town.
+D She is a talented artist.
+Based on paragraph 14, why does Sammy make a confused face in paragraph 15?
+3
+A He is surprised that Sylvie thinks it is getting late.
+B He is disappointed that Sylvie was ready before him.
+C He is worried his parents did not pack everything.
+D He is not sure why they need a booth for the dog.
+GO ON
+Session 1 Page 5
+
+--- PAGE 13 ---
+“Preparation is the key to success” is a common saying that means when you plan
+4
+for an event, it is more likely to go well. Which paragraph best shows how this idea
+is demonstrated in the story?
+A paragraph 1
+B paragraph 3
+C paragraph 11
+D paragraph 15
+Which detail best expresses a central idea of the story?
+5
+A “ ‘Hmm.’ Sammy tilted his head. ‘I have a few ideas too.’ ” (paragraph 3)
+“en we can sell the paintings. We can donate the money to the Sea View
+B
+Animal Shelter.” (paragraph 9)
+“Sylvie looked around. A balloon arch spelled ‘Happy Make a Difference
+C
+Day’ from streetlight to streetlight.” (paragraph 19)
+“Sylvie nodded. She squeezed in a few warm-up stretches and reached for
+D
+her megaphone.” (paragraph 26)
+By the end of the story, how does Sylvie most likely feel about the Paint Out?
+6
+A She is relieved that the planning and work are finished.
+B She is upset because she did most of the work.
+C She is concerned that they did not raise enough money.
+D She is proud that the event was a huge success.
+GO ON
+Page 6 Session 1
+
+--- PAGE 15 ---
+Flexible Fingers
+2 Raccoons have round bodies that are covered in thick brown or gray
+fur. ey have black masks on their faces and black rings on their tails. ey
+have four black paws. Raccoon paws have five fingers, just like a person’s
+hands do. Adults tend to weigh between 10 and 30 pounds. ey are about 2
+to 3 feet long from nose to tail.
+3 Raccoons are very smart and quick. ey can use their flexible fingers
+on their front paws to do things that most other animals cannot do. ese
+include untying knots and turning doorknobs!
+Eating Almost Anything
+4 Raccoons are omnivores. is means they eat both plants and animals.
+Exactly what a raccoon eats depends on where it lives. ey may eat fruits,
+nuts, berries, seeds, eggs, insects, crayfish, frogs, fish, and turtles. Raccoons
+sometimes even catch young gophers, squirrels, mice, and rats. Raccoons
+living near people also eat pet food and garbage.
+5 Raccoons look for food at night. ey use the many nerves on the
+bottoms of their paws to feel their food. Raccoons oen dip their food in
+water before they eat it. Scientists think that this soens the raccoons’ feet
+and makes it easier for them to feel their food. . . .
+GO ON
+Session 1 Page 19
+
+--- PAGE 16 ---
+Night and Day
+6 Raccoons are mostly nocturnal. is means that they rest during the
+day and are active at night. Raccoons can be pests for people in
+neighborhoods and cities. ey tip over trash cans, dig through gardens,
+and pull down bird feeders looking for food. ey may hide or have babies
+in places where they are not wanted, such as chimneys, attics, and
+basements.
+7 Raccoons keep safe from predators and people by hiding during the
+day. However, they are sometimes killed by cougars, bobcats, coyotes, dogs,
+owls, eagles, and snakes. ey also die from hunger, being hit by cars, or
+getting sick.
+Many Different Dens
+8 Raccoons are thought to be solitary animals. is means adults spend
+most of their time alone. Raccoons tend to stay within a home range of
+about one square mile. In this home range, they have many hiding places
+that they use as dens.
+9 Unlike some other mammals, raccoons do not hibernate in the winter.
+During the winter, they spend a lot of time in their dens, keeping warm.
+However, they will leave their winter dens to find food if the weather is not
+too cold. Sometimes many raccoons will share a large den to keep warm and
+safe during a winter storm. . . .
+GO ON
+Page 20 Session 1
+
+--- PAGE 17 ---
+People and Raccoons
+10 Raccoons are in no danger of dying out in the United States. In fact,
+their numbers may be growing. is may be because they have adapted so
+well to living in neighborhoods and cities near people.
+11 You may see raccoons around your home at night. Raccoons can be fun
+to watch, but you should never get too close. Raccoons can sometimes
+spread diseases to people. If you like raccoons, try visiting them at a zoo or
+looking for their tracks in a park!
+GO ON
+Session 1 Page 21
+
+--- PAGE 18 ---
+How does the graphic support the information in paragraph 2?
+19
+A by showing what raccoons look like
+B by explaining that raccoons have good hearing
+C by explaining that raccoons can see at night
+D by showing where some raccoons live
+Which sentence best explains why raccoons mostly come out at night?
+20
+A Raccoons find their food when it is dark.
+B Raccoons spend most of their time alone.
+C Raccoons hide during the day to keep safe.
+D Raccoons have black masks and tail rings.
+In which section would the reader find information about what raccoons do during
+21
+the winter?
+A “Flexible Fingers”
+B “Eating Almost Anything”
+C “Night and Day”
+D “Many Different Dens”
+GO ON
+Page 22 Session 1
+
+--- PAGE 19 ---
+Animals learn to do things a certain way because of their habitat. Which sentence
+22
+from the passage best connects to this idea?
+“Raccoon paws have five fingers, just like a person’s hands do.”
+A
+(paragraph 2)
+B “Exactly what a raccoon eats depends on where it lives.” (paragraph 4)
+“ey use the many nerves on the bottoms of their paws to feel their food.”
+C
+(paragraph 5)
+“In this home range, they have many hiding places that they use as dens.”
+D
+(paragraph 8)
+Which detail from the passage best shows what the author thinks about raccoons?
+23
+A “Raccoons are very smart and quick.” (paragraph 3)
+B “Raccoons living near people also eat pet food . . .” (paragraph 4)
+C “Raccoons oen dip their food in water . . .” (paragraph 5)
+D “Raccoons can sometimes spread diseases to people.” (paragraph 11)
+GO ON
+Session 1 Page 23
+
+--- PAGE 20 ---
+is question is worth 2 credits.
+24
+What does “pests” mean as it is used in paragraph 6? Use two details from the
+passage to support your response.
+is question is worth 2 credits.
+25
+What is a central idea of the passage? Use two details from the passage to support
+your response.
+STOP
+Page 24 Session 1
+
+--- PAGE 21 ---
+Grade 3
+English Language Arts Test
+Session 1
+Spring 2025
+
+--- PAGE 22 ---
+GRADE 3 ELA SESSION 2
+Name:
+New York State
+Testing Program
+English Language Arts Test
+Session 2
+3
+Grade
+Spring 2025
+RELEASED QUESTIONS
+Z NOISS3S '1"13 E 30W9
+
+--- PAGE 23 ---
+Excerpt from Big Moon Tortilla by Joy Cowley. Copyright © 1998 by Astra Publishing House, Ltd. Used with permission of Boyds Mill Press
+via Copyright Clearance Center.
+“The North Wind and the Sun” from You Read to Me, I’ll Read to You: Very Short Fables to Read Together by Mary Ann Hoberman.
+Copyright © 2012 by Hachette Book Group, Inc. Used with permission of Little, Brown Books for Young Readers via Copyright Clearance
+Center.
+Developed and published under contract with the New York State Education Department by NWEA, a division of HMH, 14720 Energy Way,
+Apple Valley, MN 55124. Copyright © 2025 by the New York State Education Department.
+Session 2
+
+--- PAGE 24 ---
+Session 2
+TIPS FOR TAKING THE TEST
+Here are some ideas to help you do your best:
+• Read the whole passage before you answer the questions. Most questions will only
+make sense after you read the whole passage.
+• You might need to read the passage more than once to answer a question.
+• Read each question carefully. Take your time.
+• A question may include a quote from a passage. You might need to review both the
+quote and the whole passage to answer the question.
+When you write your answers
+• make sure to answer the whole question;
+• use examples or details from the text;
+• write in complete sentences; and
+• use correct spelling, grammar, capitalization, and punctuation.
+Session 2 Page 1
+
+--- PAGE 25 ---
+Read this story. Then answer questions 26 through 31.
+is story is about a girl named Marta and a lesson she learns.
+Excerpt from Big Moon Tortilla
+by Joy Cowley
+1 Grandmother’s big moon tortillas were the best in the world!
+2 e head of Marta Enos was filled with the knowing of fresh tortillas.
+Oh, that sweet, crisp, little-bit-burnt smell! It went to Marta’s stomach,
+which rumbled and growled, and then on down to her feet, making her toes
+twitch towards the cookhouse.
+3 e legs of Marta Enos would not wait another minute. ey were in
+such a hurry to run to the cookhouse that they knocked over Marta’s table,
+and that is when a disaster happened.
+4 e homework papers with their neat writing and beautiful drawings
+went out the window onto the breath of the fussing wind.
+5 e wind huffed the papers high into the air. en, with a little cough,
+it spread them over the village.
+6 e legs of Marta Enos were sorry for their mistake, and they ran out
+to chase the homework papers, which slipped and slid like kites without
+string.
+7 But the dogs, too, were chasing. Leaping into the air, they barked to
+each other. A game! A game!
+8 In no time at all, the beautiful homework papers were torn and chewed
+into trash.
+9 e second disaster happened when Marta tried to pull a page away
+from a puppy. Her glasses fell off, and she stepped on them. One arm of her
+glasses broke in half.
+GO ON
+Page 2 Session 2
+
+--- PAGE 26 ---
+10 She did not smell the tortillas anymore. Her head was filled up to her
+eyes with grief and tears as hot as chili peppers. Ruined homework! Broken
+glasses! Marta Enos ran to Grandmother.
+11 Grandmother le her tortillas and sat down, as big as a bed and warm
+from the cooking. As she smoothed Marta’s hair with her floured hands, she
+said, “Hush! Hush! If you cry so much you’ll put out the fire.”
+12 “e dogs ate my homework, and I can’t see to do any more!” Marta
+sobbed.
+13 Grandmother rocked her. “Little problems,” she said. “Too small for a
+big rainstorm. We’ll repair your eyeglasses.”
+14 But the tears of Marta Enos still ran through her eyes and nose and
+made hiccups in her throat.
+15 So Grandmother sang to her an old healing song, and with the healing
+song there was a story.
+16 “When we have a problem we must choose what we will be. Sometimes
+it is good to be a tree, to stand up tall in the desert and look all ways at
+once.”
+17 “Sometimes it is best to be a rock, to sit very still, seeing nothing and
+saying nothing.”
+18 “Sometimes when you have a problem, you have to be a strong
+mountain lion, fierce and ready to fight for what is right.”
+19 “Sometimes the wisest thing is to be an eagle and fly. When the eagle is
+high up, it sees how small the earth is. It sees how small the problem is, and
+it laughs and laughs.”
+20 Grandmother wound some tape around the arm of the glasses. She put
+the glasses back on the nose and ears of Marta Enos. “at should be OK
+until we get them fixed,” she said. “Now, one tortilla before supper?”
+GO ON
+Session 2 Page 3
+
+--- PAGE 27 ---
+21 Grandmother pinched a ball of dough and slapped it between her
+hands, flip-flap, flip-flap, flip-flap. When it was as big and pale as a rising full
+moon, she dropped it onto the iron plate above the red-hot coals of the fire.
+22 Ah, the smell as the tortilla bubbled and browned!
+23 “I have decided,” said Marta Enos, her legs doing a tortilla dance. “I am
+going to be the eagle.”
+24 Grandmother nodded. “at is very wise,” she said, turning the tortilla
+over. “Fly high and laugh. en come back and do your homework.”
+GO ON
+Page 4 Session 2
+
+--- PAGE 28 ---
+Why is the information in paragraph 3 important to the story?
+26
+A It shows the cause of a problem in the story.
+B It gives details about the setting.
+C It gives a hint about how the story will end.
+D It introduces a new character.
+Which meaning of the word “spread” is used in paragraph 5?
+27
+A scattered around
+B grew slowly
+C became known
+D shared freely
+Which detail from the story best tells why Marta begins crying?
+28
+A “It went to Marta’s stomach . . .” (paragraph 2)
+“ey were in such a hurry to run to the cookhouse that they knocked over
+B
+Marta’s table . . .” (paragraph 3)
+“But the dogs, too, were chasing. Leaping into the air, they barked to each
+C
+other. A game!” (paragraph 7)
+D “Ruined homework! Broken glasses!” (paragraph 10)
+GO ON
+Session 2 Page 5
+
+--- PAGE 29 ---
+Which detail from the story best tells what Grandmother believes?
+29
+“Grandmother’s big moon tortillas were the best in the world!”
+A
+(paragraph 1)
+“When we have a problem we must choose what we will be.”
+B
+(paragraph 16)
+C “When the eagle is high up, it sees how small the earth is.” (paragraph 19)
+“Grandmother wound some tape around the arm of the glasses.”
+D
+(paragraph 20)
+What does Marta most likely think about Grandmother’s healing song?
+30
+A It reminds her of a story.
+B It helps her make a choice.
+C It makes her want to dance.
+D It teaches her about animals.
+Which detail would be most important to include in a summary of the story?
+31
+A Marta’s stomach makes loud noises.
+B e tortillas are in the cookhouse.
+C e tortillas bubble and turn brown.
+D Marta decides to be like an eagle.
+GO ON
+Page 6 Session 2
+
+--- PAGE 30 ---
+Read this poem. Then answer questions 32 through 34.
+e North Wind and the Sun
+by Mary Ann Hoberman
+I’m the North Wind.
+I am cold. I am strong.
+No one can beat me
+When I come along.
+5 I am the Sun.
+I am gentle and warm.
+at gives me more power
+an coldness or storm.
+Silly old Sun,
+10 You are not very bright!
+Let’s have a contest
+To see who is right.
+Look down below,
+At that bundled-up man.
+15 Make him take off his coat
+If you can.
+GO ON
+Session 2 Page 7
+
+--- PAGE 31 ---
+Of course I can do that!
+I’ll raise up a squall
+And blow off his coat
+20 With no trouble at all.
+e more that you blow, Wind,
+And show off your might,
+e more the man shivers
+And pulls his coat tight.
+shivers = shakes because of being cold
+25 Well you go and try
+Since you think you’re so hot!
+But if I can’t do it,
+You surely cannot.
+GO ON
+Page 8 Session 2
+
+--- PAGE 32 ---
+I’ll come out right now
+30 From behind this big cloud
+And warm the man up.
+Look! He’s laughing out loud!
+So what if he’s laughing
+And you’re shining bright!
+35 He’s still got his coat on.
+It’s still pulled up tight.
+But look at him now!
+ough I don’t want to gloat,
+I have made him so hot,
+40 He’s unbuttoned his coat!
+gloat = brag
+GO ON
+Session 2 Page 9
+
+--- PAGE 33 ---
+He has taken it off!
+You have beaten me, Sun!
+So I have, silly Wind!
+You have lost! I have won!
+GO ON
+Page 10 Session 2
+
+--- PAGE 34 ---
+is question is worth 2 credits.
+32
+In “e North Wind and the Sun,” what do lines 9 through 12 show about the
+North Wind? Use two details from the poem to support your response.
+is question is worth 2 credits.
+33
+In “e North Wind and the Sun,” how does the Sun feel about having power? Use
+two details from the poem to support your response.
+GO ON
+Session 2 Page 11
+
+--- PAGE 35 ---
+is question is worth 2 credits.
+34
+In the poem, how do the Sun and the North Wind show that they are alike? Use two
+details from the poem to support your response.
+STOP
+Page 12 Session 2
+
+--- PAGE 36 ---
+Grade 3
+English Language Arts Test
+Session 2
+Spring 2025
+
+--- PAGE 37 ---
+THE STATE EDUCATION DEPARTMENT
+THE UNIVERSITY OF THE STATE OF NEW YORK / ALBANY, NY 12234
+2025 English Language Arts Tests Map to the Standards
+Grade 3
+Multiple Choice
+Constructed-Response Questions
+Questions
+Question Type Key Points Standard Strand Subscore Percentage of Students P-Value
+Average
+Who Answered Correctly (Average Points Earned ÷
+Points Earned
+(P-Value) Total Possible Points)
+Session 1
+1 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.4 Reading Standards for Literature Reading 0.48
+2 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Literature Reading 0.82
+3 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Literature Reading 0.71
+4 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.9 Reading Standards for Literature Reading 0.57
+5 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.2 Reading Standards for Literature Reading 0.68
+6 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.6 Reading Standards for Literature Reading 0.74
+19 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.7 Reading Standards for Informational Text Reading 0.74
+20 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Informational Text Reading 0.36
+21 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.5 Reading Standards for Informational Text Reading 0.60
+22 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.9 Reading Standards for Informational Text Reading 0.41
+23 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.6 Reading Standards for Informational Text Reading 0.67
+24 Constructed Response n/a 2 NGLS.ELA.Content.NY-3.R.4 Reading Standards for Informational Text Writing from Sources 1.06 0.53
+25 Constructed Response n/a 2 NGLS.ELA.Content.NY-3.R.2 Reading Standards for Informational Text Writing from Sources 1.20 0.60
+Session 2
+26 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.5 Reading Standards for Literature Reading 0.77
+27 Multiple Choice A 1 NGLS.ELA.Content.NY-3.L.4 Language Standards Reading 0.74
+28 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Literature Reading 0.78
+29 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.8 Reading Standards for Literature Reading 0.50
+30 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.6 Reading Standards for Literature Reading 0.51
+31 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.2 Reading Standards for Literature Reading 0.54
+32 Constructed Response n/a 2 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Literature Writing from Sources 1.04 0.52
+33 Constructed Response n/a 2 NGLS.ELA.Content.NY-3.R.6 Reading Standards for Literature Writing from Sources 1.20 0.60
+34 Constructed Response n/a 2 NGLS.ELA.Content.NY-3.R.3 Reading Standards for Literature Writing from Sources 1.02 0.51
+*This item map is intended to identify the primary analytic skills necessary to successfully answer each question on the 2025 operational ELA test. However, each constructed-response question measures proficiencies described in multiple
+standards, including writing and additional reading and language standards. For example, the two-point constructed-response questions require students to first conduct the analyses described in the mapped standard and then produce
+written responses that are rated based on writing standards. To gain greater insight into the measurement focus for constructed-response questions, please refer to the rubrics shown in the Educator Guides.
+

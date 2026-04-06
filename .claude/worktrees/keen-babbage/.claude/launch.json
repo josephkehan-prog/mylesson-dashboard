@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Static File Server (serve)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "-l", "3399", "C:\\Users\\19172\\Documents\\Claude\\Projects\\3rd Grade State Test"],
+      "port": 3399,
+      "autoPort": false
+    }
+  ]
+}

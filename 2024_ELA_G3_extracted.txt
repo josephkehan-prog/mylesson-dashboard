@@ -1,0 +1,780 @@
+--- PAGE 1 ---
+New York State Testing Program
+Grade 3
+English Language Arts Test
+Released Questions
+2024
+New York State administered the English Language Arts
+Tests in April 2024 and is making approximately 75% of the
+questions from these tests available for review and use.
+
+--- PAGE 2 ---
+THE STATE EDUCATION DEPARTMENT / THE UNIVERSITY OF THE STATE OF NEW YORK / ALBANY, NY 12234
+New York State Testing Program
+Grade 3 English Language Arts
+Released Questions from 2024 Exams
+Background
+As in past years, SED is releasing large portions of the 2024 NYS Grades 3–8 English Language Arts and Mathematics
+test materials for review, discussion, and use.
+For 2024, included in these released materials are at least 75 percent of the test questions that appeared on the
+2024 tests (including all constructed-response questions) that counted toward students’ scores. Additionally, SED is
+providing information about the released passages; the associated text complexity for each passage; and a map that
+details what learning standards each released question measures and the correct response to each question. These
+released materials will help students, families, educators, and the public better understand the tests and the New
+York State Education Department’s expectations for students.
+Understanding ELA Questions
+Multiple-Choice Questions
+Multiple-choice questions are designed to assess the New York State P–12 Next Generation Learning Standards in
+English Language Arts. These questions ask students to analyze different aspects of a given text, including central
+idea, style elements, character and plot development, and vocabulary. Almost all questions, including vocabulary
+questions, will be answered correctly only if the student comprehends and makes use of the whole passage.
+For multiple-choice questions, students select the correct response from four answer choices. Multiple-choice
+questions assess reading standards in a variety of ways. Some ask students to analyze aspects of text or vocabulary.
+Many questions require students to combine skills. For example, questions may ask students to identify a segment of
+text that best supports the central idea. To answer these questions correctly, a student must first comprehend the
+central idea and then show understanding of how that idea is supported. Questions tend to require more than rote
+recall or identification.
+Two-Credit Constructed-Response Questions
+Two-credit constructed-response questions are designed to assess New York State P–12 Reading and Language
+Standards. These are single questions in which a student uses textual evidence to support his or her answer to an
+inferential question. These questions ask the student to make an inference (a claim, position, or conclusion) based on
+their analysis of the passage, and then provide two pieces of text-based evidence to support their answer.
+The purpose of the two-credit constructed-response questions is to assess a student’s ability to comprehend and
+analyze text. In responding to these questions, students are expected to write in complete sentences. Responses
+require no more than three complete sentences. The rubric used for evaluating two-credit constructed-response
+questions can be found in the grade-level Educator Guides at https://www.nysed.gov/state-assessment/
+grades-3-8-ela-math-and-science-test-manuals.
+
+--- PAGE 3 ---
+New York State P–12 Next Generation Learning Standards Alignment
+The alignment to the New York State P–12 Next Generation Learning Standards for English Language Arts is intended
+to identify the analytic skills necessary to successfully answer each question. However, some questions measure
+proficiencies described in multiple standards, including writing and additional reading and language standards. For
+example, two-credit and four-credit constructed-response questions require students to first conduct the analyses
+described in the mapped standard and then produce written responses that are rated based on writing
+standards. To gain greater insight into the measurement focus for constructed-response questions, please refer to
+the rubrics.
+These Released Questions Do Not Comprise a “Mini Test”
+To ensure it is possible to develop future tests, some content must remain secure. This document is not intended
+to be representative of the entire test, to show how operational tests look, or to provide information about how
+teachers should administer the test; rather, its purpose is to provide an overview of how the test reflects the demands
+of the New York State P–12 Next Generation Learning Standards.
+The released questions do not represent the full spectrum of the standards assessed on the State tests, nor do they
+represent the full spectrum of how the standards should be taught and assessed in the classroom. It should not be
+assumed that a particular standard will be measured by an identical question in future assessments.
+
+--- PAGE 4 ---
+2024 Grade 3 ELA Test Text Complexity Metrics for
+Released Questions
+Selecting high-quality, grade-appropriate passages requires both objective text
+complexity metrics and expert judgment. For the Grades 3–8 assessments based on the
+New York State P–12 Next Generation Learning Standards for English Language Arts, both
+quantitative and qualitative rubrics are used to determine the complexity of the texts and
+their appropriate placement within a grade-level ELA exam.
+Quantitative measures of text complexity are used to measure aspects of text complexity
+that are difficult for a human reader to evaluate when examining a text. These aspects
+include word frequency, word length, sentence length, and text cohesion. These aspects
+are efficiently measured by computer programs. While quantitative text complexity
+metrics are a helpful start, they are not definitive.
+Qualitative measures are a crucial complement to quantitative measures. Using
+qualitative measures of text complexity involves making an informed decision about the
+difficulty of a text in terms of one or more factors discernible to a human reader applying
+trained judgment to the task. To qualitatively determine the complexity of a text, NYS
+educators use a rubric composed of five factors; four of these factors are required and
+one factor is optional. The required criteria are: meaning, text structure, language
+features, and knowledge demands. The optional factor, graphics, is used only if a graphic
+appears in the text.
+To make the final determination as to whether a text is at grade-level and thus
+appropriate to be included on a Grades 3–8 assessment, New York State uses a two-step
+review process, which is an industry best-practice. First, all prospective passages undergo
+quantitative text complexity analysis using three text complexity measures. If at least two
+of the three measures suggest that the passage is grade-appropriate, the passage then
+moves to the second step, which is the qualitative review using the text-complexity
+rubrics. Only passages that are determined appropriate by at least two of three
+quantitative measures of complexity and are determined appropriate by the qualitative
+measure of complexity are deemed appropriate for use on the exam.
+
+--- PAGE 5 ---
+Text Complexity Metrics for 2024 Grade 3 Passages
+Word
+Passage Title Count
+elixeL
+diacniK-hcselF
+SOTA
+Qualitative
+Review
+Excerpt from Crazy About Clouds 509 550 2.4 3.37 Appropriate
+Excerpt from The Little Red Lighthouse
+618 530 2.3 3.8 Appropriate
+and the Great Gray Bridge
+Excerpt from Apple Day 528 580 3.2 4.27 Appropriate
+Excerpt from Hide with the Ladybugs 580 550 3.3 3.13 Appropriate
+New York State 2024 Quantitative Text Complexity Chart for Assessment and Curriculum
+To determine if a text’s quantitative complexity is at the appropriate grade level, New
+York State uses the table below. In cases where a text is excerpted from a large work, only
+the complexity of the excerpt that students see on the test is measured, not the large
+work, so it is possible that the complexity of a book might be above or below grade level,
+but the text used on the assessment is at grade level. Because the measurement of text
+complexity is inexact, quantitative measures of complexity are defined by grade band
+rather than by individual grade level and then paired with the qualitative review by an
+educator.
+Degrees of
+Grade Reading The Lexile Reading
+Band ATOS Power Flesch-Kincaid Framework Maturity SourceRater
+2nd–3rd 2.75 – 5.14 42 – 54 1.98 – 5.34 420 – 820 3.53 – 6.13 0.05 – 2.48
+4th–5th 4.97 – 7.03 52 – 60 4.51 – 7.73 740 – 1010 5.42 – 7.92 0.84 – 5.75
+6th–8th 7.00 – 9.98 57 – 67 6.51 – 10.34 925 – 1185 7.04 – 9.57 4.11 – 10.66
+9th–10th 9.67 – 12.01 62 – 72 8.32 – 12.12 1050 – 1335 8.41 – 10.81 9.02 – 13.93
+11th–12th 11.20 – 14.10 67 – 74 10.34 – 14.20 1185 – 1385 9.57 – 12.00 12.30 – 14.50
+Source: Student Achievement Partners
+
+--- PAGE 6 ---
+GRADE 3 ELA SESSION 1
+Name: __________________________________________________
+New York State
+Testing Program
+English Language Arts Test
+Session 1
+3
+Grade
+Spring 2024
+RELEASED QUESTIONS
+1 NOISSES ALE 3 EDARG
+
+--- PAGE 7 ---
+Excerpt from Crazy About Clouds by Rena Korb. Used with permission of ABDO Publishing via Copyright Clearance Center.
+Excerpt from The Little Red Lighthouse and the Great Gray Bridge by Hildegarde H. Swift and Lynd Ward. Copyright © 1970 by Hildegarde
+Hoyt Swift and Lynd Ward. Used with permission of Houghton Mifflin Harcourt Publishing Company via Copyright Clearance Center.
+Developed and published under contract with the New York State Education Department by NWEA, a division of HMH, 14720 Energy Way,
+Apple Valley, MN 55124. Copyright © 2024 by the New York State Education Department.
+Session 1
+
+--- PAGE 8 ---
+Session 1
+TIPS FOR TAKING THE TEST
+Here are some ideas to help you do your best:
+• Read the whole passage before you answer the questions. Most questions will only make
+sense after you read the whole passage.
+• You might need to read the passage more than once to answer a question.
+• Read each question carefully. Take your time.
+• A question may include a quote from a passage. You might need to review both the
+quote and the whole passage to answer the question.
+When you write your answers
+• make sure to answer the whole question;
+• use examples or details from the text;
+• write in complete sentences; and
+• use correct spelling, grammar, capitalization, and punctuation.
+Session 1 Page 1
+
+--- PAGE 9 ---
+Read this passage. Then answer questions 13 through 18.
+Excerpt from Crazy About Clouds
+by Rena Korb
+1 Look up at the sky. Do you see any clouds today?
+2 Look! ere’s one shaped like a fluffy, white bunny. A dark gray one
+floats by like a jellyfish.
+Tiny, Floating Drops
+3 Clouds look different. But they are all made of the same stuff—water.
+4 Clouds form when tiny drops of water gather in the sky. Tiny chunks of
+ice make up clouds, too.
+5 e tiny drops of water come together. ey form heavier and heavier
+drops. Sometimes, the drops get too heavy to float.
+6 Splat! Rain pours from the clouds. Or you might see drizzle, mist, or
+snow.
+drizzle = light rain
+mist = tiny drops of water that hang in the air
+7 Clouds may look light and fluffy. But even the water in a small cloud
+weighs more than 500 tons. at’s about as heavy as 100 elephants!
+Changing Clouds
+8 Watch a cloud closely. You will see it change before your very eyes.
+9 Clouds can change shapes and sizes. ey can look bright white or dark
+gray. Have you ever seen pink clouds at sunset?
+10 Clouds dip and dance as the wind pushes them across the sky.
+GO ON
+Page 12 Session 1
+
+--- PAGE 10 ---
+11 Some clouds travel as fast as race cars!
+12 A cloud can speed along at 100 miles per hour (160 km/h).
+High Clouds, Low Clouds
+13 Scientists group clouds by where they are seen in the sky. High clouds
+sail with the jumbo jets. Birds fly through low clouds.
+jumbo = very large
+14 Other clouds float in the middle, and some move up and down.
+15 Have you ever walked by a lake on a cool morning? e fog can be very
+thick. You can barely see the road ahead of you!
+16 Fog is actually a cloud that creeps along the ground.
+creeps = moves slowly
+17 Cool weather can bring fog. As the day warms up, fog clears away.
+Types of Clouds
+18 Scientists also group clouds by how they look. Let’s explore a few
+clouds.
+19 Stratus clouds look like a gray blanket over the sky. ey oen gather in
+cool weather. ese clouds mean rain may soon be falling.
+20 Have you ever seen bright cotton balls in the sky? ese are cumulus
+clouds.
+21 ey mostly dri along on a fine, sunny day.
+22 Very high above your head float cirrus clouds. eir long tails curve
+through the sky.
+23 When you see these clouds, the weather might soon change.
+24 Run for cover!
+GO ON
+Session 1 Page 13
+
+--- PAGE 11 ---
+25 Dark cumulonimbus clouds are gathering. ese clouds cause powerful
+storms.
+26 Cumulonimbus clouds usually only stay in the sky for about an hour.
+As they break open, they can let out millions of buckets of water.
+Study the Clouds
+27 Will it rain? Is a snowstorm coming? Clouds give clues about what the
+weather will be like.
+28 Scientists study clouds to tell what kind of day you’ll have tomorrow.
+29 Cloudy days are usually cooler than clear days. But cloudy nights are a
+little bit warmer than clear nights.
+30 You can study the clouds, too. What types of clouds do you see? Can
+you guess the weather ahead?
+31 No matter what, you are sure to find many wonderful shapes driing in
+the sky.
+GO ON
+Page 14 Session 1
+
+--- PAGE 12 ---
+e phrase “change before your very eyes” in paragraph 8 suggests that clouds
+13
+A can only be seen up close
+B can look strange to others
+C can make it difficult for you to see
+D can become different while you watch
+What claim does the author make about cumulus clouds?
+14
+A ey look like bright cotton balls in the sky.
+B ey form only when it is windy for many hours.
+C ey show that the weather might soon change.
+D ey look pink when they form at sunset.
+In which section of the passage can the reader find information about how clouds
+15
+are made?
+A “Tiny, Floating Drops”
+B “Changing Clouds”
+C “Types of Clouds”
+D “Study the Clouds”
+GO ON
+Session 1 Page 15
+
+--- PAGE 13 ---
+Which sentence from the passage shows a cause-and-effect relationship?
+16
+A “Clouds can change shapes and sizes.” (paragraph 9)
+“Other clouds float in the middle, and some move up and down.”
+B
+(paragraph 14)
+C “As the day warms up, fog clears away.” (paragraph 17)
+“Scientists study clouds to tell what kind of day you’ll have tomorrow.”
+D
+(paragraph 28)
+Which detail best shows how the author feels about clouds?
+17
+A “Some clouds travel as fast as race cars!” (paragraph 11)
+B “You can barely see the road ahead of you!” (paragraph 15)
+C “. . . cloudy nights are a little bit warmer than clear . . .” (paragraph 29)
+D “. . . you are sure to find many wonderful shapes . . .” (paragraph 31)
+Which detail would be most important to include in a summary of the passage?
+18
+A Some clouds can look like shapes of animals.
+B Clouds form when drops of water come together.
+C Clouds can appear on warm days and on cool days.
+D Birds fly through clouds that are low in the sky.
+GO ON
+Page 16 Session 1
+
+--- PAGE 14 ---
+Read this story. Then answer questions 19 through 25.
+Lighthouses were once lit by gas. A gas lighthouse on the Hudson River
+closed and later became a park aer the George Washington Bridge was
+built.
+Excerpt from e Little Red
+Lighthouse and the Great Gray Bridge
+by Hildegarde H. Swi and Lynd Ward
+1 Once upon a time a little lighthouse was built on a sharp point of the
+shore by the Hudson River. . . .
+2 Behind it lay New York City where the people lived.
+3 Before it sailed the boats on which the people rode. Up and down, up
+and down, sailed the boats. On and on and on rolled the river. All the way
+from Lake Tear of the Clouds, high up in the mountains, came the Hudson
+River. It rolled down the mountains. It rolled and rolled and rolled. It rolled
+past Albany. It rolled past New York. And it went on forever looking for the
+sea.
+4 Now the boats on the river talked to the little red lighthouse as they
+passed.
+5 “Hoot, hoot, hoot! How are you?” said the big steamer, with its deep,
+throaty whistle. . . .
+6 By day the little red lighthouse did not answer. . . .
+7 But every night, just at fall of dark, a man came to tend the little red
+lighthouse. He took out his jingling keys. He unlocked the small red door in
+its side. He climbed its steep and winding stairs, up, up, up, to the very top.
+He took off the thick white cap that let it sleep by day. He turned on the gas
+with a funny small black key.
+8 Up, up, up, flowed the gas from the six red tanks below.
+GO ON
+Session 1 Page 17
+
+--- PAGE 15 ---
+9 en the little red lighthouse spoke out plainly. Flash! Flash! Flash! . . .
+10 It felt big and useful and important. What would the boats do without
+me? it thought.
+11 It felt VERY, VERY PROUD.
+12 e boats saw the light and were safe. e boats saw it, and they kept to
+the channel. e boats were grateful to the little red lighthouse. . . .
+channel = deepest part of a river or harbor
+13 Why, I am MASTER OF THE RIVER, it thought.
+14 en one day a gang of workmen came and began to dig. . . .
+15 Every day it watched the strange new gray thing beside it grow and
+grow. Huge towers seemed to touch the sky. Strong loops of steel swept
+across the river. How big it was! How wonderful! How powerful! A great
+gray bridge, spanning the Hudson River from shore to shore. It made the
+little red lighthouse feel very, very small.
+spanning = going across
+16 en one night a great beam of light flashed from the top of the nearest
+gray tower. . . .
+17 Now I am needed no longer, thought the little red lighthouse. My light
+is so little and this one so big! . . .
+18 en in the middle of the night there came a storm. e wind moaned.
+e waves beat against the shore. . . .
+19 en the great gray bridge called to the little red lighthouse: “Little
+brother, where is your light?”
+GO ON
+Page 18 Session 1
+
+--- PAGE 16 ---
+20 “Am I a brother of yours, bridge?” wondered the lighthouse. “Your light
+was so bright that I thought mine was not needed anymore.”
+21 “I call to the airplanes,” cried the bridge. “I flash to the ships of the air.
+But you are still master of the river. Quick, let your light shine again. Each to
+his own place, little brother!”
+22 So the little red lighthouse tried to shine once more, but though it tried
+and tried and tried, it could not turn itself on. . . .
+23 But at last it heard the door opening far below. At last it heard steps
+rushing up the stairs. . . .
+24 Now the little red lighthouse knew that it was needed. . . .
+25 It sent a long, bright, flashing ray out into the night. . . .
+26 And now beside the great beacon of the bridge, the small beam of the
+lighthouse still flashes.
+beacon = guiding light
+27 Beside the towering gray bridge the lighthouse still bravely stands.
+ough it knows now that it is little, it is still VERY, VERY PROUD.
+GO ON
+Session 1 Page 19
+
+--- PAGE 17 ---
+Which event would be most important to include in a summary of the story?
+19
+A A man takes care of the lighthouse and uses a small key to start its light.
+B A boat greets the lighthouse in the day but the lighthouse does not answer.
+A terrible storm comes in the night and the bridge reminds the lighthouse
+C
+why it is needed.
+A group of workers come to the Hudson River and begin digging and
+D
+building along the shore.
+How are the details in paragraphs 1 through 6 important to the story?
+20
+A e paragraphs explain the main problem to be solved in the story.
+B e paragraphs introduce the setting and the main character of the story.
+C e paragraphs show why later events will come to happen in the story.
+e paragraphs hint at how the characters will change over time in the
+D
+story.
+How does the building of the great gray bridge affect the little red lighthouse?
+21
+A e bridge makes the lighthouse feel like it is not useful anymore.
+B e bridge makes the lighthouse feel happy to have help with its job.
+C e bridge shows the lighthouse new ways to help the people of the city.
+D e bridge blocks out the light of the lighthouse so it is not seen by boats.
+GO ON
+Page 20 Session 1
+
+--- PAGE 18 ---
+e great gray bridge believes that the little red lighthouse
+22
+A can help it send lights into the air
+B should be moved to a different place
+C is too small to be helpful in an emergency
+D must continue to do its job for the boats
+Lighthouses are important because they guide boats. ey can help keep boats safe
+23
+when weather is bad or water is dangerous. Which detail best shows how this idea
+connects to the events in the story?
+“All the way from Lake Tear of the Clouds, high up in the mountains, came
+A
+the Hudson River.” (paragraph 3)
+“Now the boats on the river talked to the little red lighthouse as they
+B
+passed.” (paragraph 4)
+“He took off the thick white cap that let it sleep by day. He turned on the
+C
+gas with a funny small black key.” (paragraph 7)
+“e boats saw the light and were safe. e boats saw it, and they kept to
+D
+the channel.” (paragraph 12)
+GO ON
+Session 1 Page 21
+
+--- PAGE 19 ---
+is question is worth 2 credits.
+24
+What theme is best supported by paragraphs 17 through 25 of “Excerpt from e
+Little Red Lighthouse and the Great Gray Bridge”? Use two details from the story to
+27
+sThupisp qourets ytioounr i sr ewsoprothn s2e c.redits.
+How does the illustration add to the reader’s understanding of “Pill Bugs”? Use two details from the
+passage to support your response.
+Write your response for this question in your separate Session 1 Answer Booklet.
+Writing on this page will not be scored.
+is question is worth 2 credits.
+25
+In “Excerpt from e Little Red Lighthouse and the Great Gray Bridge,” why does the
+little red lighthouse feel proud? Use two details from the story to support your
+This question is worth 2 credits.
+27
+response.
+How does the illustration add to the reader’s understanding of “Pill Bugs”? Use two details from the
+passage to support your response.
+This question is worth 2 credits.
+28
+WhWatr iist ea ymoauinr irdeesap oofn psaer afgorra pthhsi s2 qthureosutgiohn 4 iinn “yPoiull rB suegps”a?r Uatsee Stweoss dioetna i1ls Afronmsw theer pBaossoakglee tto.
+support your response.
+Writing on this page will not be scored.
+Write your response for this question in your separate Session 1 Answer Booklet.
+Writing on this page will not be scored.
+This question is worth 2 credits.
+28
+STOP
+What is a main idea of paragraphs 2 through 4 in “Pill Bugs”? Use two details from the passage to
+Pages u2p2port your response. Session 1
+GO ON
+SECURE W MA r T it E e R I y AL o S u r response for this questio S n e s in s i y o o n u 1 r F se o p rm ar a A t e 3 Session 1 Answer BooklePta. ge 1
+All rights reserved. No part of this booklet may be
+reproduced or transmitted by any means.
+Writing on this page will not be scored.
+GO ON
+SECURE MATERIALS Session 1 Form A 3 Page 1
+All rights reserved. No part of this booklet may be
+reproduced or transmitted by any means.
+
+--- PAGE 20 ---
+Grade 3
+English Language Arts Test
+Session 1
+Spring 2024
+
+--- PAGE 21 ---
+GRADE 3 ELA SESSION 2
+Name: __________________________________________________
+New York State
+Testing Program
+English Language Arts Test
+Session 2
+3
+Grade
+Spring 2024
+RELEASED QUESTIONS
+2 NOISSES ALE 3 EDARG
+
+--- PAGE 22 ---
+“Apple Day” by Kimberly Long Cockroft, Spider, September 1, 2015, Vol. 22 Issue 7. Copyright © 2015 by Cricket Media. Used with
+permission of Carus Publishing Company via Copyright Clearance Center.
+Excerpt from Hide with the Ladybugs by Karen Latchana Kenney. Copyright © 2011 by ABDO Consulting Group, Inc. Published by Magic
+Wagon. Used with permission of ABDO Publishing Group via Copyright Clearance Center.
+Developed and published under contract with the New York State Education Department by NWEA, a division of HMH, 14720 Energy Way,
+Apple Valley, MN 55124. Copyright © 2024 by the New York State Education Department.
+Session 2
+
+--- PAGE 23 ---
+Session 2
+TIPS FOR TAKING THE TEST
+Here are some ideas to help you do your best:
+• Read the whole passage before you answer the questions. Most questions will only
+make sense after you read the whole passage.
+• You might need to read the passage more than once to answer a question.
+• Read each question carefully. Take your time.
+• A question may include a quote from a passage. You might need to review both the
+quote and the whole passage to answer the question.
+When you write your answers
+• make sure to answer the whole question;
+• use examples or details from the text;
+• write in complete sentences; and
+• use correct spelling, grammar, capitalization, and punctuation.
+Session 2 Page 1
+
+--- PAGE 24 ---
+Read this story. Then answer questions 26 through 31.
+Molly is in the apple orchard picking apples with her dad.
+Excerpt from Apple Day
+by Kimberly Long Cockro
+1 Sunlight filters through the branches, dappling Molly’s hands as she
+twists each stem. She is careful to pick only the best apples. Every year, her
+family’s applesauce is the best in Montana—well, almost the best. Last year,
+their jar of special McIntosh applesauce won the red ribbon at the state fair.
+2 ere’s just something missing from our sauce, Molly muses as she
+picks. If only they could figure out what it is, they might win the blue ribbon
+this year. Molly strains for an apple just out of reach and—CRASH—
+tumbles, dizzy, to the ground. It feels like a bobcat has wrapped his paws
+around her legs.
+3 But it’s not a bobcat. It’s Sam, her messy little cousin who lives next
+door.
+4 “Molly, I came to pick apples, too!” He waves an old, battered purse
+above his head.
+5 Sam’s mom waves from the edge of the orchard, her hair still in curlers.
+Dad waves back and calls, “We’ll watch him this morning!” . . .
+6 “Go pick apples over there,” Molly snaps. She points to an ancient,
+twisted apple tree. Nobody knows what kinds of apples it grows, but they are
+tiny and too tart to eat.
+7 Sam doesn’t care. He fills his mom’s old purse with them, then stuffs his
+raincoat pockets full, too. . . .
+8 en Dad calls, “Time to sauce!”
+9 Sam lis up his bulging purse. “I picked a bunch!”
+10 Molly sighs. She hopes Sam will stay out of the way.
+GO ON
+Page 2 Session 2
+
+--- PAGE 25 ---
+11 At home, Dad cinches the iron clamps of the applesauce mill to the
+table while Molly rinses the apples.
+12 “ey’re beauties,” Mom says, and Molly smiles with pride. en into
+the big pot on the stove they go.
+13 Suddenly, before she can stop him, Sam shakes the purse of tiny, sour
+apples into the pot, too.
+14 “No!” Molly cries, reaching into the pot to pull out Sam’s apples.
+15 “It’s OK,” Dad chuckles. “I know a secret about good applesauce.” . . .
+16 Molly isn’t so sure.
+17 While the apples soen in the pot, filling the kitchen with sweet steam,
+Sam bangs on the empty bowl with a spoon and belts out a song about
+Apple Day. . . .
+18 Molly and Dad take turns cranking the handle, smashing the apples
+into sauce. Sam tries, too, but it is too hard for him. e sauce slips down
+into the bowl, golden and smooth. A pile of seeds and skin slip out the back
+of the mill, and Molly empties them onto the compost heap, a treat for the
+bees.
+compost heap = a pile of food and plant waste
+19 Finally, all the apples, even Sam’s tiny tart ones, have been made into a
+huge bowl of applesauce. Dad holds a spoon to Molly’s lips.
+20 Molly screws up her mouth. She sticks out her tongue to taste just a
+little. en she gobbles the whole bite. “Wow!”
+21 Dad’s eyes twinkle. “e secret to really good sauce is making it from
+different kinds of apples.” He ruffles Sam’s hair. “We may even have a chance
+at that blue ribbon this year.”
+GO ON
+Session 2 Page 3
+
+--- PAGE 26 ---
+22 “Who would have known that you had the missing ingredient?” Molly
+asks her cousin.
+23 Sam grins, licking sauce from his fingers. “I love Apple Day!”
+24 Molly smiles. “Me, too, Sam.”
+GO ON
+Page 4 Session 2
+
+--- PAGE 27 ---
+Which sentence best shows a theme of the story?
+26
+A Goals can be reached through hard work.
+B Good things happen to people who tell the truth.
+C Trusting what others do can be rewarding.
+D e happiest moments in life are those spent with family.
+What does the word “muses” mean as it is used in paragraph 2?
+27
+A feels strange
+B becomes amazed
+C thinks deeply
+D feels upset
+In paragraph 3 of the story, whose thoughts are being shown?
+28
+A Sam’s
+B Molly’s
+C Dad’s
+D Mom’s
+GO ON
+Session 2 Page 5
+
+--- PAGE 28 ---
+Read these sentences from paragraph 20.
+29
+Molly screws up her mouth. She sticks out her tongue to taste
+just a little.
+Which sentence best explains why Molly acts this way?
+A She is certain that the applesauce will win the blue ribbon.
+B She thinks that the applesauce will taste bad.
+C She is angry at Sam for putting his apples in the applesauce.
+D She wants to try the applesauce before Sam tries it.
+Which quote from the story best shows that Molly has learned a lesson?
+30
+A “Molly sighs. She hopes Sam will stay out of the way.” (paragraph 10)
+“ ‘ey’re beauties,’ Mom says, and Molly smiles with pride.”
+B
+(paragraph 12)
+C “en she gobbles the whole bite. ‘Wow!’ ” (paragraph 20)
+D “We may even have a chance at that blue ribbon this year.” (paragraph 21)
+Which sentence best shows how Molly’s feelings about Sam change in the story?
+31
+A “It’s Sam, her messy little cousin who lives next door.” (paragraph 3)
+B “ ‘Go pick apples over there,’ Molly snaps.” (paragraph 6)
+“ ‘No!’ Molly cries, reaching into the pot to pull out Sam’s apples.”
+C
+(paragraph 14)
+“Who would have known that you had the missing ingredient?”
+D
+(paragraph 22)
+GO ON
+Page 6 Session 2
+
+--- PAGE 29 ---
+Read this passage. Then answer questions 32 through 34.
+Excerpt from Hide with the Ladybugs
+by Karen Latchana Kenney
+Lovely Ladybug
+1 Crawl, crawl, crawl. A ladybug looks like a colorful, crawling bump.
+From the side, it’s shaped like half a pea. en it opens its wings. It’s gone in
+a second.
+2 More than 5,000 kinds of ladybugs crawl and fly around Earth.
+Ladybugs gather in gardens and forests. ey live almost everywhere except
+for very cold places.
+3 Ladybugs are a kind of beetle. Even males are called ladybugs!
+Ladybugs are also called lady beetles or ladybird beetles.
+Growing Ladybugs
+4 In the spring, a female ladybug crawls on the underside of a leaf. She is
+looking for a safe place to lay eggs. Here, the eggs will be safe from hungry
+birds or insects flying above.
+5 e mother ladybug lays her eggs. en she flies away. e tiny, yellow
+eggs look like shiny jellybeans. A mother ladybug doesn’t just lay her eggs
+anywhere. She chooses a place with lots of tiny bugs called aphids. When the
+eggs hatch, her young will have plenty to eat.
+6 A few days later, larvae hatch from the eggs. ese tiny creatures have
+legs but no wings. ey are very hungry! ey hunt for aphids. A larva can
+eat 400 aphids before it is three weeks old!
+creatures = animals
+7 e larvae are growing quickly. To grow, a larva breaks out of its old
+skin. Underneath it has new, bigger skin. is is called molting.
+GO ON
+Session 2 Page 7
+
+--- PAGE 30 ---
+8 Next, a larva finds a safe place and attaches to a leaf. A hard cover
+surrounds the larva. It becomes a pupa. Inside the cover, the pupa grows
+and changes. . . .
+attaches to = joins itself with
+9 Aer a few days, an adult ladybug climbs out of the hard casing. Its
+body is so and pale. It does not have spots.
+10 e ladybug’s skin soon hardens into a shell. is shell protects the
+ladybug. Some ladybugs slowly turn red. eir black spots appear.
+11 Ladybugs can be orange, yellow, pink, or black. Some have spots. Some
+are spotless, and some have stripes.
+Flying and Feeling
+12 Soon, ladybugs are flying. Each one has two sets of wings. Unlike other
+insects, beetles have elytra. e elytra are hard, front wings. ey cover a
+pair of thin, see-through back wings.
+13 To fly, the ladybug opens its front wings. en the thin wings flutter.
+ey li the ladybug into the air.
+flutter = move quickly
+14 e two elytra are a mirror image of each other. ey have the exact
+same color and spots.
+15 Ladybugs cannot see faraway things well. How do they find food?
+16 A ladybug uses its two antennae to explore its world. Like wands, they
+wave in all directions. ey can feel, smell, and taste.
+GO ON
+Page 8 Session 2
+
+--- PAGE 31 ---
+Helpful Bugs
+17 Ladybugs eat aphids or scale bugs. ese tiny creatures are pests. ey
+harm crops. at’s why farmers and gardeners love to see ladybugs crawling
+around. More ladybugs means fewer pests. An adult ladybug can eat 75
+aphids a day! A few kinds of ladybugs eat plant parts. Some eat pollen, the
+sticky dust on flowers.
+Staying Safe
+18 e air has a chill. Winter is coming. Ladybugs find a dry place away
+from the wind. It can be in a house or in a dead tree. Sometimes, they form
+large groups.
+19 e ladybugs stay there through winter. ey do not eat anything. ey
+could stay like this for nine months.
+New Lives
+20 When the air is warm again, the ladybugs go back outside. ey fly
+around the garden. ey hunt for aphids. e females lay eggs. New
+ladybugs begin their lives.
+GO ON
+Session 2 Page 9
+
+--- PAGE 32 ---
+is question is worth 2 credits.
+32
+In “Excerpt from Hide with the Ladybugs,” how does paragraph 5 connect to
+paragraph 6? Use two details from the passage to support your response.
+GO ON
+Page 10 Session 2
+
+--- PAGE 33 ---
+is question is worth 2 credits.
+33
+e cold can be dangerous for animals, so they find ways to stay safe in bad
+weather. How does “Excerpt from Hide with the Ladybugs” develop this idea? Use
+two details from the passage to support your response.
+GO ON
+Session 2 Page 11
+
+--- PAGE 34 ---
+is question is worth 2 credits.
+34
+How does the diagram “A Ladybug’s Body” better help the reader’s understanding of
+the passage? Use two details from the passage to support your response.
+STOP
+Page 12 Session 2
+
+--- PAGE 35 ---
+Grade 3
+English Language Arts Test
+Session 2
+Spring 2024
+
+--- PAGE 36 ---
+THE STATE EDUCATION DEPARTMENT
+THE UNIVERSITY OF THE STATE OF NEW YORK / ALBANY, NY 12234
+2024 English Language Arts Tests Map to the Standards
+Grade 3
+Multiple Choice
+Constructed Response Questions
+Questions
+Question Type Key Points Standard Subscore Percentage of Students P-Value
+Average
+Who Answered Correctly (Average Points Earned ÷
+Points Earned
+(P-Value) Total Possible Points)
+Session 1
+13 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.4 Reading 0.65
+14 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.8 Reading 0.6
+15 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.5 Reading 0.62
+16 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.3 Reading 0.4
+17 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.6 Reading 0.55
+18 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.2 Reading 0.51
+19 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.2 Reading 0.48
+20 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.5 Reading 0.42
+21 Multiple Choice A 1 NGLS.ELA.Content.NY-3.R.3 Reading 0.53
+22 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.8 Reading 0.54
+23 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.9 Reading 0.56
+24 Constructed Response 2 NGLS.ELA.Content.NY-3.R.2 Writing to Sources 0.96 0.48
+25 Constructed Response 2 NGLS.ELA.Content.NY-3.R.3 Writing to Sources 1.03 0.51
+Session 2
+26 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.2 Reading 0.38
+27 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.4 Reading 0.56
+28 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.6 Reading 0.65
+29 Multiple Choice B 1 NGLS.ELA.Content.NY-3.R.3 Reading 0.57
+30 Multiple Choice C 1 NGLS.ELA.Content.NY-3.R.2 Reading 0.43
+31 Multiple Choice D 1 NGLS.ELA.Content.NY-3.R.3 Reading 0.56
+32 Constructed Response 2 NGLS.ELA.Content.NY-3.R.3 Writing to Sources 1.24 0.62
+33 Constructed Response 2 NGLS.ELA.Content.NY-3.R.9 Writing to Sources 1 0.5
+34 Constructed Response 2 NGLS.ELA.Content.NY-3.R.7 Writing to Sources 1.01 0.51
+*This item map is intended to identify the primary analytic skills necessary to successfully answer each question on the 2024 operational ELA test. However,
+each constructed-response question measures proficiencies described in multiple standards, including writing and additional reading and language standards.
+For example, two-point and four-point constructed-response questions require students to first conduct the analyses described in the mapped standard and
+then produce written responses that are rated based on writing standards. To gain greater insight into the measurement focus for constructed-response questions, please
+refer to the rubrics shown in the Educator Guides.
+

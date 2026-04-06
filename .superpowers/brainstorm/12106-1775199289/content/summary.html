@@ -1,0 +1,94 @@
+<h2>Section 4 — Full Design Summary</h2>
+<p class="subtitle">Everything going into the build. Approve this and we move to implementation.</p>
+
+<div class="section">
+  <div style="display:flex;flex-direction:column;gap:12px">
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #00205b">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">🗑️</span>
+        <strong style="font-size:15px;color:#00205b">Clear All Existing Assignments</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Remove all 8 hardcoded math lessons and 1 ELA lesson from the app. Students see a clean "No assignments yet" screen. Teachers start fresh from the dashboard.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #0070c0">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">➕</span>
+        <strong style="font-size:15px;color:#0070c0">Teacher Assignment Manager</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">New tab in teacher dashboard: add assignments (title, subject, duration, questions via JSON/text), delete them, and see them instantly appear/disappear on the student test list. No code editing needed.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #9b59b6">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">📏</span>
+        <strong style="font-size:15px;color:#9b59b6">Bigger Question Text</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Question text bumped to 17px, answer choices to 16px with more padding. Easier for 3rd graders to read on screen.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #e67e22">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">🔗</span>
+        <strong style="font-size:15px;color:#e67e22">Dead Links Fixed</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Audit and fix all broken internal navigation, missing image references, and any non-functioning buttons or links across the entire app.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #c00">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">🖥️</span>
+        <strong style="font-size:15px;color:#c00">Broken UI Fixed</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Screen-by-screen audit of login, test list, test interface, review screen, completion screen, and teacher dashboard. Fix layout breaks, overlapping elements, clipped content.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #27ae60">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">⚡</span>
+        <strong style="font-size:15px;color:#27ae60">Performance Improvements</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Remove dead code from cleared assignments, clean up empty lesson structures, ensure Fuse.js only loads on demand. Smaller, faster page.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #2980b9">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">📊</span>
+        <strong style="font-size:15px;color:#2980b9">Better Teacher Reports</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">Reports tab shows class summary stats (submissions, average, pass/fail counts) plus per-student breakdown with MC %, SR %, overall score, and pass/fail badge.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:5px solid #1a7a3c">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <span style="font-size:18px">📥</span>
+        <strong style="font-size:15px;color:#1a7a3c">CSV Export</strong>
+      </div>
+      <p style="font-size:13px;color:#555;line-height:1.5">One-click export from Reports tab — all students or below-passing only. Includes name, assignment, score %, MC %, SR %, pass/fail, time spent, submission date.</p>
+    </div>
+
+    <div style="background:#e8f4fd;border-radius:10px;padding:14px 18px;border:1px dashed #0070c0;margin-top:4px">
+      <strong style="font-size:13px;color:#0070c0">⏳ Deferred — Content Loading</strong>
+      <p style="font-size:12px;color:#555;margin-top:4px">Real ELA passages and Math questions will be added later when you bring the files. The assignment manager will make that easy to do without touching code.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="options">
+  <div class="option" data-choice="approve" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>Approve — write the spec</h3>
+      <p>Lock this in and move to implementation planning</p>
+    </div>
+  </div>
+  <div class="option" data-choice="change" onclick="toggleSelect(this)">
+    <div class="letter">✎</div>
+    <div class="content">
+      <h3>Make a change first</h3>
+      <p>Tell me what to adjust in the terminal</p>
+    </div>
+  </div>
+</div>
