@@ -1008,7 +1008,6 @@ body {
   color: var(--pl-cream-dark); cursor: pointer; padding: 2px 6px;
 }
 </style>
-<!-- D3 is lazy-loaded the first time the Analytics tab is opened (see _ensureD3ThenRender) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.5/purify.min.js"
         integrity="sha384-nszIONF2FGC59kn+pPFaRa6WUNGwsZgXZiJxJwQbym+TzcH7smolUviLgpPbNx7V"
         crossorigin="anonymous"></script>
@@ -3241,7 +3240,7 @@ function exitPreview() {
   ST._preview = false;
   document.getElementById('preview-banner').style.display = 'none';
   show('sc-teacher');
-  switchTeacherTab('assign');
+  switchTeacherTab('manage');
 }
 
 function beginTest() {
@@ -4259,6 +4258,7 @@ function renderTeacherTable(rows, source) {
       const score = (r.score && !r.score.includes('undefined')) ? r.score : ((r.correct || '?') + '/' + (r.total || '?'));
       const origIdx = rows.indexOf(r);
       const viewBtn = `<button class="btn-start btn-action" data-action="view-detail" data-idx="${origIdx}" style="padding:5px 12px;font-size:12px;background:#1a4b8c;">📋 View</button>`;
+      const answersBtn = `<button class="btn-start btn-action" data-action="view-answers" data-student="${escHtml(r.student||'')}" data-lesson="${escHtml(title)}" style="padding:5px 12px;font-size:12px;background:#6c5ce7;">📝 Answers</button>`;
       const reopenBtn = `<button class="btn-start btn-action" data-action="reopen"
         data-student="${escHtml(r.student||'')}"
         data-lesson="${escHtml(title)}"
@@ -4277,7 +4277,7 @@ function renderTeacherTable(rows, source) {
         <td style="text-align:center;">${badge}</td>
         <td>${escHtml(r.timeTaken || '—')}</td>
         <td style="font-size:11px;color:#888;">${time}</td>
-        <td style="display:flex;gap:6px;flex-wrap:wrap;">${viewBtn}${reopenBtn}</td>
+        <td style="display:flex;gap:6px;flex-wrap:wrap;">${viewBtn}${answersBtn}${reopenBtn}</td>
       </tr>`;
     }).join('');
   }
@@ -4289,7 +4289,13 @@ function renderTeacherTable(rows, source) {
       <div style="font-weight:600;margin-bottom:6px;">No submissions yet</div>
       <div style="font-size:13px;">Scores will appear here as students complete assessments.</div></div>`;
   } else {
-    tableHTML = filterBar + `<div class="roster-wrap"><table class="roster-table" id="submissions-table">
+    const belowRows = displayRows.filter(r => getPct(r) < _getRowPassThreshold(r));
+    const reopenAllBtn = belowRows.length > 0
+      ? `<div style="margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <button onclick="reopenAllBelowPassing()" style="padding:8px 16px;background:#e67e22;color:#fff;border:none;border-radius:7px;font-size:13px;font-weight:700;cursor:pointer;">🔓 Reopen All Below Passing (${belowRows.length})</button>
+          <span style="font-size:12px;color:#888;">Reopens all submissions scoring below the pass threshold</span>
+        </div>` : '';
+    tableHTML = filterBar + reopenAllBtn + `<div class="roster-wrap"><table class="roster-table" id="submissions-table">
       <thead><tr><th>Student</th><th>Class</th><th>Lesson</th><th>Score</th><th>%</th><th>Status</th><th>Time</th><th>Submitted</th><th>Actions</th></tr></thead>
       <tbody id="submissions-tbody">${buildTableRows(displayRows)}</tbody>
     </table></div>`;
@@ -4300,7 +4306,6 @@ function renderTeacherTable(rows, source) {
   window._buildTableRows = buildTableRows;
   window._currentTeacherRows = rows;
   window._currentTeacherSource = source;
-  _analyticsCache.key = null; // invalidate memoized analytics when new data arrives
 
   const sheetsNote = source === 'supabase'
     ? `<div style="margin-top:12px;padding:10px 16px;background:#e8f0fe;border-radius:8px;font-size:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
@@ -4324,21 +4329,19 @@ function renderTeacherTable(rows, source) {
          </div>`;
 
   const tabs = `<div class="teacher-tabs">
+    <button class="teacher-tab" id="tab-btn-signins" onclick="switchTeacherTab('signins')">🕐 Sign-ins</button>
     <button class="teacher-tab active" id="tab-btn-table" onclick="switchTeacherTab('table')">📊 Submissions</button>
+    <button class="teacher-tab" id="tab-btn-roster" onclick="switchTeacherTab('roster')">📝 Student Answers</button>
     <button class="teacher-tab" id="tab-btn-grid" onclick="switchTeacherTab('grid')">📋 Class Grid</button>
-    <button class="teacher-tab" id="tab-btn-roster" onclick="switchTeacherTab('roster')">👥 Student Roster</button>
-    <button class="teacher-tab" id="tab-btn-analytics" onclick="switchTeacherTab('analytics')">📈 Analytics</button>
-    <button class="teacher-tab" id="tab-btn-assign" onclick="switchTeacherTab('assign')">🗂 Assign Lessons</button>
-    <button class="teacher-tab tab-new" id="tab-btn-new" onclick="switchTeacherTab('new')">➕ New Assignment</button>
+    <button class="teacher-tab" id="tab-btn-manage" onclick="switchTeacherTab('manage')">🗂 Manage Lessons</button>
   </div>`;
 
   el.innerHTML = tabs +
+    `<div id="teacher-panel-signins" style="display:none;"></div>` +
     `<div id="teacher-panel-table">${tableHTML + sheetsNote}</div>` +
-    `<div id="teacher-panel-grid" style="display:none;"></div>` +
     `<div id="teacher-panel-roster" style="display:none;"></div>` +
-    `<div id="teacher-panel-analytics" style="display:none;"></div>` +
-    `<div id="teacher-panel-assign" style="display:none;"></div>` +
-    `<div id="teacher-panel-new" style="display:none;"></div>`;
+    `<div id="teacher-panel-grid" style="display:none;"></div>` +
+    `<div id="teacher-panel-manage" style="display:none;"></div>`;
 }
 
 function applyTableFilter() {
@@ -4370,25 +4373,24 @@ function applyTableFilter() {
 }
 
 function switchTeacherTab(tab) {
-  ['table','grid','roster','analytics','assign','new'].forEach(t => {
+  ['signins','table','roster','grid','manage'].forEach(t => {
     document.getElementById(`tab-btn-${t}`)?.classList.toggle('active', t === tab);
     const panel = document.getElementById(`teacher-panel-${t}`);
     if (panel) panel.style.display = t === tab ? '' : 'none';
   });
+  if (tab === 'signins')   renderSignInsTab();
   if (tab === 'grid')      renderClassGrid(window._currentTeacherRows);
   if (tab === 'roster')    renderDatamateView(window._currentTeacherRows, window._currentTeacherSource);
-  if (tab === 'analytics') _ensureD3ThenRender(window._currentTeacherRows);
-  if (tab === 'assign')    renderAssignLessons();
-  if (tab === 'new')       renderNewAssignmentTab();
+  if (tab === 'manage')    renderManageTab();
 }
 
 function exportCSV(belowOnly) {
   let rows = window._currentTeacherRows || [];
   if (rows.length === 0) { alert('No data to export.'); return; }
   const getPct = window._getPct || (r => parseInt((r.pct||'0').toString().replace('%',''))||0);
-  const getThresh = window._getPassThreshold || (() => 0.70);
+  const getThresh = window._getPassThreshold || (() => 70);
   if (belowOnly) {
-    rows = rows.filter(r => getPct(r) < getThresh(r) * 100);
+    rows = rows.filter(r => getPct(r) < getThresh(r));
     if (rows.length === 0) { alert('No below-passing submissions to export.'); return; }
   }
   const headers = ['Student','Class','Lesson','Score','Total','Pct','Pass/Fail','Time Taken','Submitted'];
@@ -4399,7 +4401,7 @@ function exportCSV(belowOnly) {
     const total   = scoreMatch ? scoreMatch[2] : (r.total ?? '');
     const pct = getPct(r);
     const thresh = getThresh(r);
-    const passFail = pct >= thresh * 100 ? 'PASS' : 'BELOW';
+    const passFail = pct >= thresh ? 'PASS' : 'BELOW';
     const time = r.time || r.submittedAt || '';
     const cols = [r.student||'', r.classCode||r.classKey||'', r.lesson||r.title||'',
       correct, total, pct+'%', passFail, r.timeTaken||'', time];
@@ -4670,167 +4672,6 @@ function viewStudentDetails(idx) {
     </div>`;
 }
 
-/* ── Analytics sub-functions ── */
-function _computeLessonStats(rows) {
-  function getPct(r) {
-    if (typeof r.pct === 'number') return r.pct;
-    return parseInt((r.pct || '0').toString().replace('%','')) || 0;
-  }
-  return LESSONS.map((lesson, li) => {
-    const subs = rows.filter(r => (r.lesson || r.title) === lesson.title);
-    if (subs.length === 0) return null;
-    const pcts = subs.map(r => getPct(r));
-    const avg = Math.round(pcts.reduce((a,b) => a+b, 0) / pcts.length);
-    const thresh = getPassThreshold(lesson);
-    const passing = pcts.filter(p => p >= thresh).length;
-    const buckets = Array.from({length:10}, (_,i) => ({
-      label: i===9?'90-100':`${i*10}-${i*10+9}`,
-      min: i*10, max: i===9?100:i*10+9,
-      count:0, passes: i*10>=thresh
-    }));
-    pcts.forEach(p => { const bi=Math.min(9,Math.floor(p/10)); buckets[bi].count++; });
-    const qStats = lesson.questions.map((q,qi) => {
-      if (q.type !== 'mc' || !q.answer) return null;
-      let correct=0, attempted=0;
-      subs.forEach(r => {
-        let answers = r.answers||{};
-        if (typeof answers==='string'){try{answers=JSON.parse(answers);}catch(e){answers={};}}
-        const a = answers[qi]!==undefined?answers[qi]:answers[String(qi)];
-        if (a!==undefined&&a!==null&&a!==''){attempted++;if(String(a)===String(q.answer))correct++;}
-      });
-      return {qi,stem:q.stem,correct,attempted,pct:attempted>0?Math.round((correct/attempted)*100):null};
-    }).filter(Boolean);
-    return {lesson,li,subs,avg,passing,thresh,pcts,buckets,qStats};
-  }).filter(Boolean);
-}
-
-function _buildAnalyticsHTML(lessonStats) {
-  const cardBg='#f8f9fa', cardBdr='#e0e6f0', textClr='#1a2740', subClr='#888';
-  let html = `<div style="padding:20px 22px;">`;
-  lessonStats.forEach(({lesson,li,subs,avg,passing,thresh,buckets,qStats}) => {
-    const avgColor = avg>=thresh?'#27ae60':avg>=thresh-15?'#e67e22':'#e74c3c';
-    const failCnt = subs.length - passing;
-    html += `
-    <div style="margin-bottom:28px;background:${cardBg};border-radius:12px;padding:20px 22px;border:1px solid ${cardBdr};">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
-        <div>
-          <div style="font-weight:700;font-size:15px;color:${textClr};">${lesson.title}</div>
-          <div style="font-size:12px;color:${subClr};margin-top:3px;">${lesson.subject} · ${subs.length} submission${subs.length===1?'':'s'} · pass threshold ≥${thresh}%</div>
-        </div>
-        <div style="display:flex;gap:24px;align-items:center;">
-          <div style="text-align:center;">
-            <div style="font-size:28px;font-weight:900;color:${avgColor};line-height:1;">${avg}%</div>
-            <div style="font-size:11px;color:${subClr};margin-top:2px;">Class Avg</div>
-          </div>
-          <div style="text-align:center;">
-            <svg id="donut-${li}" width="64" height="64"></svg>
-            <div style="font-size:11px;color:${subClr};margin-top:2px;">${passing} passed / ${failCnt} below</div>
-          </div>
-        </div>
-      </div>
-      <div style="display:flex;gap:24px;flex-wrap:wrap;">
-        <div style="flex:1;min-width:220px;">
-          <div style="font-size:11px;font-weight:700;color:${subClr};text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Score Distribution</div>
-          <svg id="hist-${li}" width="100%" height="130"></svg>
-        </div>
-        ${qStats.length>0?`
-        <div style="flex:1;min-width:240px;">
-          <div style="font-size:11px;font-weight:700;color:${subClr};text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">Question Difficulty (hardest first)</div>
-          <svg id="qdiff-${li}" width="100%" height="${Math.max(120,qStats.length*26+10)}"></svg>
-        </div>`:''}
-      </div>
-    </div>`;
-  });
-  html += `</div>`;
-  return html;
-}
-
-function _renderAnalyticsCharts(lessonStats) {
-  if (typeof d3 === 'undefined') return;
-  lessonStats.forEach(({li,subs,avg,passing,thresh,pcts,buckets,qStats}) => {
-    const failCnt = subs.length-passing;
-    const donutEl = document.getElementById(`donut-${li}`);
-    if (donutEl) {
-      const data=[{label:'Pass',value:passing,color:'#27ae60'},{label:'Below',value:failCnt,color:avg>=thresh-15?'#e67e22':'#e74c3c'}].filter(d=>d.value>0);
-      const svgD=d3.select(donutEl),W=64,r=28,ri=18;
-      const arc=d3.arc().innerRadius(ri).outerRadius(r);
-      const pie=d3.pie().value(d=>d.value).sort(null);
-      const g=svgD.append('g').attr('transform',`translate(${W/2},${W/2})`);
-      g.selectAll('path').data(pie(data)).join('path').attr('d',arc).attr('fill',d=>d.data.color).attr('stroke','#f8f9fa').attr('stroke-width',2);
-      g.append('text').attr('text-anchor','middle').attr('dy','0.35em').attr('font-size','12').attr('font-weight','800').attr('fill','#1a2740').text(subs.length>0?Math.round((passing/subs.length)*100)+'%':'--');
-    }
-    const histEl = document.getElementById(`hist-${li}`);
-    if (histEl) {
-      const svgH=d3.select(histEl),totalW=histEl.getBoundingClientRect().width||260;
-      const H=130,mL=26,mB=28,mR=6,mT=8,innerW=totalW-mL-mR,innerH=H-mT-mB;
-      const maxCount=Math.max(1,d3.max(buckets,d=>d.count));
-      const xS=d3.scaleBand().domain(buckets.map(d=>d.label)).range([0,innerW]).padding(0.15);
-      const yS=d3.scaleLinear().domain([0,maxCount]).nice().range([innerH,0]);
-      const g=svgH.append('g').attr('transform',`translate(${mL},${mT})`);
-      const threshX=(thresh/10)*(innerW/10);
-      g.append('line').attr('x1',threshX).attr('x2',threshX).attr('y1',0).attr('y2',innerH).attr('stroke','#e74c3c').attr('stroke-width',1.5).attr('stroke-dasharray','4,3').attr('opacity',.7);
-      g.selectAll('rect').data(buckets).join('rect').attr('x',d=>xS(d.label)).attr('width',xS.bandwidth()).attr('y',innerH).attr('height',0).attr('rx',3).attr('fill',d=>d.min>=thresh?'#27ae60':d.min>=thresh-20?'#e67e22':'#e74c3c').attr('opacity',0.85).transition().duration(500).delay((_,i)=>i*40).attr('y',d=>yS(d.count)).attr('height',d=>innerH-yS(d.count));
-      g.selectAll('text.bar-label').data(buckets).join('text').attr('class','bar-label').attr('x',d=>xS(d.label)+xS.bandwidth()/2).attr('y',d=>yS(d.count)-3).attr('text-anchor','middle').attr('font-size','9').attr('fill','#666').text(d=>d.count>0?d.count:'');
-      g.append('g').attr('transform',`translate(0,${innerH})`).call(d3.axisBottom(xS).tickSize(0).tickFormat((d,i)=>i%2===0?d.split('-')[0]+'%':'')).select('.domain').remove();
-      g.selectAll('.tick text').attr('fill','#666').attr('font-size','9');
-      g.append('g').call(d3.axisLeft(yS).ticks(Math.min(maxCount,4)).tickSize(-innerW)).select('.domain').remove();
-      g.selectAll('.tick line').attr('stroke','#aab4c8').attr('stroke-dasharray','2,2').attr('opacity',.5);
-      g.selectAll('.tick text').attr('fill','#666').attr('font-size','9');
-    }
-    if (qStats.length>0) {
-      const qdiffEl=document.getElementById(`qdiff-${li}`);
-      if (qdiffEl) {
-        const sorted=qStats.slice().sort((a,b)=>(a.pct??999)-(b.pct??999));
-        const totalW=qdiffEl.getBoundingClientRect().width||300;
-        const rowH=26,mL=42,mR=50,mT=4,H=Math.max(120,sorted.length*rowH+mT+6),innerW=totalW-mL-mR;
-        d3.select(qdiffEl).attr('height',H);
-        const svgQ=d3.select(qdiffEl);
-        const g=svgQ.append('g').attr('transform',`translate(${mL},${mT})`);
-        const xS=d3.scaleLinear().domain([0,100]).range([0,innerW]);
-        const yS=d3.scaleBand().domain(sorted.map((_,i)=>i)).range([0,sorted.length*rowH]).padding(0.2);
-        g.selectAll('rect.track').data(sorted).join('rect').attr('class','track').attr('x',0).attr('width',innerW).attr('y',(_,i)=>yS(i)).attr('height',yS.bandwidth()).attr('rx',3).attr('fill','#e8ecf4');
-        g.selectAll('rect.qbar').data(sorted).join('rect').attr('class','qbar').attr('x',0).attr('y',(_,i)=>yS(i)).attr('height',yS.bandwidth()).attr('rx',3).attr('fill',d=>(d.pct??0)>=70?'#27ae60':(d.pct??0)>=50?'#e67e22':'#e74c3c').attr('width',0).transition().duration(500).delay((_,i)=>i*60).attr('width',d=>xS(d.pct??0));
-        g.selectAll('text.qlabel').data(sorted).join('text').attr('class','qlabel').attr('x',-5).attr('y',(_,i)=>yS(i)+yS.bandwidth()/2).attr('dy','0.35em').attr('text-anchor','end').attr('font-size','11').attr('font-weight','700').attr('fill','#666').text(d=>`Q${d.qi+1}`);
-        g.selectAll('text.qpct').data(sorted).join('text').attr('class','qpct').attr('x',innerW+6).attr('y',(_,i)=>yS(i)+yS.bandwidth()/2).attr('dy','0.35em').attr('text-anchor','start').attr('font-size','11').attr('font-weight','700').attr('fill',d=>(d.pct??0)>=70?'#27ae60':(d.pct??0)>=50?'#e67e22':'#e74c3c').text(d=>d.pct!=null?`${d.pct}%`:'–');
-      }
-    }
-  });
-}
-
-// ── Analytics memoization cache — invalidated when new Sheets data arrives
-let _analyticsCache = { key: null, lessonStats: null };
-
-// ── D3 lazy loader — loads d3 on first Analytics tab open, then renders
-function _ensureD3ThenRender(rows) {
-  if (typeof d3 !== 'undefined') { renderAnalytics(rows); return; }
-  const s = document.createElement('script');
-  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js';
-  s.integrity = 'sha384-su5kReKyYlIFrI62mbQRKXHzFobMa7BHp1cK6julLPbnYcCW9NIZKJiTODjLPeDh';
-  s.crossOrigin = 'anonymous';
-  s.onload = () => renderAnalytics(rows);
-  document.head.appendChild(s);
-}
-
-function renderAnalytics(rows) {
-  const el = document.getElementById('teacher-panel-analytics');
-  if (!el) return;
-  if (!rows || rows.length === 0) {
-    el.innerHTML = `<div style="padding:40px;text-align:center;color:#888;font-size:14px;">📊 No submission data yet — scores will appear here once students submit.</div>`;
-    return;
-  }
-  // Memoize: reuse computed stats when rows haven't changed
-  const cacheKey = rows.length + '|' + (rows[rows.length - 1]?.time || '');
-  let lessonStats;
-  if (_analyticsCache.key === cacheKey) {
-    lessonStats = _analyticsCache.lessonStats;
-  } else {
-    lessonStats = _computeLessonStats(rows);
-    _analyticsCache = { key: cacheKey, lessonStats };
-  }
-  el.innerHTML = _buildAnalyticsHTML(lessonStats);
-  _renderAnalyticsCharts(lessonStats);
-}
-
 /* ── New Assignment Builder ── */
 let _ab = null;
 function _freshBuilder() { return {title:'',subject:'Math',timeLimit: 0,randomize:true,questions:[]}; }
@@ -4844,7 +4685,7 @@ function _abSetQChoice(i, ci, v) { if (_ab && _ab.questions[i]) _ab.questions[i]
 function _abResetBuilder()       { _ab = _freshBuilder(); renderNewAssignmentTab(); }
 
 function renderNewAssignmentTab() {
-  const el = document.getElementById('teacher-panel-new');
+  const el = document.getElementById('_manage-new') || document.getElementById('teacher-panel-new');
   if (!el) return;
   if (!_ab) _ab = _freshBuilder();
   const customLessons = _getCustomLessons();
@@ -5011,6 +4852,33 @@ function loadCustomLessons() {
   const customs = _getCustomLessons();
   customs.forEach(l => { if (!_lessonById.has(l.id)) LESSONS.push(l); });
   _rebuildLessonIndex();
+}
+
+/* ── Reopen All Below Passing ── */
+function reopenAllBelowPassing() {
+  const rows = window._currentTeacherRows || [];
+  const getPct = window._getPct || (r => parseInt((r.pct||'0').toString().replace('%',''))||0);
+  const getThresh = window._getPassThreshold || (() => 70);
+  const below = rows.filter(r =>
+    r.type !== 'reopen' && r.score !== 'REOPEN' && String(r.pct) !== '-1' &&
+    getPct(r) < getThresh(r)
+  );
+  if (below.length === 0) { alert('No submissions below passing.'); return; }
+  if (!confirm(`Reopen ${below.length} submission${below.length>1?'s':''} that are below passing?\n\nAll affected students will be able to re-take their assessments.`)) return;
+  below.forEach(r => {
+    const student = r.student || '';
+    const lesson = r.lesson || r.title || '';
+    const classCode = r.classCode || r.classKey || '';
+    const _rkExisting = safeLS.getJSON('nexterra_reopens', []);
+    _rkExisting.push({ student, lesson, classCode, ts: Date.now() });
+    safeLS.setJSON('nexterra_reopens', _rkExisting);
+    _supabaseFetch('reopens', {
+      method: 'POST',
+      body: { student, lesson, class_code: classCode, reopened_by: ST.student || 'teacher' }
+    }).catch(() => {});
+  });
+  _showToast(`✅ Reopened ${below.length} assignment${below.length>1?'s':''} for students below passing.`);
+  refreshTeacher();
 }
 
 /* ── Reopen Assignment ── */
@@ -5316,6 +5184,118 @@ function resetStudent(studentName) {
 }
 
 /* ══════════════════════════════════════════════════════
+   SIGN-INS TAB — shows student login history from Supabase
+══════════════════════════════════════════════════════ */
+let _signInsCache = { rows: null, filter: 'today' };
+
+function renderSignInsTab() {
+  const el = document.getElementById('teacher-panel-signins');
+  if (!el) return;
+  el.innerHTML = `<div style="padding:20px;text-align:center;color:#888;font-size:14px;">Loading sign-in data...</div>`;
+
+  _supabaseFetch('logins', { params: { select: '*', order: 'created_at.desc' } })
+    .then(r => r.json())
+    .then(rows => {
+      if (!Array.isArray(rows)) rows = [];
+      if (_teacherViewClass) {
+        rows = rows.filter(r => (r.class_code || '').toUpperCase() === _teacherViewClass.toUpperCase());
+      }
+      _signInsCache.rows = rows;
+      _renderSignInsContent(rows, _signInsCache.filter);
+    })
+    .catch(() => {
+      el.innerHTML = `<div style="padding:28px;text-align:center;color:#c0392b;">Could not load sign-in data from Supabase.</div>`;
+    });
+}
+
+function _renderSignInsContent(rows, filter) {
+  const el = document.getElementById('teacher-panel-signins');
+  if (!el) return;
+  _signInsCache.filter = filter;
+
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const weekStart = new Date(todayStart); weekStart.setDate(weekStart.getDate() - 7);
+
+  const filtered = rows.filter(r => {
+    const d = new Date(r.created_at);
+    if (filter === 'today') return d >= todayStart;
+    if (filter === 'week') return d >= weekStart;
+    return true;
+  });
+
+  const uniqueToday = new Set(rows.filter(r => new Date(r.created_at) >= todayStart).map(r => r.student)).size;
+  const uniqueWeek = new Set(rows.filter(r => new Date(r.created_at) >= weekStart).map(r => r.student)).size;
+
+  const studentCounts = {};
+  rows.forEach(r => { studentCounts[r.student] = (studentCounts[r.student] || 0) + 1; });
+  const topStudents = Object.entries(studentCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+  const filterBtns = ['today', 'week', 'all'].map(f =>
+    `<button onclick="_filterSignIns('${f}')" style="padding:6px 14px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid ${f===filter?'#1a4b8c':'#dde3ee'};background:${f===filter?'#1a4b8c':'#fff'};color:${f===filter?'#fff':'#555'};">${f === 'today' ? 'Today' : f === 'week' ? 'This Week' : 'All Time'}</button>`
+  ).join('');
+
+  const statsHtml = `<div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px;">
+    <div style="flex:1;min-width:140px;background:#e8f5e9;border-radius:10px;padding:14px 18px;">
+      <div style="font-size:28px;font-weight:900;color:#2e7d32;">${uniqueToday}</div>
+      <div style="font-size:12px;color:#555;">Students Today</div>
+    </div>
+    <div style="flex:1;min-width:140px;background:#e3f2fd;border-radius:10px;padding:14px 18px;">
+      <div style="font-size:28px;font-weight:900;color:#1565c0;">${uniqueWeek}</div>
+      <div style="font-size:12px;color:#555;">Students This Week</div>
+    </div>
+    <div style="flex:1;min-width:200px;background:#fff8e1;border-radius:10px;padding:14px 18px;">
+      <div style="font-size:12px;font-weight:700;color:#888;margin-bottom:6px;">MOST ACTIVE</div>
+      ${topStudents.length > 0 ? topStudents.map(([name, count]) =>
+        `<div style="font-size:13px;display:flex;justify-content:space-between;padding:2px 0;">
+          <span style="font-weight:600;">${escHtml(name)}</span>
+          <span style="color:#888;">${count} logins</span>
+        </div>`
+      ).join('') : '<div style="color:#888;font-size:13px;">No data yet</div>'}
+    </div>
+  </div>`;
+
+  const logRows = filtered.length === 0
+    ? `<tr><td colspan="3" style="text-align:center;color:#888;padding:20px;">No sign-ins for this period.</td></tr>`
+    : filtered.slice(0, 200).map(r => {
+        const time = r.created_at ? new Date(r.created_at).toLocaleString() : '';
+        return `<tr>
+          <td style="padding:6px 10px;border-bottom:1px solid #eee;font-weight:600;">${escHtml(r.student || '')}</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #eee;">${escHtml(r.class_code || '')}</td>
+          <td style="padding:6px 10px;border-bottom:1px solid #eee;font-size:12px;color:#888;">${time}</td>
+        </tr>`;
+      }).join('');
+
+  el.innerHTML = `<div style="padding:18px 20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:8px;">
+      <div style="font-weight:700;font-size:15px;color:#1a2740;">Student Sign-in Log</div>
+      <div style="display:flex;gap:6px;">${filterBtns}</div>
+    </div>
+    ${statsHtml}
+    <div class="roster-wrap"><table class="roster-table">
+      <thead><tr><th>Student</th><th>Class</th><th>Time</th></tr></thead>
+      <tbody>${logRows}</tbody>
+    </table></div>
+    <div style="margin-top:10px;font-size:11px;color:#aaa;">${filtered.length} sign-in${filtered.length !== 1 ? 's' : ''} shown (max 200)</div>
+  </div>`;
+}
+
+function _filterSignIns(filter) {
+  if (_signInsCache.rows) _renderSignInsContent(_signInsCache.rows, filter);
+}
+
+/* ══════════════════════════════════════════════════════
+   MANAGE LESSONS TAB — combines assign + new assignment
+══════════════════════════════════════════════════════ */
+function renderManageTab() {
+  const el = document.getElementById('teacher-panel-manage');
+  if (!el) return;
+  el.innerHTML = `<div id="_manage-assign"></div><hr style="border:none;border-top:2px solid #dde3ee;margin:8px 0;"><div id="_manage-new"></div>`;
+  renderAssignLessons();
+  renderNewAssignmentTab();
+}
+
+/* ══════════════════════════════════════════════════════
    ASSIGN LESSONS — teacher controls which lessons students see
 ══════════════════════════════════════════════════════ */
 function _getAssignedLessons() {
@@ -5326,7 +5306,7 @@ function _setAssignedLessons(val) {
 }
 
 function renderAssignLessons() {
-  const el = document.getElementById('teacher-panel-assign');
+  const el = document.getElementById('_manage-assign') || document.getElementById('teacher-panel-assign');
   if (!el) return;
   const assigned = _getAssignedLessons(); // null = all visible
 
@@ -5466,6 +5446,10 @@ window.exportClassGridCSV    = exportClassGridCSV;
 window.resetStudent          = resetStudent;
 window.renderClassGrid       = renderClassGrid;
 window.gridCellClick         = gridCellClick;
+window.reopenAllBelowPassing = reopenAllBelowPassing;
+window.renderManageTab       = renderManageTab;
+window.renderSignInsTab      = renderSignInsTab;
+window._filterSignIns        = _filterSignIns;
 window.renderAssignLessons   = renderAssignLessons;
 window.assignToggle          = assignToggle;
 window.assignSelectAll       = assignSelectAll;
@@ -5500,6 +5484,13 @@ document.addEventListener('click', function(e) {
     selectStudentInRoster(el.dataset.student);
   } else if (action === 'grid-cell') {
     gridCellClick(el.dataset.student, el.dataset.lesson);
+  } else if (action === 'view-answers') {
+    window._dmSelectedLesson = el.dataset.lesson;
+    switchTeacherTab('roster');
+    setTimeout(() => {
+      renderDatamateView(window._currentTeacherRows, window._currentTeacherSource);
+      setTimeout(() => selectStudentInRoster(el.dataset.student), 120);
+    }, 60);
   } else if (action === 'dm-lesson') {
     dmSelectLesson(el.dataset.lesson);
   }
