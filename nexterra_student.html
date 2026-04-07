@@ -3096,33 +3096,8 @@ function doLogin() {
 }
 
 /* ── Teacher PIN system ───────────────────────────────────────
-   Teacher access is protected by a SHA-256 hashed PIN stored in
-   localStorage. No plaintext password appears in source. On first
-   use, the teacher sets their own PIN. PIN can be reset from here.
+   Teacher PIN is hardcoded to "teacher".
 ──────────────────────────────────────────────────────────── */
-const _TPIN_KEY      = 'nxt_tpin_h';
-const _TPIN_FAIL_KEY = 'nxt_tpin_fails';    // failed attempt counter
-const _TPIN_LOCK_KEY = 'nxt_tpin_lock_ts';  // lockout timestamp
-const _TPIN_MAX_FAILS = 5;
-const _TPIN_LOCK_MS   = 15 * 60 * 1000;    // 15 minutes
-
-function _isPinLocked(lockKey) {
-  const key = lockKey || _TPIN_LOCK_KEY;
-  const failKey = key.replace('lock_ts', 'fails').replace(_TPIN_LOCK_KEY, _TPIN_FAIL_KEY);
-  const ts = parseInt(safeLS.get(key) || '0');
-  if (!ts) return false;
-  if (Date.now() - ts < _TPIN_LOCK_MS) return true;
-  // Lock expired — clear it automatically
-  safeLS.remove(key);
-  safeLS.remove(failKey);
-  return false;
-}
-
-async function _sha256(text) {
-  const enc = new TextEncoder().encode(text);
-  const buf = await crypto.subtle.digest('SHA-256', enc);
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
 
 /* Track which class the teacher selected in the modal */
 let _teacherSelectedClass = null;
@@ -3154,8 +3129,6 @@ function _teacherPinClose() {
   _teacherSelectedClass = null;
 }
 
-/* PIN setup removed — hardcoded PIN "teacher" */
-
 function _teacherPinVerify() {
   const classCode = _teacherSelectedClass || 'default';
   const err = document.getElementById('tpm-verify-err');
@@ -3172,8 +3145,6 @@ function _teacherPinVerify() {
     el.value = ''; el.focus();
   }
 }
-
-/* PIN forgot/change removed — hardcoded PIN "teacher" */
 
 function doLogout() {
   // stop timer if running
@@ -5477,12 +5448,9 @@ window.drawClearAll          = drawClearAll;
 // Teacher view
 window.openTeacherLogin      = openTeacherLogin;
 window._teacherPinClose      = _teacherPinClose;
-window._teacherPinSetup      = _teacherPinSetup;
 window._teacherPinVerify     = _teacherPinVerify;
-window._teacherPinForgot     = _teacherPinForgot;
 window._teacherSelectClass   = _teacherSelectClass;
 window.mobSwitchTab          = mobSwitchTab;
-window.teacherChangePIN      = teacherChangePIN;
 window.loadTeacher           = loadTeacher;
 window.switchTeacherTab      = switchTeacherTab;
 window.refreshTeacher        = refreshTeacher;
