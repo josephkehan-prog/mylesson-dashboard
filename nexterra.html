@@ -776,8 +776,6 @@ body {
 }
 .teacher-tab:hover { color: var(--pl-amber); }
 .teacher-tab.active { color: var(--pl-amber); border-bottom-color: var(--pl-amber); }
-.teacher-tab.tab-new { color: var(--pl-led-green); }
-.teacher-tab.tab-new:hover, .teacher-tab.tab-new.active { color: var(--pl-led-green); border-bottom-color: var(--pl-led-green); }
 /* DataMate (Roster) */
 .dm-wrap {
   display: flex; min-height: 420px; background: var(--pl-chassis);
@@ -2947,16 +2945,7 @@ let ST = {
   submitted: false,
   _preview: false,  // true when teacher is previewing a lesson (no submission)
   scores: {},       // lessonId -> {pct, correct, total}
-  clientIp: ''      // captured at login via ipify
 };
-
-/* Fetch client IP once at page load — stored in ST.clientIp for all submissions */
-(function _fetchIp() {
-  fetch('https://api.ipify.org?format=json', { cache: 'no-store' })
-    .then(r => r.json())
-    .then(d => { ST.clientIp = d.ip || ''; })
-    .catch(() => { ST.clientIp = 'unknown'; });
-})();
 
 /* ── SAFE LOCALSTORAGE — defined here (before init IIFE) to prevent TDZ errors ── */
 // Shows a one-time banner if storage is full so students know to tell their teacher.
