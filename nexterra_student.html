@@ -3133,7 +3133,6 @@ function openTeacherLogin() {
   /* Always start at class selector */
   _teacherSelectedClass = null;
   document.getElementById('tpm-class-select').style.display = 'block';
-  document.getElementById('tpm-setup').classList.remove('open');
   document.getElementById('tpm-verify').classList.remove('open');
 }
 
@@ -3143,7 +3142,6 @@ function _teacherSelectClass(classCode) {
   const label = classInfo.name || classCode;
 
   document.getElementById('tpm-class-select').style.display = 'none';
-  document.getElementById('tpm-setup').classList.remove('open');
   document.getElementById('tpm-verify-classname').textContent = label;
   document.getElementById('tpm-verify').classList.add('open');
   const err = document.getElementById('tpm-verify-err');
