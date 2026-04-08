@@ -1291,6 +1291,13 @@ function recordLogin() {
   }).catch(() => { /* silent — login tracking is best-effort */ });
 }
 
+function recordTeacherLogin(classCode) {
+  _supabaseFetch('logins', {
+    method: 'POST',
+    body: { student: 'Teacher', class_code: classCode, login_type: 'teacher' }
+  }).catch(() => { /* silent — login tracking is best-effort */ });
+}
+
 const CLASSES = {
   /* ── Ms. Watt's classes ── */
   "WATT":      { name: "Ms. Watt – Class A",  teacher: "Ms. Watt" },
@@ -3126,6 +3133,7 @@ function _teacherPinVerify() {
   if (pin === 'teacher') {
     err.style.display = 'none';
     _teacherPinClose();
+    recordTeacherLogin(classCode);  // Track teacher login to Supabase
     loadTeacher(classCode);
   } else {
     err.textContent = 'Incorrect PIN — try again.';
@@ -5416,6 +5424,7 @@ window.drawUndo              = drawUndo;
 window.drawRedo              = drawRedo;
 window.drawClearAll          = drawClearAll;
 // Teacher view
+window.recordTeacherLogin    = recordTeacherLogin;
 window.openTeacherLogin      = openTeacherLogin;
 window._teacherPinClose      = _teacherPinClose;
 window._teacherPinVerify     = _teacherPinVerify;
