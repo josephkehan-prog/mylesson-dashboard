@@ -5190,7 +5190,7 @@ function renderSignInsTab() {
   if (!el) return;
   el.innerHTML = `<div style="padding:20px;text-align:center;color:#888;font-size:14px;">Loading sign-in data...</div>`;
 
-  _supabaseFetch('logins', { params: { select: '*', order: 'created_at.desc' } })
+  _supabaseFetch('logins', { params: { select: '*', order: 'logged_in_at.desc' } })
     .then(r => r.json())
     .then(rows => {
       if (!Array.isArray(rows)) rows = [];
@@ -5215,14 +5215,14 @@ function _renderSignInsContent(rows, filter) {
   const weekStart = new Date(todayStart); weekStart.setDate(weekStart.getDate() - 7);
 
   const filtered = rows.filter(r => {
-    const d = new Date(r.created_at);
+    const d = new Date(r.logged_in_at);
     if (filter === 'today') return d >= todayStart;
     if (filter === 'week') return d >= weekStart;
     return true;
   });
 
-  const uniqueToday = new Set(rows.filter(r => new Date(r.created_at) >= todayStart).map(r => r.student)).size;
-  const uniqueWeek = new Set(rows.filter(r => new Date(r.created_at) >= weekStart).map(r => r.student)).size;
+  const uniqueToday = new Set(rows.filter(r => new Date(r.logged_in_at) >= todayStart).map(r => r.student)).size;
+  const uniqueWeek = new Set(rows.filter(r => new Date(r.logged_in_at) >= weekStart).map(r => r.student)).size;
 
   const studentCounts = {};
   rows.forEach(r => { studentCounts[r.student] = (studentCounts[r.student] || 0) + 1; });
@@ -5255,7 +5255,7 @@ function _renderSignInsContent(rows, filter) {
   const logRows = filtered.length === 0
     ? `<tr><td colspan="3" style="text-align:center;color:#888;padding:20px;">No sign-ins for this period.</td></tr>`
     : filtered.slice(0, 200).map(r => {
-        const time = r.created_at ? new Date(r.created_at).toLocaleString() : '';
+        const time = r.logged_in_at ? new Date(r.logged_in_at).toLocaleString() : '';
         return `<tr>
           <td style="padding:6px 10px;border-bottom:1px solid #eee;font-weight:600;">${escHtml(r.student || '')}</td>
           <td style="padding:6px 10px;border-bottom:1px solid #eee;">${escHtml(r.class_code || '')}</td>
